@@ -1,0 +1,55 @@
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class UIMenuManager : MonoBehaviour
+{
+    [SerializeField] private CanvasGroup[] menues;
+    [SerializeField] private float timeTransition;
+
+    enum Menues { Main, Play, Credits, Options, Exit }
+    private Menues menuActual = Menues.Main;
+    private float onTime;
+
+    void Start()
+    {
+        
+    }
+    void Update()
+    {
+        
+    }
+    public void SwitchPanel(int otherMenu)
+    {
+        menues[(int) menuActual].blocksRaycasts = false;
+        menues[(int) menuActual].interactable = false;
+        StartCoroutine(SwitchPanel(timeTransition, otherMenu, (int) menuActual));
+    }
+    IEnumerator SwitchPanel(float maxTime, int onMenu, int offMenu)
+    {
+        CanvasGroup on = menues[onMenu];
+        CanvasGroup off = menues[offMenu];
+
+        while (onTime < maxTime)
+        {
+            onTime += Time.deltaTime;
+            float fade = onTime / maxTime;
+            on.alpha = fade;
+            off.alpha = 1 - fade;
+            yield return null;
+        }
+        on.blocksRaycasts = true;
+        on.interactable = true;
+        onTime = 0;
+
+        menuActual = (Menues) onMenu;
+    }
+    public void ChangeScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+}
