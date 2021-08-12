@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee2e8a421c6c6540a3c6a623cc78736, type: 3}
+  m_Name: Transformer
+  m_EditorClassIdentifier: 
+  itemName: Transformer
+  id: 0
+  icon: {fileID: 0}
+  mesh: {fileID: 0}
+  material: {fileID: 0}
+  maxStack: 22
+  consumible: 0
+  crafteable: 1
+  recipe:
+  - item: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
+    amount: 5
+  - item: {fileID: 11400000, guid: d8621a64397cc5042bfefa8ad23f71d0, type: 2}
+    amount: 15
+  - item: {fileID: 11400000, guid: 110b395fca29f0c4791d573ef93b74a6, type: 2}
+    amount: 6
+  - item: {fileID: 11400000, guid: b0df2048522e8f04798fa851f4d5eb7d, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: 3bc535eaf2b6a004cbc2e3bc0acea415, type: 2}
+    amount: 8
+  - item: {fileID: 11400000, guid: 28b4d943a0f7cd244ac08da34f92a56a, type: 2}
+    amount: 3

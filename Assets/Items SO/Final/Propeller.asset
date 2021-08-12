@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee2e8a421c6c6540a3c6a623cc78736, type: 3}
+  m_Name: Propeller
+  m_EditorClassIdentifier: 
+  itemName: Propeller
+  id: 0
+  icon: {fileID: 0}
+  mesh: {fileID: 0}
+  material: {fileID: 0}
+  maxStack: 26
+  consumible: 0
+  crafteable: 1
+  recipe:
+  - item: {fileID: 11400000, guid: 8ab6f6a741a2543409017348756f6cd7, type: 2}
+    amount: 5
+  - item: {fileID: 11400000, guid: 74fb49b7e1662dd47a1743ef1c32139e, type: 2}
+    amount: 30
+  - item: {fileID: 11400000, guid: 35b69c0cc52c8174e882d2b0ad30cdf5, type: 2}
+    amount: 8
+  - item: {fileID: 11400000, guid: a1d7760387d30384181e6c14fdde1b94, type: 2}
+    amount: 19
+  - item: {fileID: 11400000, guid: 01270ed10e4b5904d9c12941b8dd70d4, type: 2}
+    amount: 22

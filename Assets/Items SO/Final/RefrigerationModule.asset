@@ -10,14 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cee2e8a421c6c6540a3c6a623cc78736, type: 3}
-  m_Name: Air
+  m_Name: RefrigerationModule
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Refrigeration Module
   id: 0
   icon: {fileID: 0}
   mesh: {fileID: 0}
   material: {fileID: 0}
-  maxStack: 0
+  maxStack: 26
   consumible: 0
-  crafteable: 0
-  recipe: []
+  crafteable: 1
+  recipe:
+  - item: {fileID: 11400000, guid: 01270ed10e4b5904d9c12941b8dd70d4, type: 2}
+    amount: 18
+  - item: {fileID: 11400000, guid: 28b4d943a0f7cd244ac08da34f92a56a, type: 2}
+    amount: 9
+  - item: {fileID: 11400000, guid: 74fb49b7e1662dd47a1743ef1c32139e, type: 2}
+    amount: 12

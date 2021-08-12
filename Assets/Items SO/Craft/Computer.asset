@@ -10,15 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cee2e8a421c6c6540a3c6a623cc78736, type: 3}
-  m_Name: Consumible
+  m_Name: Computer
   m_EditorClassIdentifier: 
-  itemName: Hierro
+  itemName: Computer
+  id: 0
   icon: {fileID: 0}
   mesh: {fileID: 0}
   material: {fileID: 0}
-  maxStack: 1
+  maxStack: 22
   consumible: 0
   crafteable: 1
   recipe:
-  - amount: 5
-    item: {fileID: 11400000}
+  - item: {fileID: 11400000, guid: d8621a64397cc5042bfefa8ad23f71d0, type: 2}
+    amount: 22
+  - item: {fileID: 11400000, guid: 110b395fca29f0c4791d573ef93b74a6, type: 2}
+    amount: 5
+  - item: {fileID: 11400000, guid: 8310de3129ebbbd4c8e4566391871e00, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: 35b69c0cc52c8174e882d2b0ad30cdf5, type: 2}
+    amount: 3

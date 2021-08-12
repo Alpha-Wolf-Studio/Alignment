@@ -10,14 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cee2e8a421c6c6540a3c6a623cc78736, type: 3}
-  m_Name: Air
+  m_Name: Display
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Display
   id: 0
   icon: {fileID: 0}
   mesh: {fileID: 0}
   material: {fileID: 0}
-  maxStack: 0
+  maxStack: 22
   consumible: 0
-  crafteable: 0
-  recipe: []
+  crafteable: 1
+  recipe:
+  - item: {fileID: 11400000, guid: aa085048451827c40ae3283f5744b777, type: 2}
+    amount: 5
+  - item: {fileID: 11400000, guid: 110b395fca29f0c4791d573ef93b74a6, type: 2}
+    amount: 3
+  - item: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
+    amount: 10

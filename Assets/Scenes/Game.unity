@@ -640,6 +640,7 @@ GameObject:
   - component: {fileID: 856235259}
   - component: {fileID: 856235258}
   - component: {fileID: 856235264}
+  - component: {fileID: 856235265}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -768,8 +769,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed9e395191fad5489b1d7e298a6fcb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentItems: []
+  currentItems: []
   size: 10
+--- !u!114 &856235265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856235257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9770acc0ad91e74da2fa3a41a36af3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1031297014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,7 +1235,7 @@ GameObject:
   - component: {fileID: 1860880928}
   - component: {fileID: 1860880927}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Item Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee2e8a421c6c6540a3c6a623cc78736, type: 3}
+  m_Name: Radio
+  m_EditorClassIdentifier: 
+  itemName: Radio
+  id: 0
+  icon: {fileID: 0}
+  mesh: {fileID: 0}
+  material: {fileID: 0}
+  maxStack: 26
+  consumible: 0
+  crafteable: 1
+  recipe:
+  - item: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
+    amount: 8
+  - item: {fileID: 11400000, guid: b0df2048522e8f04798fa851f4d5eb7d, type: 2}
+    amount: 20
+  - item: {fileID: 11400000, guid: 28b4d943a0f7cd244ac08da34f92a56a, type: 2}
+    amount: 12
+  - item: {fileID: 11400000, guid: aa085048451827c40ae3283f5744b777, type: 2}
+    amount: 16
+  - item: {fileID: 11400000, guid: 8310de3129ebbbd4c8e4566391871e00, type: 2}
+    amount: 6

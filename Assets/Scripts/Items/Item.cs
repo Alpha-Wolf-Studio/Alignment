@@ -7,8 +7,7 @@ public class Item : ScriptableObject
     public string itemName;
     public int id;
     public Sprite icon;
-    public Mesh mesh;
-    public Material material;
+    public GameObject worldPrefab;
     public int maxStack = 1;
     public bool consumible = false;
     public bool crafteable = true;

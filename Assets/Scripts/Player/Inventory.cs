@@ -117,6 +117,49 @@ public class Inventory : MonoBehaviour
         currentItems.Sort();
     }
 
+    public bool CheckForItem(Item item, int amount)
+    {
+        int itemID = item.id;
+        int currentItemAmount = 0;
+        foreach (var slot in currentItems)
+        {
+            if(slot.ID == itemID)
+            {
+                currentItemAmount += slot.amount;
+                if(currentItemAmount >= amount)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void RemoveItem(Item item, int amount)
+    {
+        int itemID = item.id;
+        foreach (var slot in currentItems)
+        {
+            if (slot.ID == itemID)
+            {
+                slot.amount -= amount;
+                if(slot.amount > 0)
+                {
+                    return;
+                }
+                else
+                {
+                    amount = -slot.amount;
+                    slot.EmptySlot();
+                    if(amount == 0)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
     public int GetSize()
     {
         return size;

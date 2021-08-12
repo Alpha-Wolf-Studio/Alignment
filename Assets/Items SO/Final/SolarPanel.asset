@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee2e8a421c6c6540a3c6a623cc78736, type: 3}
+  m_Name: SolarPanel
+  m_EditorClassIdentifier: 
+  itemName: Solar Panel
+  id: 0
+  icon: {fileID: 0}
+  mesh: {fileID: 0}
+  material: {fileID: 0}
+  maxStack: 26
+  consumible: 0
+  crafteable: 1
+  recipe:
+  - item: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
+    amount: 10
+  - item: {fileID: 11400000, guid: cb344659257a50e47a52e8a4164feead, type: 2}
+    amount: 16
+  - item: {fileID: 11400000, guid: 28b4d943a0f7cd244ac08da34f92a56a, type: 2}
+    amount: 8
+  - item: {fileID: 11400000, guid: 74fb49b7e1662dd47a1743ef1c32139e, type: 2}
+    amount: 11
+  - item: {fileID: 11400000, guid: 125e2bdc01777cf44b21fa9ac4acdc01, type: 2}
+    amount: 16

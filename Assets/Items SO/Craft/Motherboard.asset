@@ -10,14 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cee2e8a421c6c6540a3c6a623cc78736, type: 3}
-  m_Name: Air
+  m_Name: Motherboard
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Motherboard
   id: 0
   icon: {fileID: 0}
   mesh: {fileID: 0}
   material: {fileID: 0}
-  maxStack: 0
+  maxStack: 22
   consumible: 0
-  crafteable: 0
-  recipe: []
+  crafteable: 1
+  recipe:
+  - item: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
+    amount: 5
+  - item: {fileID: 11400000, guid: 7dc4e9bb23662d641a51377cf368d13e, type: 2}
+    amount: 10
+  - item: {fileID: 11400000, guid: 9caf813ef8a231d449d496403613ebaf, type: 2}
+    amount: 22
