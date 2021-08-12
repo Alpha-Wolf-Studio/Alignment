@@ -109,6 +109,6 @@ public class GameplayManager : MonoBehaviour
 
     void OnDestroy()
     {
-        SaveJson();
+        //SaveJson();
     }
 }

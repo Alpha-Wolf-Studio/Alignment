@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < size; i++)
         {
-            Slot newSlot = new Slot();
+            Slot newSlot = new Slot(GameplayManager.GetInstance().GetRandomItemID(), 1);
             CurrentItems.Add(newSlot);
         }
     }
@@ -95,8 +95,6 @@ public class Inventory : MonoBehaviour
             CurrentItems[slotPos].AddAmount(-1);
             if (CurrentItems[slotPos].IsEmpty())
                 return false;
-
-            else return true;
         }
         return true;
     }
