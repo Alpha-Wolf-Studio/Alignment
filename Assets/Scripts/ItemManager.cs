@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameplayManager : MonoBehaviour
+public class ItemManager : MonoBehaviour
 {
     [SerializeField] ItemList allItems;
 
     Inventory playerInventory;
 
-    static private GameplayManager instance;
+    static private ItemManager instance;
 
-    static public GameplayManager GetInstance() { return instance; }
+    static public ItemManager GetInstance() { return instance; }
 
     string savePath = "SaveFile.json";
 
@@ -24,6 +24,12 @@ public class GameplayManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+#if UNITY_EDITOR
+        for (int i = 0; i < allItems.List.Count; i++)
+        {
+            allItems.List[i].id = i;
+        }
+#endif 
     }
 
     void Start()
@@ -43,6 +49,27 @@ public class GameplayManager : MonoBehaviour
     public Item GetItemFromID(int id)
     {
         return allItems.List[id];
+    }
+
+    public int GetIDFromItem(Item item)
+    {
+        StringCheck nameComparative = new StringCheck(item.itemName);
+        return allItems.List.FindLastIndex(nameComparative.ItemContained);
+    }
+
+    public class StringCheck
+    {
+        string _s;
+
+        public StringCheck(string s)
+        {
+            _s = s;
+        }
+
+        public bool ItemContained(Item i)
+        {
+            return i.Equals(_s);
+        }
     }
 
     public void SetPlayerItemsSlots(List<Slot> slots)
