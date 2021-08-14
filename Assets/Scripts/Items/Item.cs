@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Consumible", menuName = "Items/Consumible")]
+[CreateAssetMenu(fileName = "General", menuName = "Items/General")]
 public class Item : ScriptableObject
 {
+    [Header("Item General")]
     public string itemName;
     public int id;
     public Sprite icon;
     public GameObject worldPrefab;
     public int maxStack = 1;
-    public bool consumible = false;
     public bool crafteable = true;
 
     public List<RecipeIngredient> recipe = null;

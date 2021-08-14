@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Character))]
 public class Inventory : MonoBehaviour
 {
     [SerializeField] List<Slot> currentItems;
     [SerializeField] int size = 10;
+    [SerializeField] float explosionStrenght = 500f;
+
+    Character character;
 
     private void Awake()
     {
+        character = GetComponent<Character>();
         for (int i = 0; i < size; i++)
         {
             Slot newSlot = new Slot();
@@ -90,8 +95,14 @@ public class Inventory : MonoBehaviour
 
     public bool UseItem(int slotPos)    // Doble click o Click Derecho
     {
-        if (ItemManager.GetInstance().GetItemFromID(currentItems[slotPos].ID).consumible)
+        Item item = ItemManager.GetInstance().GetItemFromID(currentItems[slotPos].ID);
+        if (item.GetType() == typeof(Consumible))
         {
+            character.AddCurrentAttack(((Consumible)item).attackUpgrade);
+            character.AddCurrentDefense(((Consumible)item).defenseUpgrade);
+            character.AddCurrentSpeed(((Consumible)item).speedUpgrade);
+            character.AddCurrentEnergy(((Consumible)item).currentEnergyUpgrade);
+            character.AddMaxEnergy(((Consumible)item).maxEnergyUpgrade);
             currentItems[slotPos].AddAmount(-1);
             if (currentItems[slotPos].IsEmpty())
                 return false;
@@ -157,6 +168,17 @@ public class Inventory : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    public void BlowUpInventory()
+    {
+        foreach (var slot in currentItems)
+        {
+            Vector3 randomForceDirection = Random.insideUnitSphere * explosionStrenght;
+            Transform parent = ItemManager.GetInstance().transform;
+            GameObject go = Instantiate(ItemManager.GetInstance().GetItemFromID(slot.ID).worldPrefab, transform.position, Quaternion.identity, parent);
+            go.GetComponent<Rigidbody>().AddForce(randomForceDirection);
         }
     }
 

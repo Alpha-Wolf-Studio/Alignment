@@ -51,27 +51,6 @@ public class ItemManager : MonoBehaviour
         return allItems.List[id];
     }
 
-    public int GetIDFromItem(Item item)
-    {
-        StringCheck nameComparative = new StringCheck(item.itemName);
-        return allItems.List.FindLastIndex(nameComparative.ItemContained);
-    }
-
-    public class StringCheck
-    {
-        string _s;
-
-        public StringCheck(string s)
-        {
-            _s = s;
-        }
-
-        public bool ItemContained(Item i)
-        {
-            return i.Equals(_s);
-        }
-    }
-
     public void SetPlayerItemsSlots(List<Slot> slots)
     {
         playerInventory.SetNewInventory(slots);
