@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Placeholder Item
   id: 41
   icon: {fileID: 0}
-  worldPrefab: {fileID: 1829024897143446702, guid: 74be51ff4ed5e6c4aad0cd40cbff9a76,
+  worldPrefab: {fileID: 5938598035153855690, guid: 6c24647357555a54a8cd3696f7a7b836,
     type: 3}
   maxStack: 1
   crafteable: 1
