@@ -108,49 +108,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed9e395191fad5489b1d7e298a6fcb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentItems:
+  currentSlots:
   - ID: 41
+    amount: 1
+  - ID: 42
     amount: 1
   - ID: 41
     amount: 1
-  - ID: 41
+  - ID: 42
     amount: 1
   - ID: 41
     amount: 1
-  - ID: 41
+  - ID: 42
     amount: 1
   - ID: 41
     amount: 1
-  - ID: 41
+  - ID: 42
     amount: 1
   - ID: 41
     amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
-    amount: 1
-  - ID: 41
+  - ID: 42
     amount: 1
   size: 0
-  explosionStrenght: 200
+  explosionStrenght: 1
 --- !u!114 &2025875456282057938
 MonoBehaviour:
   m_ObjectHideFlags: 0
