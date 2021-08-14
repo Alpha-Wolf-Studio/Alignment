@@ -804,6 +804,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  deadBodyRemoveTime: 5
+  deadBodyRemoveSpeed: 0.25
+  deadBodyunderGroundOffset: 0.5
   startingEnergy: 100
   startingAttack: 100
   startingDefense: 5
@@ -1255,13 +1258,94 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1564536927}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: underGroundOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: deadBodyRemoveSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293387, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
       propertyPath: m_Name
       value: RoboRaptor_EM
       objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[2].ID
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[3].ID
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[5].ID
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[6].ID
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[8].ID
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[4].amount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[5].amount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[6].amount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[7].amount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[8].amount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293391, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: currentSlots.Array.data[9].amount
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 760e0bd1015b75f4db9dea4b106efc2a, type: 3}
+--- !u!95 &1564536927 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8064050418314201628, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564536926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1835293275
 GameObject:
   m_ObjectHideFlags: 0

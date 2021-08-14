@@ -1,14 +1,22 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Inventory))]
+[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Rigidbody))]
 public class Character : MonoBehaviour, IDamageable
 {
 
     public Action OnDeath;
     public Action OnTakeDamage;
 
+    [Header("Animations")]
     [SerializeField] Animator anim = null;
+    [SerializeField] float deadBodyRemoveTime = 5f;
+    [SerializeField] float deadBodyRemoveSpeed = .25f;
+    [SerializeField] float deadBodyunderGroundOffset = .5f;
     AttackComponent attackComponent = null;
 
     [Header("Stats")]
@@ -24,10 +32,14 @@ public class Character : MonoBehaviour, IDamageable
     float currentSpeed = 1;
 
     Inventory inventory;
+    Collider col;
+    Rigidbody rb;
 
     private void Awake()
     {
         inventory = GetComponent<Inventory>();
+        col = GetComponent<Collider>();
+        rb = GetComponent<Rigidbody>();
         maxEnergy = startingEnergy;
         currentEnergy = startingEnergy;
         currentAttack = startingAttack;
@@ -88,10 +100,25 @@ public class Character : MonoBehaviour, IDamageable
             else
             {
                 if (anim != null) anim.SetTrigger("Death");
+                StartCoroutine(BodyRemoveCoroutine());
                 inventory.BlowUpInventory();
                 OnDeath?.Invoke();
-                Destroy(gameObject); //BORRAR - ESTO SIGUE SIENDO CODIGO DE MIERDA
             }
         }
+    }
+
+    IEnumerator BodyRemoveCoroutine()
+    {
+        col.enabled = false;
+        rb.Sleep();
+        yield return new WaitForSeconds(deadBodyRemoveTime);
+        float t = 0;
+        while(t < 1)
+        {
+            t += Time.deltaTime * deadBodyRemoveSpeed;
+            transform.position = Vector3.Lerp(transform.position, transform.position + Vector3.down * deadBodyunderGroundOffset, t);
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 }
