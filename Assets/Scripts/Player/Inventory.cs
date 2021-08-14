@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Character))]
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] List<Slot> currentItems;
+    [SerializeField] List<Slot> currentSlots;
     [SerializeField] int size = 10;
     [SerializeField] float explosionStrenght = 500f;
 
@@ -17,31 +17,31 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < size; i++)
         {
             Slot newSlot = new Slot();
-            currentItems.Add(newSlot);
+            currentSlots.Add(newSlot);
         }
     }
 
     public void SetNewInventory(List<Slot> newInventory)
     {
-        currentItems.Clear();
+        currentSlots.Clear();
         foreach (Slot slot in newInventory)
         {
-            currentItems.Add(slot);
+            currentSlots.Add(slot);
         }
     }
 
     public bool AddNewItem(int ID, int amount, int slotPos)
     {
-        if (currentItems[slotPos].IsEmpty())
+        if (currentSlots[slotPos].IsEmpty())
         {
-            currentItems[slotPos].FillSlot(ID, amount);
+            currentSlots[slotPos].FillSlot(ID, amount);
             return true;
         }
         else
         {
-            if (ID == currentItems[slotPos].ID && ItemManager.GetInstance().GetItemFromID(ID).maxStack >= currentItems[slotPos].amount + amount)
+            if (ID == currentSlots[slotPos].ID && ItemManager.GetInstance().GetItemFromID(ID).maxStack >= currentSlots[slotPos].amount + amount)
             {
-                currentItems[slotPos].AddAmount(amount);
+                currentSlots[slotPos].AddAmount(amount);
                 return true;
             }
             else
@@ -54,51 +54,72 @@ public class Inventory : MonoBehaviour
     {
         if(CanItemBeAdded(ID, amount))
         {
-            for (int i = 0; i < currentItems.Count; i++)
+            int remainingAmount = amount;
+            int maxAmountPerSlot = ItemManager.GetInstance().GetItemFromID(ID).maxStack;
+            for (int i = 0; i < currentSlots.Count; i++)
             {
-                if (currentItems[i].IsEmpty())
+                if (currentSlots[i].ID == ID)
                 {
-                    currentItems[i].FillSlot(ID, amount);
-                    return true;
+                    currentSlots[i].amount += remainingAmount;
+                    if (currentSlots[i].amount <= maxAmountPerSlot)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        remainingAmount = currentSlots[i].amount - maxAmountPerSlot;
+                    }
                 }
             }
+            if(remainingAmount > 0)
+            {
+                for (int i = 0; i < currentSlots.Count; i++)
+                {
+                    if (currentSlots[i].IsEmpty())
+                    {
+                        currentSlots[i].FillSlot(ID, remainingAmount);
+                        return true;
+                    }
+                }
+            }
+
         }
         return false;
     }
 
     public void DeleteItem(int slotPos)
     {
-        if (!currentItems[slotPos].IsEmpty())
+        if (!currentSlots[slotPos].IsEmpty())
         {
-            currentItems[slotPos].EmptySlot();
+            currentSlots[slotPos].EmptySlot();
         }
     }
 
     public void SwapItem(int slotPosFrom, int slotPosTo)
     {
         if (slotPosFrom == slotPosTo) return;
-        if (!currentItems[slotPosFrom].IsEmpty() && !currentItems[slotPosTo].IsEmpty())
+        if (!currentSlots[slotPosFrom].IsEmpty() && !currentSlots[slotPosTo].IsEmpty())
         {
-            Item fromItem = ItemManager.GetInstance().GetItemFromID(currentItems[slotPosFrom].ID);
-            Item toItem = ItemManager.GetInstance().GetItemFromID(currentItems[slotPosTo].ID);
+            Item fromItem = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPosFrom].ID);
+            Item toItem = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPosTo].ID);
             if (toItem.maxStack > 1 && fromItem.maxStack > 1)
             {
-                currentItems[slotPosFrom].amount = currentItems[slotPosTo].AddAmount(currentItems[slotPosFrom].amount);
-                if (currentItems[slotPosFrom].amount <= 0)
+                currentSlots[slotPosFrom].amount = currentSlots[slotPosTo].AddAmount(currentSlots[slotPosFrom].amount);
+                if (currentSlots[slotPosFrom].amount <= 0)
                 {
-                    currentItems[slotPosFrom].EmptySlot();
+                    currentSlots[slotPosFrom].EmptySlot();
                 }
                 return;
             }
         }
-        Slot temp = new Slot(currentItems[slotPosFrom].ID, currentItems[slotPosFrom].amount);
-        currentItems[slotPosFrom] = currentItems[slotPosTo];
-        currentItems[slotPosTo] = temp;
+        Slot temp = new Slot(currentSlots[slotPosFrom].ID, currentSlots[slotPosFrom].amount);
+        currentSlots[slotPosFrom] = currentSlots[slotPosTo];
+        currentSlots[slotPosTo] = temp;
     }
 
     public bool UseItem(int slotPos)    // Doble click o Click Derecho
     {
-        Item item = ItemManager.GetInstance().GetItemFromID(currentItems[slotPos].ID);
+        Item item = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPos].ID);
         if (item.GetType() == typeof(Consumible))
         {
             character.AddCurrentAttack(((Consumible)item).attackUpgrade);
@@ -106,8 +127,8 @@ public class Inventory : MonoBehaviour
             character.AddCurrentSpeed(((Consumible)item).speedUpgrade);
             character.AddCurrentEnergy(((Consumible)item).currentEnergyUpgrade);
             character.AddMaxEnergy(((Consumible)item).maxEnergyUpgrade);
-            currentItems[slotPos].AddAmount(-1);
-            if (currentItems[slotPos].IsEmpty())
+            currentSlots[slotPos].AddAmount(-1);
+            if (currentSlots[slotPos].IsEmpty())
                 return false;
         }
         return true;
@@ -115,34 +136,34 @@ public class Inventory : MonoBehaviour
 
     public void Divide(int slotPos)
     {
-        if (currentItems[slotPos].amount > 1)
+        if (currentSlots[slotPos].amount > 1)
         {
-            int dividedAmount = (currentItems[slotPos].amount / 2);
-            if (currentItems[slotPos].amount % 2 != 0) dividedAmount++;
-            if (AddNewItem(currentItems[slotPos].ID, dividedAmount))
+            int dividedAmount = (currentSlots[slotPos].amount / 2);
+            if (currentSlots[slotPos].amount % 2 != 0) dividedAmount++;
+            if (AddNewItem(currentSlots[slotPos].ID, dividedAmount))
             {
-                currentItems[slotPos].amount /= 2;
+                currentSlots[slotPos].amount /= 2;
             }
         }
     }
 
     public void Sort()
     {
-        currentItems.Sort();
+        currentSlots.Sort();
     }
 
     public bool CanItemBeAdded(int id, int amount)
     {
         int currentEmptySpaces = 0;
-        for (int i = 0; i < currentItems.Count; i++)
+        for (int i = 0; i < currentSlots.Count; i++)
         {
-            if (currentItems[i].IsEmpty())
+            if (currentSlots[i].IsEmpty())
             {
                 return true;
             }
-            else if (id == currentItems[i].ID)
+            else if (id == currentSlots[i].ID)
             {
-                currentEmptySpaces += ItemManager.GetInstance().GetItemFromID(id).maxStack - currentItems[i].amount;
+                currentEmptySpaces += ItemManager.GetInstance().GetItemFromID(id).maxStack - currentSlots[i].amount;
                 if(currentEmptySpaces >= amount)
                 {
                     return true;
@@ -156,7 +177,7 @@ public class Inventory : MonoBehaviour
     {
         int itemID = item.id;
         int currentItemAmount = 0;
-        foreach (var slot in currentItems)
+        foreach (var slot in currentSlots)
         {
             if(slot.ID == itemID)
             {
@@ -173,7 +194,7 @@ public class Inventory : MonoBehaviour
     public void RemoveItem(Item item, int amount)
     {
         int itemID = item.id;
-        foreach (var slot in currentItems)
+        foreach (var slot in currentSlots)
         {
             if (slot.ID == itemID)
             {
@@ -197,7 +218,7 @@ public class Inventory : MonoBehaviour
 
     public void BlowUpInventory()
     {
-        foreach (var slot in currentItems)
+        foreach (var slot in currentSlots)
         {
             Vector3 randomForceDirection = Random.insideUnitSphere * explosionStrenght;
             Transform parent = ItemManager.GetInstance().transform;
@@ -212,18 +233,18 @@ public class Inventory : MonoBehaviour
     }
     public Slot GetSlot(int index)
     {
-        return currentItems[index];
+        return currentSlots[index];
     }
     public void SetSlot(int index, Slot slot)
     {
-        currentItems[index] = slot;
+        currentSlots[index] = slot;
     }
     public int GetID(int index)
     {
-        return currentItems[index].ID;
+        return currentSlots[index].ID;
     }
     public List<Slot> GetInventoryList()
     {
-        return currentItems;
+        return currentSlots;
     }
 }
