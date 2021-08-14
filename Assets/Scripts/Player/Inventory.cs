@@ -52,12 +52,15 @@ public class Inventory : MonoBehaviour
     }
     public bool AddNewItem(int ID, int amount)
     {
-        for (int i = 0; i < size; i++)
+        if(CanItemBeAdded(ID, amount))
         {
-            if (currentItems[i].IsEmpty())
+            for (int i = 0; i < currentItems.Count; i++)
             {
-                currentItems[i].FillSlot(ID, amount);
-                return true;
+                if (currentItems[i].IsEmpty())
+                {
+                    currentItems[i].FillSlot(ID, amount);
+                    return true;
+                }
             }
         }
         return false;
@@ -126,6 +129,27 @@ public class Inventory : MonoBehaviour
     public void Sort()
     {
         currentItems.Sort();
+    }
+
+    public bool CanItemBeAdded(int id, int amount)
+    {
+        int currentEmptySpaces = 0;
+        for (int i = 0; i < currentItems.Count; i++)
+        {
+            if (currentItems[i].IsEmpty())
+            {
+                return true;
+            }
+            else if (id == currentItems[i].ID)
+            {
+                currentEmptySpaces += ItemManager.GetInstance().GetItemFromID(id).maxStack - currentItems[i].amount;
+                if(currentEmptySpaces >= amount)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public bool CheckForItem(Item item, int amount)
