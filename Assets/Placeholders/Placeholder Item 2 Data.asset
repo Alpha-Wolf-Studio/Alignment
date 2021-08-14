@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Placeholder Item 2 Data
   m_EditorClassIdentifier: 
   itemName: Placeholder Item 2
-  id: 0
+  id: 42
   icon: {fileID: 0}
   worldPrefab: {fileID: 2224280162441582994, guid: de59a8a765577dc4ba9687657602c275,
     type: 3}
-  maxStack: 1
+  maxStack: 2
   crafteable: 1
   recipe: []

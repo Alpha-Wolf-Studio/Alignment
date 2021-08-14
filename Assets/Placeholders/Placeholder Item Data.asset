@@ -17,6 +17,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   worldPrefab: {fileID: 5938598035153855690, guid: 6c24647357555a54a8cd3696f7a7b836,
     type: 3}
-  maxStack: 1
+  maxStack: 3
   crafteable: 1
   recipe: []
