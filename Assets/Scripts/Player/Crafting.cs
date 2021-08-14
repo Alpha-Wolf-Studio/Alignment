@@ -14,15 +14,7 @@ public class Crafting : MonoBehaviour
 
     public bool Craft(Item item)
     {
-        int itemsAmount = 0;
-        foreach (var ingredient in item.recipe)
-        {
-            if (inventory.CheckForItem(ingredient.item, ingredient.amount))
-            {
-                itemsAmount++;
-            }
-        }
-        if(itemsAmount == item.recipe.Count)
+        if(IsCraftPosible(item))
         {
             foreach (var ingredient in item.recipe)
             {
@@ -32,5 +24,18 @@ public class Crafting : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public bool IsCraftPosible(Item item)
+    {
+        int itemsAmount = 0;
+        foreach (var ingredient in item.recipe)
+        {
+            if (inventory.CheckForItem(ingredient.item, ingredient.amount))
+            {
+                itemsAmount++;
+            }
+        }
+        return itemsAmount == item.recipe.Count;
     }
 }
