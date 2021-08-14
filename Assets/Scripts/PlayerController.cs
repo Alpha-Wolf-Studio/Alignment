@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Character))]
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody rb;
-    private Camera camara;
+    private Rigidbody rb = null;
+    private Camera camara = null;
+    Character character = null;
 
+    [Header("Movement")]
     [SerializeField] private float verticalSensitive = 2;
     [SerializeField] private float horizontalSensitive = 2;
     [SerializeField] private int minCameraClampVertical = -50;
     [SerializeField] private int maxCameraClampVertical = 50;
-    [SerializeField] private float speedMovement;
+    [SerializeField] private float speedMovement = .1f;
 
     private float movH;
     private float movV;
@@ -21,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        character = GetComponent<Character>();
         camara = Camera.main;
     }
     void Start()
@@ -41,20 +45,29 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddForce(transform.forward * speedMovement);
+            rb.MovePosition(transform.position + transform.forward * speedMovement);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            rb.AddForce(transform.forward * -speedMovement);
+            rb.MovePosition(transform.position - transform.forward * speedMovement);
         }
-
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce(transform.right * -speedMovement);
+            rb.MovePosition(transform.position - transform.right * speedMovement);
         }
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce(transform.right * speedMovement);
+            rb.MovePosition(transform.position + transform.right * speedMovement);
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 mousePos = Input.mousePosition;
+            Ray screenRay = camara.ScreenPointToRay(mousePos);
+            if(Physics.Raycast(screenRay))
+            {
+                character.Attack(screenRay.direction);
+            }
         }
     }
 }
