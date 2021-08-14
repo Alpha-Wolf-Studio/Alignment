@@ -7,7 +7,12 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] List<Slot> currentSlots;
     [SerializeField] int size = 10;
-    [SerializeField] float explosionStrenght = 500f;
+    [SerializeField] float explosionStrenght = 300f;
+
+    [Header("Pick Up")]
+    [SerializeField] bool canPickUpItems = false;
+    [SerializeField] float pickUpDistance = 1f;
+    [SerializeField] LayerMask pickUpMask = default;
 
     Character character;
 
@@ -19,6 +24,11 @@ public class Inventory : MonoBehaviour
             Slot newSlot = new Slot();
             currentSlots.Add(newSlot);
         }
+    }
+
+    private void Start()
+    {
+        StartCoroutine(PickUpCoroutine());
     }
 
     public void SetNewInventory(List<Slot> newInventory)
@@ -68,6 +78,7 @@ public class Inventory : MonoBehaviour
                     else
                     {
                         remainingAmount = currentSlots[i].amount - maxAmountPerSlot;
+                        currentSlots[i].amount = maxAmountPerSlot;
                     }
                 }
             }
@@ -223,7 +234,27 @@ public class Inventory : MonoBehaviour
             Vector3 randomForceDirection = Random.insideUnitSphere * explosionStrenght;
             Transform parent = ItemManager.GetInstance().transform;
             GameObject go = Instantiate(ItemManager.GetInstance().GetItemFromID(slot.ID).worldPrefab, transform.position, Quaternion.identity, parent);
-            go.GetComponent<Rigidbody>().AddForce(randomForceDirection);
+            var itemComponent = go.GetComponent<ItemComponent>();
+            itemComponent.AddForce(randomForceDirection);
+            itemComponent.SetItem(slot.ID, slot.amount);
+        }
+    }
+
+    IEnumerator PickUpCoroutine()
+    {
+        while (canPickUpItems)
+        {
+            var colliders = Physics.OverlapSphere(transform.position, pickUpDistance, pickUpMask);
+
+            foreach (var item in colliders)
+            {
+                ItemComponent itemComponent = item.GetComponent<ItemComponent>();
+                if(AddNewItem(itemComponent.GetID(), itemComponent.GetAmount()))
+                {
+                    Destroy(item.gameObject);
+                }
+            }
+            yield return null;
         }
     }
 
