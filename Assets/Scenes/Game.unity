@@ -771,11 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed9e395191fad5489b1d7e298a6fcb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentItems:
-  - ID: 0
-    amount: 0
-  - ID: 0
-    amount: 0
+  currentSlots: []
   size: 10
   explosionStrenght: 5
 --- !u!114 &856235265
@@ -1463,7 +1459,7 @@ PrefabInstance:
     - target: {fileID: 2025875456282057939, guid: 8e04b7a41d62d1a4782540ea6dfab6b7,
         type: 3}
       propertyPath: explosionStrenght
-      value: 300
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e04b7a41d62d1a4782540ea6dfab6b7, type: 3}
