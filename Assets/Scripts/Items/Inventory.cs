@@ -98,6 +98,19 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
+    public bool AddNewItemInEmptySlot(int ID, int amount)
+    {
+        for (int i = 0; i < currentSlots.Count; i++)
+        {
+            if (currentSlots[i].IsEmpty())
+            {
+                currentSlots[i].FillSlot(ID, amount);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void DeleteItem(int slotPos)
     {
         if (!currentSlots[slotPos].IsEmpty())
@@ -151,7 +164,7 @@ public class Inventory : MonoBehaviour
         {
             int dividedAmount = (currentSlots[slotPos].amount / 2);
             if (currentSlots[slotPos].amount % 2 != 0) dividedAmount++;
-            if (AddNewItem(currentSlots[slotPos].ID, dividedAmount))
+            if (AddNewItemInEmptySlot(currentSlots[slotPos].ID, dividedAmount))
             {
                 currentSlots[slotPos].amount /= 2;
             }

@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Inventory))]
-[RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
 public class Character : MonoBehaviour, IDamageable
 {
 
@@ -32,14 +32,14 @@ public class Character : MonoBehaviour, IDamageable
     float currentSpeed = 1;
 
     Inventory inventory;
-    Collider col;
     Rigidbody rb;
+    Collider col;
 
     private void Awake()
     {
         inventory = GetComponent<Inventory>();
-        col = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
         maxEnergy = startingEnergy;
         currentEnergy = startingEnergy;
         currentAttack = startingAttack;
@@ -109,9 +109,9 @@ public class Character : MonoBehaviour, IDamageable
 
     IEnumerator BodyRemoveCoroutine()
     {
+        yield return new WaitForSeconds(deadBodyRemoveTime);
         col.enabled = false;
         rb.Sleep();
-        yield return new WaitForSeconds(deadBodyRemoveTime);
         float t = 0;
         while(t < 1)
         {
