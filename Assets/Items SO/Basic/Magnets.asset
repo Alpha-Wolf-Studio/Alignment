@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Magnets
   m_EditorClassIdentifier: 
   itemName: Magnets
-  id: 0
+  id: 6
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 2224280162441582994, guid: de59a8a765577dc4ba9687657602c275,
+    type: 3}
   maxStack: 44
-  consumible: 0
   crafteable: 0
   recipe: []

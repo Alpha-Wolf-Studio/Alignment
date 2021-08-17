@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Zinc
   m_EditorClassIdentifier: 
   itemName: Zinc
-  id: 0
-  icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  id: 7
+  icon: {fileID: 21300000, guid: 792ffa03eff629c4b8e83d9864f96fe0, type: 3}
+  worldPrefab: {fileID: 0}
   maxStack: 44
-  consumible: 0
   crafteable: 0
   recipe: []

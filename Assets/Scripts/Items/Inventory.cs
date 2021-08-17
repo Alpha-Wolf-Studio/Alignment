@@ -25,12 +25,10 @@ public class Inventory : MonoBehaviour
             currentSlots.Add(newSlot);
         }
     }
-
     private void Start()
     {
         StartCoroutine(PickUpCoroutine());
     }
-
     public void SetNewInventory(List<Slot> newInventory)
     {
         currentSlots.Clear();
@@ -97,7 +95,6 @@ public class Inventory : MonoBehaviour
         }
         return false;
     }
-
     public bool AddNewItemInEmptySlot(int ID, int amount)
     {
         for (int i = 0; i < currentSlots.Count; i++)
@@ -110,7 +107,6 @@ public class Inventory : MonoBehaviour
         }
         return false;
     }
-
     public void DeleteItem(int slotPos)
     {
         if (!currentSlots[slotPos].IsEmpty())
@@ -118,30 +114,30 @@ public class Inventory : MonoBehaviour
             currentSlots[slotPos].EmptySlot();
         }
     }
-
     public void SwapItem(int slotPosFrom, int slotPosTo)
     {
         if (slotPosFrom == slotPosTo) return;
         if (!currentSlots[slotPosFrom].IsEmpty() && !currentSlots[slotPosTo].IsEmpty())
         {
-            Item fromItem = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPosFrom].ID);
-            Item toItem = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPosTo].ID);
-            if (toItem.maxStack > 1 && fromItem.maxStack > 1)
+            if (currentSlots[slotPosFrom].ID == currentSlots[slotPosTo].ID)
             {
-                currentSlots[slotPosFrom].amount = currentSlots[slotPosTo].AddAmount(currentSlots[slotPosFrom].amount);
-                if (currentSlots[slotPosFrom].amount <= 0)
+                int maxStack = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPosTo].ID).maxStack;
+                if (maxStack > 1)
                 {
-                    currentSlots[slotPosFrom].EmptySlot();
+                    currentSlots[slotPosFrom].amount = currentSlots[slotPosTo].AddAmount(currentSlots[slotPosFrom].amount);
+                    if (currentSlots[slotPosFrom].amount <= 0)
+                    {
+                        currentSlots[slotPosFrom].EmptySlot();
+                    }
+                    return;
                 }
-                return;
             }
         }
         Slot temp = new Slot(currentSlots[slotPosFrom].ID, currentSlots[slotPosFrom].amount);
         currentSlots[slotPosFrom] = currentSlots[slotPosTo];
         currentSlots[slotPosTo] = temp;
     }
-
-    public bool UseItem(int slotPos)    // Doble click o Click Derecho
+    public bool UseItem(int slotPos)
     {
         Item item = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPos].ID);
         if (item.GetType() == typeof(Consumible))
@@ -157,7 +153,6 @@ public class Inventory : MonoBehaviour
         }
         return true;
     }
-
     public void Divide(int slotPos)
     {
         if (currentSlots[slotPos].amount > 1)
@@ -170,12 +165,10 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-
     public void Sort()
     {
         currentSlots.Sort();
     }
-
     public bool CanItemBeAdded(int id, int amount)
     {
         int currentEmptySpaces = 0;

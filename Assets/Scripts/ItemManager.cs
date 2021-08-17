@@ -51,6 +51,10 @@ public class ItemManager : MonoBehaviour
         return allItems.List[id];
     }
 
+    public int GetLastID()
+    {
+        return allItems.List.Count;
+    }
     public void SetPlayerItemsSlots(List<Slot> slots)
     {
         playerInventory.SetNewInventory(slots);

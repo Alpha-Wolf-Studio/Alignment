@@ -11,7 +11,6 @@ public class Crafting : MonoBehaviour
     {
         inventory = GetComponent<Inventory>();
     }
-
     public bool Craft(Item item)
     {
         if(IsCraftPosible(item))
@@ -25,16 +24,29 @@ public class Crafting : MonoBehaviour
         }
         return false;
     }
-
     public bool IsCraftPosible(Item item)
     {
         int itemsAmount = 0;
-        foreach (var ingredient in item.recipe)
+        if (item.recipe.Count > 0) 
         {
-            if (inventory.CheckForItem(ingredient.item, ingredient.amount))
+            foreach (var ingredient in item.recipe)
             {
-                itemsAmount++;
+                if (ingredient.item)
+                {
+                    if (inventory.CheckForItem(ingredient.item, ingredient.amount))
+                    {
+                        itemsAmount++;
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Se jodió: " + item.itemName);
+                }
             }
+        }
+        else
+        {
+            Debug.LogWarning("No se cargó la lista.");
         }
         return itemsAmount == item.recipe.Count;
     }

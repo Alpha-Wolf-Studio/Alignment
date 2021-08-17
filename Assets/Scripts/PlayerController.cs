@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Character))]
 public class PlayerController : MonoBehaviour
 {
+    public Action onInventory;
     private Rigidbody rb = null;
     private Camera camara = null;
     Character character = null;
@@ -33,7 +34,10 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            onInventory?.Invoke();
+        }
     }
     private void FixedUpdate()
     {

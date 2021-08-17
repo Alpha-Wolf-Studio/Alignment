@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Iron
   m_EditorClassIdentifier: 
   itemName: Iron
-  id: 0
-  icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  id: 8
+  icon: {fileID: 21300000, guid: e2758c91444169c4ca20d17fb1385487, type: 3}
+  worldPrefab: {fileID: 0}
   maxStack: 44
-  consumible: 0
   crafteable: 0
   recipe: []
