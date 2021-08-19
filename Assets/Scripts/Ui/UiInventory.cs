@@ -111,11 +111,13 @@ public class UiInventory : MonoBehaviour
         switch (inventaryStatus)
         {
             case InventaryStatus.Close:
+                playerController.playerInput = false;
                 inventaryStatus = InventaryStatus.Opening;
                 StartCoroutine(OpeningInventory());
 
                 break;
             case InventaryStatus.Open:
+                playerController.playerInput = true;
                 inventaryStatus = InventaryStatus.Closeing;
                 StartCoroutine(OpeningInventory());
 

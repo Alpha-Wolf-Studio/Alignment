@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public float maxCollDownShoot;
     public float currentCollDownShoot = 10;
     private float damageForShoot = 7;
+    public bool playerInput = true;
 
     private void Awake()
     {
@@ -37,58 +38,70 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
+
     void Update()
     {
         currentCollDownShoot += Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             onInventory?.Invoke();
         }
-        if (Input.GetMouseButtonDown(0))
+
+        if (playerInput)
         {
-            if (currentCollDownShoot < maxCollDownShoot)    // Si no supera el CD se daña. Siempre puede disparar.
+            if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Dispara y se Daña");
-                onShoot?.Invoke(maxCollDownShoot, false);
-                character.TakeDamage(damageForShoot);
-            }
-            else
-            {
-                Debug.Log("Dispara");
-                onShoot?.Invoke(maxCollDownShoot, true);
-                currentCollDownShoot = 0;
-            }
-            Vector3 mousePos = Input.mousePosition;
-            Ray screenRay = camara.ScreenPointToRay(mousePos);
-            if (Physics.Raycast(screenRay))
-            {
-                character.Attack(screenRay.direction);
+                if (currentCollDownShoot < maxCollDownShoot) // Si no supera el CD se daña. Siempre puede disparar.
+                {
+                    Debug.Log("Dispara y se Daña");
+                    onShoot?.Invoke(maxCollDownShoot, false);
+                    character.TakeDamage(damageForShoot);
+                }
+                else
+                {
+                    Debug.Log("Dispara");
+                    onShoot?.Invoke(maxCollDownShoot, true);
+                    currentCollDownShoot = 0;
+                }
+
+                Vector3 mousePos = Input.mousePosition;
+                Ray screenRay = camara.ScreenPointToRay(mousePos);
+                if (Physics.Raycast(screenRay))
+                {
+                    character.Attack(screenRay.direction);
+                }
             }
         }
     }
+
     private void FixedUpdate()
     {
-        movH = Input.GetAxis("Mouse X") * horizontalSensitive;
-        transform.Rotate(0, movH, 0);
+        if (playerInput)
+        {
+            movH = Input.GetAxis("Mouse X") * horizontalSensitive;
+            transform.Rotate(0, movH, 0);
 
-        verticalLookRotation += Mathf.Clamp(Input.GetAxisRaw("Mouse Y") * verticalSensitive, minCameraClampVertical, maxCameraClampVertical);
-        camara.transform.localEulerAngles = Vector3.left * verticalLookRotation;
+            verticalLookRotation += Mathf.Clamp(Input.GetAxisRaw("Mouse Y") * verticalSensitive, minCameraClampVertical, maxCameraClampVertical);
+            camara.transform.localEulerAngles = Vector3.left * verticalLookRotation;
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.MovePosition(transform.position + transform.forward * speedMovement);
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            rb.MovePosition(transform.position - transform.forward * speedMovement);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.MovePosition(transform.position - transform.right * speedMovement);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            rb.MovePosition(transform.position + transform.right * speedMovement);
+            if (Input.GetKey(KeyCode.W))
+            {
+                rb.MovePosition(transform.position + transform.forward * speedMovement);
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                rb.MovePosition(transform.position - transform.forward * speedMovement);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                rb.MovePosition(transform.position - transform.right * speedMovement);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                rb.MovePosition(transform.position + transform.right * speedMovement);
+            }
         }
     }
 }
