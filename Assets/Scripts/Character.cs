@@ -107,7 +107,7 @@ public class Character : MonoBehaviour, IDamageable
             currentEnergy -= damage;
             if (currentEnergy > 0)
             {
-                if(anim != null) anim.SetTrigger("Hit");
+                //if(anim != null) anim.SetTrigger("Hit");
             }
             else
             {

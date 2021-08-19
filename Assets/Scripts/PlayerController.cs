@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Action onInventory;
+    public Action<float, bool> onShoot;
     private Rigidbody rb = null;
     private Camera camara = null;
     Character character = null;
@@ -22,6 +23,10 @@ public class PlayerController : MonoBehaviour
     private float movV;
     private float verticalLookRotation;
 
+    public float maxCollDownShoot;
+    public float currentCollDownShoot = 10;
+    private float damageForShoot = 7;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -34,9 +39,31 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        currentCollDownShoot += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.E))
         {
             onInventory?.Invoke();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (currentCollDownShoot < maxCollDownShoot)    // Si no supera el CD se daña. Siempre puede disparar.
+            {
+                Debug.Log("Dispara y se Daña");
+                onShoot?.Invoke(maxCollDownShoot, false);
+                character.TakeDamage(damageForShoot);
+            }
+            else
+            {
+                Debug.Log("Dispara");
+                onShoot?.Invoke(maxCollDownShoot, true);
+                currentCollDownShoot = 0;
+            }
+            Vector3 mousePos = Input.mousePosition;
+            Ray screenRay = camara.ScreenPointToRay(mousePos);
+            if (Physics.Raycast(screenRay))
+            {
+                character.Attack(screenRay.direction);
+            }
         }
     }
     private void FixedUpdate()
@@ -62,16 +89,6 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
         {
             rb.MovePosition(transform.position + transform.right * speedMovement);
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            Vector3 mousePos = Input.mousePosition;
-            Ray screenRay = camara.ScreenPointToRay(mousePos);
-            if(Physics.Raycast(screenRay))
-            {
-                character.Attack(screenRay.direction);
-            }
         }
     }
 }

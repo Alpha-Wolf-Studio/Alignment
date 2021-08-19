@@ -61,8 +61,6 @@ public class UiItemCraft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown: " + gameObject.name, gameObject);
-
-        
         uiCraft.toolTip.gameObject.SetActive(false);
     }
     public void OnPointerUp(PointerEventData eventData)
