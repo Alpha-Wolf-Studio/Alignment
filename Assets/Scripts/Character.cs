@@ -8,7 +8,6 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Character : MonoBehaviour, IDamageable
 {
-
     public Action OnDeath;
     public Action OnTakeDamage;
 
@@ -25,11 +24,24 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] float startingDefense = 5;
     [SerializeField] float startingSpeed = 1;
 
-    float maxEnergy = 100;
-    float currentEnergy = 100;
-    float currentAttack = 5;
-    float currentDefense = 5;
-    float currentSpeed = 1;
+    private float maxEnergy = 100;
+    private float currentEnergy = 100;
+    private float currentAttack = 5;
+    private float currentDefense = 5;
+    private float currentSpeed = 1;
+
+    #region Getters
+    public float GetStartedEnergy() => startingEnergy;
+    public float GetStartedAttack() => startingAttack;
+    public float GetStartedDefense() => startingDefense;
+    public float GetStartedSpeed() => startingSpeed;
+
+    public float GetEnergy() => currentEnergy;
+    public float GetAttack() => currentAttack;
+    public float GetDefense() => currentDefense;
+    public float GetSpeed() => currentSpeed;
+
+    #endregion
 
     Inventory inventory;
     Rigidbody rb;
