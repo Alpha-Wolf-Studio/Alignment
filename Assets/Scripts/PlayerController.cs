@@ -56,13 +56,13 @@ public class PlayerController : MonoBehaviour
             {
                 if (currentCollDownShoot < maxCollDownShoot) // Si no supera el CD se daña. Siempre puede disparar.
                 {
-                    Debug.Log("Dispara y se Daña");
+                    //Debug.Log("Dispara y se Daña");
                     onShoot?.Invoke(maxCollDownShoot, false);
                     character.TakeDamage(damageForShoot);
                 }
                 else
                 {
-                    Debug.Log("Dispara");
+                    //Debug.Log("Dispara");
                     onShoot?.Invoke(maxCollDownShoot, true);
                     currentCollDownShoot = 0;
                 }

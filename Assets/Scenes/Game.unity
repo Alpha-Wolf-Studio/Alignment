@@ -1940,7 +1940,7 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 2048
-  maxCooldown: 1
+  maxCooldown: 0.01
   distance: 10
   spawnTransform: {fileID: 856235263}
 --- !u!1 &882723009

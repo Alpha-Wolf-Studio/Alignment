@@ -21,13 +21,13 @@ public class UiItemRepair : MonoBehaviour, IInteractuable
             {
                 inv.RemoveItem(item, restAmount);
                 obj.idRequired[index].amount -= restAmount;
-                Debug.Log("Depositado.");
+                //Debug.Log("Depositado.");
                 obj.RefreshUI(this, index);
             }
-            else
-                Debug.Log("Ya ta Full.");
+            //else
+                //Debug.Log("Ya ta Full.");
         }
-        Debug.Log("No hay items Bro.");
+        //Debug.Log("No hay items Bro.");
 
     }
     public void Visible()
