@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Character))]
 public class PlayerController : MonoBehaviour
 {
+    public Action onInteract;
     public Action onInventory;
     public Action<float, bool> onShoot;
     private Rigidbody rb = null;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public float currentCollDownShoot = 10;
     private float damageForShoot = 7;
     public bool playerInput = true;
+    private float maxDistInteract = 50;
 
     private void Awake()
     {
@@ -70,6 +72,21 @@ public class PlayerController : MonoBehaviour
                 if (Physics.Raycast(screenRay))
                 {
                     character.Attack(screenRay.direction);
+                }
+
+                Debug.DrawRay(screenRay.origin, screenRay.direction*10, Color.black, 5);
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                Vector3 mousePos = Input.mousePosition;
+                Ray screenRay = camara.ScreenPointToRay(mousePos);
+                RaycastHit hit;
+                if (Physics.Raycast(screenRay, out hit, maxDistInteract))
+                {
+                    IInteractuable interact = hit.transform.GetComponent<IInteractuable>();
+                    if (interact == null) return;
+                    interact.Interact();
                 }
             }
         }

@@ -101,7 +101,6 @@ public class Character : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         damage -= currentDefense;
-        OnTakeDamage?.Invoke();
         if (damage > 0)
         {
             currentEnergy -= damage;
@@ -117,6 +116,7 @@ public class Character : MonoBehaviour, IDamageable
                 OnDeath?.Invoke();
             }
         }
+        OnTakeDamage?.Invoke();
     }
 
     IEnumerator BodyRemoveCoroutine()
