@@ -147,6 +147,8 @@ public class Inventory : MonoBehaviour
             character.AddCurrentSpeed(((Consumible)item).speedUpgrade);
             character.AddCurrentEnergy(((Consumible)item).currentEnergyUpgrade);
             character.AddMaxEnergy(((Consumible)item).maxEnergyUpgrade);
+            character.AddMaxArmor(((Consumible)item).maxArmorUpgrade);
+            character.AddCurrentArmor(((Consumible)item).currentArmorUpgrade);
             currentSlots[slotPos].AddAmount(-1);
             if (currentSlots[slotPos].IsEmpty())
                 return false;

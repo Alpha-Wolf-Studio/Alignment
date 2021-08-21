@@ -489,6 +489,12 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &105864190 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8064050418314201628, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564536926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &124786107 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 520591987399163980, guid: 7b5e3f62a0431ef4d89cb437488153a0,
@@ -1991,9 +1997,10 @@ MonoBehaviour:
   deadBodyunderGroundOffset: 0.5
   attackComponent: {fileID: 739288029}
   startingEnergy: 100
-  startingAttack: 1500
+  startingAttack: 50
   startingDefense: 5
   startingSpeed: 1
+  startingArmor: 5
 --- !u!1 &882723009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2707,6 +2714,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092473466}
   m_CullTransparentMesh: 0
+--- !u!114 &1103857003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1103857003, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564536926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1136908650 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 520591987399163980, guid: 7b5e3f62a0431ef4d89cb437488153a0,
@@ -3313,6 +3332,14 @@ PrefabInstance:
       propertyPath: focus
       value: 
       objectReference: {fileID: 856235263}
+    - target: {fileID: 1956993355, guid: 760e0bd1015b75f4db9dea4b106efc2a, type: 3}
+      propertyPath: filledImageEnergy
+      value: 
+      objectReference: {fileID: 1103857003}
+    - target: {fileID: 2071585279, guid: 760e0bd1015b75f4db9dea4b106efc2a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3544728969001513329, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
       propertyPath: m_RootOrder
@@ -3367,6 +3394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: startingAttack
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293387, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
@@ -3868,6 +3900,29 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &2071585278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4213883381327293387, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564536926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2071585284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071585278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882f6310e0bc3ba41b8bd04ccff2a6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 50
+  attackDistance: 1.85
+  stoppingTolerance: 0.15
+  anim: {fileID: 105864190}
+  playerTransform: {fileID: 856235263}
 --- !u!224 &2085262701 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 520591987399163980, guid: 7b5e3f62a0431ef4d89cb437488153a0,

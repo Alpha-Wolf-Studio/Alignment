@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class UiComponentLife : MonoBehaviour
 {
-    public Image filledImage;
+    public Image filledImageEnergy;
+    public Image filledImageArmor;
     public Character character;
     [Tooltip("Donde hace Focus el canvas, Recomendado: Player.")]
     public Transform focus;
@@ -13,7 +14,8 @@ public class UiComponentLife : MonoBehaviour
     void Start()
     {
         character.OnTakeDamage += TakeDamage;
-        filledImage.fillAmount = character.GetEnergy() / character.GetStartedEnergy();
+        filledImageEnergy.fillAmount = character.GetEnergy() / character.GetStartedEnergy();
+        //filledImageArmor.fillAmount = character.GetArmor() / character.GetStartedArmor();
     }
     void Update()
     {
@@ -21,6 +23,7 @@ public class UiComponentLife : MonoBehaviour
     }
     void TakeDamage()
     {
-        filledImage.fillAmount = character.GetEnergy() / character.GetStartedEnergy();
+        filledImageEnergy.fillAmount = character.GetEnergy() / character.GetStartedEnergy();
+        //filledImageArmor.fillAmount = character.GetArmor() / character.GetStartedArmor();
     }
 }

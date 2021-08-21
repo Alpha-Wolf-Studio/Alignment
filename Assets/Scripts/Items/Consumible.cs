@@ -11,4 +11,6 @@ public class Consumible : Item
     public float attackUpgrade = 0;
     public float defenseUpgrade = 0;
     public float speedUpgrade = 0;
+    public float maxArmorUpgrade = 0;
+    public float currentArmorUpgrade = 0;
 }

@@ -22,27 +22,32 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] float startingAttack = 5;
     [SerializeField] float startingDefense = 5;
     [SerializeField] float startingSpeed = 1;
+    [SerializeField] float startingArmor = 5;
 
     private float maxEnergy = 100;
     private float currentEnergy = 100;
     private float currentAttack = 5;
     private float currentDefense = 5;
     private float currentSpeed = 1;
+    private float currentArmor = 5;
 
     #region Getters
     public float GetStartedEnergy() => startingEnergy;
     public float GetStartedAttack() => startingAttack;
     public float GetStartedDefense() => startingDefense;
     public float GetStartedSpeed() => startingSpeed;
+    public float GetStartedArmor() => startingArmor;
 
     public float GetEnergy() => currentEnergy;
     public float GetAttack() => currentAttack;
     public float GetDefense() => currentDefense;
     public float GetSpeed() => currentSpeed;
+    public float GetArmor() => currentArmor;
 
     #endregion
 
     Inventory inventory;
+    Collider col;
     Rigidbody rb;
 
     bool isAlive = true;
@@ -51,6 +56,7 @@ public class Character : MonoBehaviour, IDamageable
     {
         inventory = GetComponent<Inventory>();
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
         maxEnergy = startingEnergy;
         currentEnergy = startingEnergy;
         currentAttack = startingAttack;
@@ -119,8 +125,39 @@ public class Character : MonoBehaviour, IDamageable
         OnTakeDamage?.Invoke();
     }
 
+    public void AddMaxArmor(float armour)
+    {
+        startingArmor += armour;
+    }
+    public void AddCurrentArmor(float armour)
+    {
+        currentArmor += armour;
+    }
+    public void TakeArmorDamage(float damage)
+    {
+        damage -= currentDefense;
+        if (damage > 0 && isAlive) // todo: Agregar un daño mínimo
+        {
+            currentArmor -= damage;
+            if (currentArmor > 0)
+            {
+                //if(anim != null) anim.SetTrigger("Hit");
+            }
+            else
+            {
+                isAlive = false;
+                if (anim != null) anim.SetTrigger("Death");
+                StartCoroutine(BodyRemoveCoroutine());
+                inventory.BlowUpInventory();
+                OnDeath?.Invoke();
+            }
+        }
+        OnTakeDamage?.Invoke();
+    }
+
     IEnumerator BodyRemoveCoroutine()
     {
+        col.enabled = false;
         yield return new WaitForSeconds(deadBodyRemoveTime);
         rb.Sleep();
         float t = 0;
