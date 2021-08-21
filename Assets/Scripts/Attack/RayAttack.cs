@@ -4,7 +4,6 @@ public class RayAttack : AttackComponent
 {
 
     [SerializeField] float distance = 10f;
-    [SerializeField] Transform spawnTransform = null;
 
     public override void Attack(Vector3 dir)
     {
@@ -12,7 +11,7 @@ public class RayAttack : AttackComponent
         {
             StartCoroutine(CooldownCoroutine());
             RaycastHit hit;
-            if (Physics.Raycast(spawnTransform.position, dir, out hit, distance, attackLayer))
+            if (Physics.Raycast(transform.position, dir, out hit, distance, attackLayer))
             {
                 IDamageable damageComponent = hit.collider.GetComponent<IDamageable>();
                 if (damageComponent != null)
