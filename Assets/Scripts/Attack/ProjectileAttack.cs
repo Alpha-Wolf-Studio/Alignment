@@ -9,11 +9,8 @@ public class ProjectileAttack : AttackComponent
 
     public override void Attack(Vector3 dir)
     {
-        if(currentCooldown < 0)
-        {
-            StartCoroutine(CooldownCoroutine());
-            GameObject go = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            go.GetComponent<Projectile>().Launch(dir, projectileSpeed, attackStrenght);
-        }
+        GameObject go = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        go.name = gameObject.name + " Projectile Attack";
+        go.GetComponent<Projectile>().Launch(dir, projectileSpeed, attackStrenght);
     }
 }

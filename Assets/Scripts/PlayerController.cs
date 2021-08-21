@@ -69,12 +69,7 @@ public class PlayerController : MonoBehaviour
 
                 Vector3 mousePos = Input.mousePosition;
                 Ray screenRay = camara.ScreenPointToRay(mousePos);
-                if (Physics.Raycast(screenRay))
-                {
-                    character.Attack(screenRay.direction);
-                }
-
-                Debug.DrawRay(screenRay.origin, screenRay.direction * 10, Color.black, 5);
+                character.Attack(screenRay.direction);
             }
 
             if (Input.GetMouseButtonDown(1))

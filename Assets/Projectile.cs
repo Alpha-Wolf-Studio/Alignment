@@ -13,12 +13,13 @@ public class Projectile : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(dir * speed);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        IDamageable damageComponent = collision.collider.GetComponent<IDamageable>();
+        IDamageable damageComponent = other.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
             damageComponent.TakeDamage(hitDamage);
         }
+        Destroy(gameObject);
     }
 }
