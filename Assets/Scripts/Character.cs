@@ -5,7 +5,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Inventory))]
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Collider))]
 public class Character : MonoBehaviour, IDamageable
 {
     public Action OnDeath;
@@ -45,7 +44,6 @@ public class Character : MonoBehaviour, IDamageable
 
     Inventory inventory;
     Rigidbody rb;
-    Collider col;
 
     bool isAlive = true;
 
@@ -53,7 +51,6 @@ public class Character : MonoBehaviour, IDamageable
     {
         inventory = GetComponent<Inventory>();
         rb = GetComponent<Rigidbody>();
-        col = GetComponent<Collider>();
         maxEnergy = startingEnergy;
         currentEnergy = startingEnergy;
         currentAttack = startingAttack;
@@ -125,7 +122,6 @@ public class Character : MonoBehaviour, IDamageable
     IEnumerator BodyRemoveCoroutine()
     {
         yield return new WaitForSeconds(deadBodyRemoveTime);
-        col.enabled = false;
         rb.Sleep();
         float t = 0;
         while(t < 1)
