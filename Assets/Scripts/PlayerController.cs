@@ -6,8 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Character))]
 public class PlayerController : MonoBehaviour
 {
-    public Action onInteract;
-    public Action onInventory;
+    public Action OnInteract;
+    public Action OnInventory;
     public Action<float, bool> onShoot;
     private Rigidbody rb = null;
     private Camera camara = null;
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            onInventory?.Invoke();
+            OnInventory?.Invoke();
         }
 
         if (playerInput)

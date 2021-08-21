@@ -15,7 +15,7 @@ public class UiInventory : MonoBehaviour
 
     public Image defaultSprite;
     // Agarrar un evento para agarrar cuando el Inventario esté totalmente cargado.
-    public Action onRefreshAllButtonsEvent;
+    public Action OnRefreshAllButtonsEvent;
     public Image slotAux;
     public Button prefabItemInventory;
     public GameObject item;
@@ -56,7 +56,7 @@ public class UiInventory : MonoBehaviour
     {
         Invoke(nameof(LoadInventoryUI), 0.1f);
 
-        playerController.onInventory += OnInventory;
+        playerController.OnInventory += OnInventory;
     } 
     void LoadInventoryUI()
     {
@@ -219,10 +219,9 @@ public class UiInventory : MonoBehaviour
         Cursor.lockState = status ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = status;
     }
-    // -----------------------------------------------
     public void RefreshAllButtons()
     {
-        onRefreshAllButtonsEvent?.Invoke();
+        OnRefreshAllButtonsEvent?.Invoke();
     }
     public string RefreshToolTip(RectTransform btn)
     {
@@ -271,7 +270,6 @@ public class UiInventory : MonoBehaviour
         RectTransform aux = toolTip.GetComponent<RectTransform>();
         toolTip.GetComponent<RectTransform>().sizeDelta = new Vector2(aux.sizeDelta.x, lines * offset + margin);
     }
-
     string TextFormatter(UiItemInventory UiSlot, int idItem)
     {
         int index = UiSlot.GetIndex();

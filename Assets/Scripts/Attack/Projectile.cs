@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
     float hitDamage = 0;
 
     public void Launch(Vector3 dir, float speed, float damage)
@@ -18,7 +17,7 @@ public class Projectile : MonoBehaviour
         IDamageable damageComponent = other.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
-            damageComponent.TakeDamage(hitDamage);
+            damageComponent.TakeArmorDamage(hitDamage);
         }
         Destroy(gameObject);
     }

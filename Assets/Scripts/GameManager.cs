@@ -1,13 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-    // Start is called before the first frame update
+    public Character player;
     void Start()
     {
-        
+        player.OnDeath += GameOver;
+    }
+    void GameOver()
+    {
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 }
 public class Global

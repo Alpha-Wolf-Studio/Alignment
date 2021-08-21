@@ -59,6 +59,7 @@ public class Character : MonoBehaviour, IDamageable
         col = GetComponent<Collider>();
         maxEnergy = startingEnergy;
         currentEnergy = startingEnergy;
+        currentArmor = startingArmor;
         currentAttack = startingAttack;
         currentDefense = startingDefense;
         currentSpeed = startingSpeed;
@@ -68,40 +69,41 @@ public class Character : MonoBehaviour, IDamageable
             attackComponent.SetAttackSpeed(currentSpeed);
         }
     }
-
+    public void AddMaxArmor(float armour)
+    {
+        startingArmor += armour;
+    }
+    public void AddCurrentArmor(float armour)
+    {
+        currentArmor += armour;
+    }
     public void AddMaxEnergy(float energy)
     {
         maxEnergy += energy;
     }
-
     public void AddCurrentEnergy(float energy)
     {
         currentEnergy += energy;
         if (currentEnergy > maxEnergy) currentEnergy = maxEnergy;
     }
-
     public void AddCurrentAttack(float attack)
     {
         currentAttack += attack;
         if (attackComponent != null) attackComponent.AddAttackStrenght(attack);
     }
-
     public void AddCurrentDefense(float defense)
     {
         currentDefense += defense;
     }
-
     public void AddCurrentSpeed(float speed)
     {
         currentSpeed += speed;
         if (attackComponent != null) attackComponent.AddAttackSpeed(speed);
     }
-
     public void Attack(Vector3 dir)
     {
         if (attackComponent != null) attackComponent.Attack(dir);
     }
-
     public void TakeDamage(float damage)
     {
         if (!isAlive) return;
@@ -124,15 +126,6 @@ public class Character : MonoBehaviour, IDamageable
         }
         OnTakeDamage?.Invoke();
     }
-
-    public void AddMaxArmor(float armour)
-    {
-        startingArmor += armour;
-    }
-    public void AddCurrentArmor(float armour)
-    {
-        currentArmor += armour;
-    }
     public void TakeArmorDamage(float damage)
     {
         damage -= currentDefense;
@@ -154,7 +147,6 @@ public class Character : MonoBehaviour, IDamageable
         }
         OnTakeDamage?.Invoke();
     }
-
     IEnumerator BodyRemoveCoroutine()
     {
         col.enabled = false;

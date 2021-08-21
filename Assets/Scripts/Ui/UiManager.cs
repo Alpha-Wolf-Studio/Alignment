@@ -8,12 +8,14 @@ public class UiManager : MonoBehaviour
 {
     public Image filledImageCoolDown;
     public Image filledImageEnergy;
-    public Color CoolDownReloading = Color.blue;
+    public Image filledImageArmor;
+    public Color CoolDownReloading = Color.red;
     public Character character;
     public PlayerController player;
     public RectTransform sightHud;
     private float speed = 0.1f;
     private float onTime;
+
     void Start()
     {
         character.OnTakeDamage += TakeDamage;
@@ -27,6 +29,7 @@ public class UiManager : MonoBehaviour
     void TakeDamage()
     {
         filledImageEnergy.fillAmount = character.GetEnergy() / character.GetStartedEnergy();
+        filledImageArmor.fillAmount = character.GetArmor() / character.GetStartedArmor();
     }
     void Shoot(float maxCoolDown, bool reloading)
     {

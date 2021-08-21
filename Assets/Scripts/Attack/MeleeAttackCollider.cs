@@ -30,7 +30,7 @@ public class MeleeAttackCollider : MonoBehaviour
         IDamageable damageComponent = other.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
-            damageComponent.TakeDamage(damage);
+            damageComponent.TakeArmorDamage(damage);
         }
     }
 }

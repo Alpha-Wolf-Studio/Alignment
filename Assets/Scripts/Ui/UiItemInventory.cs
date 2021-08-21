@@ -23,7 +23,7 @@ public class UiItemInventory : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     }
     void Start()
     {
-        uiInv.onRefreshAllButtonsEvent += Refresh;
+        uiInv.OnRefreshAllButtonsEvent += Refresh;
     }
     public void SetButton(int indexList, int id)
     {

@@ -170,8 +170,7 @@ public class Inventory : MonoBehaviour
     public void Sort()
     {
         currentSlots.Sort();
-    }
-    public bool CanItemBeAdded(int id, int amount)
+    } public bool CanItemBeAdded(int id, int amount)
     {
         int currentEmptySpaces = 0;
         for (int i = 0; i < currentSlots.Count; i++)
@@ -191,7 +190,6 @@ public class Inventory : MonoBehaviour
         }
         return false;
     }
-
     public bool CheckForItem(Item item, int amount)
     {
         int itemID = item.id;
@@ -209,7 +207,6 @@ public class Inventory : MonoBehaviour
         }
         return false;
     }
-
     public void RemoveItem(Item item, int amount)
     {
         int itemID = item.id;
@@ -234,20 +231,24 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-
     public void BlowUpInventory()
     {
         foreach (var slot in currentSlots)
         {
-            Vector3 randomForceDirection = Random.insideUnitSphere * explosionStrenght;
-            Transform parent = ItemManager.GetInstance().transform;
-            GameObject go = Instantiate(ItemManager.GetInstance().GetItemFromID(slot.ID).worldPrefab, transform.position, Quaternion.identity, parent);
-            var itemComponent = go.GetComponent<ItemComponent>();
-            itemComponent.AddForce(randomForceDirection);
-            itemComponent.SetItem(slot.ID, slot.amount);
+            if (slot.ID > 0)
+            {
+                Vector3 randomForceDirection = Random.insideUnitSphere * explosionStrenght;
+                Debug.DrawRay(transform.position, randomForceDirection * 10, Color.red, 10);
+                Transform parent = ItemManager.GetInstance().transform;
+                Vector3 posAux = transform.position;
+                posAux.y += 1;
+                GameObject go = Instantiate(ItemManager.GetInstance().GetItemFromID(slot.ID).worldPrefab, posAux, Quaternion.identity, parent);
+                var itemComponent = go.GetComponent<ItemComponent>();
+                itemComponent.AddForce(randomForceDirection);
+                itemComponent.SetItem(slot.ID, slot.amount);
+            }
         }
     }
-
     IEnumerator PickUpCoroutine()
     {
         while (canPickUpItems)
