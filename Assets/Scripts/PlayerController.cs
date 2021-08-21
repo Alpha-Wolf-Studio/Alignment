@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
-
     void Update()
     {
         currentCollDownShoot += Time.deltaTime;
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
                     character.Attack(screenRay.direction);
                 }
 
-                Debug.DrawRay(screenRay.origin, screenRay.direction*10, Color.black, 5);
+                Debug.DrawRay(screenRay.origin, screenRay.direction * 10, Color.black, 5);
             }
 
             if (Input.GetMouseButtonDown(1))

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Battery
   m_EditorClassIdentifier: 
   itemName: Battery
-  id: 24
+  id: 9
   icon: {fileID: 21300000, guid: 9e4030d4fbbb4aa4895f807cf6bf41b1, type: 3}
-  worldPrefab: {fileID: 0}
+  worldPrefab: {fileID: 7233220011812138605, guid: 0984f06cea7583c419f4f2415556f6e4,
+    type: 3}
   maxStack: 22
   crafteable: 1
   recipe:

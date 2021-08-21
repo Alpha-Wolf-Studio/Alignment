@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Coils
   m_EditorClassIdentifier: 
   itemName: Coils
-  id: 0
+  id: 10
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 8828738123139265346, guid: d4fed6226b52f514a9cc7ad15f71018d,
+    type: 3}
   maxStack: 22
-  consumible: 0
   crafteable: 1
   recipe:
   - item: {fileID: 11400000, guid: d8621a64397cc5042bfefa8ad23f71d0, type: 2}

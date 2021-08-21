@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Transistor
   m_EditorClassIdentifier: 
   itemName: Transistor
-  id: 0
+  id: 6
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 4859930954857725961, guid: 06e16345f99f7a742b928b87e0480f89,
+    type: 3}
   maxStack: 22
-  consumible: 0
   crafteable: 1
   recipe:
   - item: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}

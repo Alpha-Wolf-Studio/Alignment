@@ -15,6 +15,8 @@ public class ReparableObject : MonoBehaviour
     public float maxDistanceToShow;
     public float minDistanceToShow;
     public CanvasGroup canvasGroup;
+    private List<BoxCollider> boxColliders = new List<BoxCollider>();
+
     private bool enable;
     void Start()
     {
@@ -31,6 +33,7 @@ public class ReparableObject : MonoBehaviour
         for (int i = 0; i < idRequired.Count; i++)
         {
             UiItemRepair itemReq = Instantiate(pfItem, panelObjects).GetComponent<UiItemRepair>();
+            boxColliders.Add(itemReq.GetComponent<BoxCollider>());
             itemReq.image.sprite = ItemManager.GetInstance().GetItemFromID(idRequired[i].ID).icon;
             RefreshUI(itemReq, i);
             itemReq.index = i;
@@ -69,6 +72,10 @@ public class ReparableObject : MonoBehaviour
     }
     void Enabled(bool on)
     {
+        foreach (var coll in boxColliders)
+        {
+            coll.enabled = on;
+        }
         enable = on;
         canvasGroup.blocksRaycasts = on;
         canvasGroup.interactable = on;

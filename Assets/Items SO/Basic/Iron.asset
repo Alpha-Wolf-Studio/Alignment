@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Iron
   m_EditorClassIdentifier: 
   itemName: Iron
-  id: 8
+  id: 4
   icon: {fileID: 21300000, guid: e2758c91444169c4ca20d17fb1385487, type: 3}
-  worldPrefab: {fileID: 0}
+  worldPrefab: {fileID: 5256721333140853744, guid: 43d46a5d114f3d84b9f61ee3ad6ba86e,
+    type: 3}
   maxStack: 44
   crafteable: 0
   recipe: []

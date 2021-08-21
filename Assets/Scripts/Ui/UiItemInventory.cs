@@ -44,10 +44,10 @@ public class UiItemInventory : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Mouse Enter");
+        //Debug.Log("Mouse Enter");
         if (uiInv.picked)
         {
-            Debug.Log("OnPointerUp: " + gameObject.name, gameObject);
+            //Debug.Log("OnPointerUp: " + gameObject.name, gameObject);
             uiInv.slotDrop = this;
             uiInv.SwapButtonsIDs();
             uiInv.picked = false;
@@ -61,7 +61,7 @@ public class UiItemInventory : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown: " + gameObject.name, gameObject);
+        //Debug.Log("OnPointerDown: " + gameObject.name, gameObject);
         if (Input.GetMouseButton(0))
         {
             uiInv.slotAux.transform.position = Input.mousePosition;

@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Plastic
   m_EditorClassIdentifier: 
   itemName: Plastic
-  id: 0
+  id: 5
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 3464688725651133052, guid: 355c71f290fd71f439a931e51fe94498,
+    type: 3}
   maxStack: 44
-  consumible: 0
   crafteable: 0
   recipe: []

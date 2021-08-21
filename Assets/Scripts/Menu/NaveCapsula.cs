@@ -38,7 +38,7 @@ public class NaveCapsula : MonoBehaviour
     {
         while (onTime < transitionTime)
         {
-            Debug.Log("Moviendo");
+            //Debug.Log("Moviendo");
             navePos = transform.position;
             onTime += Time.unscaledDeltaTime;
             cam.transform.position = Vector3.Slerp(camInitialPos, navePos, onTime / transitionTime);
@@ -52,7 +52,7 @@ public class NaveCapsula : MonoBehaviour
         Quaternion rotation = cam.transform.localRotation;
         while (onTime < rotationTime)
         {
-            Debug.Log("Rotando");
+            //Debug.Log("Rotando");
             onTime += Time.unscaledDeltaTime;
             cam.transform.localRotation = Quaternion.Lerp(rotation, Quaternion.identity, onTime / rotationTime);
             yield return null;

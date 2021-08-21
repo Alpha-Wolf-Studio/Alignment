@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Screws
   m_EditorClassIdentifier: 
   itemName: Screws
-  id: 0
+  id: 8
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 4800987972492864559, guid: c857d00873727c241b64537650892a2a,
+    type: 3}
   maxStack: 22
-  consumible: 0
   crafteable: 1
   recipe:
   - item: {fileID: 11400000, guid: b0df2048522e8f04798fa851f4d5eb7d, type: 2}

@@ -11,13 +11,11 @@ public class UIMenuManager : MonoBehaviour
     private Menues menuActual = Menues.Main;
     private float onTime;
 
-    void Start()
+    public void OffPanel()
     {
-        
-    }
-    void Update()
-    {
-        
+        menues[(int)menuActual].blocksRaycasts = false;
+        menues[(int)menuActual].interactable = false;
+        StartCoroutine(PanelOff(timeTransition, (int)menuActual));
     }
     public void SwitchPanel(int otherMenu)
     {
@@ -42,7 +40,20 @@ public class UIMenuManager : MonoBehaviour
         on.interactable = true;
         onTime = 0;
 
-        menuActual = (Menues) onMenu;
+        menuActual = (Menues)onMenu;
+    }
+    IEnumerator PanelOff(float maxTime, int offMenu)
+    {
+        CanvasGroup off = menues[offMenu];
+
+        while (onTime < maxTime)
+        {
+            onTime += Time.deltaTime;
+            float fade = onTime / maxTime;
+            off.alpha = 1 - fade;
+            yield return null;
+        }
+        onTime = 0;
     }
     public void ChangeScene(string scene)
     {

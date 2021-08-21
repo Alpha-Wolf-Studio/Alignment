@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Pile
   m_EditorClassIdentifier: 
   itemName: Pile
-  id: 40
+  id: 1
   icon: {fileID: 21300000, guid: cd3044c9e682fbb4586ba29cbe742812, type: 3}
-  worldPrefab: {fileID: 5938598035153855690, guid: 6c24647357555a54a8cd3696f7a7b836,
+  worldPrefab: {fileID: 290333133952922808, guid: be3a844976dbce54a90b9f091a1843b9,
     type: 3}
   maxStack: 18
   crafteable: 0

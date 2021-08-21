@@ -217,6 +217,7 @@ public class UiInventory : MonoBehaviour
         panelGral.blocksRaycasts = status;
         panelGral.alpha = status ? 1 : 0; 
         Cursor.lockState = status ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = status;
     }
     // -----------------------------------------------
     public void RefreshAllButtons()
