@@ -13,6 +13,13 @@ public class MeleeAttack : AttackComponent
     {
         anim = GetComponent<Animator>();
     }
+    private void Start()
+    {
+        foreach (var collider in meleeColliders)
+        {
+            collider.SetColliders(attackStrenght);
+        }
+    }
 
     public override void Attack(Vector3 dir)
     {

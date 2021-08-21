@@ -5,7 +5,6 @@ using UnityEngine;
 public class MeleeAttackCollider : MonoBehaviour
 {
     float damage = 0;
-    LayerMask damageMask = default;
     Collider col;
 
     private void Awake()
@@ -21,10 +20,9 @@ public class MeleeAttackCollider : MonoBehaviour
     {
         col.enabled = false;
     }
-    public void SetColliders(float damage, LayerMask mask) 
+    public void SetColliders(float damage) 
     {
         this.damage = damage;
-        damageMask = mask;
     }
 
     private void OnTriggerEnter(Collider other)
