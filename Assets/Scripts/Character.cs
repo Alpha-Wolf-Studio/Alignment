@@ -16,7 +16,7 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] float deadBodyRemoveTime = 5f;
     [SerializeField] float deadBodyRemoveSpeed = .25f;
     [SerializeField] float deadBodyunderGroundOffset = .5f;
-    AttackComponent attackComponent = null;
+    [SerializeField] AttackComponent attackComponent = null;
 
     [Header("Stats")]
     [SerializeField] float startingEnergy = 100;
@@ -47,6 +47,8 @@ public class Character : MonoBehaviour, IDamageable
     Rigidbody rb;
     Collider col;
 
+    bool isAlive = true;
+
     private void Awake()
     {
         inventory = GetComponent<Inventory>();
@@ -57,7 +59,6 @@ public class Character : MonoBehaviour, IDamageable
         currentAttack = startingAttack;
         currentDefense = startingDefense;
         currentSpeed = startingSpeed;
-        attackComponent = GetComponent<AttackComponent>();
         if (attackComponent != null)
         {
             attackComponent.SetAttackStrenght(currentAttack);
@@ -100,6 +101,7 @@ public class Character : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
+        if (!isAlive) return;
         damage -= currentDefense;
         if (damage > 0)
         {
@@ -114,6 +116,7 @@ public class Character : MonoBehaviour, IDamageable
                 StartCoroutine(BodyRemoveCoroutine());
                 inventory.BlowUpInventory();
                 OnDeath?.Invoke();
+                isAlive = false;
             }
         }
         OnTakeDamage?.Invoke();
