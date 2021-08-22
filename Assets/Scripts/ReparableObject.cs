@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 
 public class ReparableObject : MonoBehaviour
 {
+    public Action OnRepair;
     public string nameToRepair;
     public TextMeshProUGUI nameToRepairTM;
     public List<Slot> idRequired = new List<Slot>();
@@ -45,6 +47,19 @@ public class ReparableObject : MonoBehaviour
     {
         item.text.text = ItemManager.GetInstance().GetItemFromID(idRequired[index].ID).itemName; 
         item.text.text += "\nRemaining: " + idRequired[index].amount;
+        if (CheckRepaired())
+        {
+            OnRepair?.Invoke();
+        }
+    }
+    bool CheckRepaired()
+    {
+        foreach (Slot slot in idRequired)
+        {
+            if (slot.amount > 0)
+                return false;
+        }
+        return true;
     }
     void EnablePanel()
     {

@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
+    enum GameStatus { Inization, Game, EndWin, EndLose}
     public Character player;
+    public List<ReparableObject> toRepair = new List<ReparableObject>();
     void Start()
     {
         player.OnDeath += GameOver;

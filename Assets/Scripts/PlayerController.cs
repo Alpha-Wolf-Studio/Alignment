@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
         if (playerInput)
         {
+            
+
             if (Input.GetMouseButtonDown(0))
             {
                 if (currentCollDownShoot < maxCollDownShoot) // Si no supera el CD se daña. Siempre puede disparar.
@@ -66,16 +68,13 @@ public class PlayerController : MonoBehaviour
                     onShoot?.Invoke(maxCollDownShoot, true);
                     currentCollDownShoot = 0;
                 }
-
-                Vector3 mousePos = Input.mousePosition;
-                Ray screenRay = camara.ScreenPointToRay(mousePos);
+                Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
                 character.Attack(screenRay.direction);
             }
 
             if (Input.GetMouseButtonDown(1))
             {
-                Vector3 mousePos = Input.mousePosition;
-                Ray screenRay = camara.ScreenPointToRay(mousePos);
+                Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 if (Physics.Raycast(screenRay, out hit, maxDistInteract))
                 {
