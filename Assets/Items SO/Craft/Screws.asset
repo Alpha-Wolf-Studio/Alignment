@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Screws
   id: 8
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5ed8d213e493efb4e873af4de53f8e0b, type: 3}
   worldPrefab: {fileID: 4800987972492864559, guid: c857d00873727c241b64537650892a2a,
     type: 3}
   maxStack: 22

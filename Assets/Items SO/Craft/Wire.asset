@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wire
   id: 7
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5b262ffd214a93a4d94d93a8acc642dc, type: 3}
   worldPrefab: {fileID: 7787074099773775768, guid: 30d1293b31562dd4c917eaf98f42e64e,
     type: 3}
   maxStack: 22

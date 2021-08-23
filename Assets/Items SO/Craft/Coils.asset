@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Coils
   id: 10
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 199e1e3ccede78948a7536fb7e4ef8f3, type: 3}
   worldPrefab: {fileID: 8828738123139265346, guid: d4fed6226b52f514a9cc7ad15f71018d,
     type: 3}
   maxStack: 22
