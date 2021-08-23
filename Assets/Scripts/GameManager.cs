@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-    public enum GameStatus { Inization, Game, EndWin, EndLose }
+    public enum GameStatus {Menu, Inization, Game, EndWin, EndLose }
     public GameStatus gameStatus = GameStatus.Inization;
     public Character player;
     public List<ReparableObject> toRepair = new List<ReparableObject>();
