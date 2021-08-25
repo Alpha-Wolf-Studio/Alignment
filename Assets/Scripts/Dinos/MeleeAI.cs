@@ -78,4 +78,12 @@ public class MeleeAI : MonoBehaviour
                 break;
         }
     }
+
+   private void OnDrawGizmos()
+   {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseDistance);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackDistance);
+    }
 }
