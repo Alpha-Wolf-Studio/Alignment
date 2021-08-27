@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-    public enum GameStatus {Menu, Inization, Game, EndWin, EndLose }
-    public GameStatus gameStatus = GameStatus.Inization;
-    public Character player;
+    public Character character;
+    public PlayerController player;
     public List<ReparableObject> toRepair = new List<ReparableObject>();
     private int objectsRemaining;
 
@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     }
     void LoadGameManager()
     {
-        if (!player) player = FindObjectOfType<PlayerController>().GetComponent<Character>();
-        player.OnDeath += PlayerDeath;
+        if (!character) character = FindObjectOfType<PlayerController>().GetComponent<Character>();
+        character.OnDeath += PlayerDeath;
         foreach (ReparableObject obj in toRepair)
         {
             obj.OnRepair += RepairShip;
@@ -34,11 +34,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     }
     void UnloadGameManager()
     {
-        if (player) player.OnDeath -= PlayerDeath;
+        if (character) character.OnDeath -= PlayerDeath;
     }
     void PlayerDeath()
     {
-        gameStatus = GameStatus.EndLose;
+        player.playerStatus = PlayerController.PlayerStatus.EndLose;
         GameOver();
     }
     void RepairShip()
@@ -46,13 +46,18 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         objectsRemaining--;
         if (objectsRemaining == 0)
         {
-            gameStatus = GameStatus.EndWin;
+            player.playerStatus = PlayerController.PlayerStatus.EndWin;
             GameOver();
         }
     }
     void GameOver()
     {
-        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        character.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        ChangeScene("Menu");
+    }
+    public void ChangeScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 }
 

@@ -111,13 +111,13 @@ public class UiInventory : MonoBehaviour
         switch (inventaryStatus)
         {
             case InventaryStatus.Close:
-                playerController.playerInput = false;
+                playerController.playerStatus = PlayerController.PlayerStatus.Inventory;
                 inventaryStatus = InventaryStatus.Opening;
                 StartCoroutine(OpeningInventory());
 
                 break;
             case InventaryStatus.Open:
-                playerController.playerInput = true;
+                playerController.playerStatus = PlayerController.PlayerStatus.Game;
                 inventaryStatus = InventaryStatus.Closeing;
                 StartCoroutine(OpeningInventory());
 
@@ -216,8 +216,9 @@ public class UiInventory : MonoBehaviour
         panelGral.interactable = status;
         panelGral.blocksRaycasts = status;
         panelGral.alpha = status ? 1 : 0; 
-        Cursor.lockState = status ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = status;
+        //Cursor.lockState = status ? CursorLockMode.None : CursorLockMode.Locked;
+        //Cursor.visible = status;
+        playerController.AvailableCursor(status);
     }
     public void RefreshAllButtons()
     {

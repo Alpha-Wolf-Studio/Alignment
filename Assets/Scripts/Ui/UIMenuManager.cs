@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,12 @@ public class UIMenuManager : MonoBehaviour
 {
     [SerializeField] private CanvasGroup[] menues;
     [SerializeField] private float timeTransition;
+
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
     enum Menues { Main, Play, Credits, Options, Exit }
     private Menues menuActual = Menues.Main;

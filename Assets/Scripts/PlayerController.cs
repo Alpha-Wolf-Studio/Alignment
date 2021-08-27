@@ -1,17 +1,20 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Character))]
 public class PlayerController : MonoBehaviour
 {
+    public enum PlayerStatus { Fading, Inization, Game, Pause, Inventory, EndWin, EndLose }
+    public PlayerStatus playerStatus = PlayerStatus.Inization;
+    
     public Action OnInteract;
     public Action OnInventory;
+    public Action OnPause;
     public Action<float, bool> onShoot;
-    private Rigidbody rb = null;
-    private Camera camara = null;
-    Character character = null;
+
+    private Rigidbody rb;
+    private Camera camara;
+    Character character;
 
     [Header("Movement")]
     [SerializeField] private float verticalSensitive = 2;
@@ -24,10 +27,9 @@ public class PlayerController : MonoBehaviour
     private float movV;
     private float verticalLookRotation;
 
-    public float maxCollDownShoot;
-    public float currentCollDownShoot = 10;
+    public float maxCoolDownShoot;
+    public float currentCoolDownShoot = 10;
     private float damageForShoot = 7;
-    public bool playerInput = true;
     private float maxDistInteract = 50;
 
     private void Awake()
@@ -38,57 +40,108 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        AvailableCursor(false);
     }
-    void Update()
+    void CanPause()
     {
-        currentCollDownShoot += Time.deltaTime;
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnPause?.Invoke();
+        }
+    }
+    public void AvailableCursor(bool enable)
+    {
+        if (enable)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+    void CanInventory()
+    {
         if (Input.GetKeyDown(KeyCode.E))
         {
             OnInventory?.Invoke();
         }
-
-        if (playerInput)
+    }
+    void UpdateCoolDown()
+    {
+        if (currentCoolDownShoot < maxCoolDownShoot)
+            currentCoolDownShoot += Time.deltaTime;
+    }
+    void CanAttack()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            
-
-            if (Input.GetMouseButtonDown(0))
+            if (currentCoolDownShoot < maxCoolDownShoot) // Si no supera el CD se daña. Siempre puede disparar.
             {
-                if (currentCollDownShoot < maxCollDownShoot) // Si no supera el CD se daña. Siempre puede disparar.
-                {
-                    //Debug.Log("Dispara y se Daña");
-                    onShoot?.Invoke(maxCollDownShoot, false);
-                    character.TakeDamage(damageForShoot);
-                }
-                else
-                {
-                    //Debug.Log("Dispara");
-                    onShoot?.Invoke(maxCollDownShoot, true);
-                    currentCollDownShoot = 0;
-                }
-                Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
-                character.Attack(screenRay.direction);
+                //Debug.Log("Dispara y se Daña");
+                onShoot?.Invoke(maxCoolDownShoot, false);
+                character.TakeDamage(damageForShoot);
             }
-
-            if (Input.GetMouseButtonDown(1))
+            else
             {
-                Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(screenRay, out hit, maxDistInteract))
-                {
-                    IInteractuable interact = hit.transform.GetComponent<IInteractuable>();
-                    if (interact == null) return;
-                    interact.Interact();
-                }
+                //Debug.Log("Dispara");
+                onShoot?.Invoke(maxCoolDownShoot, true);
+                currentCoolDownShoot = 0;
+            }
+            Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
+            character.Attack(screenRay.direction);
+        }
+    }
+    void CanDeposite()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(screenRay, out hit, maxDistInteract))
+            {
+                IInteractuable interact = hit.transform.GetComponent<IInteractuable>();
+                if (interact == null) return;
+                interact.Interact();
             }
         }
     }
+    void Update()
+    {
+        switch (playerStatus)
+        {
+            case PlayerStatus.Fading:
+                break;
+            case PlayerStatus.Inization:
+                playerStatus = PlayerStatus.Game;
+                break;
+            case PlayerStatus.Game:
+                CanAttack();
+                CanDeposite();
 
+                UpdateCoolDown();
+                CanInventory();
+                CanPause();
+                break;
+            case PlayerStatus.Inventory:
+                UpdateCoolDown();
+                CanInventory();
+                CanPause();
+                break;
+            case PlayerStatus.Pause:
+                CanPause();
+                break;
+            case PlayerStatus.EndWin:
+            case PlayerStatus.EndLose:
+            default:
+                break;
+        }
+    }
     private void FixedUpdate()
     {
-        if (playerInput)
+        if (playerStatus == PlayerStatus.Game)
         {
             movH = Input.GetAxis("Mouse X") * horizontalSensitive;
             transform.Rotate(0, movH, 0);

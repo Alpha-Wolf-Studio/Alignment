@@ -8,6 +8,8 @@ public class GameStarting : MonoBehaviour
     private CanvasGroup canvasGroup;
 
     private GameManager gm;
+
+    public PlayerController player;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -15,18 +17,18 @@ public class GameStarting : MonoBehaviour
     }
     void Start()
     {
-        if (gm.gameStatus == GameManager.GameStatus.Menu)
+        if (player.playerStatus == PlayerController.PlayerStatus.Fading)
         {
             
         }
 
-        switch (gm.gameStatus)
+        switch (player.playerStatus)
         {
-            case GameManager.GameStatus.EndWin:
+            case PlayerController.PlayerStatus.EndWin:
                 break;
-            case GameManager.GameStatus.EndLose:
+            case PlayerController.PlayerStatus.EndLose:
                 break;
-            case GameManager.GameStatus.Game:
+            case PlayerController.PlayerStatus.Game:
                 break;
             default:
                 break;
