@@ -2692,7 +2692,7 @@ MonoBehaviour:
   verticalSensitive: 2
   horizontalSensitive: 2
   minCameraClampVertical: -50
-  maxCameraClampVertical: 50
+  maxCameraClampVertical: 70
   speedMovement: 0.1
   maxCoolDownShoot: 1
   currentCoolDownShoot: 10

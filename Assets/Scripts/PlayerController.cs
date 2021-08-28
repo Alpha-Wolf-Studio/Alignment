@@ -146,7 +146,9 @@ public class PlayerController : MonoBehaviour
             movH = Input.GetAxis("Mouse X") * horizontalSensitive;
             transform.Rotate(0, movH, 0);
 
-            verticalLookRotation += Mathf.Clamp(Input.GetAxisRaw("Mouse Y") * verticalSensitive, minCameraClampVertical, maxCameraClampVertical);
+            verticalLookRotation += Input.GetAxisRaw("Mouse Y") * verticalSensitive;
+            verticalLookRotation = Mathf.Clamp(verticalLookRotation, minCameraClampVertical, maxCameraClampVertical);
+
             camara.transform.localEulerAngles = Vector3.left * verticalLookRotation;
 
             if (Input.GetKey(KeyCode.W))
