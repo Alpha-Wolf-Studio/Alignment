@@ -11,11 +11,11 @@ public class Character : MonoBehaviour, IDamageable
     public Action OnTakeDamage;
 
     [Header("Animations")]
-    [SerializeField] Animator anim = null;
+    [SerializeField] Animator anim;
     [SerializeField] float deadBodyRemoveTime = 5f;
     [SerializeField] float deadBodyRemoveSpeed = .25f;
     [SerializeField] float deadBodyunderGroundOffset = .5f;
-    [SerializeField] AttackComponent attackComponent = null;
+    [SerializeField] AttackComponent attackComponent;
 
     [Header("Stats")]
     [SerializeField] float startingEnergy = 100;
@@ -23,8 +23,7 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] float startingDefense = 5;
     [SerializeField] float startingSpeed = 1;
     [SerializeField] float startingArmor = 5;
-
-    private float maxEnergy = 100;
+    
     private float currentEnergy = 100;
     private float currentAttack = 5;
     private float currentDefense = 5;
@@ -57,7 +56,7 @@ public class Character : MonoBehaviour, IDamageable
         inventory = GetComponent<Inventory>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
-        maxEnergy = startingEnergy;
+
         currentEnergy = startingEnergy;
         currentArmor = startingArmor;
         currentAttack = startingAttack;
@@ -73,18 +72,19 @@ public class Character : MonoBehaviour, IDamageable
     {
         startingArmor += armour;
     }
-    public void AddCurrentArmor(float armour)
+    public void AddCurrentArmor(float armor)
     {
-        currentArmor += armour;
+        currentArmor += armor;
+        if (currentArmor > startingArmor) currentArmor = startingArmor;
     }
     public void AddMaxEnergy(float energy)
     {
-        maxEnergy += energy;
+        startingEnergy += energy;
     }
     public void AddCurrentEnergy(float energy)
     {
         currentEnergy += energy;
-        if (currentEnergy > maxEnergy) currentEnergy = maxEnergy;
+        if (currentEnergy > startingEnergy) currentEnergy = startingEnergy;
     }
     public void AddCurrentAttack(float attack)
     {
@@ -94,6 +94,7 @@ public class Character : MonoBehaviour, IDamageable
     public void AddCurrentDefense(float defense)
     {
         currentDefense += defense;
+        if (currentDefense > startingDefense) currentDefense = startingDefense;
     }
     public void AddCurrentSpeed(float speed)
     {
@@ -132,6 +133,7 @@ public class Character : MonoBehaviour, IDamageable
         if (damage > 0 && isAlive) // todo: Agregar un daño mínimo
         {
             currentArmor -= damage;
+            if (currentArmor > startingArmor) currentArmor = startingArmor;
             if (currentArmor > 0)
             {
                 //if(anim != null) anim.SetTrigger("Hit");

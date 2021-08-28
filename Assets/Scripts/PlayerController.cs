@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float horizontalSensitive = 2;
     [SerializeField] private int minCameraClampVertical = -50;
     [SerializeField] private int maxCameraClampVertical = 50;
-    [SerializeField] private float speedMovement = .1f;
+    [SerializeField] private float speedMovement = 0.1f;
 
     private float movH;
     private float movV;
@@ -169,5 +169,17 @@ public class PlayerController : MonoBehaviour
                 rb.MovePosition(transform.position + transform.right * speedMovement);
             }
         }
+    }
+    public void AddSpeed(float speed)
+    {
+        speedMovement += speed;
+    }
+    public void SetSpeed(float speed)
+    {
+        speedMovement = speed;
+    }
+    public float GetSpeed()
+    {
+        return speedMovement;
     }
 }
