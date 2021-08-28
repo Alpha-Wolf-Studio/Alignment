@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     }
     void CanPause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel")) //(Input.GetKeyDown(KeyCode.Escape))
         {
             OnPause?.Invoke();
         }
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     }
     void CanInventory()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("Fire3"))
         {
             OnInventory?.Invoke();
         }
@@ -74,9 +74,13 @@ public class PlayerController : MonoBehaviour
         if (currentCoolDownShoot < maxCoolDownShoot)
             currentCoolDownShoot += Time.deltaTime;
     }
+    void CanJump()
+    {
+        
+    }
     void CanAttack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             if (currentCoolDownShoot < maxCoolDownShoot) // Si no supera el CD se daña. Siempre puede disparar.
             {
@@ -96,7 +100,7 @@ public class PlayerController : MonoBehaviour
     }
     void CanDeposite()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetButtonDown("Fire2"))
         {
             Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -124,6 +128,7 @@ public class PlayerController : MonoBehaviour
                 UpdateCoolDown();
                 CanInventory();
                 CanPause();
+                CanJump();
                 break;
             case PlayerStatus.Inventory:
                 UpdateCoolDown();
@@ -151,20 +156,20 @@ public class PlayerController : MonoBehaviour
 
             camara.transform.localEulerAngles = Vector3.left * verticalLookRotation;
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetAxis("Vertical") > 0)
             {
                 rb.MovePosition(transform.position + transform.forward * speedMovement);
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (Input.GetAxis("Vertical") > 0)
             {
                 rb.MovePosition(transform.position - transform.forward * speedMovement);
             }
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetAxis("Horizontal") < 0)
             {
                 rb.MovePosition(transform.position - transform.right * speedMovement);
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetAxis("Horizontal") > 0)
             {
                 rb.MovePosition(transform.position + transform.right * speedMovement);
             }
