@@ -8,7 +8,7 @@ public class AIAttackModule : MonoBehaviour
 
     [SerializeField] attack_Type currentAttackType; // { get; set; }
 
-    Animator anim;
+    [SerializeField] Animator anim;
 
     public void ChangeAttackType(attack_Type newAttackType)
     {
@@ -16,10 +16,6 @@ public class AIAttackModule : MonoBehaviour
         currentAttackType = newAttackType;
     }
 
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
     public void Attack() 
     {
         switch (currentAttackType)
