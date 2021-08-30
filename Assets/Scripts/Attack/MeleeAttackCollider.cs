@@ -25,9 +25,9 @@ public class MeleeAttackCollider : MonoBehaviour
         this.damage = damage;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        IDamageable damageComponent = other.GetComponent<IDamageable>();
+        IDamageable damageComponent = collision.collider.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
             damageComponent.TakeArmorDamage(damage);
