@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Character))]
-public class MeleeAI : MonoBehaviour
+[RequireComponent(typeof(AIAttackModule))]
+public class EnemyAI : MonoBehaviour
 {
 
     [Header("Chase Behaviour")]
@@ -20,8 +21,9 @@ public class MeleeAI : MonoBehaviour
     Vector3 startingPosition;
     Vector3 targetPos;
     [Space(10)]
-    [SerializeField] Animator anim;
-    Character character;
+    [SerializeField] Animator anim = null;
+    Character character = null;
+    AIAttackModule attackModule = null;
 
     [SerializeField] Transform playerTransform = null;
     NavMeshAgent agent = null;
@@ -34,6 +36,7 @@ public class MeleeAI : MonoBehaviour
     {
         character = GetComponent<Character>();
         agent = GetComponent<NavMeshAgent>();
+        attackModule = GetComponent<AIAttackModule>();
         character.OnDeath += StopMoving;
         agent.stoppingDistance = attackDistance - attackStoppingTolerance;
         startingPosition = transform.position;
@@ -77,7 +80,7 @@ public class MeleeAI : MonoBehaviour
             }
             else 
             {
-                anim.SetBool("Attacking", false);
+                attackModule.StopAttack();
                 anim.SetBool("Walking", false);
             }
         }
@@ -98,12 +101,12 @@ public class MeleeAI : MonoBehaviour
                 if (distanceSqr < attackDistance * attackDistance) 
                 {
                     anim.SetBool("Walking", false);
-                    anim.SetBool("Attacking", true);
+                    attackModule.Attack();
                 }
                 else 
                 {
                     anim.SetBool("Walking", true);
-                    anim.SetBool("Attacking", false);
+                    attackModule.StopAttack();
                 }
                 break;
             default:
