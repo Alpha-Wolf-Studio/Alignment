@@ -315,7 +315,14 @@ MonoBehaviour:
   maxTimeDelay: 1.5
   maxCount: 5
   player: {fileID: 856235259}
+  hud:
+  - {fileID: 7566883538184037701}
+  - {fileID: 7566883539403677645}
   reparableObject: {fileID: 0}
+  cheatArmor: 50
+  cheatEnergy: 50
+  cheatDamage: 50
+  cheatSpeed: 50
 --- !u!4 &81333612
 Transform:
   m_ObjectHideFlags: 0
@@ -1496,6 +1503,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
+      propertyPath: maxArmor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxDefense
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
       propertyPath: startingArmor
       value: 200
       objectReference: {fileID: 0}
@@ -1998,7 +2020,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 107.200195, y: -180.90001}
+  m_AnchoredPosition: {x: 107.200195, y: -236}
   m_SizeDelta: {x: 252.81265, y: 49.397766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470481676
@@ -2220,7 +2242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -95.19989, y: 42}
+  m_AnchoredPosition: {x: -95.19989, y: 9}
   m_SizeDelta: {x: 252.81265, y: 49.397766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &514494342
@@ -2346,6 +2368,21 @@ PrefabInstance:
     - target: {fileID: 3544728969001513329, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxArmor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxDefense
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
@@ -3037,6 +3074,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
+      propertyPath: maxArmor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxDefense
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
       propertyPath: startingArmor
       value: 200
       objectReference: {fileID: 0}
@@ -3558,11 +3610,11 @@ MonoBehaviour:
   deadBodyRemoveSpeed: 0.25
   deadBodyunderGroundOffset: 0.5
   attackComponent: {fileID: 739288029}
-  startingEnergy: 100
-  startingAttack: 50
-  startingDefense: 5
-  startingSpeed: 1
-  startingArmor: 100
+  maxEnergy: 100
+  maxAttack: 15
+  maxDefense: 0
+  maxSpeed: 1
+  maxArmor: 100
 --- !u!1 &873348253
 GameObject:
   m_ObjectHideFlags: 0
@@ -3951,7 +4003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -95.19989, y: -49.799988}
+  m_AnchoredPosition: {x: -95.19989, y: -117}
   m_SizeDelta: {x: 252.81265, y: 49.397766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &955947219
@@ -4069,7 +4121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 338.9843, y: 386.28796}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &998803075
@@ -4321,6 +4373,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
+      propertyPath: maxArmor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxDefense
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
       propertyPath: startingArmor
       value: 200
       objectReference: {fileID: 0}
@@ -4432,6 +4499,21 @@ PrefabInstance:
     - target: {fileID: 3544728969001513329, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxArmor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxDefense
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
@@ -5438,6 +5520,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
+      propertyPath: maxArmor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxDefense
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
       propertyPath: startingArmor
       value: 200
       objectReference: {fileID: 0}
@@ -6412,6 +6509,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
+      propertyPath: maxArmor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxDefense
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
       propertyPath: startingArmor
       value: 200
       objectReference: {fileID: 0}
@@ -6832,6 +6944,21 @@ PrefabInstance:
     - target: {fileID: 3544728969001513329, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxArmor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxDefense
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
@@ -8165,6 +8292,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
+      propertyPath: maxArmor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxDefense
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
       propertyPath: startingArmor
       value: 200
       objectReference: {fileID: 0}
@@ -8632,6 +8774,21 @@ PrefabInstance:
     - target: {fileID: 3544728969001513329, guid: 760e0bd1015b75f4db9dea4b106efc2a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxArmor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
+        type: 3}
+      propertyPath: maxDefense
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4213883381327293384, guid: 760e0bd1015b75f4db9dea4b106efc2a,
@@ -11771,7 +11928,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7566883538747107305}
   m_HandleRect: {fileID: 7566883538747107304}
   m_Direction: 3
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12024,7 +12181,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7566883538778722042}
   m_HandleRect: {fileID: 7566883538778722021}
   m_Direction: 3
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

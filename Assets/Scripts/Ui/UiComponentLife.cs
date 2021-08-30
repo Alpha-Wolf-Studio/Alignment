@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UiComponentLife : MonoBehaviour
 {
+    public enum TypeLife { Armor, Energy }
+    public TypeLife typeLife = TypeLife.Armor;
+
     public Image filledImage;
     public Character character;
     [Tooltip("Donde hace Focus el canvas, Recomendado: Player.")]
@@ -12,15 +15,25 @@ public class UiComponentLife : MonoBehaviour
 
     void Start()
     {
-        character.OnTakeDamage += TakeDamage;
-        filledImage.fillAmount = character.GetEnergy() / character.GetStartedEnergy();
+        character.OnUpdateStats += UpdateUI;
+        UpdateUI();
     }
     void Update()
     {
         transform.LookAt(focus, Vector3.up);
     }
-    void TakeDamage()
+    void UpdateUI()
     {
-        filledImage.fillAmount = character.GetArmor() / character.GetStartedArmor();
+        switch (typeLife)
+        {
+            case TypeLife.Armor:
+                filledImage.fillAmount = character.GetArmor() / character.GetMaxArmor();
+                break;
+            case TypeLife.Energy:
+                filledImage.fillAmount = character.GetEnergy() / character.GetMaxEnergy();
+                break;
+            default:
+                break;
+        }
     }
 }

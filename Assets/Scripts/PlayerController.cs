@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
             {
                 rb.MovePosition(transform.position + transform.forward * speedMovement);
             }
-            else if (Input.GetAxis("Vertical") > 0)
+            else if (Input.GetAxis("Vertical") < 0)
             {
                 rb.MovePosition(transform.position - transform.forward * speedMovement);
             }

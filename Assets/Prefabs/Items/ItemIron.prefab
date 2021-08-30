@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6049280170403803685}
   - component: {fileID: 4798626103091930718}
   - component: {fileID: 9147203721176503703}
-  - component: {fileID: 858183724836168312}
   - component: {fileID: 1603134789522366120}
+  - component: {fileID: 8998381583939263893}
   m_Layer: 12
   m_Name: ItemIron
   m_TagString: Untagged
@@ -112,20 +112,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.81
   m_Center: {x: -0.04993722, y: 0.0675374, z: -0.05354303}
---- !u!64 &858183724836168312
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5256721333140853744}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2027792483851093499, guid: 699679166d376fd43bfc5b99554e65c6, type: 3}
 --- !u!114 &1603134789522366120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +124,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &8998381583939263893
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5256721333140853744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.0042673
+  m_Center: {x: -0.04993722, y: 0.0675374, z: -0.05354303}

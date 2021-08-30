@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8492640585945142124}
   - component: {fileID: 1447274807838760054}
   - component: {fileID: 8906450931281257078}
-  - component: {fileID: 4205967696554592260}
   - component: {fileID: 6968439630143027414}
+  - component: {fileID: 3003937054823350602}
   m_Layer: 12
   m_Name: ItemZinc
   m_TagString: Untagged
@@ -112,20 +112,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3
   m_Center: {x: -0.07498169, y: -0.08965117, z: -0.05638939}
---- !u!64 &4205967696554592260
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7988004674051306169}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7039706516487721568, guid: f07cd8153d3c69c49818b9d9f746a6e6, type: 3}
 --- !u!114 &6968439630143027414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +124,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &3003937054823350602
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7988004674051306169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4353296
+  m_Center: {x: -0.07498169, y: -0.08965117, z: -0.05638939}

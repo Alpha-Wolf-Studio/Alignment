@@ -25,7 +25,7 @@ public class UiManager : MonoBehaviour
     void Start()
     {
         player.playerStatus = PlayerController.PlayerStatus.Inization;
-        character.OnTakeDamage += TakeDamage;
+        character.OnUpdateStats += TakeDamage;
         character.OnDeath += Death;
         player.onShoot+= Shoot;
         player.OnPause+= Pause;
@@ -36,8 +36,8 @@ public class UiManager : MonoBehaviour
     }
     void TakeDamage()
     {
-        filledImageEnergy.fillAmount = character.GetEnergy() / character.GetStartedEnergy();
-        filledImageArmor.fillAmount = character.GetArmor() / character.GetStartedArmor();
+        filledImageEnergy.fillAmount = character.GetEnergy() / character.GetMaxEnergy();
+        filledImageArmor.fillAmount = character.GetArmor() / character.GetMaxArmor();
     }
     void Shoot(float maxCoolDown, bool reloading)
     {

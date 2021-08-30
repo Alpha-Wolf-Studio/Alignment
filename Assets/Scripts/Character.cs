@@ -8,7 +8,7 @@ using UnityEngine;
 public class Character : MonoBehaviour, IDamageable
 {
     public Action OnDeath;
-    public Action OnTakeDamage;
+    public Action OnUpdateStats;
 
     [Header("Animations")]
     [SerializeField] Animator anim;
@@ -17,12 +17,12 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] float deadBodyunderGroundOffset = .5f;
     [SerializeField] AttackComponent attackComponent;
 
-    [Header("Stats")]
-    [SerializeField] float startingEnergy = 100;
-    [SerializeField] float startingAttack = 5;
-    [SerializeField] float startingDefense = 5;
-    [SerializeField] float startingSpeed = 1;
-    [SerializeField] float startingArmor = 5;
+    [Header("Stats")]   // todo: agregar en script separado
+    [SerializeField] float maxEnergy = 100;
+    [SerializeField] float maxAttack = 5;
+    [SerializeField] float maxDefense = 5;
+    [SerializeField] float maxSpeed = 1;
+    [SerializeField] float maxArmor = 5;
     
     private float currentEnergy = 100;
     private float currentAttack = 5;
@@ -31,11 +31,11 @@ public class Character : MonoBehaviour, IDamageable
     private float currentArmor = 5;
 
     #region Getters
-    public float GetStartedEnergy() => startingEnergy;
-    public float GetStartedAttack() => startingAttack;
-    public float GetStartedDefense() => startingDefense;
-    public float GetStartedSpeed() => startingSpeed;
-    public float GetStartedArmor() => startingArmor;
+    public float GetMaxEnergy() => maxEnergy;
+    public float GetMaxAttack() => maxAttack;
+    public float GetMaxDefense() => maxDefense;
+    public float GetMaxSpeed() => maxSpeed;
+    public float GetMaxArmor() => maxArmor;
 
     public float GetEnergy() => currentEnergy;
     public float GetAttack() => currentAttack;
@@ -57,11 +57,11 @@ public class Character : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
 
-        currentEnergy = startingEnergy;
-        currentArmor = startingArmor;
-        currentAttack = startingAttack;
-        currentDefense = startingDefense;
-        currentSpeed = startingSpeed;
+        currentEnergy = maxEnergy;
+        currentArmor = maxArmor;
+        currentAttack = maxAttack;
+        currentDefense = maxDefense;
+        currentSpeed = maxSpeed;
         if (attackComponent != null)
         {
             attackComponent.SetAttackStrenght(currentAttack);
@@ -70,36 +70,43 @@ public class Character : MonoBehaviour, IDamageable
     }
     public void AddMaxArmor(float armour)
     {
-        startingArmor += armour;
+        maxArmor += armour;
+        OnUpdateStats?.Invoke();
     }
     public void AddCurrentArmor(float armor)
     {
         currentArmor += armor;
-        if (currentArmor > startingArmor) currentArmor = startingArmor;
+        if (currentArmor > maxArmor) currentArmor = maxArmor;
+        OnUpdateStats?.Invoke();
     }
     public void AddMaxEnergy(float energy)
     {
-        startingEnergy += energy;
+        maxEnergy += energy;
+        OnUpdateStats?.Invoke();
     }
     public void AddCurrentEnergy(float energy)
     {
         currentEnergy += energy;
-        if (currentEnergy > startingEnergy) currentEnergy = startingEnergy;
+        if (currentEnergy > maxEnergy) currentEnergy = maxEnergy;
+        OnUpdateStats?.Invoke();
     }
     public void AddCurrentAttack(float attack)
     {
         currentAttack += attack;
         if (attackComponent != null) attackComponent.AddAttackStrenght(attack);
+        OnUpdateStats?.Invoke();
     }
     public void AddCurrentDefense(float defense)
     {
         currentDefense += defense;
-        if (currentDefense > startingDefense) currentDefense = startingDefense;
+        if (currentDefense > maxDefense) currentDefense = maxDefense;
+        OnUpdateStats?.Invoke();
     }
     public void AddCurrentSpeed(float speed)
     {
         currentSpeed += speed;
         if (attackComponent != null) attackComponent.AddAttackSpeed(speed);
+        OnUpdateStats?.Invoke();
     }
     public void Attack(Vector3 dir)
     {
@@ -125,7 +132,7 @@ public class Character : MonoBehaviour, IDamageable
                 isAlive = false;
             }
         }
-        OnTakeDamage?.Invoke();
+        OnUpdateStats?.Invoke();
     }
     public void TakeArmorDamage(float damage)
     {
@@ -133,7 +140,6 @@ public class Character : MonoBehaviour, IDamageable
         if (damage > 0 && isAlive) // todo: Agregar un daño mínimo
         {
             currentArmor -= damage;
-            if (currentArmor > startingArmor) currentArmor = startingArmor;
             if (currentArmor > 0)
             {
                 //if(anim != null) anim.SetTrigger("Hit");
@@ -147,7 +153,7 @@ public class Character : MonoBehaviour, IDamageable
                 OnDeath?.Invoke();
             }
         }
-        OnTakeDamage?.Invoke();
+        OnUpdateStats?.Invoke();
     }
     IEnumerator BodyRemoveCoroutine()
     {

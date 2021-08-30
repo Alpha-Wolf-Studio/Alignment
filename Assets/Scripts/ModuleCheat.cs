@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class ModuleCheat : MonoBehaviour
@@ -19,10 +20,15 @@ public class ModuleCheat : MonoBehaviour
     public PlayerController player;
     private Character character;
     private Inventory inventory;
+    public Image[] hud;
     public ReparableObject reparableObject;
 
     private bool godMode;
 
+    private float cheatArmor = 50;
+    private float cheatEnergy = 50;
+    private float cheatDamage = 10;
+    private float cheatSpeed = 0.01f;
 
     private void Awake()
     {
@@ -45,9 +51,7 @@ public class ModuleCheat : MonoBehaviour
                     count++;
                     if (count >= maxCount)
                     {
-                        cheatEnable = true;
-                        onCheat?.Invoke();
-                        Debug.Log("Cheat Enabled.");
+                        CheatEnable();
                     }
                 }
             }
@@ -66,37 +70,37 @@ public class ModuleCheat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Keypad1))
             {
-                Debug.Log("Cheated Armor: " + 50);
-                character.TakeArmorDamage(-50);
+                Debug.Log("Cheated Armor: " + cheatArmor);
+                character.AddCurrentArmor(cheatArmor);
             }
             else if (Input.GetKeyDown(KeyCode.Keypad2))
             {
-                Debug.Log("Cheated Energy: " + 50);
-                character.AddCurrentEnergy(50);
+                Debug.Log("Cheated Energy: " + cheatEnergy);
+                character.AddCurrentEnergy(cheatEnergy);
             }
             else if (Input.GetKeyDown(KeyCode.Keypad3))
             {
-                Debug.Log("Cheated Damage: " + 10);
-                character.AddCurrentAttack(10);
+                Debug.Log("Cheated Damage: " + cheatDamage);
+                character.AddCurrentAttack(cheatDamage);
             }
             else if (Input.GetKeyDown(KeyCode.Keypad4))
             {
                 if (!godMode)
                 {
                     godMode = true;
-                    character.OnTakeDamage += Regenerate;
+                    character.OnUpdateStats += Regenerate;
                     Debug.Log("GodMode: Activated");
                 }
                 else
                 {
                     godMode = false;
-                    character.OnTakeDamage -= Regenerate;
+                    character.OnUpdateStats -= Regenerate;
                     Debug.Log("GodMode: Desactivated");
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Keypad5))
             {
-                player.AddSpeed(0.1f);
+                player.AddSpeed(cheatSpeed);
                 Debug.Log("Current Speed: " + character.GetSpeed());
             }
             else if (Input.GetKeyDown(KeyCode.Keypad6))
@@ -113,7 +117,25 @@ public class ModuleCheat : MonoBehaviour
             }
         }
     }
-
+    void CheatEnable()
+    {
+        cheatEnable = true;
+        onCheat?.Invoke();
+        Debug.Log("Cheat Enabled.");
+        PrintDataCheat();
+        for (int i = 0; i < hud.Length; i++)
+        {
+            hud[i].color = Color.red;
+        }
+    }
+    void PrintDataCheat()
+    {
+        Debug.Log("1- Cheat Armor: " + cheatArmor);
+        Debug.Log("2- Cheat Energy: " + cheatEnergy);
+        Debug.Log("3- Cheat Damage: " + cheatDamage);
+        Debug.Log("4- Cheat GodMode: OnOff.");
+        Debug.Log("5- Cheat Speed: " + cheatSpeed.ToString("F2") + " DANGER");
+    }
     void Regenerate()
     {
         character.AddCurrentArmor(100);
