@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
             {
                 //Debug.Log("Dispara y se Daña");
                 onShoot?.Invoke(maxCoolDownShoot, false);
-                character.TakeDamage(damageForShoot);
+                character.TakeEnergyDamage(damageForShoot);
             }
             else
             {
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
                 currentCoolDownShoot = 0;
             }
             Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
-            character.Attack(screenRay.direction);
+            character.AttackDir(screenRay.direction);
         }
     }
     void CanDeposite()

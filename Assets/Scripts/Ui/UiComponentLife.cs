@@ -27,10 +27,10 @@ public class UiComponentLife : MonoBehaviour
         switch (typeLife)
         {
             case TypeLife.Armor:
-                filledImage.fillAmount = character.GetArmor() / character.GetMaxArmor();
+                filledImage.fillAmount = character.GetArmor().GetCurrent() / character.GetArmor().GetMax();
                 break;
             case TypeLife.Energy:
-                filledImage.fillAmount = character.GetEnergy() / character.GetMaxEnergy();
+                filledImage.fillAmount = character.GetEnergy().GetCurrent() / character.GetEnergy().GetMax();
                 break;
             default:
                 break;

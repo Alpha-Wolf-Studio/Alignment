@@ -37,7 +37,10 @@ public class ModuleCheat : MonoBehaviour
     }
     void Start()
     {
-
+        if (cheatEnable)
+        {
+            CheatEnable();
+        }
     }
     void Update()
     {
@@ -81,11 +84,12 @@ public class ModuleCheat : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Keypad3))
             {
                 Debug.Log("Cheated Damage: " + cheatDamage);
-                character.AddCurrentAttack(cheatDamage);
+                character.AddInitialAttack(cheatDamage);
             }
             else if (Input.GetKeyDown(KeyCode.Keypad4))
             {
-                if (!godMode)
+                Debug.Log("GodMode Deshabilitado.");
+                /*if (!godMode)
                 {
                     godMode = true;
                     character.OnUpdateStats += Regenerate;
@@ -96,7 +100,7 @@ public class ModuleCheat : MonoBehaviour
                     godMode = false;
                     character.OnUpdateStats -= Regenerate;
                     Debug.Log("GodMode: Desactivated");
-                }
+                }*/
             }
             else if (Input.GetKeyDown(KeyCode.Keypad5))
             {
@@ -139,5 +143,6 @@ public class ModuleCheat : MonoBehaviour
     void Regenerate()
     {
         character.AddCurrentArmor(100);
+        character.AddCurrentEnergy(100);
     }
 }

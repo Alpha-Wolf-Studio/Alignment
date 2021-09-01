@@ -17,109 +17,115 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] float deadBodyunderGroundOffset = .5f;
     [SerializeField] AttackComponent attackComponent;
 
-    [Header("Stats")]   // todo: agregar en script separado
-    [SerializeField] float maxEnergy = 100;
-    [SerializeField] float maxAttack = 5;
-    [SerializeField] float maxDefense = 5;
-    [SerializeField] float maxSpeed = 1;
-    [SerializeField] float maxArmor = 5;
-    
-    private float currentEnergy = 100;
-    private float currentAttack = 5;
-    private float currentDefense = 5;
-    private float currentSpeed = 1;
-    private float currentArmor = 5;
+    public enum Stats { Energy, Armor, Damage, Defense, Speed }
+    [Header("Stats")]
+    [SerializeField] private int freePoints;
 
-    #region Getters
-    public float GetMaxEnergy() => maxEnergy;
-    public float GetMaxAttack() => maxAttack;
-    public float GetMaxDefense() => maxDefense;
-    public float GetMaxSpeed() => maxSpeed;
-    public float GetMaxArmor() => maxArmor;
+    [SerializeField] private List<Stat> stats = new List<Stat>();
 
-    public float GetEnergy() => currentEnergy;
-    public float GetAttack() => currentAttack;
-    public float GetDefense() => currentDefense;
-    public float GetSpeed() => currentSpeed;
-    public float GetArmor() => currentArmor;
-
-    #endregion
+    public Stat GetEnergy() => stats[(int) Stats.Energy];
+    public Stat GetArmor() => stats[(int)Stats.Armor];
+    public Stat GetDamage() => stats[(int)Stats.Damage];
+    public Stat GetDefense() => stats[(int)Stats.Defense];
+    public Stat GetSpeed() => stats[(int)Stats.Speed];
 
     Inventory inventory;
     Collider col;
     Rigidbody rb;
 
-    bool isAlive = true;
+    private bool isAlive = true;
 
-    private void Awake()
+    private void Awake()    // todo: Arreglar carrera de Awake con MeleeAttackCollider.cs y MeleeAttack.cs
     {
         inventory = GetComponent<Inventory>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
 
-        currentEnergy = maxEnergy;
-        currentArmor = maxArmor;
-        currentAttack = maxAttack;
-        currentDefense = maxDefense;
-        currentSpeed = maxSpeed;
+        for (int i = 0; i < stats.Count; i++)
+        {
+            stats[i].Init();
+        }
         if (attackComponent != null)
         {
-            attackComponent.SetAttackStrenght(currentAttack);
-            attackComponent.SetAttackSpeed(currentSpeed);
+            attackComponent.SetAttackStrenght(stats[(int)Stats.Damage].GetCurrent());
+            attackComponent.SetAttackSpeed(stats[(int)Stats.Speed].GetCurrent());       // todo: speed de velocidad y de ataque es el mismo???
         }
     }
-    public void AddMaxArmor(float armour)
+
+    private void Start()
     {
-        maxArmor += armour;
+        
+    }
+    public void AddPointStats(Stats stats)
+    {
+        if (freePoints > 0)
+        {
+            freePoints--;
+            this.stats[(int) stats].AddPoint();
+        }
+    }
+    private void AddInitialStat(Stats stat, float value)
+    {
+        stats[(int)stat].AddInitial(value);
         OnUpdateStats?.Invoke();
     }
-    public void AddCurrentArmor(float armor)
+    private void AddCurrentStat(Stats stat, float value)
     {
-        currentArmor += armor;
-        if (currentArmor > maxArmor) currentArmor = maxArmor;
+        stats[(int)stat].AddCurrent(value);
         OnUpdateStats?.Invoke();
     }
-    public void AddMaxEnergy(float energy)
+    
+    #region ------------------------ Add Initials ------------------------
+    public void AddInitialArmor(float value) => AddInitialStat(Stats.Armor, value);
+    public void AddInitialEnergy(float value) => AddInitialStat(Stats.Energy, value);
+    public void AddInitialDefense(float value) => AddInitialStat(Stats.Defense, value);
+
+    public void AddInitialAttack(float value)
     {
-        maxEnergy += energy;
+        AddInitialStat(Stats.Damage, value);
+        if (attackComponent != null) attackComponent.AddAttackStrenght(value);
         OnUpdateStats?.Invoke();
     }
-    public void AddCurrentEnergy(float energy)
+
+    public void AddInitialSpeed(float value)
     {
-        currentEnergy += energy;
-        if (currentEnergy > maxEnergy) currentEnergy = maxEnergy;
+        AddInitialStat(Stats.Speed, value);
+        if (attackComponent != null) attackComponent.AddAttackSpeed(value);
         OnUpdateStats?.Invoke();
     }
-    public void AddCurrentAttack(float attack)
+
+    #endregion
+
+    #region ------------------------ Add Currents ------------------------
+    public void AddCurrentArmor(float value) => AddCurrentStat(Stats.Armor, value);
+    public void AddCurrentEnergy(float value) => AddCurrentStat(Stats.Energy, value);
+    public void AddCurrentDefense(float value) => AddCurrentStat(Stats.Defense, value);
+    /*public void AddCurrentAttack(float value)
     {
-        currentAttack += attack;
-        if (attackComponent != null) attackComponent.AddAttackStrenght(attack);
+        AddCurrentStat(Stats.Energy, value);
+        if (attackComponent != null) attackComponent.AddAttackStrenght(value);
         OnUpdateStats?.Invoke();
     }
-    public void AddCurrentDefense(float defense)
+    public void AddCurrentSpeed(float value)
     {
-        currentDefense += defense;
-        if (currentDefense > maxDefense) currentDefense = maxDefense;
+        AddCurrentStat(Stats.Speed, value);
+        if (attackComponent != null) attackComponent.AddAttackSpeed(value);
         OnUpdateStats?.Invoke();
-    }
-    public void AddCurrentSpeed(float speed)
-    {
-        currentSpeed += speed;
-        if (attackComponent != null) attackComponent.AddAttackSpeed(speed);
-        OnUpdateStats?.Invoke();
-    }
-    public void Attack(Vector3 dir)
+    }*/
+    #endregion
+
+    public void AttackDir(Vector3 dir)
     {
         if (attackComponent != null) attackComponent.Attack(dir);
     }
-    public void TakeDamage(float damage)
+    public void TakeEnergyDamage(float damage)
     {
         if (!isAlive) return;
-        damage -= currentDefense;
+        damage -= stats[(int) Stats.Defense].GetCurrent();
         if (damage > 0)
         {
-            currentEnergy -= damage;
-            if (currentEnergy > 0)
+            AddCurrentStat(Stats.Energy, -damage);
+            if (stats[(int)Stats.Energy].GetCurrent() > 0)
             {
                 //if(anim != null) anim.SetTrigger("Hit");
             }
@@ -136,11 +142,11 @@ public class Character : MonoBehaviour, IDamageable
     }
     public void TakeArmorDamage(float damage)
     {
-        damage -= currentDefense;
+        damage -= stats[(int)Stats.Defense].GetCurrent();
         if (damage > 0 && isAlive) // todo: Agregar un daño mínimo
         {
-            currentArmor -= damage;
-            if (currentArmor > 0)
+            AddCurrentStat(Stats.Armor, -damage);
+            if (stats[(int)Stats.Armor].GetCurrent() > 0)
             {
                 //if(anim != null) anim.SetTrigger("Hit");
             }

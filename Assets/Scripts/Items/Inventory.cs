@@ -142,12 +142,12 @@ public class Inventory : MonoBehaviour
         Item item = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPos].ID);
         if (item.GetType() == typeof(Consumible))
         {
-            character.AddCurrentAttack(((Consumible)item).attackUpgrade);
+            character.AddInitialAttack(((Consumible)item).attackUpgrade);
             character.AddCurrentDefense(((Consumible)item).defenseUpgrade);
-            character.AddCurrentSpeed(((Consumible)item).speedUpgrade);
+            character.AddInitialSpeed(((Consumible)item).speedUpgrade);
             character.AddCurrentEnergy(((Consumible)item).currentEnergyUpgrade);
-            character.AddMaxEnergy(((Consumible)item).maxEnergyUpgrade);
-            character.AddMaxArmor(((Consumible)item).maxArmorUpgrade);
+            character.AddInitialEnergy(((Consumible)item).maxEnergyUpgrade);
+            character.AddInitialArmor(((Consumible)item).maxArmorUpgrade);
             character.AddCurrentArmor(((Consumible)item).currentArmorUpgrade);
             currentSlots[slotPos].AddAmount(-1);
             if (currentSlots[slotPos].IsEmpty())

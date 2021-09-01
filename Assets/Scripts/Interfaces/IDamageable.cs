@@ -1,5 +1,5 @@
 ﻿public interface IDamageable
 {
-    void TakeDamage(float damage);
+    void TakeEnergyDamage(float damage);
     void TakeArmorDamage(float damage);
 }

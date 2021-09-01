@@ -36,8 +36,10 @@ public class UiManager : MonoBehaviour
     }
     void TakeDamage()
     {
-        filledImageEnergy.fillAmount = character.GetEnergy() / character.GetMaxEnergy();
-        filledImageArmor.fillAmount = character.GetArmor() / character.GetMaxArmor();
+        if (character.GetEnergy().GetMax() > 0)
+            filledImageEnergy.fillAmount = character.GetEnergy().GetCurrent() / character.GetEnergy().GetMax();
+        if (character.GetArmor().GetMax() > 0)
+            filledImageArmor.fillAmount = character.GetArmor().GetCurrent() / character.GetArmor().GetMax();
     }
     void Shoot(float maxCoolDown, bool reloading)
     {

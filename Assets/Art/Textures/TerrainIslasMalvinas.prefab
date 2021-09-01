@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8226235811324987053}
   - component: {fileID: 8226235811324987052}
   - component: {fileID: 8226235811324987055}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TerrainIslasMalvinas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
