@@ -9,13 +9,14 @@ public class Character : MonoBehaviour, IDamageable
 {
     public Action OnDeath;
     public Action OnUpdateStats;
+    public Action OnStatsLoaded;
 
     [Header("Animations")]
     [SerializeField] Animator anim;
     [SerializeField] float deadBodyRemoveTime = 5f;
     [SerializeField] float deadBodyRemoveSpeed = .25f;
     [SerializeField] float deadBodyunderGroundOffset = .5f;
-    [SerializeField] AttackComponent attackComponent;
+    [SerializeField] AttackComponent meleeAttackComponent;
 
     public enum Stats { Energy, Armor, Damage, Defense, Speed }
     [Header("Stats")]
@@ -40,21 +41,21 @@ public class Character : MonoBehaviour, IDamageable
         inventory = GetComponent<Inventory>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
-
         for (int i = 0; i < stats.Count; i++)
         {
             stats[i].Init();
         }
-        if (attackComponent != null)
+        if (meleeAttackComponent != null)
         {
-            attackComponent.SetAttackStrenght(stats[(int)Stats.Damage].GetCurrent());
-            attackComponent.SetAttackSpeed(stats[(int)Stats.Speed].GetCurrent());       // todo: speed de velocidad y de ataque es el mismo???
+            meleeAttackComponent.SetAttackStrenght(stats[(int)Stats.Damage].GetCurrent());
+            meleeAttackComponent.SetAttackSpeed(stats[(int)Stats.Speed].GetCurrent());       // todo: speed de velocidad y de ataque es el mismo???
         }
+        OnStatsLoaded?.Invoke();
     }
 
     private void Start()
     {
-        
+
     }
     public void AddPointStats(Stats stats)
     {
@@ -83,14 +84,14 @@ public class Character : MonoBehaviour, IDamageable
     public void AddInitialAttack(float value)
     {
         AddInitialStat(Stats.Damage, value);
-        if (attackComponent != null) attackComponent.AddAttackStrenght(value);
+        if (meleeAttackComponent != null) meleeAttackComponent.AddAttackStrenght(value);
         OnUpdateStats?.Invoke();
     }
 
     public void AddInitialSpeed(float value)
     {
         AddInitialStat(Stats.Speed, value);
-        if (attackComponent != null) attackComponent.AddAttackSpeed(value);
+        if (meleeAttackComponent != null) meleeAttackComponent.AddAttackSpeed(value);
         OnUpdateStats?.Invoke();
     }
 
@@ -116,7 +117,7 @@ public class Character : MonoBehaviour, IDamageable
 
     public void AttackDir(Vector3 dir)
     {
-        if (attackComponent != null) attackComponent.Attack(dir);
+        if (meleeAttackComponent != null) meleeAttackComponent.Attack(dir);
     }
     public void TakeEnergyDamage(float damage)
     {

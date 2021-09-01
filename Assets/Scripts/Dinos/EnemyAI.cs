@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour
     AIAttackModule attackModule = null;
 
     [SerializeField] Transform playerTransform = null;
-    NavMeshAgent agent = null;
+    CustomNavMeshAgent agent = null;
 
     enum EnemyBehaviour { IDLE, PATROLLING, CHASING}
     EnemyBehaviour currentBehaviour = EnemyBehaviour.IDLE;
@@ -35,10 +35,10 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         character = GetComponent<Character>();
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<CustomNavMeshAgent>();
         attackModule = GetComponent<AIAttackModule>();
         character.OnDeath += StopMoving;
-        agent.stoppingDistance = attackDistance - attackStoppingTolerance;
+        agent.StoppingDistance = attackDistance - attackStoppingTolerance;
         startingPosition = transform.position;
     }
 
@@ -59,9 +59,15 @@ public class EnemyAI : MonoBehaviour
     {
         if(!playerTransform) { return; }
         float distanceSqr = Vector3.SqrMagnitude(playerTransform.position - transform.position);
-        if (distanceSqr < chaseDistance * chaseDistance)
+        if (distanceSqr < attackDistance * attackDistance)
+        {
+            anim.SetBool("Walking", false);
+            agent.SetDestination(transform.position);
+        }
+        else if (distanceSqr < chaseDistance * chaseDistance)
         {
             idleTime = 0;
+            anim.SetBool("Walking", true);
             currentBehaviour = EnemyBehaviour.CHASING;
             agent.SetDestination(playerTransform.position);
         }
@@ -74,7 +80,6 @@ public class EnemyAI : MonoBehaviour
                 anim.SetBool("Walking", true);
                 currentBehaviour = EnemyBehaviour.PATROLLING;
                 targetPos = startingPosition + Random.insideUnitSphere * distanceToPatrol;
-                targetPos.y = Terrain.activeTerrain.SampleHeight(targetPos);
                 agent.SetDestination(targetPos);
                 idleTime = 0;
             }
@@ -100,12 +105,10 @@ public class EnemyAI : MonoBehaviour
             case EnemyBehaviour.CHASING:
                 if (distanceSqr < attackDistance * attackDistance) 
                 {
-                    anim.SetBool("Walking", false);
-                    attackModule.Attack();
+                    attackModule.Attack(playerTransform.position);
                 }
                 else 
                 {
-                    anim.SetBool("Walking", true);
                     attackModule.StopAttack();
                 }
                 break;
