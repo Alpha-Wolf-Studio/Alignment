@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float horizontalSensitive = 2;
     [SerializeField] private int minCameraClampVertical = -50;
     [SerializeField] private int maxCameraClampVertical = 50;
-    [SerializeField] private float speedMovement = 0.1f;
+    private float speedMovement = 0.1f;
+    [SerializeField] private float walkSpeedMovement = 0.1f;
+    [SerializeField] private float runSpeedMovement = 0.15f;
 
     private float movH;
     private float movV;
@@ -74,9 +76,19 @@ public class PlayerController : MonoBehaviour
         if (currentCoolDownShoot < maxCoolDownShoot)
             currentCoolDownShoot += Time.deltaTime;
     }
+    void CanRun()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+
+        }
+    }
     void CanJump()
     {
-        
+        if (Input.GetButtonDown("Jump"))
+        {
+
+        }
     }
     void CanAttack()
     {
