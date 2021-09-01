@@ -33,6 +33,13 @@ public class PlayerController : MonoBehaviour
     public float currentCoolDownShoot = 10;
     private float damageForShoot = 7;
     private float maxDistInteract = 50;
+    
+    private bool useEnergyRun;
+    private float energySpendRun = 0.2f;
+    private float energyRegenerateRun = 0.15f;
+
+    private float maxStamina = 100;
+    [SerializeField] private float currentStamina = 100;
 
     private void Awake()
     {
@@ -78,9 +85,15 @@ public class PlayerController : MonoBehaviour
     }
     void CanRun()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-
+            speedMovement = runSpeedMovement;
+            useEnergyRun = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speedMovement = walkSpeedMovement;
+            useEnergyRun = false;
         }
     }
     void CanJump()
@@ -140,6 +153,7 @@ public class PlayerController : MonoBehaviour
                 UpdateCoolDown();
                 CanInventory();
                 CanPause();
+                CanRun();
                 CanJump();
                 break;
             case PlayerStatus.Inventory:
@@ -171,19 +185,41 @@ public class PlayerController : MonoBehaviour
             if (Input.GetAxis("Vertical") > 0)
             {
                 rb.MovePosition(transform.position + transform.forward * speedMovement);
+                if (useEnergyRun) currentStamina -= energySpendRun;
             }
             else if (Input.GetAxis("Vertical") < 0)
             {
                 rb.MovePosition(transform.position - transform.forward * speedMovement);
+                if (useEnergyRun) currentStamina -= energySpendRun;
             }
 
             if (Input.GetAxis("Horizontal") < 0)
             {
                 rb.MovePosition(transform.position - transform.right * speedMovement);
+                if (useEnergyRun) currentStamina -= energySpendRun;
             }
             else if (Input.GetAxis("Horizontal") > 0)
             {
                 rb.MovePosition(transform.position + transform.right * speedMovement);
+                if (useEnergyRun) currentStamina -= energySpendRun;
+            }
+
+            if (currentStamina < 0)
+            {
+                speedMovement = walkSpeedMovement;
+                useEnergyRun = false;
+            }
+
+            if (!useEnergyRun)
+            {
+                if (currentStamina < maxStamina)
+                {
+                    currentStamina += energyRegenerateRun;
+                    if (currentStamina > maxStamina)
+                    {
+                        currentStamina = maxStamina;
+                    }
+                }
             }
         }
     }
