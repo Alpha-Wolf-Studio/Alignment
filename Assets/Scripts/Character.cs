@@ -16,7 +16,7 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] float deadBodyRemoveTime = 5f;
     [SerializeField] float deadBodyRemoveSpeed = .25f;
     [SerializeField] float deadBodyunderGroundOffset = .5f;
-    [SerializeField] AttackComponent meleeAttackComponent;
+    [SerializeField] AttackComponent attackComponent;
 
     public enum Stats { Energy, Armor, Damage, Defense, Speed }
     [Header("Stats")]
@@ -45,10 +45,10 @@ public class Character : MonoBehaviour, IDamageable
         {
             stats[i].Init();
         }
-        if (meleeAttackComponent != null)
+        if (attackComponent != null)
         {
-            meleeAttackComponent.SetAttackStrenght(stats[(int)Stats.Damage].GetCurrent());
-            meleeAttackComponent.SetAttackSpeed(stats[(int)Stats.Speed].GetCurrent());       // todo: speed de velocidad y de ataque es el mismo???
+            attackComponent.SetAttackStrenght(stats[(int)Stats.Damage].GetCurrent());
+            attackComponent.SetAttackSpeed(stats[(int)Stats.Speed].GetCurrent());       // todo: speed de velocidad y de ataque es el mismo???
         }
         OnStatsLoaded?.Invoke();
     }
@@ -84,14 +84,14 @@ public class Character : MonoBehaviour, IDamageable
     public void AddInitialAttack(float value)
     {
         AddInitialStat(Stats.Damage, value);
-        if (meleeAttackComponent != null) meleeAttackComponent.AddAttackStrenght(value);
+        if (attackComponent != null) attackComponent.AddAttackStrenght(value);
         OnUpdateStats?.Invoke();
     }
 
     public void AddInitialSpeed(float value)
     {
         AddInitialStat(Stats.Speed, value);
-        if (meleeAttackComponent != null) meleeAttackComponent.AddAttackSpeed(value);
+        if (attackComponent != null) attackComponent.AddAttackSpeed(value);
         OnUpdateStats?.Invoke();
     }
 
@@ -117,7 +117,7 @@ public class Character : MonoBehaviour, IDamageable
 
     public void AttackDir(Vector3 dir)
     {
-        if (meleeAttackComponent != null) meleeAttackComponent.Attack(dir);
+        if (attackComponent != null) attackComponent.Attack(dir);
     }
     public void TakeEnergyDamage(float damage)
     {
