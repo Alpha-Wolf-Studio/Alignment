@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Character))]
 [RequireComponent(typeof(AIAttackModule))]
@@ -40,6 +42,12 @@ public class EnemyAI : MonoBehaviour
         character.OnDeath += StopMoving;
         agent.StoppingDistance = attackDistance - attackStoppingTolerance;
         startingPosition = transform.position;
+    }
+
+    private void Start()
+    {
+        if (!playerTransform)
+            playerTransform = FindObjectOfType<PlayerController>().transform;
     }
 
     public void SetPlayerReference(Transform trans) 

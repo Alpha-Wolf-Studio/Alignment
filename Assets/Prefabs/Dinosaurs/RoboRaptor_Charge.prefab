@@ -1564,7 +1564,7 @@ Transform:
   m_GameObject: {fileID: 3917014630346785539}
   m_LocalRotation: {x: 0, y: 0.9575211, z: 0, w: 0.28836352}
   m_LocalPosition: {x: 51.7, y: -1.938, z: 29.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
   m_Children:
   - {fileID: 4722802187627034518}
   - {fileID: 5344264535597764578}
@@ -1655,12 +1655,44 @@ MonoBehaviour:
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.1
   deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 875581337597391667}
-  maxEnergy: 0
-  maxAttack: 1
-  maxDefense: 0
-  maxSpeed: 1
-  maxArmor: 100
+  attackComponent: {fileID: 0}
+  freePoints: 0
+  stats:
+  - name: Energy
+    initial: 0
+    points: 0
+    amountPlus: 0
+    multiplySubtract: 0
+    current: 0
+    max: 0
+  - name: Armor
+    initial: 100
+    points: 0
+    amountPlus: 0
+    multiplySubtract: 0
+    current: 0
+    max: 0
+  - name: Damage
+    initial: 10
+    points: 0
+    amountPlus: 0
+    multiplySubtract: 0
+    current: 0
+    max: 0
+  - name: Defense
+    initial: 0
+    points: 0
+    amountPlus: 0
+    multiplySubtract: 0
+    current: 0
+    max: 0
+  - name: Speed
+    initial: 0.1
+    points: 0
+    amountPlus: 0
+    multiplySubtract: 0
+    current: 0
+    max: 0
 --- !u!54 &3917014630346785537
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1785,6 +1817,7 @@ MonoBehaviour:
   maxCooldown: 5
   currentAttackType: 1
   anim: {fileID: 7192235098233512660}
+  meleeColliders: []
   projectilePrefab: {fileID: 0}
   projectileSpawn: {fileID: 0}
   projectileSpeed: 50
@@ -2968,14 +3001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d9133472e91424a8a32c634cadec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  maxCooldown: 5
-  meleeColliders:
-  - {fileID: 875581337523738518}
-  - {fileID: 875581337174159329}
-  - {fileID: 875581337880450924}
+  aiAttackModule: {fileID: 0}
 --- !u!1 &7224968829080003932
 GameObject:
   m_ObjectHideFlags: 0

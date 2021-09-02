@@ -1115,7 +1115,7 @@ Transform:
   m_GameObject: {fileID: 2547520158362113447}
   m_LocalRotation: {x: 0, y: 0.9575211, z: 0, w: 0.28836352}
   m_LocalPosition: {x: 40.6, y: -1.938, z: -24.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
   m_Children:
   - {fileID: 6092340648649974066}
   - {fileID: 6857909504449960262}
@@ -1206,18 +1206,18 @@ MonoBehaviour:
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.1
   deadBodyunderGroundOffset: 0.5
-  meleeAttackComponent: {fileID: 1810487241499354519}
+  attackComponent: {fileID: 0}
   freePoints: 0
   stats:
   - name: Energy
-    initial: 100
+    initial: 0
     points: 0
     amountPlus: 0
     multiplySubtract: 0
     current: 0
     max: 0
   - name: Armor
-    initial: 5
+    initial: 100
     points: 0
     amountPlus: 0
     multiplySubtract: 0
@@ -1368,6 +1368,7 @@ MonoBehaviour:
   maxCooldown: 5
   currentAttackType: 0
   anim: {fileID: 8559486557907072112}
+  meleeColliders: []
   projectilePrefab: {fileID: 0}
   projectileSpawn: {fileID: 0}
   projectileSpeed: 50
@@ -3344,14 +3345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d9133472e91424a8a32c634cadec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  maxCooldown: 5
-  meleeColliders:
-  - {fileID: 1810487241560441138}
-  - {fileID: 1810487242150132037}
-  - {fileID: 1810487241916891592}
+  aiAttackModule: {fileID: 0}
 --- !u!1 &8576132730628291990
 GameObject:
   m_ObjectHideFlags: 0

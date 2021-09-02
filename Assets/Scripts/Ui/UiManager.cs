@@ -9,6 +9,7 @@ public class UiManager : MonoBehaviour
     public Image filledImageCoolDown;
     public Image filledImageEnergy;
     public Image filledImageArmor;
+    public Image filledImageStamina;
     public Color CoolDownReloading = Color.red;
     public Character character;
     public PlayerController player;
@@ -33,6 +34,7 @@ public class UiManager : MonoBehaviour
     void Update()
     {
         sightHud.Rotate(Vector3.forward * (speed * Time.deltaTime));
+        filledImageStamina.fillAmount = player.GetCurrentStamina() / player.GetMaxStamina();
     }
     void TakeDamage()
     {

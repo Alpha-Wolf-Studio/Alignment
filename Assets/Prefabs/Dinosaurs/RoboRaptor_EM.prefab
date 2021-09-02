@@ -1626,7 +1626,7 @@ Transform:
   m_GameObject: {fileID: 4213883381327293387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.77, y: -1.66, z: -10.03}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
   m_Children:
   - {fileID: 5596974912172007262}
   - {fileID: 5047432173733193514}
@@ -1717,9 +1717,44 @@ MonoBehaviour:
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.1
   deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 105864187}
+  attackComponent: {fileID: 0}
   freePoints: 0
-  stats: []
+  stats:
+  - name: Energy
+    initial: 0
+    points: 0
+    amountPlus: 0
+    multiplySubtract: 0
+    current: 0
+    max: 0
+  - name: Armor
+    initial: 100
+    points: 0
+    amountPlus: 0
+    multiplySubtract: 0
+    current: 0
+    max: 0
+  - name: Damage
+    initial: 10
+    points: 0
+    amountPlus: 0
+    multiplySubtract: 0
+    current: 0
+    max: 0
+  - name: Defense
+    initial: 0
+    points: 0
+    amountPlus: 0
+    multiplySubtract: 0
+    current: 0
+    max: 0
+  - name: Speed
+    initial: 0.1
+    points: 0
+    amountPlus: 0
+    multiplySubtract: 0
+    current: 0
+    max: 0
 --- !u!54 &4213883381327293385
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1788,6 +1823,7 @@ MonoBehaviour:
   maxCooldown: 5
   currentAttackType: 2
   anim: {fileID: 8064050418314201628}
+  meleeColliders: []
   projectilePrefab: {fileID: 1529946139122123432, guid: e8eb34df166d24e489170a21026d381e,
     type: 3}
   projectileSpawn: {fileID: 2341770097358253747}
@@ -3367,14 +3403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d9133472e91424a8a32c634cadec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  maxCooldown: 5
-  meleeColliders:
-  - {fileID: 36388702}
-  - {fileID: 788612905}
-  - {fileID: 426262436}
+  aiAttackModule: {fileID: 0}
 --- !u!1 &8133430019551429313
 GameObject:
   m_ObjectHideFlags: 0

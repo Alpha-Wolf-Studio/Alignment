@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 [RequireComponent(typeof(Character))]
@@ -7,7 +8,6 @@ public class PlayerController : MonoBehaviour
     public enum PlayerStatus { Fading, Inization, Game, Pause, Inventory, EndWin, EndLose }
     public PlayerStatus playerStatus = PlayerStatus.Inization;
     
-    public Action OnInteract;
     public Action OnInventory;
     public Action OnPause;
     public Action<float, bool> onShoot;
@@ -36,10 +36,19 @@ public class PlayerController : MonoBehaviour
     
     private bool useEnergyRun;
     private float energySpendRun = 0.2f;
-    private float energyRegenerateRun = 0.15f;
+    private float energyRegenerate = 0.05f;
 
     private float maxStamina = 100;
     [SerializeField] private float currentStamina = 100;
+    public enum State { Walk, Run, Flying }
+    [SerializeField] private float forceJump;
+    [SerializeField] private float forceFly;
+    private float onTimePressFly;
+    private bool useEnergyFly;
+    private float energySpendFly = 0.8f;
+    [SerializeField] private float maxTimePressToFly;
+    private bool grounded = true;
+    private bool flying;
 
     private void Awake()
     {
@@ -96,11 +105,35 @@ public class PlayerController : MonoBehaviour
             useEnergyRun = false;
         }
     }
-    void CanJump()
+    void CanJumpAndFly()
     {
         if (Input.GetButtonDown("Jump"))
         {
-
+            if (grounded)
+            {
+                Debug.Log("Jump.");
+                rb.AddForce(transform.up * forceJump, ForceMode.Impulse);
+                grounded = false;
+            }
+            else
+            {
+                flying = true;
+                useEnergyFly = true;
+            }
+        }
+        if (Input.GetButton("Jump"))
+        {
+            onTimePressFly += Time.deltaTime;
+            if (onTimePressFly > maxTimePressToFly && !useEnergyFly) 
+            {
+                useEnergyFly = true;
+                flying = true;
+            }
+        }
+        if (Input.GetButtonUp("Jump"))
+        {
+            useEnergyFly = false;
+            onTimePressFly = 0;
         }
     }
     void CanAttack()
@@ -154,7 +187,7 @@ public class PlayerController : MonoBehaviour
                 CanInventory();
                 CanPause();
                 CanRun();
-                CanJump();
+                CanJumpAndFly();
                 break;
             case PlayerStatus.Inventory:
                 UpdateCoolDown();
@@ -182,6 +215,11 @@ public class PlayerController : MonoBehaviour
 
             camara.transform.localEulerAngles = Vector3.left * verticalLookRotation;
 
+            if (flying && useEnergyFly)
+            {
+                rb.AddForce(transform.up * forceFly, ForceMode.Impulse);
+                currentStamina -= energySpendFly;
+            }
             if (Input.GetAxis("Vertical") > 0)
             {
                 rb.MovePosition(transform.position + transform.forward * speedMovement);
@@ -208,21 +246,36 @@ public class PlayerController : MonoBehaviour
             {
                 speedMovement = walkSpeedMovement;
                 useEnergyRun = false;
+                flying = false;
             }
 
             if (!useEnergyRun)
             {
                 if (currentStamina < maxStamina)
                 {
-                    currentStamina += energyRegenerateRun;
-                    if (currentStamina > maxStamina)
+                    if (grounded)
                     {
-                        currentStamina = maxStamina;
+                        currentStamina += energyRegenerate;
+                        if (currentStamina > maxStamina)
+                        {
+                            currentStamina = maxStamina;
+                        }
                     }
                 }
             }
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(Global.LayerEquals(LayerMask.GetMask("Ground"), other.gameObject.layer))
+        {
+            grounded = true;
+            Debug.Log("Grounded.");
+        }
+    }
+    public float GetCurrentStamina() => currentStamina;
+    public float GetMaxStamina() => maxStamina;
     public void AddSpeed(float speed)
     {
         speedMovement += speed;
