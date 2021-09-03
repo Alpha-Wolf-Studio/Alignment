@@ -11,7 +11,7 @@ public class Stat
     [SerializeField] private float amountPlus;          // Puntos que te da la mejora
     [SerializeField] private float multiplySubtract;    // Multiplicador que disminuye el amount
     [SerializeField] private float current;             // La cantidad actual que tiene
-    [SerializeField] private float max;                 // maximo que se calcula con: Inicial + points * amountOfPoint * (multiplySubtract * amountOfPoint)
+    [SerializeField] private float max;                 // maximo que se calcula con: CalculateMax();
 
     public void AddPoint()
     {
@@ -91,8 +91,4 @@ public class Stat
     {
         return max;
     }
-
-
-
-
 }
