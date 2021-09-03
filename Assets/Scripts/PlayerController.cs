@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 [RequireComponent(typeof(Character))]
@@ -59,6 +58,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         AvailableCursor(false);
+        currentStamina = maxStamina;
     }
     void CanPause()
     {
