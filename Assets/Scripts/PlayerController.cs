@@ -220,25 +220,11 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce(transform.up * forceFly, ForceMode.Impulse);
                 currentStamina -= energySpendFly;
             }
-            if (Input.GetAxis("Vertical") > 0)
-            {
-                rb.MovePosition(transform.position + transform.forward * speedMovement);
-                if (useEnergyRun) currentStamina -= energySpendRun;
-            }
-            else if (Input.GetAxis("Vertical") < 0)
-            {
-                rb.MovePosition(transform.position - transform.forward * speedMovement);
-                if (useEnergyRun) currentStamina -= energySpendRun;
-            }
 
-            if (Input.GetAxis("Horizontal") < 0)
+            if (Mathf.Abs(Input.GetAxis("Vertical")) > 0 || Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
             {
-                rb.MovePosition(transform.position - transform.right * speedMovement);
-                if (useEnergyRun) currentStamina -= energySpendRun;
-            }
-            else if (Input.GetAxis("Horizontal") > 0)
-            {
-                rb.MovePosition(transform.position + transform.right * speedMovement);
+                Vector3 movementVector = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")) * speedMovement;
+                rb.MovePosition(transform.position + movementVector);
                 if (useEnergyRun) currentStamina -= energySpendRun;
             }
 
