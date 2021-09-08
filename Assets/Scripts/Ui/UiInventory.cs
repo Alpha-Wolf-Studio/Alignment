@@ -26,10 +26,10 @@ public class UiInventory : MonoBehaviour
     private float onTime2;
     public float panelOpacityOn = 1.0f;
     public float inventoryOpenDuration = 1.0f;
-    private CanvasGroup panelGral;
     public RectMask2D rmPanelInventory;
     public RectMask2D rmPanelCrafting;
     public RectMask2D rmPanelCharacter;
+    public CanvasGroup panelGral;
     private RectTransform rtPanelInventory;
     private RectTransform rtPanelCrafting;
     private RectTransform rtPanelCharacter;
@@ -47,7 +47,6 @@ public class UiInventory : MonoBehaviour
         inventory = player.GetComponent<Inventory>();
         playerController = player.GetComponent<PlayerController>();
         
-        panelGral = GetComponent<CanvasGroup>();
         rtPanelInventory = rmPanelInventory.GetComponent<RectTransform>();
         rtPanelCrafting = rtPanelInventory.GetComponent<RectTransform>();
         rtPanelCharacter = rtPanelInventory.GetComponent<RectTransform>();
@@ -62,7 +61,7 @@ public class UiInventory : MonoBehaviour
     {
         CreateButtonsSlots();
         RefreshAllButtons();
-        ResizeContent();
+        //ResizeContent();
 
         panelGral.alpha = 0;
         panelGral.interactable = false;

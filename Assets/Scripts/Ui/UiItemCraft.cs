@@ -1,24 +1,26 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UiItemCraft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public UiCrafting uiCraft;
-    public int id = 0;
-    public int index = 0;
-    public Color colorAvailable = Color.green;
-    public Color colorDisable = Color.red;
-    public float alphaColor = 70;
-    public Image panelAvailable;
+    public int id;
+    public int index;
+    private Color colorAvailable = Color.white;
+    private Color colorDisable = Color.red;
     private RectTransform rectTransform;
+
+    public Image panelAvailable;
     public Image myImage;
+    public TextMeshProUGUI myName;
+    public TextMeshProUGUI myAmount;
+    public RectTransform toolTip;
+    public TextMeshProUGUI toolTipText;
 
     private void Awake()
     {
-        colorAvailable.a = alphaColor;
-        colorDisable.a = alphaColor;
-
         uiCraft = FindObjectOfType<UiCrafting>();
         rectTransform = GetComponent<RectTransform>();
     }
@@ -33,7 +35,7 @@ public class UiItemCraft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void SetButton(int id)
     {
         this.id = id;
-        GetComponent<Image>().sprite = ItemManager.GetInstance().GetItemFromID(id).icon;
+        myImage.sprite = ItemManager.GetInstance().GetItemFromID(id).icon;
 
         if (uiCraft.craft.IsCraftPosible(ItemManager.GetInstance().GetItemFromID(id)))
         {
@@ -49,19 +51,20 @@ public class UiItemCraft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void Refresh()
     {
         myImage.sprite = ItemManager.GetInstance().GetItemFromID(id).icon;
+        myName.text = ItemManager.GetInstance().GetItemFromID(id).name;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (id > 0)
         {
-            uiCraft.toolTip.gameObject.SetActive(true);
-            uiCraft.RefreshToolTip(rectTransform);
+            toolTip.gameObject.SetActive(true);
+            RefreshToolTip();
         }
     }
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown: " + gameObject.name, gameObject);
-        uiCraft.toolTip.gameObject.SetActive(false);
+        toolTip.gameObject.SetActive(false);
     }
     public void OnPointerUp(PointerEventData eventData)
     {
@@ -69,7 +72,7 @@ public class UiItemCraft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        uiCraft.toolTip.gameObject.SetActive(false);
+        toolTip.gameObject.SetActive(false);
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -94,5 +97,34 @@ public class UiItemCraft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 Debug.Log("Craft Fracaso.");
             }
         }
+    }
+    public void RefreshToolTip()
+    {
+        string text = "";
+        Item item = ItemManager.GetInstance().GetItemFromID(id);
+        
+        for (int i = 0; i < item.recipe.Count; i++)
+        {
+            if (item.recipe[i].amount < 10) text += " ";
+            text += item.recipe[i].amount + "  " + item.recipe[i].item.name;
+            text += "\n";
+        }
+
+        toolTipText.text = text;
+    }
+    string TextFormatter()
+    {
+        if (id < 0)
+        {
+            toolTip.gameObject.SetActive(false);
+            return "";
+        }
+        Item myItem = ItemManager.GetInstance().GetItemFromID(id);
+
+        string text = myItem.ItemToString();
+
+        // todo: traer la recursividad de public bool IsCraftPosible(Item item) que devuelve INT
+
+        return text;
     }
 }

@@ -12,8 +12,7 @@ public class UiCrafting : MonoBehaviour
     public GameObject panelCraft;
     public Image prefabCrafteable;
     public Crafting craft;
-
-    public GameObject toolTip;
+    
     public RectTransform contentCraft;
     void Start()
     {
@@ -47,9 +46,7 @@ public class UiCrafting : MonoBehaviour
                 }
             }
         }
-
-        ResizeContent();
-        SortCraft();
+        //ResizeContent();
     }
     void ResizeContent()
     {
@@ -74,38 +71,5 @@ public class UiCrafting : MonoBehaviour
         int padding = grid.padding.bottom + grid.padding.top;
 
         contentCraft.sizeDelta = new Vector2(contentCraft.sizeDelta.x, cantChild * cellSize / columns + padding);
-    }
-    void SortCraft()
-    {
-        
-    }
-    public string RefreshToolTip(RectTransform btn)
-    {
-        UiItemCraft uiItem = btn.GetComponent<UiItemCraft>();
-
-        toolTip.transform.position = new Vector3(btn.transform.position.x, btn.transform.position.y, btn.transform.position.z);
-        int id = uiItem.id;
-
-        string text = TextFormatter(uiItem, id);
-        TextMeshProUGUI textMesh = toolTip.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        textMesh.text = text;
-        return text;
-    }
-    string TextFormatter(UiItemCraft UiSlot, int idItem)
-    {
-        int index = UiSlot.index;
-
-        if (idItem < 0)
-        {
-            toolTip.gameObject.SetActive(false);
-            return "";
-        }
-        Item myItem = ItemManager.GetInstance().GetItemFromID(idItem);
-
-        string text = myItem.ItemToString();
-
-        // todo: traer la recursividad de public bool IsCraftPosible(Item item) que devuelve INT
-
-        return text;
     }
 }
