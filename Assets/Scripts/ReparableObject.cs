@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class ReparableObject : MonoBehaviour
 {
-    public Action OnRepair;
+    public Action<RepairLocations> OnRepair;
+    public RepairLocations location;
     public string nameToRepair;
     public TextMeshProUGUI nameToRepairTM;
     public List<Slot> idRequired = new List<Slot>();
@@ -49,7 +50,7 @@ public class ReparableObject : MonoBehaviour
         item.text.text += "\nRemaining: " + idRequired[index].amount;
         if (CheckRepaired())
         {
-            OnRepair?.Invoke();
+            OnRepair?.Invoke(location);
         }
     }
     bool CheckRepaired()

@@ -1777,6 +1777,7 @@ MonoBehaviour:
   patrolStoppingTolerance: 10
   anim: {fileID: 7192235098233512660}
   playerTransform: {fileID: 0}
+  dinoType: 1
 --- !u!195 &875581337349143452
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1823,6 +1824,7 @@ MonoBehaviour:
   projectileSpeed: 50
   groundOffset: 0.25
   chargeStrenght: 1000
+  chargeDistanceOffset: 1
 --- !u!1 &4411769413978440523
 GameObject:
   m_ObjectHideFlags: 0

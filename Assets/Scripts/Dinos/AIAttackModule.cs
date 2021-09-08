@@ -17,13 +17,16 @@ public class AIAttackModule : AttackComponent
     [SerializeField] float projectileSpeed = 50f;
     [SerializeField] float groundOffset = 1f;
     [Header("Charge")]
-    [SerializeField] float chargeStrenght = 1000f;
+    [SerializeField] float chargeStrenght = 1f;
+    [SerializeField] float chargeDistanceOffset = 1f;
+
 
     Rigidbody rb = null;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        GetComponent<Character>().OnDeath += StopAI;
     }
 
     public void ChangeAttackType(attack_Type newAttackType)
@@ -51,7 +54,7 @@ public class AIAttackModule : AttackComponent
                 if (currentCooldown < 0)
                 {
                     StartCoroutine(CooldownCoroutine());
-                    rb.AddForce(transform.forward * chargeStrenght);
+                    StartCoroutine(ChargeCoroutine(dir));
                 }
                 break;
             case attack_Type.Range:
@@ -98,4 +101,19 @@ public class AIAttackModule : AttackComponent
             collider.StopCollider();
         }
     }
+    IEnumerator ChargeCoroutine(Vector3 dir) 
+    {
+        Vector3 aux = transform.position + dir;
+        while (Vector3.Distance(transform.position, transform.position + aux) > chargeDistanceOffset) 
+        {
+            rb.MovePosition(transform.position + transform.forward * chargeStrenght);
+            yield return null;
+        }
+    }
+
+    void StopAI() 
+    {
+        StopAllCoroutines();
+    }
+
 }
