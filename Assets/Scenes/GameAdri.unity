@@ -1268,6 +1268,7 @@ MonoBehaviour:
   generator: {fileID: 70430815}
   inventory: {fileID: 856235264}
   crafting: {fileID: 856235265}
+  enemyManager: {fileID: 1469094220}
 --- !u!1 &194238795
 GameObject:
   m_ObjectHideFlags: 0
@@ -5681,6 +5682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnDistanceFromCenter: 50
+  spawnTime: 5
   raptorPrefab: {fileID: 2547520158362113447, guid: d78689ecead90ff4688ba7fa9198731c,
     type: 3}
   raptorSpawns:
