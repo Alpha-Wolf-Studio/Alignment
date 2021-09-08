@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] bool canPickUpItems = false;
     [SerializeField] float pickUpDistance = 1f;
     [SerializeField] LayerMask pickUpMask = default;
+
+    public Action<Item, int> OnPickUp;
 
     Character character;
 
@@ -237,7 +240,7 @@ public class Inventory : MonoBehaviour
         {
             if (slot.ID > 0)
             {
-                Vector3 randomForceDirection = Random.insideUnitSphere * explosionStrenght;
+                Vector3 randomForceDirection = UnityEngine.Random.insideUnitSphere * explosionStrenght;
                 Debug.DrawRay(transform.position, randomForceDirection * 10, Color.red, 10);
                 Transform parent = ItemManager.GetInstance().transform;
                 Vector3 posAux = transform.position;
@@ -260,6 +263,7 @@ public class Inventory : MonoBehaviour
                 ItemComponent itemComponent = item.GetComponent<ItemComponent>();
                 if(AddNewItem(itemComponent.GetID(), itemComponent.GetAmount()))
                 {
+                    OnPickUp?.Invoke(ItemManager.GetInstance().GetItemFromID(itemComponent.GetID()), itemComponent.GetAmount());
                     Destroy(item.gameObject);
                 }
             }

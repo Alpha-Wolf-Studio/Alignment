@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         player.playerStatus = PlayerController.PlayerStatus.EndLose;
         GameOver();
     }
-    void RepairShip()
+    void RepairShip(RepairLocations location)
     {
         objectsRemaining--;
         if (objectsRemaining == 0)

@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Inventory))]
 public class Crafting : MonoBehaviour
 {
+
+    public Action<Item> OnCraft;
+
     Inventory inventory = null;
 
     private void Awake()
@@ -20,6 +23,7 @@ public class Crafting : MonoBehaviour
                 inventory.RemoveItem(ingredient.item, ingredient.amount);
             }
             inventory.AddNewItem(item.id, 1);
+            OnCraft?.Invoke(item);
             return true;
         }
         return false;
