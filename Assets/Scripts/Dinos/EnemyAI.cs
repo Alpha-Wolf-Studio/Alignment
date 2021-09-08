@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Chase Behaviour")]
     [SerializeField] float chaseDistance = 50f;
-    [SerializeField] float attackDistance = 1f;
+    [SerializeField] float attackDistance = 1.85f;
     [SerializeField] float attackStoppingTolerance = .1f;
     [Header("Patrol Behaviour")]
     [SerializeField] float maxTimeBetweenPatrols = 5f;
@@ -29,6 +29,10 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] Transform playerTransform = null;
     CustomNavMeshAgent agent = null;
+
+    [SerializeField] DinoClass dinoType = DinoClass.Raptor;
+    int spawnIndex = 0;
+    public Action<DinoClass, int> OnDied;
 
     enum EnemyBehaviour { IDLE, PATROLLING, CHASING}
     EnemyBehaviour currentBehaviour = EnemyBehaviour.IDLE;
@@ -58,6 +62,7 @@ public class EnemyAI : MonoBehaviour
     public void StopMoving() 
     {
         agent.SetDestination(transform.position);
+        OnDied?.Invoke(dinoType, spawnIndex);
         anim.SetBool("Walking", false);
         playerTransform = null;
     }
@@ -123,6 +128,11 @@ public class EnemyAI : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void SetSpawnIndex(int index) 
+    {
+        spawnIndex = index;
     }
     private void OnDrawGizmos()
     {
