@@ -8,8 +8,7 @@ public class UiInventory : MonoBehaviour
 {
     public enum InventaryStatus { Open, Close, Opening, Closeing }
     public InventaryStatus inventaryStatus = InventaryStatus.Close;
-
-    public GameObject player;
+    
     [HideInInspector] public Inventory inventory;
     private PlayerController playerController;
 
@@ -44,8 +43,8 @@ public class UiInventory : MonoBehaviour
 
     private void Awake()
     {
-        inventory = player.GetComponent<Inventory>();
-        playerController = player.GetComponent<PlayerController>();
+        playerController = GameManager.Get().player;
+        inventory = playerController.GetComponent<Inventory>();
         
         rtPanelInventory = rmPanelInventory.GetComponent<RectTransform>();
         rtPanelCrafting = rtPanelInventory.GetComponent<RectTransform>();

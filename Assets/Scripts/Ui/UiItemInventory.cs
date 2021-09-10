@@ -31,6 +31,7 @@ public class UiItemInventory : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         this.id = id;
         
         myImage.sprite = ItemManager.GetInstance().GetItemFromID(id).icon;
+        myImage.color = (id > 0) ? Color.white : Color.clear;
         if (ItemManager.GetInstance().GetItemFromID(id).maxStack > 1)
         {
             textAmount.text = uiInv.inventory.GetSlot(indexList).amount.ToString();

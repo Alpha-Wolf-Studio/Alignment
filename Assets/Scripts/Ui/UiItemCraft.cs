@@ -1,80 +1,59 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
-public class UiItemCraft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public UiCrafting uiCraft;
-    public int id;
-    public int index;
-    private Color colorAvailable = Color.white;
-    private Color colorDisable = Color.red;
-    private RectTransform rectTransform;
+    [HideInInspector] public Item item;
 
+    public Button buttonCraft;
     public Image panelAvailable;
     public Image myImage;
     public TextMeshProUGUI myName;
     public TextMeshProUGUI myAmount;
     public RectTransform toolTip;
-    public TextMeshProUGUI toolTipText;
-
-    private void Awake()
-    {
-        uiCraft = FindObjectOfType<UiCrafting>();
-        rectTransform = GetComponent<RectTransform>();
-    }
+    
     void Start()
     {
-
-    }
-    void Update()
-    {
-        
-    }
-    public void SetButton(int id)
-    {
-        this.id = id;
-        myImage.sprite = ItemManager.GetInstance().GetItemFromID(id).icon;
-
-        if (uiCraft.craft.IsCraftPosible(ItemManager.GetInstance().GetItemFromID(id)))
+        uiCraft = FindObjectOfType<UiCrafting>();
+        for (int i = 0; i < item.recipe.Count; i++)
         {
-            panelAvailable.color = colorAvailable;
-        }
-        else
-        {
-            panelAvailable.color = colorDisable;
+            UiItemCraft go = Instantiate(uiCraft.prefabCrafteable, toolTip);
+            go.item = item.recipe[i].item;
+            go.uiCraft = uiCraft;
         }
 
+        if (!item.crafteable) Destroy(buttonCraft.gameObject);
+        myImage.sprite = item.icon;
+        myName.text = item.name;
         Refresh();
+    }
+    private void OnEnable()
+    {
+        if (item)
+            Refresh();
     }
     public void Refresh()
     {
-        myImage.sprite = ItemManager.GetInstance().GetItemFromID(id).icon;
-        myName.text = ItemManager.GetInstance().GetItemFromID(id).name;
+        if (item.crafteable)
+        {
+            buttonCraft.interactable = uiCraft.craft.IsCraftPosible(item);
+        }
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (id > 0)
+        if (item.id > 0)
         {
             toolTip.gameObject.SetActive(true);
-            RefreshToolTip();
         }
-    }
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Debug.Log("OnPointerDown: " + gameObject.name, gameObject);
-        toolTip.gameObject.SetActive(false);
-    }
-    public void OnPointerUp(PointerEventData eventData)
-    {
-
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         toolTip.gameObject.SetActive(false);
     }
-    public void OnPointerClick(PointerEventData eventData)
+    public void TryCraftButton()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -86,8 +65,8 @@ public class UiItemCraft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
         else
         {
-            Debug.Log("Click sobre: " + ItemManager.GetInstance().GetItemFromID(id).itemName);
-            if (uiCraft.craft.Craft(ItemManager.GetInstance().GetItemFromID(id)))
+            Debug.Log("Click sobre: " + item.name);
+            if (uiCraft.craft.Craft(item))
             {
                 Debug.Log("Craft Exitoso.");
                 uiCraft.uiInv.RefreshAllButtons();
@@ -101,7 +80,6 @@ public class UiItemCraft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void RefreshToolTip()
     {
         string text = "";
-        Item item = ItemManager.GetInstance().GetItemFromID(id);
         
         for (int i = 0; i < item.recipe.Count; i++)
         {
@@ -110,18 +88,17 @@ public class UiItemCraft : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             text += "\n";
         }
 
-        toolTipText.text = text;
+        //toolTipText.text = text;
     }
     string TextFormatter()
     {
-        if (id < 0)
+        if (item.id < 0)
         {
             toolTip.gameObject.SetActive(false);
             return "";
         }
-        Item myItem = ItemManager.GetInstance().GetItemFromID(id);
 
-        string text = myItem.ItemToString();
+        string text = item.ItemToString();
 
         // todo: traer la recursividad de public bool IsCraftPosible(Item item) que devuelve INT
 

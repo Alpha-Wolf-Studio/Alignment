@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using TMPro;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UiCrafting : MonoBehaviour
 {
     public UiInventory uiInv;
     public List<int> listCraftID = new List<int>();
-    public GameObject panelCraft;
-    public Image prefabCrafteable;
+    public Transform panelCraft;
+    public UiItemCraft prefabCrafteable;
     public Crafting craft;
     
     public RectTransform contentCraft;
@@ -32,8 +29,8 @@ public class UiCrafting : MonoBehaviour
                     if (ItemManager.GetInstance().GetItemFromID(id).recipe[0].item)
                     {
                         listCraftID.Add(id);
-                        UiItemCraft craft = Instantiate(prefabCrafteable, panelCraft.transform).GetComponent<UiItemCraft>();
-                        craft.SetButton(id);
+                        UiItemCraft craft = Instantiate(prefabCrafteable, panelCraft.transform);
+                        craft.item = ItemManager.GetInstance().GetItemFromID(id);
                     }
                     else
                     {
