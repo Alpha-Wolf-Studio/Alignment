@@ -20,6 +20,7 @@ public class UiInventory : MonoBehaviour
     public GameObject item;
     public GameObject toolTip;
     public Button buttonSortName;
+    public CanvasGroup hud;
 
     private float onTime;
     private float onTime2;
@@ -166,6 +167,8 @@ public class UiInventory : MonoBehaviour
                     {
                         lerpTime = onTime2 / panelOpacityOn;
                         panelGral.alpha = lerpTime;
+                        if (1 - lerpTime > 0.2f)
+                            hud.alpha = 1 - lerpTime;
                     }
                     yield return null;
                 }
@@ -194,6 +197,7 @@ public class UiInventory : MonoBehaviour
                         onTime2 -= deltaTime;
                         float lerpTime = onTime2 / panelOpacityOn;
                         panelGral.alpha = lerpTime;
+                        hud.alpha = 1 - lerpTime;
                     }
                     yield return null;
                 }
@@ -249,7 +253,7 @@ public class UiInventory : MonoBehaviour
         int chars = 0;
         int maxChar = 0;
         float offset = 58;
-        float margin = 30;
+        float margin = 60;
 
         for (int i = 0; i < text.Length; i++)
         {
@@ -283,10 +287,10 @@ public class UiInventory : MonoBehaviour
         }
         Item myItem = ItemManager.GetInstance().GetItemFromID(idItem);
 
-        string text = myItem.ItemToString();
+        string text = myItem.name;
         if (myItem.maxStack > 1)
         {
-            text += "\nAmount: " + slot.amount;
+            //text += "\nAmount: " + slot.amount;
         }
         return text;
     }

@@ -7,7 +7,7 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     public UiCrafting uiCraft;
     [HideInInspector] public Item item;
-
+    [HideInInspector] public int index = 10;
     public Button buttonCraft;
     public Image panelAvailable;
     public Image myImage;
@@ -23,11 +23,17 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             UiItemCraft go = Instantiate(uiCraft.prefabCrafteable, toolTip);
             go.item = item.recipe[i].item;
             go.uiCraft = uiCraft;
+            go.index++;
         }
 
-        if (!item.crafteable) Destroy(buttonCraft.gameObject);
+        if (!item.crafteable)
+        {
+            Destroy(buttonCraft.gameObject);
+            Destroy(toolTip.gameObject);
+        }
         myImage.sprite = item.icon;
         myName.text = item.name;
+        toolTip.GetComponent<Canvas>().sortingOrder = index;
         Refresh();
     }
     private void OnEnable()

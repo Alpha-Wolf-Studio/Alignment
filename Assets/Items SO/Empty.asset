@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   id: 0
-  icon: {fileID: 0}
+  icon: {fileID: 6229007737631164708, guid: 3fbb9dfa4bd19544aaeb6f12a1fda826, type: 3}
   worldPrefab: {fileID: 0}
   maxStack: 0
   crafteable: 0
