@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +21,7 @@ public class UiManager : MonoBehaviour
     public enum CanvasGroupList { GamePlay, Pause, Options }
     public CanvasGroupList menuActual;
     public List<CanvasGroup> canvasGroup = new List<CanvasGroup>();
-
+    private bool fromInventory;
     void Start()
     {
         player.playerStatus = PlayerController.PlayerStatus.Inization;
@@ -56,7 +55,15 @@ public class UiManager : MonoBehaviour
     }
     public void Pause()
     {
-        StartCoroutine(player.playerStatus == PlayerController.PlayerStatus.Game ? PauseEnabling() : PauseDisabling());
+        if (player.playerStatus == PlayerController.PlayerStatus.Game || player.playerStatus == PlayerController.PlayerStatus.Inventory)
+        {
+            fromInventory = (player.playerStatus == PlayerController.PlayerStatus.Inventory);
+            StartCoroutine(PauseEnabling());
+        }
+        else
+        {
+            StartCoroutine(PauseDisabling());
+        }
     }
     IEnumerator Reloading(float maxCD)
     {
@@ -73,7 +80,6 @@ public class UiManager : MonoBehaviour
     }
     IEnumerator PauseEnabling()
     {
-        menuActual = CanvasGroupList.Pause;
         Time.timeScale = 0;
         player.playerStatus = PlayerController.PlayerStatus.Fading;
         onTimeFadePause = 0;
@@ -88,6 +94,7 @@ public class UiManager : MonoBehaviour
             onTimeFadePause += Time.unscaledDeltaTime;
             float fade = onTimeFadePause / fadePause;
             canvasGroup[(int) CanvasGroupList.Pause].alpha = fade;
+            canvasGroup[(int) menuActual].alpha = 1 - fade;
 
             yield return null;
         }
@@ -98,6 +105,7 @@ public class UiManager : MonoBehaviour
         onTimeFadePause = 0;
         player.playerStatus = PlayerController.PlayerStatus.Pause;
         player.AvailableCursor(true);
+        menuActual = CanvasGroupList.Pause;
     }
     IEnumerator PauseDisabling()
     {
@@ -112,6 +120,7 @@ public class UiManager : MonoBehaviour
             onTimeFadePause += Time.unscaledDeltaTime;
             float fade = onTimeFadePause / fadePause;
             canvasGroup[(int) menuActual].alpha = 1 - fade;
+            canvasGroup[(int) CanvasGroupList.GamePlay].alpha = fade;
 
             yield return null;
         }
@@ -122,7 +131,7 @@ public class UiManager : MonoBehaviour
         onTimeFadePause = 0;
         player.playerStatus = PlayerController.PlayerStatus.Game;
         Time.timeScale = 1;
-        player.AvailableCursor(false);
+        player.AvailableCursor(fromInventory);
         menuActual = CanvasGroupList.GamePlay;
     }
     public void SwitchPanel(int otherMenu)
