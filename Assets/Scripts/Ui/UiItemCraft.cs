@@ -5,27 +5,29 @@ using TMPro;
 
 public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public UiCrafting uiCraft;
+    [HideInInspector] public UiCrafting uiCraft;
     [HideInInspector] public Item item;
     [HideInInspector] public int index = 10;
-    public Button buttonCraft;
+    public Image buttonCraft;
     public Image panelAvailable;
     public Image myImage;
     public TextMeshProUGUI myName;
     public TextMeshProUGUI myAmount;
-    public RectTransform toolTip;
+    public GameObject toolTip;
     
     void Start()
     {
         uiCraft = FindObjectOfType<UiCrafting>();
+        uiCraft.uiInv.OnRefreshAllButtonsEvent += Refresh;
         for (int i = 0; i < item.recipe.Count; i++)
         {
-            UiItemCraft go = Instantiate(uiCraft.prefabCrafteable, toolTip);
+            UiItemCraft go = Instantiate(uiCraft.prefabCrafteable, toolTip.transform);
             go.item = item.recipe[i].item;
             go.uiCraft = uiCraft;
             go.index++;
         }
 
+        toolTip.GetComponent<Canvas>().sortingOrder = index;
         if (!item.crafteable)
         {
             Destroy(buttonCraft.gameObject);
@@ -33,7 +35,6 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
         myImage.sprite = item.icon;
         myName.text = item.name;
-        toolTip.GetComponent<Canvas>().sortingOrder = index;
         Refresh();
     }
     private void OnEnable()
@@ -45,19 +46,31 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (item.crafteable)
         {
-            buttonCraft.interactable = uiCraft.craft.IsCraftPosible(item);
+            if (uiCraft.craft.IsCraftPosible(item))
+            {
+                buttonCraft.color = Color.green;
+                buttonCraft.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                buttonCraft.color = Color.red;
+                buttonCraft.GetComponent<Button>().interactable = false;
+            }
         }
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (item.id > 0)
+        if (toolTip)
         {
-            toolTip.gameObject.SetActive(true);
+            toolTip.SetActive(true);
         }
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        toolTip.gameObject.SetActive(false);
+        if (toolTip)
+        {
+            toolTip.SetActive(false);
+        }
     }
     public void TryCraftButton()
     {
@@ -100,7 +113,8 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (item.id < 0)
         {
-            toolTip.gameObject.SetActive(false);
+            if (toolTip)
+                toolTip.SetActive(false);
             return "";
         }
 

@@ -14,6 +14,7 @@ public class Crafting : MonoBehaviour
     {
         inventory = GetComponent<Inventory>();
     }
+
     public bool Craft(Item item)
     {
         if(IsCraftPosible(item))
