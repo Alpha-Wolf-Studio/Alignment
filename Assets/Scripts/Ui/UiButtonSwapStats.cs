@@ -35,8 +35,8 @@ public class UiButtonSwapStats : MonoBehaviour, IPointerDownHandler
     {
         panelToMove.localPosition = posInitial;
         open = false;
-        imageSwap[0].color = colorOn;
-        imageSwap[1].color = colorOff;
+        imageSwap[0].color = colorOff;
+        imageSwap[1].color = colorOn;
         arrowsRot.localRotation = Quaternion.identity;
     }
     public void OnPointerDown(PointerEventData eventData)
