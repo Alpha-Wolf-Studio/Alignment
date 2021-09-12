@@ -8,9 +8,14 @@ public class UiCrafting : MonoBehaviour
     public List<int> listCraftID = new List<int>();
     public Transform panelCraft;
     public UiItemCraft prefabCrafteable;
-    public Crafting craft;
-    
+    [HideInInspector] public Crafting craft;
     public RectTransform contentCraft;
+
+    private void Awake()
+    {
+        craft = GameManager.Get().player.GetComponent<Crafting>();
+    }
+
     void Start()
     {
         Invoke(nameof(LoadCraft), 1f);

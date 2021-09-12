@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,8 +11,8 @@ public class UiManager : MonoBehaviour
     public Image filledImageArmor;
     public Image filledImageStamina;
     public Color CoolDownReloading = Color.red;
-    public Character character;
-    public PlayerController player;
+    [HideInInspector] public Character character;
+    [HideInInspector] public PlayerController player;
     public RectTransform sightHud;
     private float speed = 0.1f;
     private float onTimeCD;
@@ -22,6 +23,13 @@ public class UiManager : MonoBehaviour
     public CanvasGroupList menuActual;
     public List<CanvasGroup> canvasGroup = new List<CanvasGroup>();
     private bool fromInventory;
+
+    private void Awake()
+    {
+        character = GameManager.Get().character;
+        player = GameManager.Get().player;
+    }
+
     void Start()
     {
         player.playerStatus = PlayerController.PlayerStatus.Inization;

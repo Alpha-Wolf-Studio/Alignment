@@ -26,6 +26,10 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             go.item = item.recipe[i].item;
             go.uiCraft = uiCraft;
             go.index = index + 1;
+
+            go.myAmount.text = "";
+            if (item.recipe[i].amount < 10) go.myAmount.text = " ";
+            go.myAmount.text = item.recipe[i].amount.ToString();
         }
 
         toolTip.GetComponent<Canvas>().sortingOrder = index + plusIndex;

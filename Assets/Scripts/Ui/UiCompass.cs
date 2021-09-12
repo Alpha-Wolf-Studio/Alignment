@@ -5,7 +5,12 @@ using UnityEngine.UI;
 public class UiCompass : MonoBehaviour
 {
     [SerializeField] private RawImage compass;
-    [SerializeField] private Transform player;
+    private Transform player;
+
+    private void Awake()
+    {
+        player = GameManager.Get().player.transform;
+    }
 
     private void Update()
     {

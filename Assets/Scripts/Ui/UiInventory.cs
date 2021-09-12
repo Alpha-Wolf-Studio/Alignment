@@ -12,7 +12,6 @@ public class UiInventory : MonoBehaviour
     [HideInInspector] public Inventory inventory;
     private PlayerController playerController;
 
-    public Image defaultSprite;
     // Agarrar un evento para agarrar cuando el Inventario esté totalmente cargado.
     public Action OnRefreshAllButtonsEvent;
     public Image slotAux;
