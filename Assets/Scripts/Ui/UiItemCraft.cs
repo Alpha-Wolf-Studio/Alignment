@@ -7,7 +7,8 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     [HideInInspector] public UiCrafting uiCraft;
     [HideInInspector] public Item item;
-    [HideInInspector] public int index = 10;
+    [HideInInspector] public int index;
+    private int plusIndex = 10;
     public Image buttonCraft;
     public Image panelAvailable;
     public Image myImage;
@@ -24,14 +25,16 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             UiItemCraft go = Instantiate(uiCraft.prefabCrafteable, toolTip.transform);
             go.item = item.recipe[i].item;
             go.uiCraft = uiCraft;
-            go.index++;
+            go.index = index + 1;
         }
 
-        toolTip.GetComponent<Canvas>().sortingOrder = index;
+        toolTip.GetComponent<Canvas>().sortingOrder = index + plusIndex;
         if (!item.crafteable)
         {
-            Destroy(buttonCraft.gameObject);
-            Destroy(toolTip.gameObject);
+            if (buttonCraft)
+                Destroy(buttonCraft.gameObject);
+            if (toolTip)
+                Destroy(toolTip.gameObject);
         }
         myImage.sprite = item.icon;
         myName.text = item.name;
@@ -44,7 +47,7 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     public void Refresh()
     {
-        if (item.crafteable)
+        if (item.crafteable && buttonCraft)
         {
             if (uiCraft.craft.IsCraftPosible(item))
             {
@@ -57,6 +60,9 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 buttonCraft.GetComponent<Button>().interactable = false;
             }
         }
+
+        if (toolTip)
+            toolTip.GetComponent<Canvas>().sortingOrder = index + plusIndex;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
