@@ -2,16 +2,20 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIMenuManager : MonoBehaviour
 {
     [SerializeField] private CanvasGroup[] menues;
     [SerializeField] private float timeTransition;
+    [Space(10)]
+    [SerializeField] TextMeshProUGUI versionText = null;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        versionText.text = "Version: " + Application.version;
     }
 
     enum Menues { Main, Play, Credits, Options, Exit }
