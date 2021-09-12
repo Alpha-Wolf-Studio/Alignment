@@ -10,15 +10,18 @@ using Random = UnityEngine.Random;
 public class EnemyAI : MonoBehaviour
 {
 
-    [Header("Chase Behaviour")]
-    [SerializeField] float chaseDistance = 50f;
+    [Header("Attack Behaviour")]
     [SerializeField] float attackDistance = 1.85f;
     [SerializeField] float attackStoppingTolerance = .1f;
+    [SerializeField] float attackHeight = .5f;
+    [Header("Chase Behaviour")]
+    [SerializeField] float chaseDistance = 50f;
     [Header("Patrol Behaviour")]
     [SerializeField] float maxTimeBetweenPatrols = 5f;
     [SerializeField] float minTimeBetweenPatrols = 3f;
     [SerializeField] float distanceToPatrol = 30f;
     [SerializeField] float patrolStoppingTolerance = 10f;
+    [SerializeField] LayerMask groundLayer = default;
     float currentTimeBetweenPatrols = 0f;
     Vector3 startingPosition;
     Vector3 targetPos;
@@ -27,7 +30,7 @@ public class EnemyAI : MonoBehaviour
     Character character = null;
     AIAttackModule attackModule = null;
 
-    [SerializeField] Transform playerTransform = null;
+    public Transform playerTransform { get; set; }
     CustomNavMeshAgent agent = null;
 
     [SerializeField] DinoClass dinoType = DinoClass.Raptor;
@@ -45,13 +48,14 @@ public class EnemyAI : MonoBehaviour
         attackModule = GetComponent<AIAttackModule>();
         character.OnDeath += StopMoving;
         agent.StoppingDistance = attackDistance - attackStoppingTolerance;
-        startingPosition = transform.position;
+        currentTimeBetweenPatrols = minTimeBetweenPatrols;
     }
 
     private void Start()
     {
         if (!playerTransform)
             playerTransform = FindObjectOfType<PlayerController>().transform;
+        startingPosition = transform.position;
     }
 
     public void SetPlayerReference(Transform trans) 
@@ -92,9 +96,11 @@ public class EnemyAI : MonoBehaviour
                 currentTimeBetweenPatrols = Random.Range(minTimeBetweenPatrols, maxTimeBetweenPatrols);
                 anim.SetBool("Walking", true);
                 currentBehaviour = EnemyBehaviour.PATROLLING;
-                targetPos = startingPosition + Random.insideUnitSphere * distanceToPatrol;
-                agent.SetDestination(targetPos);
-                idleTime = 0;
+                var randTarget = startingPosition + Random.insideUnitSphere * distanceToPatrol;
+                randTarget.y += 100f;
+                RaycastHit groundPosition;
+                Physics.Raycast(randTarget, Vector3.down, out groundPosition, distanceToPatrol * 100, groundLayer);
+                targetPos = groundPosition.point;
             }
             else 
             {
@@ -106,9 +112,11 @@ public class EnemyAI : MonoBehaviour
         switch (currentBehaviour)
         {
             case EnemyBehaviour.IDLE:
+                agent.SetDestination(transform.position);
                 break;
             case EnemyBehaviour.PATROLLING:
                 float remainingDistance = Vector3.Distance(targetPos, transform.position);
+                agent.SetDestination(targetPos);
                 if (remainingDistance < patrolStoppingTolerance) 
                 {
                     currentBehaviour = EnemyBehaviour.IDLE;
@@ -116,7 +124,10 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case EnemyBehaviour.CHASING:
-                if (distanceSqr < attackDistance * attackDistance) 
+                Vector3 startAttackPosition = new Vector3(transform.position.x, transform.position.y + attackHeight, transform.position.z);
+                Vector3 endAttackPosition = new Vector3(transform.forward.x, transform.forward.y + attackHeight, transform.forward.z);
+                endAttackPosition += transform.position;
+                if (Physics.Raycast(startAttackPosition, endAttackPosition, attackModule.attackLayer)) 
                 {
                     attackModule.Attack(playerTransform.position);
                 }

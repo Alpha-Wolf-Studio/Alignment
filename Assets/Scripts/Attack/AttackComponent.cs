@@ -5,7 +5,7 @@ public abstract class AttackComponent : MonoBehaviour
 {
     protected float attackSpeed = 1;
     protected float attackStrenght = 1;
-    [SerializeField] protected LayerMask attackLayer = default;
+    public LayerMask attackLayer;
     [SerializeField] float maxCooldown = 5f;
     protected float currentCooldown = -1;
 

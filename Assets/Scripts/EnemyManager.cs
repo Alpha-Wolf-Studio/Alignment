@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [Header("General")]
-    [SerializeField] float spawnDistanceFromCenter = 50f;
+    [SerializeField] Transform playerTransform = null;
     [SerializeField] float spawnTime = 5f;
     public Action<DinoClass> OnDinoDied;
 
@@ -14,6 +14,7 @@ public class EnemyManager : MonoBehaviour
     public class DinoSpawn
     {
         public Transform transform = null;
+        public float spawnDistanceFromCenter = 50f;
         public int dinoAmount = 0; 
     }
 
@@ -45,9 +46,7 @@ public class EnemyManager : MonoBehaviour
             for (int j = 0; j < spawns[i].dinoAmount; j++)
             {
                 GameObject go = SpawnDino(dinoPrefab, spawns, i);
-                EnemyAI ai = go.GetComponent<EnemyAI>();
-                ai.OnDied += DinoDied;
-                ai.SetSpawnIndex(i);
+                SetUpAI(go, i);
             }
         }
     }
@@ -60,7 +59,9 @@ public class EnemyManager : MonoBehaviour
 
     GameObject SpawnDino(GameObject prefab, List<DinoSpawn> spawns, int index) 
     {
-        Vector3 variable = new Vector3(UnityEngine.Random.value * spawnDistanceFromCenter, 0, UnityEngine.Random.value * spawnDistanceFromCenter);
+        float spawnDistanceX = UnityEngine.Random.value * spawns[index].spawnDistanceFromCenter;
+        float spawnDistanceZ = UnityEngine.Random.value * spawns[index].spawnDistanceFromCenter;
+        Vector3 variable = new Vector3(spawnDistanceX, 0, spawnDistanceZ);
         Vector3 spawnPos = spawns[index].transform.position + variable;
         return Instantiate(prefab, spawnPos, Quaternion.identity, spawns[index].transform);
     }
@@ -84,9 +85,15 @@ public class EnemyManager : MonoBehaviour
                 go = SpawnDino(compiPrefab, compiSpawns, spawnIndex);
                 break;
         }
-        EnemyAI ai = go.GetComponent<EnemyAI>();
+        SetUpAI(go, spawnIndex);
+    }
+
+    void SetUpAI(GameObject dinoGO, int index) 
+    {
+        EnemyAI ai = dinoGO.GetComponent<EnemyAI>();
         ai.OnDied += DinoDied;
-        ai.SetSpawnIndex(spawnIndex);
+        ai.SetSpawnIndex(index);
+        ai.playerTransform = playerTransform;
     }
 
 }

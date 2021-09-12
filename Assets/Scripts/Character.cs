@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Inventory))]
-[RequireComponent(typeof(Rigidbody))]
 public class Character : MonoBehaviour, IDamageable
 {
     public Action OnDeath;
@@ -12,11 +11,11 @@ public class Character : MonoBehaviour, IDamageable
     public Action OnStatsLoaded;
 
     [Header("Animations")]
-    [SerializeField] Animator anim;
+    [SerializeField] Animator anim = null;
     [SerializeField] float deadBodyRemoveTime = 5f;
     [SerializeField] float deadBodyRemoveSpeed = .25f;
     [SerializeField] float deadBodyunderGroundOffset = .5f;
-    [SerializeField] AttackComponent attackComponent;
+    [SerializeField] AttackComponent attackComponent = null;
 
     public enum Stats { Energy, Armor, Damage, Defense, Speed }
     [Header("Stats")]
@@ -39,8 +38,8 @@ public class Character : MonoBehaviour, IDamageable
     private void Awake()    // todo: Arreglar carrera de Awake con MeleeAttackCollider.cs y MeleeAttack.cs
     {
         inventory = GetComponent<Inventory>();
-        rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+        rb = GetComponent<Rigidbody>();
         for (int i = 0; i < stats.Count; i++)
         {
             stats[i].Init();
@@ -165,8 +164,10 @@ public class Character : MonoBehaviour, IDamageable
     IEnumerator BodyRemoveCoroutine()
     {
         col.enabled = false;
-        yield return new WaitForSeconds(deadBodyRemoveTime);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
         rb.Sleep();
+        yield return new WaitForSeconds(deadBodyRemoveTime);
         float t = 0;
         while(t < 1)
         {

@@ -19,7 +19,7 @@ public class AIAttackModule : AttackComponent
     [Header("Charge")]
     [SerializeField] float chargeStrenght = 1f;
     [SerializeField] float chargeDistanceOffset = 1f;
-
+    bool charging = false;
 
     Rigidbody rb = null;
 
@@ -37,10 +37,13 @@ public class AIAttackModule : AttackComponent
 
     public override void Attack(Vector3 dir) 
     {
-        t += Time.deltaTime;
         Vector3 frontDir = dir - transform.position;
-        frontDir.y = dir.y + groundOffset;
-        transform.forward = Vector3.Lerp(transform.forward, frontDir.normalized, t);
+        if (!charging) 
+        {
+            t += Time.deltaTime;
+            frontDir.y = transform.forward.y;
+            transform.forward = Vector3.Lerp(transform.forward, frontDir.normalized, t);
+        }
         switch (currentAttackType)
         {
             case attack_Type.Melee:
@@ -56,6 +59,7 @@ public class AIAttackModule : AttackComponent
                     StartCoroutine(CooldownCoroutine());
                     StartCoroutine(ChargeCoroutine(dir));
                 }
+                anim.SetBool("Attacking", true);
                 break;
             case attack_Type.Range:
                 if(currentCooldown < 0) 
@@ -72,7 +76,6 @@ public class AIAttackModule : AttackComponent
 
     public void StopAttack() 
     {
-        rb.velocity = Vector3.zero;
         t = 0;
         anim.SetBool("Attacking", false);
         switch (currentAttackType)
@@ -103,12 +106,18 @@ public class AIAttackModule : AttackComponent
     }
     IEnumerator ChargeCoroutine(Vector3 dir) 
     {
+        charging = true;
+        rb.WakeUp();
         Vector3 aux = transform.position + dir;
         while (Vector3.Distance(transform.position, transform.position + aux) > chargeDistanceOffset) 
         {
-            rb.MovePosition(transform.position + transform.forward * chargeStrenght);
+            rb.AddForce(transform.forward * chargeStrenght);
             yield return null;
         }
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.Sleep();
+        charging = false;
     }
 
     void StopAI() 
