@@ -17,7 +17,6 @@ public class NaveCapsula : MonoBehaviour
     }
     void Start()
     {
-        Time.timeScale = 0.5f;
         camInitialPos = cam.transform.position;
         navePos = transform.position;
     }

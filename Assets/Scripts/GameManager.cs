@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviourSingleton<GameManager>
+public class GameManager : MonoBehaviour
 {
+    static GameManager gameManager;
     public Character character;
     public PlayerController player;
     public List<ReparableObject> toRepair = new List<ReparableObject>();
     private int objectsRemaining;
 
-    void Start()
+    public static GameManager Get() => gameManager;
+    private void Awake()
+    {
+        gameManager = this;
+    } void Start()
     {
         LoadGameManager();  // Sacar esta linea cuando se instancie en el menu
     }

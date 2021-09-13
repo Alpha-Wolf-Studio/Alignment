@@ -37,6 +37,7 @@ public class UiManager : MonoBehaviour
         character.OnDeath += Death;
         player.onShoot+= Shoot;
         player.OnPause+= Pause;
+        Time.timeScale = 1;
     }
     void Update()
     {
