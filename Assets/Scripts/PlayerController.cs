@@ -234,24 +234,28 @@ public class PlayerController : MonoBehaviour
                 useEnergyRun = false;
                 flying = false;
             }
+        }
+        if (playerStatus == PlayerStatus.Game || playerStatus == PlayerStatus.Inventory)
+            UpdateStamina();
+    }
 
-            if (!useEnergyRun)
+    void UpdateStamina()
+    {
+        if (!useEnergyRun)
+        {
+            if (currentStamina < maxStamina)
             {
-                if (currentStamina < maxStamina)
+                if (grounded)
                 {
-                    if (grounded)
+                    currentStamina += energyRegenerate;
+                    if (currentStamina > maxStamina)
                     {
-                        currentStamina += energyRegenerate;
-                        if (currentStamina > maxStamina)
-                        {
-                            currentStamina = maxStamina;
-                        }
+                        currentStamina = maxStamina;
                     }
                 }
             }
         }
     }
-
     private void OnCollisionEnter(Collision other)
     {
         if(Global.LayerEquals(LayerMask.GetMask("Ground"), other.gameObject.layer))
