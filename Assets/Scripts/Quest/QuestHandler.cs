@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class QuestHandler : MonoBehaviour
 {
+
     public Action OnQuestCompleted;
     public Action OnTaskProgress;
 
     public List<Quest> allQuest = new List<Quest>();
     [SerializeField] List<Task> currentTasks = new List<Task>();
     int currentQuest = -1;
+    public int GetCurrentQuest() => currentQuest;
 
     [Header("Repair Locations References")]
     [SerializeField] ReparableObject machine = null;
@@ -32,12 +34,13 @@ public class QuestHandler : MonoBehaviour
         crafting.OnCraft += CraftEvent;
         enemyManager.OnDinoDied += DinoDiedEvent;
     }
+
     private void Start()
     {
         StartNewQuest();
     }
-    public int GetCurrentQuest() => currentQuest;
-    void StartNewQuest() 
+
+    void StartNewQuest()
     {
         currentQuest++;
         currentTasks.Clear();
@@ -45,11 +48,11 @@ public class QuestHandler : MonoBehaviour
         allQuest[currentQuest] = quest;
         for (int i = 0; i < quest.tasks.Count; i++)
         {
-            currentTasks.Add(Instantiate(quest.tasks[i]));
+            currentTasks.Add(quest.tasks[i]);
         }
     }
 
-    public List<Task> GetCurrentTasks() 
+    public List<Task> GetCurrentTasks()
     {
         return currentTasks;
     }
@@ -58,84 +61,86 @@ public class QuestHandler : MonoBehaviour
     {
         foreach (var task in allQuest[currentQuest].tasks)
         {
-            if(!task.IsFinished() && RepairCheck(task, location)) 
+            if (!task.isCompleted() && RepairCheck(task, location))
             {
-                task.Finish();
+                task.complete();
                 OnTaskProgress?.Invoke();
             }
         }
     }
 
-    bool RepairCheck(Task task, RepairLocations location) 
+    bool RepairCheck(Task task, RepairLocations location)
     {
-        return task.GetType() == typeof(RepairTask) &&
-               ((RepairTask)task).locationToRepair == location;
+        return task.type == Task.TaskType.REPAIR &&
+               task.locationToRepair == location;
     }
 
     private void PickUpEvent(Item item, int amount)
     {
         foreach (var task in allQuest[currentQuest].tasks)
         {
-            if (!task.IsFinished() && PickUpCheck(task, item))
+            if (!!task.isCompleted() && PickUpCheck(task, item))
             {
-                ((GrabItemTask)task).amount -= amount;
-                if(((GrabItemTask)task).amount <= 0) 
+                task.pickUpAmount -= amount;
+                if (task.pickUpAmount <= 0)
                 {
-                    task.Finish();
+                    task.complete();
                 }
                 OnTaskProgress?.Invoke();
             }
         }
     }
 
-    bool PickUpCheck(Task task, Item item) 
+    bool PickUpCheck(Task task, Item item)
     {
-        return task.GetType() == typeof(GrabItemTask) &&
-               ((GrabItemTask)task).itemToGrab == item;
+        bool taskType = task.type == Task.TaskType.PICKUP;
+        if (!taskType) return false;
+        bool itemType = task.itemToPickUp == item;
+        return itemType;
     }
 
     private void CraftEvent(Item item)
     {
         foreach (var task in allQuest[currentQuest].tasks)
         {
-            if (!task.IsFinished() && CraftCheck(task, item))
+            if (!!task.isCompleted() && CraftCheck(task, item))
             {
-                ((CraftItemTask)task).amount--;
-                if (((CraftItemTask)task).amount <= 0)
+                task.craftAmount--;
+                if (task.craftAmount <= 0)
                 {
-                    task.Finish();
+                    task.complete();
                 }
                 OnTaskProgress?.Invoke();
             }
         }
     }
 
-    bool CraftCheck(Task task, Item item) 
+    bool CraftCheck(Task task, Item item)
     {
-        return task.GetType() == typeof(CraftItemTask) &&
-               ((CraftItemTask)task).itemToCraft == item;
+        return task.type == Task.TaskType.CRAFT &&
+               task.itemToCraft == item;
     }
 
-    void DinoDiedEvent(DinoClass dino) 
+    void DinoDiedEvent(DinoClass dino)
     {
         foreach (var task in allQuest[currentQuest].tasks)
         {
-            if (!task.IsFinished() && DinoCheck(task, dino))
+            if (!!task.isCompleted() && DinoCheck(task, dino))
             {
-                ((KillDinosTask)task).amount--;
-                if (((KillDinosTask)task).amount <= 0)
+                task.killAmount--;
+                if (task.killAmount <= 0)
                 {
-                    task.Finish();
+                    task.complete();
                 }
                 OnTaskProgress?.Invoke();
             }
         }
     }
 
-    bool DinoCheck(Task task, DinoClass dino) 
+    bool DinoCheck(Task task, DinoClass dino)
     {
-        return task.GetType() == typeof(KillDinosTask) &&
-               ((KillDinosTask)task).dinosaurToKill == dino;
+        return task.type == Task.TaskType.KILL &&
+               task.dinosaursToKill == dino;
     }
 
 }

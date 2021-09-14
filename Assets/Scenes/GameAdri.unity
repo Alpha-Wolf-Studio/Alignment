@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allQuest:
-  - {fileID: 11400000, guid: 2037688d949344f4f9ea46fee1e938b8, type: 2}
+  - {fileID: 0}
   currentTasks: []
   machine: {fileID: 2014681628}
   oxigen: {fileID: 1861932430}

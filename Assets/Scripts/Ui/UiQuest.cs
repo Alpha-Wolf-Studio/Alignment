@@ -36,25 +36,22 @@ public class UiQuest : MonoBehaviour
     void SetTask(ref UiTask uiTask,Task task, int i)
     {
         string type = task.GetType().ToString();
-        switch (type)
+
+        switch (task.type)
         {
-            case "GrabItemTask":
-                GrabItemTask grab = ((GrabItemTask)task);
-                uiTask.name.text = "Collect " + grab.amount + " of " + grab.itemToGrab.itemName;
-                uiTask.description.text = "kill dinosaur to get this item";
-                break;
-            case "CraftItemTask":
-                CraftItemTask craft = ((CraftItemTask)task);
-                uiTask.name.text = "Craft " + craft.amount + " of " + craft.itemToCraft.itemName;
-                uiTask.description.text = "Open inventory with E and craft " + craft.itemToCraft.itemName;
-                break;
-            case "KillDinosTask":
-                KillDinosTask kills = ((KillDinosTask)task);
+            case Task.TaskType.KILL:
                 uiTask.name.text = "Do not have Name yet";
                 uiTask.description.text = "Do not have Description yet";
                 break;
-            case "RepairTask":
-                RepairTask repair = ((RepairTask)task);
+            case Task.TaskType.PICKUP:
+                uiTask.name.text = "Collect " + task.pickUpAmount + " of " + task.itemToPickUp.itemName;
+                uiTask.description.text = "kill dinosaurs to get this item";
+                break;
+            case Task.TaskType.CRAFT:
+                uiTask.name.text = "Craft " + task.craftAmount + " of " + task.itemToCraft.itemName;
+                uiTask.description.text = "Open inventory with E and craft " + task.itemToCraft.itemName;
+                break;
+            case Task.TaskType.REPAIR:
                 uiTask.name.text = "Do not have Name yet";
                 uiTask.description.text = "Do not have Description yet";
                 break;
@@ -76,7 +73,7 @@ public class UiQuest : MonoBehaviour
     {
         for (int i = 0; i < quest.tasks.Count; i++)
         {
-            bool finished = quest.tasks[i].IsFinished();
+            bool finished = quest.tasks[i].isCompleted();
             allUiTasks[i].toggle.isOn = finished;
             Debug.Log("Task: " + allUiTasks[i].name + " Terminada: " + finished);
         }

@@ -10,11 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3419f73d8c76f1749bb5241236ba0559, type: 3}
-  m_Name: Quest 1
+  m_Name: New Quest
   m_EditorClassIdentifier: 
-  questTitle: Craft your first Battery
+  questTitle: 
   tasks:
-  - {fileID: 11400000, guid: 1a678888b774be043978b3e433ed7ef5, type: 2}
-  - {fileID: 11400000, guid: a41c5f3c9c675bc479d6b617a6ac4685, type: 2}
-  - {fileID: 11400000, guid: ca31dfb6fd14168468f430364948794f, type: 2}
-  - {fileID: 11400000, guid: d3dc038bcc5012b4eaef5915cf12fd30, type: 2}
+  - type: 1
+    dinosaursToKill: 0
+    killAmount: 0
+    itemToPickUp: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
+    pickUpAmount: 1
+    itemToCraft: {fileID: 0}
+    craftAmount: 0
+    locationToRepair: 0
