@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class QuestHandler : MonoBehaviour
 {
-
     public Action OnQuestCompleted;
     public Action OnTaskProgress;
 
@@ -33,12 +32,11 @@ public class QuestHandler : MonoBehaviour
         crafting.OnCraft += CraftEvent;
         enemyManager.OnDinoDied += DinoDiedEvent;
     }
-
     private void Start()
     {
         StartNewQuest();
     }
-
+    public int GetCurrentQuest() => currentQuest;
     void StartNewQuest() 
     {
         currentQuest++;

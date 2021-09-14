@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 538e324500b84024889ebc8a6705a623, type: 3}
-  m_Name: Grab Item Task
+  m_Name: Grab Item Task Zinc
   m_EditorClassIdentifier: 
-  completed: 0
-  itemToGrab: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
-  amount: 1
+  itemToGrab: {fileID: 11400000, guid: 125e2bdc01777cf44b21fa9ac4acdc01, type: 2}
+  amount: 2

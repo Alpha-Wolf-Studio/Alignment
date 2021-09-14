@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e15ca507341ce541bebe2473515b3e8, type: 3}
-  m_Name: Repair Task
+  m_Script: {fileID: 11500000, guid: 538e324500b84024889ebc8a6705a623, type: 3}
+  m_Name: Grab Item Task Pile
   m_EditorClassIdentifier: 
-  completed: 0
-  locationToRepair: 1
+  itemToGrab: {fileID: 11400000, guid: 6082c22687e5805458b5d75050d72405, type: 2}
+  amount: 2
