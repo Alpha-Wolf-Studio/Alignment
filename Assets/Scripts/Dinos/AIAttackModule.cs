@@ -15,7 +15,6 @@ public class AIAttackModule : AttackComponent
     [SerializeField] GameObject projectilePrefab = null;
     [SerializeField] Transform projectileSpawn = null;
     [SerializeField] float projectileSpeed = 50f;
-    [SerializeField] float groundOffset = 1f;
     [Header("Charge")]
     [SerializeField] float chargeStrenght = 1f;
     [SerializeField] float chargeDistanceOffset = 1f;
@@ -37,6 +36,8 @@ public class AIAttackModule : AttackComponent
 
     public override void Attack(Vector3 dir) 
     {
+        anim.SetBool("Attacking", true);
+        anim.SetBool("Walking", false);
         Vector3 frontDir = dir - transform.position;
         if (!charging) 
         {
@@ -51,7 +52,6 @@ public class AIAttackModule : AttackComponent
                 {
                     collider.SetColliders(attackStrenght);
                 }
-                anim.SetBool("Attacking", true);
                 break;
             case attack_Type.Charge:
                 if (currentCooldown < 0)
@@ -59,7 +59,6 @@ public class AIAttackModule : AttackComponent
                     StartCoroutine(CooldownCoroutine());
                     StartCoroutine(ChargeCoroutine(dir));
                 }
-                anim.SetBool("Attacking", true);
                 break;
             case attack_Type.Range:
                 if(currentCooldown < 0) 
@@ -78,17 +77,7 @@ public class AIAttackModule : AttackComponent
     {
         t = 0;
         anim.SetBool("Attacking", false);
-        switch (currentAttackType)
-        {
-            case attack_Type.Melee:
-                break;
-            case attack_Type.Charge:
-                break;
-            case attack_Type.Range:
-                break;
-            default:
-                break;
-        }
+        anim.SetBool("Walking", true);
     }
     public void StartMeleeDamage()
     {

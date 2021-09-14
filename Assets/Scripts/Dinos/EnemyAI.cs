@@ -12,8 +12,8 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Attack Behaviour")]
     [SerializeField] float attackDistance = 1.85f;
-    [SerializeField] float attackStoppingTolerance = .1f;
-    [SerializeField] float attackHeight = .5f;
+    [SerializeField] float yPositionTolerance = 2.5f;
+    Vector3 checkPosition = Vector3.zero;
     [Header("Chase Behaviour")]
     [SerializeField] float chaseDistance = 50f;
     [Header("Patrol Behaviour")]
@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour
     int spawnIndex = 0;
     public Action<DinoClass, int> OnDied;
 
-    enum EnemyBehaviour { IDLE, PATROLLING, CHASING}
+    enum EnemyBehaviour { IDLE, PATROLLING, CHASING, ATTACKING}
     EnemyBehaviour currentBehaviour = EnemyBehaviour.IDLE;
     float idleTime = 0;
 
@@ -47,7 +47,6 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<CustomNavMeshAgent>();
         attackModule = GetComponent<AIAttackModule>();
         character.OnDeath += StopMoving;
-        agent.StoppingDistance = attackDistance - attackStoppingTolerance;
         currentTimeBetweenPatrols = minTimeBetweenPatrols;
     }
 
@@ -75,13 +74,17 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         if(!playerTransform) { return; }
-        float distanceSqr = Vector3.SqrMagnitude(playerTransform.position - transform.position);
-        if (distanceSqr < attackDistance * attackDistance)
+        checkPosition = transform.position;
+        checkPosition.y += yPositionTolerance;
+        float distanceToPlayer = Vector3.Distance(playerTransform.position, checkPosition);
+        Debug.DrawLine(checkPosition, playerTransform.position);
+        if (distanceToPlayer < attackDistance)
         {
             anim.SetBool("Walking", false);
             agent.SetDestination(transform.position);
+            currentBehaviour = EnemyBehaviour.ATTACKING;
         }
-        else if (distanceSqr < chaseDistance * chaseDistance)
+        else if (distanceToPlayer < chaseDistance)
         {
             idleTime = 0;
             anim.SetBool("Walking", true);
@@ -115,28 +118,18 @@ public class EnemyAI : MonoBehaviour
                 agent.SetDestination(transform.position);
                 break;
             case EnemyBehaviour.PATROLLING:
-                float remainingDistance = Vector3.Distance(targetPos, transform.position);
                 agent.SetDestination(targetPos);
-                if (remainingDistance < patrolStoppingTolerance) 
+                if (distanceToPlayer < patrolStoppingTolerance) 
                 {
                     currentBehaviour = EnemyBehaviour.IDLE;
                     agent.SetDestination(transform.position);
                 }
                 break;
             case EnemyBehaviour.CHASING:
-                Vector3 startAttackPosition = new Vector3(transform.position.x, transform.position.y + attackHeight, transform.position.z);
-                Vector3 endAttackPosition = new Vector3(transform.forward.x, transform.forward.y + attackHeight, transform.forward.z);
-                endAttackPosition += transform.position;
-                if (Physics.Raycast(startAttackPosition, endAttackPosition, attackModule.attackLayer)) 
-                {
-                    attackModule.Attack(playerTransform.position);
-                }
-                else 
-                {
-                    attackModule.StopAttack();
-                }
+                attackModule.StopAttack();
                 break;
-            default:
+            case EnemyBehaviour.ATTACKING:
+                attackModule.Attack(playerTransform.position);
                 break;
         }
     }
@@ -149,7 +142,5 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseDistance);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackDistance);
     }
 }

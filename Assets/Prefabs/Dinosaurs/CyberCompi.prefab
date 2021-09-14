@@ -1466,7 +1466,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   projectileSpawn: {fileID: 0}
   projectileSpeed: 50
-  groundOffset: 0.5
   chargeStrenght: 1000
   chargeDistanceOffset: 1
 --- !u!114 &4241996279657674751
@@ -1481,9 +1480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882f6310e0bc3ba41b8bd04ccff2a6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistance: 1
-  attackStoppingTolerance: 0.1
-  attackHeight: 0.5
+  attackDistance: 1.85
+  yPositionTolerance: 1
   chaseDistance: 20
   maxTimeBetweenPatrols: 10
   minTimeBetweenPatrols: 8
@@ -1513,7 +1511,7 @@ MonoBehaviour:
   m_Speed: 3.5
   m_Acceleration: 8
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1542,7 +1540,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
