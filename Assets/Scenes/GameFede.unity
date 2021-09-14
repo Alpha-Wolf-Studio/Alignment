@@ -316,8 +316,8 @@ MonoBehaviour:
   maxCount: 5
   player: {fileID: 856235259}
   hud:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7778992746612665056}
+  - {fileID: 7778992747564617832}
   reparableObject: {fileID: 0}
 --- !u!4 &81333612
 Transform:
