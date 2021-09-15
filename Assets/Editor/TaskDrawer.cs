@@ -23,6 +23,7 @@ public class TaskDrawer : PropertyDrawer
 
         Rect property1Rec = new Rect(position.x, position.y + 35, position.width, position.height * .25f);
         Rect property2Rec = new Rect(position.x, position.y + 60, position.width, position.height * .2f);
+        Rect propertyItemRec = new Rect(position.x, position.y + 35, position.width - 4, position.height * .2f);
 
         switch (taskTypeEnum)
         {
@@ -33,12 +34,12 @@ public class TaskDrawer : PropertyDrawer
                 break;
             case Task.TaskType.PICKUP:
                 GUI.backgroundColor = Color.yellow;
-                EditorGUI.PropertyField(property1Rec, property.FindPropertyRelative("itemToPickUp"));
+                EditorGUI.PropertyField(propertyItemRec, property.FindPropertyRelative("itemToPickUp"));
                 EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative("pickUpAmount"));
                 break;
             case Task.TaskType.CRAFT:
                 GUI.backgroundColor = Color.green;
-                EditorGUI.PropertyField(property1Rec, property.FindPropertyRelative("itemToCraft"));
+                EditorGUI.PropertyField(propertyItemRec, property.FindPropertyRelative("itemToCraft"));
                 EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative("craftAmount"));
                 break;
             case Task.TaskType.REPAIR:
