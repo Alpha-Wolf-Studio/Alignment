@@ -44,11 +44,13 @@ public class QuestHandler : MonoBehaviour
     {
         currentQuest++;
         currentTasks.Clear();
-        var quest = Instantiate(allQuest[currentQuest]);
-        allQuest[currentQuest] = quest;
-        for (int i = 0; i < quest.tasks.Count; i++)
+        for (int i = 0; i < allQuest[currentQuest].tasks.Count; i++)
         {
-            currentTasks.Add(quest.tasks[i]);
+            int killAmount = allQuest[currentQuest].tasks[i].killAmount;
+            int pickUpAmount = allQuest[currentQuest].tasks[i].pickUpAmount;
+            int craftAmount = allQuest[currentQuest].tasks[i].craftAmount;
+            Task t = new Task(allQuest[currentQuest].tasks[i], killAmount, pickUpAmount, craftAmount);
+            currentTasks.Add(t);
         }
     }
 
@@ -59,7 +61,7 @@ public class QuestHandler : MonoBehaviour
 
     private void RepairEvent(RepairLocations location)
     {
-        foreach (var task in allQuest[currentQuest].tasks)
+        foreach (var task in currentTasks)
         {
             if (!task.isCompleted() && RepairCheck(task, location))
             {
@@ -77,9 +79,9 @@ public class QuestHandler : MonoBehaviour
 
     private void PickUpEvent(Item item, int amount)
     {
-        foreach (var task in allQuest[currentQuest].tasks)
+        foreach (var task in currentTasks)
         {
-            if (!!task.isCompleted() && PickUpCheck(task, item))
+            if (!task.isCompleted() && PickUpCheck(task, item))
             {
                 task.pickUpAmount -= amount;
                 if (task.pickUpAmount <= 0)
@@ -101,9 +103,9 @@ public class QuestHandler : MonoBehaviour
 
     private void CraftEvent(Item item)
     {
-        foreach (var task in allQuest[currentQuest].tasks)
+        foreach (var task in currentTasks)
         {
-            if (!!task.isCompleted() && CraftCheck(task, item))
+            if (!task.isCompleted() && CraftCheck(task, item))
             {
                 task.craftAmount--;
                 if (task.craftAmount <= 0)
@@ -123,9 +125,9 @@ public class QuestHandler : MonoBehaviour
 
     void DinoDiedEvent(DinoClass dino)
     {
-        foreach (var task in allQuest[currentQuest].tasks)
+        foreach (var task in currentTasks)
         {
-            if (!!task.isCompleted() && DinoCheck(task, dino))
+            if (!task.isCompleted() && DinoCheck(task, dino))
             {
                 task.killAmount--;
                 if (task.killAmount <= 0)
