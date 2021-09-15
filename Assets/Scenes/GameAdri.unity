@@ -3030,7 +3030,7 @@ MonoBehaviour:
   compiSpawns:
   - transform: {fileID: 171712974}
     spawnDistanceFromCenter: 10
-    dinoAmount: 4
+    dinoAmount: 5
   diloPrefab: {fileID: 0}
   diloSpawns: []
   triPrefab: {fileID: 0}

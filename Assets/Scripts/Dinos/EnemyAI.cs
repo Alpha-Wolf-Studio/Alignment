@@ -99,11 +99,17 @@ public class EnemyAI : MonoBehaviour
                 currentTimeBetweenPatrols = Random.Range(minTimeBetweenPatrols, maxTimeBetweenPatrols);
                 anim.SetBool("Walking", true);
                 currentBehaviour = EnemyBehaviour.PATROLLING;
-                var randTarget = startingPosition + Random.insideUnitSphere * distanceToPatrol;
-                randTarget.y += 100f;
-                RaycastHit groundPosition;
-                Physics.Raycast(randTarget, Vector3.down, out groundPosition, distanceToPatrol * 100, groundLayer);
-                targetPos = groundPosition.point;
+                NavMeshPath path = new NavMeshPath();
+
+                do 
+                {
+                    var randTarget = startingPosition + Random.insideUnitSphere * distanceToPatrol;
+                    randTarget.y += 100f;
+                    RaycastHit groundPosition;
+                    Physics.Raycast(randTarget, Vector3.down, out groundPosition, distanceToPatrol * 100, groundLayer);
+                    targetPos = groundPosition.point;
+                }
+                while (!agent.basicNavAgent.CalculatePath(targetPos, path));
             }
             else 
             {
