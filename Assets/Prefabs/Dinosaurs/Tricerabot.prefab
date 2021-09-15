@@ -70,9 +70,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1891690947266511920}
-  - component: {fileID: 4780387519317932639}
   - component: {fileID: 1361026772087015058}
   - component: {fileID: 2023627022799447951}
+  - component: {fileID: 8837110930051630358}
   m_Layer: 11
   m_Name: Collider Cuerno Izquierdo
   m_TagString: Untagged
@@ -94,18 +94,6 @@ Transform:
   m_Father: {fileID: 2242722840336131869}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 52.77, y: -15, z: 0}
---- !u!114 &4780387519317932639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296955222175485646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d298e25c34ac542a249b8d9c55560c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1361026772087015058
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -114,7 +102,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296955222175485646}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 15
   m_Height: 110
@@ -136,6 +124,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8837110930051630358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296955222175485646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead754768c235534f861c91d0af29ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1007418446903899424
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Height: 1.5
   m_WalkableMask: -1
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 25
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -916,8 +916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDistance: 40
-  attackStoppingTolerance: 0.1
-  attackHeight: 0.5
+  yPositionTolerance: 2.5
   chaseDistance: 50
   maxTimeBetweenPatrols: 5
   minTimeBetweenPatrols: 3
@@ -939,7 +938,7 @@ NavMeshAgent:
   m_AgentTypeID: 1479372276
   m_Radius: 1.2
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 25
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -965,19 +964,20 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 1024
-  maxCooldown: 5
+  maxCooldown: 10
   currentAttackType: 1
   anim: {fileID: 1114128467719146974}
   meleeColliders:
-  - {fileID: 7586314390720333513}
-  - {fileID: 3952822462571335818}
-  - {fileID: 4780387519317932639}
+  - {fileID: 4204586854832778168}
+  - {fileID: 581554888686068575}
+  - {fileID: 8837110930051630358}
   projectilePrefab: {fileID: 0}
   projectileSpawn: {fileID: 0}
   projectileSpeed: 50
-  groundOffset: 0.25
-  chargeStrenght: 1
-  chargeDistanceOffset: 1
+  chargePushStrenght: 600
+  chargeSpeedMultiplier: 10
+  minChargeDistance: 10
+  chargeTolerance: 5
 --- !u!1 &4056326457477406088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,9 +1641,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1470163557191415241}
-  - component: {fileID: 3952822462571335818}
   - component: {fileID: 5677529200766742581}
   - component: {fileID: 583435700137191517}
+  - component: {fileID: 581554888686068575}
   m_Layer: 11
   m_Name: Collider Cuerno Derecho
   m_TagString: Untagged
@@ -1665,18 +1665,6 @@ Transform:
   m_Father: {fileID: 2242722840336131869}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 52.77, y: 20, z: 0}
---- !u!114 &3952822462571335818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8536596324041072050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d298e25c34ac542a249b8d9c55560c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &5677529200766742581
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1685,7 +1673,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8536596324041072050}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 15
   m_Height: 110
@@ -1707,6 +1695,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &581554888686068575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8536596324041072050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead754768c235534f861c91d0af29ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8583672249347377319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,9 +1780,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1752949522377064350}
-  - component: {fileID: 7586314390720333513}
   - component: {fileID: 1377277389658096047}
   - component: {fileID: 941497935866752908}
+  - component: {fileID: 4204586854832778168}
   m_Layer: 11
   m_Name: Collider Cabeza
   m_TagString: Untagged
@@ -1804,18 +1804,6 @@ Transform:
   m_Father: {fileID: 2242722840336131869}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7586314390720333513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9003834219773230024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d298e25c34ac542a249b8d9c55560c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1377277389658096047
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1824,7 +1812,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9003834219773230024}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 30
   m_Height: 100
@@ -1846,6 +1834,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4204586854832778168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003834219773230024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead754768c235534f861c91d0af29ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9063356081358519716
 GameObject:
   m_ObjectHideFlags: 0

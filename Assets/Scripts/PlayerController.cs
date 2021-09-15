@@ -261,7 +261,6 @@ public class PlayerController : MonoBehaviour
         if(Global.LayerEquals(LayerMask.GetMask("Ground"), other.gameObject.layer))
         {
             grounded = true;
-            Debug.Log("Grounded.");
         }
     }
     public float GetCurrentStamina() => currentStamina;

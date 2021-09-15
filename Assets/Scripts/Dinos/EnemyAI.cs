@@ -80,7 +80,6 @@ public class EnemyAI : MonoBehaviour
         if (distanceToPlayer < attackDistance)
         {
             anim.SetBool("Walking", false);
-            agent.SetDestination(transform.position);
             currentBehaviour = EnemyBehaviour.ATTACKING;
         }
         else if (distanceToPlayer < chaseDistance)
@@ -100,7 +99,6 @@ public class EnemyAI : MonoBehaviour
                 anim.SetBool("Walking", true);
                 currentBehaviour = EnemyBehaviour.PATROLLING;
                 NavMeshPath path = new NavMeshPath();
-
                 do 
                 {
                     var randTarget = startingPosition + Random.insideUnitSphere * distanceToPatrol;
@@ -109,7 +107,7 @@ public class EnemyAI : MonoBehaviour
                     Physics.Raycast(randTarget, Vector3.down, out groundPosition, distanceToPatrol * 100, groundLayer);
                     targetPos = groundPosition.point;
                 }
-                while (!agent.basicNavAgent.CalculatePath(targetPos, path));
+                while (!agent.basicNavAgent.CalculatePath(targetPos, path) || targetPos.Equals(Vector3.zero));
             }
             else 
             {

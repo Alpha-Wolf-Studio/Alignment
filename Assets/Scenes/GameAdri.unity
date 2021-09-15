@@ -396,7 +396,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171712973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52.1, y: -1.96, z: 55.7}
+  m_LocalPosition: {x: 30.5, y: -1.96, z: 41.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1469094219}
@@ -2480,7 +2480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208928464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.1, y: 0, z: -54.2}
+  m_LocalPosition: {x: 12, y: 0, z: -54.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1469094219}
@@ -3024,17 +3024,21 @@ MonoBehaviour:
   raptorSpawns:
   - transform: {fileID: 1208928465}
     spawnDistanceFromCenter: 25
-    dinoAmount: 5
+    dinoAmount: 0
   compiPrefab: {fileID: 4837264753926420121, guid: 61a14107e244ed742bfd60b2795bc631,
     type: 3}
   compiSpawns:
   - transform: {fileID: 171712974}
     spawnDistanceFromCenter: 10
-    dinoAmount: 5
+    dinoAmount: 1
   diloPrefab: {fileID: 0}
   diloSpawns: []
-  triPrefab: {fileID: 0}
-  triSpawns: []
+  triPrefab: {fileID: 3917014630346785539, guid: 645801215fff6fb4c8d5df4d3cf8cd6d,
+    type: 3}
+  triSpawns:
+  - transform: {fileID: 1106786878}
+    spawnDistanceFromCenter: 0
+    dinoAmount: 1
 --- !u!1 &1562532189
 GameObject:
   m_ObjectHideFlags: 0
