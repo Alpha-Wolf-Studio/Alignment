@@ -35,7 +35,6 @@ public class UiQuest : MonoBehaviour
     }
     void SetTask(ref UiTask uiTask,Task task, int i)
     {
-        string type = task.GetType().ToString();
 
         switch (task.type)
         {

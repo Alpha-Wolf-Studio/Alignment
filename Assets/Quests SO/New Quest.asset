@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: 
   tasks:
-  - type: 1
-    dinosaursToKill: 0
-    killAmount: 0
-    itemToPickUp: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
-    pickUpAmount: 1
+  - type: 0
+    dinosaursToKill: 2
+    killAmount: 4
+    itemToPickUp: {fileID: 0}
+    pickUpAmount: 0
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
