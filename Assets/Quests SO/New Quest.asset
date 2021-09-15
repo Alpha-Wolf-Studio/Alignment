@@ -15,8 +15,8 @@ MonoBehaviour:
   questTitle: 
   tasks:
   - type: 0
-    dinosaursToKill: 2
-    killAmount: 4
+    dinosaursToKill: 3
+    killAmount: 3
     itemToPickUp: {fileID: 0}
     pickUpAmount: 0
     itemToCraft: {fileID: 0}
@@ -47,8 +47,8 @@ MonoBehaviour:
     craftAmount: 0
     locationToRepair: 0
   - type: 0
-    dinosaursToKill: 2
-    killAmount: 4
+    dinosaursToKill: 0
+    killAmount: 3
     itemToPickUp: {fileID: 0}
     pickUpAmount: 0
     itemToCraft: {fileID: 0}

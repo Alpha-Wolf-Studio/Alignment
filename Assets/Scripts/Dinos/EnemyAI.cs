@@ -77,7 +77,6 @@ public class EnemyAI : MonoBehaviour
         checkPosition = transform.position;
         checkPosition.y += yPositionTolerance;
         float distanceToPlayer = Vector3.Distance(playerTransform.position, checkPosition);
-        Debug.DrawLine(checkPosition, playerTransform.position);
         if (distanceToPlayer < attackDistance)
         {
             anim.SetBool("Walking", false);
@@ -96,6 +95,7 @@ public class EnemyAI : MonoBehaviour
             idleTime += Time.deltaTime;
             if (idleTime > currentTimeBetweenPatrols)
             {
+                idleTime = 0;
                 currentTimeBetweenPatrols = Random.Range(minTimeBetweenPatrols, maxTimeBetweenPatrols);
                 anim.SetBool("Walking", true);
                 currentBehaviour = EnemyBehaviour.PATROLLING;
@@ -119,7 +119,8 @@ public class EnemyAI : MonoBehaviour
                 break;
             case EnemyBehaviour.PATROLLING:
                 agent.SetDestination(targetPos);
-                if (distanceToPlayer < patrolStoppingTolerance) 
+                float distance = Vector3.Distance(targetPos, transform.position);
+                if (distance < patrolStoppingTolerance) 
                 {
                     currentBehaviour = EnemyBehaviour.IDLE;
                     agent.SetDestination(transform.position);
