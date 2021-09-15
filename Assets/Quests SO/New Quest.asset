@@ -22,3 +22,35 @@ MonoBehaviour:
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
+  - type: 3
+    dinosaursToKill: 2
+    killAmount: 4
+    itemToPickUp: {fileID: 0}
+    pickUpAmount: 0
+    itemToCraft: {fileID: 0}
+    craftAmount: 0
+    locationToRepair: 0
+  - type: 1
+    dinosaursToKill: 2
+    killAmount: 4
+    itemToPickUp: {fileID: 0}
+    pickUpAmount: 0
+    itemToCraft: {fileID: 0}
+    craftAmount: 0
+    locationToRepair: 0
+  - type: 1
+    dinosaursToKill: 2
+    killAmount: 4
+    itemToPickUp: {fileID: 0}
+    pickUpAmount: 0
+    itemToCraft: {fileID: 0}
+    craftAmount: 0
+    locationToRepair: 0
+  - type: 0
+    dinosaursToKill: 2
+    killAmount: 4
+    itemToPickUp: {fileID: 0}
+    pickUpAmount: 0
+    itemToCraft: {fileID: 0}
+    craftAmount: 0
+    locationToRepair: 0

@@ -542,8 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a40b31466b14554aa0a3f6cdd953a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allQuest:
-  - {fileID: 0}
+  allQuest: []
   currentTasks: []
   machine: {fileID: 2014681628}
   oxigen: {fileID: 1861932430}
