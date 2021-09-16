@@ -3,6 +3,20 @@
 [System.Serializable]
 public class Task
 {
+
+    public Task(Task t, int killAmount, int pickUpAmount, int craftAmount) 
+    {
+        type = t.type;
+        dinosaursToKill = t.dinosaursToKill;
+        this.killAmount = killAmount;
+
+        itemToPickUp = t.itemToPickUp;
+        this.pickUpAmount = pickUpAmount;
+
+        itemToCraft = t.itemToCraft;
+        this.craftAmount = craftAmount;
+    }
+
     public enum TaskType { KILL, PICKUP, CRAFT, REPAIR }
 
     public TaskType type;

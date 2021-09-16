@@ -158,6 +158,8 @@ public class CustomNavMeshAgent : CustomMonoBehaviour
         set { m_StoppingDistance = value; NavMeshAgent.stoppingDistance = value; onChange?.Invoke(); }
     }
 
+    public NavMeshAgent basicNavAgent => navMeshAgent;
+
     [SerializeField] bool m_AutoTraverseOffMeshLink = true;
     /// <summary>
     /// Should the agent move across OffMeshLinks automatically?

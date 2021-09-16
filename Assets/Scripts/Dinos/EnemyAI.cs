@@ -77,11 +77,9 @@ public class EnemyAI : MonoBehaviour
         checkPosition = transform.position;
         checkPosition.y += yPositionTolerance;
         float distanceToPlayer = Vector3.Distance(playerTransform.position, checkPosition);
-        Debug.DrawLine(checkPosition, playerTransform.position);
         if (distanceToPlayer < attackDistance)
         {
             anim.SetBool("Walking", false);
-            agent.SetDestination(transform.position);
             currentBehaviour = EnemyBehaviour.ATTACKING;
         }
         else if (distanceToPlayer < chaseDistance)
@@ -96,14 +94,20 @@ public class EnemyAI : MonoBehaviour
             idleTime += Time.deltaTime;
             if (idleTime > currentTimeBetweenPatrols)
             {
+                idleTime = 0;
                 currentTimeBetweenPatrols = Random.Range(minTimeBetweenPatrols, maxTimeBetweenPatrols);
                 anim.SetBool("Walking", true);
                 currentBehaviour = EnemyBehaviour.PATROLLING;
-                var randTarget = startingPosition + Random.insideUnitSphere * distanceToPatrol;
-                randTarget.y += 100f;
-                RaycastHit groundPosition;
-                Physics.Raycast(randTarget, Vector3.down, out groundPosition, distanceToPatrol * 100, groundLayer);
-                targetPos = groundPosition.point;
+                NavMeshPath path = new NavMeshPath();
+                do 
+                {
+                    var randTarget = startingPosition + Random.insideUnitSphere * distanceToPatrol;
+                    randTarget.y += 100f;
+                    RaycastHit groundPosition;
+                    Physics.Raycast(randTarget, Vector3.down, out groundPosition, distanceToPatrol * 100, groundLayer);
+                    targetPos = groundPosition.point;
+                }
+                while (!agent.basicNavAgent.CalculatePath(targetPos, path) || targetPos.Equals(Vector3.zero));
             }
             else 
             {
@@ -119,7 +123,8 @@ public class EnemyAI : MonoBehaviour
                 break;
             case EnemyBehaviour.PATROLLING:
                 agent.SetDestination(targetPos);
-                if (distanceToPlayer < patrolStoppingTolerance) 
+                float distance = Vector3.Distance(targetPos, transform.position);
+                if (distance < patrolStoppingTolerance) 
                 {
                     currentBehaviour = EnemyBehaviour.IDLE;
                     agent.SetDestination(transform.position);

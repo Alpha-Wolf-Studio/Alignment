@@ -16,16 +16,28 @@ public class AIAttackModule : AttackComponent
     [SerializeField] Transform projectileSpawn = null;
     [SerializeField] float projectileSpeed = 50f;
     [Header("Charge")]
-    [SerializeField] float chargeStrenght = 1f;
-    [SerializeField] float chargeDistanceOffset = 1f;
-    bool charging = false;
+    [SerializeField] float chargePushStrenght = 600f;
+    [SerializeField] float chargeSpeedMultiplier = 5f;
+    [SerializeField] float minChargeDistance = 10f;
+    [SerializeField] float chargeTolerance = .5f;
+    float startingSpeed = 0;
+    float startingRotationSpeed = 0;
+    float multipliedSpeed = 0;
+    float multipliedRotationSpeed = 0;
+    IEnumerator ChargeCoroutine = null;
 
     Rigidbody rb = null;
+    CustomNavMeshAgent agent = null;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        agent = GetComponent<CustomNavMeshAgent>();
         GetComponent<Character>().OnDeath += StopAI;
+        startingSpeed = agent.Speed;
+        multipliedSpeed = agent.Speed * chargeSpeedMultiplier;
+        startingRotationSpeed = agent.AngularSpeed;
+        multipliedRotationSpeed = agent.AngularSpeed * chargeSpeedMultiplier;
     }
 
     public void ChangeAttackType(attack_Type newAttackType)
@@ -36,32 +48,40 @@ public class AIAttackModule : AttackComponent
 
     public override void Attack(Vector3 dir) 
     {
-        anim.SetBool("Attacking", true);
-        anim.SetBool("Walking", false);
         Vector3 frontDir = dir - transform.position;
-        if (!charging) 
-        {
-            t += Time.deltaTime;
-            frontDir.y = transform.forward.y;
-            transform.forward = Vector3.Lerp(transform.forward, frontDir.normalized, t);
-        }
         switch (currentAttackType)
         {
             case attack_Type.Melee:
+                agent.SetDestination(transform.position);
+                AimToAttack(frontDir);
                 foreach (var collider in meleeColliders)
-                {
+                { 
                     collider.SetColliders(attackStrenght);
                 }
                 break;
             case attack_Type.Charge:
                 if (currentCooldown < 0)
                 {
+                    foreach (var collider in meleeColliders)
+                    {
+                        if(collider.GetType() == typeof(ChargeAttackCollider)) 
+                        {
+                            ((ChargeAttackCollider)collider).SetColliders(attackStrenght, chargePushStrenght);
+                        }
+                    }
+                    if(ChargeCoroutine != null) 
+                    {
+                        StopCoroutine(ChargeCoroutine);
+                    }
+                    ChargeCoroutine = Charge(dir);
                     StartCoroutine(CooldownCoroutine());
-                    StartCoroutine(ChargeCoroutine(dir));
+                    StartCoroutine(ChargeCoroutine);
                 }
                 break;
             case attack_Type.Range:
-                if(currentCooldown < 0) 
+                agent.SetDestination(transform.position);
+                AimToAttack(frontDir);
+                if (currentCooldown < 0) 
                 {
                     StartCoroutine(CooldownCoroutine());
                     GameObject go = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
@@ -78,6 +98,8 @@ public class AIAttackModule : AttackComponent
         t = 0;
         anim.SetBool("Attacking", false);
         anim.SetBool("Walking", true);
+        agent.Speed = startingSpeed;
+        agent.AngularSpeed = startingRotationSpeed;
     }
     public void StartMeleeDamage()
     {
@@ -93,20 +115,37 @@ public class AIAttackModule : AttackComponent
             collider.StopCollider();
         }
     }
-    IEnumerator ChargeCoroutine(Vector3 dir) 
+    IEnumerator Charge(Vector3 dir) 
     {
-        charging = true;
-        rb.WakeUp();
-        Vector3 aux = transform.position + dir;
-        while (Vector3.Distance(transform.position, transform.position + aux) > chargeDistanceOffset) 
+        dir.y = transform.position.y;
+        Vector3 directionDifference = dir - transform.position;
+        directionDifference += directionDifference.normalized * minChargeDistance;
+        directionDifference += transform.position;
+
+        t = 0;
+        while(t < 1) 
         {
-            rb.AddForce(transform.forward * chargeStrenght);
+            AimToAttack(dir - transform.position);
             yield return null;
         }
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        rb.Sleep();
-        charging = false;
+        agent.Speed = multipliedSpeed;
+        agent.AngularSpeed = multipliedRotationSpeed;
+        agent.SetDestination(directionDifference);
+        do
+        {
+            yield return null;
+        } while (Vector3.Distance(transform.position, directionDifference) > chargeTolerance);
+        anim.SetBool("Walking", false);
+        anim.SetBool("Attacking", false);
+    }
+
+    void AimToAttack(Vector3 dir) 
+    {
+        anim.SetBool("Walking", false);
+        anim.SetBool("Attacking", true);
+        t += Time.deltaTime;
+        dir.y = transform.forward.y;
+        transform.forward = Vector3.Lerp(transform.forward, dir.normalized, t);
     }
 
     void StopAI() 
