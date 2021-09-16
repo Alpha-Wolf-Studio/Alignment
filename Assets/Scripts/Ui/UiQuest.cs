@@ -39,19 +39,19 @@ public class UiQuest : MonoBehaviour
         switch (task.type)
         {
             case Task.TaskType.KILL:
-                uiTask.name.text = "Do not have Name yet";
+                uiTask.nameTask.text = "Do not have Name yet";
                 uiTask.description.text = "Do not have Description yet";
                 break;
             case Task.TaskType.PICKUP:
-                uiTask.name.text = "Collect " + task.pickUpAmount + " of " + task.itemToPickUp.itemName;
+                uiTask.nameTask.text = "Collect " + task.pickUpAmount + " of " + task.itemToPickUp.itemName;
                 uiTask.description.text = "kill dinosaurs to get this item";
                 break;
             case Task.TaskType.CRAFT:
-                uiTask.name.text = "Craft " + task.craftAmount + " of " + task.itemToCraft.itemName;
-                uiTask.description.text = "Open inventory with E and craft " + task.itemToCraft.itemName;
+                uiTask.nameTask.text = "Craft " + task.craftAmount + " of " + task.itemToCraft.itemName;
+                uiTask.description.text = "Open inventory with " + "E" + " and craft " + task.itemToCraft.itemName;
                 break;
             case Task.TaskType.REPAIR:
-                uiTask.name.text = "Do not have Name yet";
+                uiTask.nameTask.text = "Do not have Name yet";
                 uiTask.description.text = "Do not have Description yet";
                 break;
             default:

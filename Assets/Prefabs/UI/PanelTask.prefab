@@ -89,10 +89,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1c1931983508e4d810dd14dc110430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: {fileID: 9130847067989863402}
+  nameTask: {fileID: 9130847067989863402}
   description: {fileID: 9130847067513866737}
   toggle: {fileID: 9130847068159450740}
-  task: {fileID: 0}
+  task:
+    type: 0
+    dinosaursToKill: 0
+    killAmount: 1
+    itemToPickUp: {fileID: 0}
+    pickUpAmount: 1
+    itemToCraft: {fileID: 0}
+    craftAmount: 1
+    locationToRepair: 0
 --- !u!1 &9130847066624011773
 GameObject:
   m_ObjectHideFlags: 0

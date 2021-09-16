@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allQuest:
-  - {fileID: 11400000, guid: 2037688d949344f4f9ea46fee1e938b8, type: 2}
+  - {fileID: 11400000, guid: 2030f2dc24605834d9baca67d923b671, type: 2}
   currentTasks: []
   machine: {fileID: 2014681628}
   oxigen: {fileID: 1861932430}
@@ -3289,7 +3289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 265, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1395615263
@@ -11745,7 +11745,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7778992747175766092}
   m_HandleRect: {fileID: 7778992747175766093}
   m_Direction: 3
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
