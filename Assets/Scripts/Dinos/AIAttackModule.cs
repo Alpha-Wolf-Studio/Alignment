@@ -19,7 +19,7 @@ public class AIAttackModule : AttackComponent
     [SerializeField] float chargePushStrenght = 600f;
     [SerializeField] float chargeSpeedMultiplier = 5f;
     [SerializeField] float minChargeDistance = 10f;
-    [SerializeField] float chargeTolerance = .5f;
+    [SerializeField] float chargeStoppingTolerance = 2.5f;
     float startingSpeed = 0;
     float startingRotationSpeed = 0;
     float multipliedSpeed = 0;
@@ -134,7 +134,7 @@ public class AIAttackModule : AttackComponent
         do
         {
             yield return null;
-        } while (Vector3.Distance(transform.position, directionDifference) > chargeTolerance);
+        } while (Vector3.Distance(transform.position, directionDifference) > chargeStoppingTolerance);
         anim.SetBool("Walking", false);
         anim.SetBool("Attacking", false);
     }

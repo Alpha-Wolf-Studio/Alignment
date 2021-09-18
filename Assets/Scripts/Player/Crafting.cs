@@ -15,7 +15,7 @@ public class Crafting : MonoBehaviour
         inventory = GetComponent<Inventory>();
     }
 
-    public bool Craft(Item item)
+    public void Craft(Item item)
     {
         if(IsCraftPosible(item))
         {
@@ -25,9 +25,7 @@ public class Crafting : MonoBehaviour
             }
             inventory.AddNewItem(item.id, 1);
             OnCraft?.Invoke(item);
-            return true;
         }
-        return false;
     }
     public bool IsCraftPosible(Item item)
     {
@@ -55,4 +53,41 @@ public class Crafting : MonoBehaviour
         }
         return itemsAmount == item.recipe.Count;
     }
+
+    public int PosibleCraftAmount(Item item) 
+    {
+        int posibleCrafts = 0;
+        bool nextCraftPosible;
+
+        do
+        {
+            nextCraftPosible = false;
+            int itemsAmount = 0;
+            if (item.recipe.Count > 0)
+            {
+                foreach (var ingredient in item.recipe)
+                {
+                    if (ingredient.item)
+                    {
+                        if (inventory.CheckForItem(ingredient.item, ingredient.amount * posibleCrafts))
+                        {
+                            itemsAmount++;
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Se jodió: " + item.itemName);
+                    }
+                }
+                if(itemsAmount == item.recipe.Count) 
+                {
+                    nextCraftPosible = true;
+                    posibleCrafts++;
+                }
+            }
+        } while (nextCraftPosible);
+
+        return posibleCrafts;
+    }
+
 }

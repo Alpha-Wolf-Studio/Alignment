@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
     [Header("General")]
     [SerializeField] Transform playerTransform = null;
     [SerializeField] float spawnTime = 5f;
+    [SerializeField] LayerMask groundLayer = default;
     public Action<DinoClass> OnDinoDied;
 
     [Serializable]
@@ -62,8 +64,11 @@ public class EnemyManager : MonoBehaviour
         float spawnDistanceX = UnityEngine.Random.value * spawns[index].spawnDistanceFromCenter;
         float spawnDistanceZ = UnityEngine.Random.value * spawns[index].spawnDistanceFromCenter;
         Vector3 variable = new Vector3(spawnDistanceX, 0, spawnDistanceZ);
-        Vector3 spawnPos = spawns[index].transform.position + variable;
-        return Instantiate(prefab, spawnPos, Quaternion.identity, spawns[index].transform);
+        Vector3 randPos = spawns[index].transform.position + variable;
+        randPos.y += 100f;
+        RaycastHit groundPosition;
+        Physics.Raycast(randPos, Vector3.down, out groundPosition, 200, groundLayer);
+        return Instantiate(prefab, groundPosition.point, Quaternion.identity, spawns[index].transform);
     }
 
     IEnumerator DinoRespawn(DinoClass type, int spawnIndex) 

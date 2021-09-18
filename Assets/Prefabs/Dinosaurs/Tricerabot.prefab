@@ -976,8 +976,8 @@ MonoBehaviour:
   projectileSpeed: 50
   chargePushStrenght: 600
   chargeSpeedMultiplier: 10
-  minChargeDistance: 10
-  chargeTolerance: 5
+  minChargeDistance: 15
+  chargeStoppingTolerance: 2.5
 --- !u!1 &4056326457477406088
 GameObject:
   m_ObjectHideFlags: 0
