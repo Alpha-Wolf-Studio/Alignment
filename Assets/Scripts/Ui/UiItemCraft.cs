@@ -95,8 +95,9 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         else
         {
             Debug.Log("Click sobre: " + item.name);
-            if (uiCraft.craft.Craft(item))
+            if (uiCraft.craft.IsCraftPosible(item))
             {
+                uiCraft.craft.Craft(item);
                 Debug.Log("Craft Exitoso.");
                 uiCraft.uiInv.RefreshAllButtons();
             }
