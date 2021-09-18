@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxTimePressToFly;
     private bool grounded = true;
     private bool flying;
-
+    public GameObject console;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -202,6 +202,7 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
+        CanOpenConsole();
     }
     private void FixedUpdate()
     {
@@ -239,6 +240,13 @@ public class PlayerController : MonoBehaviour
             UpdateStamina();
     }
 
+    void CanOpenConsole()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            console.SetActive(!console.activeSelf);
+        }
+    }
     void UpdateStamina()
     {
         if (!useEnergyRun)
