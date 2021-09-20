@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DataCmd
 {
@@ -10,11 +11,11 @@ public class DataCmd
     public string description;
     public override string ToString() => " -> " + description;
 }
-public class Console : MonoBehaviour
+public class Console : MonoBehaviour, IPointerClickHandler
 {
     public delegate void Method();
 
-    public PlayerController player;
+    private PlayerController player;
     private Inventory invPlayer;
     private Character character;
     public TextMeshProUGUI textConsole;
@@ -22,13 +23,23 @@ public class Console : MonoBehaviour
     public TMP_InputField inputField;
 
     public Dictionary<string, DataCmd> consoleCommands = new Dictionary<string, DataCmd>();
+    private PlayerController.PlayerStatus lastPlayerStatus;
+    private Vector2 startConsoleSize;
+
+    private bool pause;
+    private bool hud = true;
+    public GameObject cvHud;
+    public ModuleCheat cheats;
 
     private void Awake()
     {
+        player = GameManager.Get().player;
+        invPlayer = player.GetComponent<Inventory>();
+        character = GameManager.Get().character;
         rtConsole = gameObject.GetComponent<RectTransform>();
-    }
-    private void Start()
+    }private void Start()
     {
+        startConsoleSize = rtConsole.sizeDelta;
         AllCmd();
         Clear();
         inputField.text = "";
@@ -36,11 +47,20 @@ public class Console : MonoBehaviour
     }
     private void OnEnable()
     {
+        lastPlayerStatus = player.playerStatus;
+        player.playerStatus = PlayerController.PlayerStatus.Console;
         inputField.Select();
+        player.AvailableCursor(true);
+    }
+    private void OnDisable()
+    {
+        player.playerStatus = lastPlayerStatus;
+        player.AvailableCursor(false);
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        inputField.Select();
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             string text = inputField.text.ToLower();
             Write(text);
@@ -61,7 +81,6 @@ public class Console : MonoBehaviour
             {
                 textConsole.text += "  <---- Command don't exist.";
             }
-            inputField.Select();
         }
     }
     void AllCmd()   // Se cargan todas las funciones de la consola
@@ -70,8 +89,12 @@ public class Console : MonoBehaviour
         AddCommand("help", Help, "Show help.");
         AddCommand("expand", ExpandConsole, "Expand the Console.");
         AddCommand("contract", ContractConsole, "Retract the Console.");
-        AddCommand("pause on", PauseGame, "Force game pause.");
-        AddCommand("pause off", UnPauseGame, "Force game unpause.");
+        AddCommand("pause", PauseGame, "Alternate game pause.");
+        AddCommand("hud", ToggleHud, "Disable HUD.");
+
+        AddCommand("cheat armor", InfinityArmor, "Infinity Armor.");
+        AddCommand("cheat energy", InfinityEnergy, "Infinity Energy.");
+        AddCommand("cheat stamina", InfinityStamina, "Infinity Stamina.");
     }
     void AddCommand(string cmdName, Method cmdCommand, string cmdDescription)
     {
@@ -106,14 +129,32 @@ public class Console : MonoBehaviour
     }
     void ContractConsole()
     {
-        rtConsole.sizeDelta = new Vector2(rtConsole.sizeDelta.x, 235);
+        rtConsole.sizeDelta = startConsoleSize;
     }
     void PauseGame()
     {
-        Time.timeScale = 0;
+        pause = !pause;
+        Time.timeScale = pause ? 0 : 1;
     }
-    void UnPauseGame()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        Time.timeScale = 0;
+        inputField.Select();
+    }
+    public void ToggleHud()
+    {
+        hud = !hud;
+        cvHud.SetActive(hud);
+    }
+    void InfinityArmor()
+    {
+        cheats.CheatEnable(Character.Stats.Armor);
+    }
+    void InfinityEnergy()
+    {
+        cheats.CheatEnable(Character.Stats.Energy);
+    }
+    void InfinityStamina()
+    {
+        //cheats.CheatEnable(Character.Stats);
     }
 }

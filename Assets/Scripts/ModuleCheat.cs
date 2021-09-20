@@ -39,7 +39,7 @@ public class ModuleCheat : MonoBehaviour
     {
         if (cheatEnable)
         {
-            CheatEnable();
+            //CheatEnable();
         }
     }
     void Update()
@@ -54,7 +54,7 @@ public class ModuleCheat : MonoBehaviour
                     count++;
                     if (count >= maxCount)
                     {
-                        CheatEnable();
+                        //CheatEnable();
                     }
                 }
             }
@@ -74,33 +74,21 @@ public class ModuleCheat : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Keypad1))
             {
                 Debug.Log("Cheated Armor: " + cheatArmor);
-                character.AddCurrentArmor(cheatArmor);
+                CheatArmor();
             }
             else if (Input.GetKeyDown(KeyCode.Keypad2))
             {
                 Debug.Log("Cheated Energy: " + cheatEnergy);
-                character.AddCurrentEnergy(cheatEnergy);
+                CheatEnergy();
             }
             else if (Input.GetKeyDown(KeyCode.Keypad3))
             {
                 Debug.Log("Cheated Damage: " + cheatDamage);
-                character.AddInitialAttack(cheatDamage);
+                CheatDamage();
             }
             else if (Input.GetKeyDown(KeyCode.Keypad4))
             {
                 Debug.Log("GodMode Deshabilitado.");
-                /*if (!godMode)
-                {
-                    godMode = true;
-                    character.OnUpdateStats += Regenerate;
-                    Debug.Log("GodMode: Activated");
-                }
-                else
-                {
-                    godMode = false;
-                    character.OnUpdateStats -= Regenerate;
-                    Debug.Log("GodMode: Desactivated");
-                }*/
             }
             else if (Input.GetKeyDown(KeyCode.Keypad5))
             {
@@ -121,18 +109,64 @@ public class ModuleCheat : MonoBehaviour
             }
         }
     }
-    void CheatEnable()
+    void SuscribeInfinityCheat(Stat stat)
+    {
+        switch (stat.name)
+        {
+            case "Energy":
+                character.OnUpdateStats += CheatEnergy;
+                break;
+            case "Armor":            // todo seguir acá
+                break;
+            case "Attack":           // todo seguir acá
+                break;
+            default:                 // todo seguir acá
+                break;
+        }
+    }
+    public void CheatArmor()
+    {
+        character.TopCurrentArmor();
+    }
+    public void CheatEnergy()
+    {
+        character.TopCurrentEnergy();
+    }
+    public void CheatDamage()
+    {
+        character.TopCurrentDamage();
+    }
+    public void CheatEnable(Character.Stats stats)
     {
         cheatEnable = true;
         onCheat?.Invoke();
-        Debug.Log("Cheat Enabled.");
+        Debug.Log("Cheat Enabled: " + stats.ToString());
         PrintDataCheat();
         for (int i = 0; i < hud.Length; i++)
         {
             hud[i].color = Color.red;
         }
+
+        switch (stats)
+        {
+            case Character.Stats.Armor:
+                character.OnUpdateStats += CheatArmor;
+                break;
+            case Character.Stats.Damage:
+                character.OnUpdateStats += CheatDamage;
+                break;
+            case Character.Stats.Defense:
+                //character.OnUpdateStats += CheatDefense;
+                break;
+            case Character.Stats.Energy:
+                character.OnUpdateStats += CheatEnergy;
+                break;
+            case Character.Stats.Speed:
+                //character.OnUpdateStats += CheatSpeed;
+                break;
+        }
     }
-    void PrintDataCheat()
+    public void PrintDataCheat()
     {
         Debug.Log("1- Cheat Armor: " + cheatArmor);
         Debug.Log("2- Cheat Energy: " + cheatEnergy);
@@ -140,9 +174,13 @@ public class ModuleCheat : MonoBehaviour
         Debug.Log("4- Cheat GodMode: OnOff.");
         Debug.Log("5- Cheat Speed: " + cheatSpeed.ToString("F2") + " DANGER");
     }
-    void Regenerate()
+    public void Regenerate()
     {
         character.AddCurrentArmor(100);
         character.AddCurrentEnergy(100);
+    }
+    public void RegenerateStat(ref Stat stat)
+    {
+        stat.AddCurrent(999);
     }
 }

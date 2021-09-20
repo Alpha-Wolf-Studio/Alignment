@@ -100,18 +100,14 @@ public class Character : MonoBehaviour, IDamageable
     public void AddCurrentArmor(float value) => AddCurrentStat(Stats.Armor, value);
     public void AddCurrentEnergy(float value) => AddCurrentStat(Stats.Energy, value);
     public void AddCurrentDefense(float value) => AddCurrentStat(Stats.Defense, value);
-    /*public void AddCurrentAttack(float value)
-    {
-        AddCurrentStat(Stats.Energy, value);
-        if (attackComponent != null) attackComponent.AddAttackStrenght(value);
-        OnUpdateStats?.Invoke();
-    }
-    public void AddCurrentSpeed(float value)
-    {
-        AddCurrentStat(Stats.Speed, value);
-        if (attackComponent != null) attackComponent.AddAttackSpeed(value);
-        OnUpdateStats?.Invoke();
-    }*/
+    public void AddCurrentDamage(float value) => AddCurrentStat(Stats.Damage, value);
+    public void AddCurrentSpeed(float value) => AddCurrentStat(Stats.Speed, value);
+
+    public void TopCurrentArmor() => stats[(int) Stats.Armor].SetCurrent(999);
+    public void TopCurrentEnergy() => stats[(int) Stats.Energy].SetCurrent(999);
+    public void TopCurrentDefense() => stats[(int) Stats.Defense].SetCurrent(999);
+    public void TopCurrentDamage() => stats[(int) Stats.Damage].SetCurrent(999);
+    public void TopCurrentSpeed() => stats[(int) Stats.Speed].SetCurrent(999);
     #endregion
 
     public void AttackDir(Vector3 dir)

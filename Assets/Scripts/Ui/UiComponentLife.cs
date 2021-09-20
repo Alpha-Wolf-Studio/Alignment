@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UiComponentLife : MonoBehaviour
 {
     public enum TypeLife { Armor, Energy }
-    public TypeLife typeLife = TypeLife.Armor;
+    [SerializeField] private TypeLife typeLife = TypeLife.Armor;
 
-    public Image filledImage;
-    public Character character;
-    [Tooltip("Donde hace Focus el canvas, Recomendado: Player.")]
-    public Transform focus;
+    [SerializeField] private Image filledImage;
+    [SerializeField] private Character character;
+    private Transform focus;
 
+    private void Awake()
+    {
+        focus = GameManager.Get().player.transform;
+    }
     void Start()
     {
         character.OnUpdateStats += UpdateUI;

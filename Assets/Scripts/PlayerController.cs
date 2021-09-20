@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Character))]
 public class PlayerController : MonoBehaviour
 {
-    public enum PlayerStatus { Fading, Inization, Game, Pause, Inventory, EndWin, EndLose }
+    public enum PlayerStatus { Fading, Inization, Game, Pause, Inventory, Console, EndWin, EndLose }
     public PlayerStatus playerStatus = PlayerStatus.Inization;
     
     public Action OnInventory;
@@ -188,6 +188,7 @@ public class PlayerController : MonoBehaviour
                 CanPause();
                 CanRun();
                 CanJumpAndFly();
+                CanOpenConsole();
                 break;
             case PlayerStatus.Inventory:
                 UpdateCoolDown();
@@ -197,12 +198,14 @@ public class PlayerController : MonoBehaviour
             case PlayerStatus.Pause:
                 CanPause();
                 break;
+            case PlayerStatus.Console:
+                CanOpenConsole();
+                break;
             case PlayerStatus.EndWin:
             case PlayerStatus.EndLose:
             default:
                 break;
         }
-        CanOpenConsole();
     }
     private void FixedUpdate()
     {
