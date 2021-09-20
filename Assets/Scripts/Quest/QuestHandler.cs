@@ -33,11 +33,12 @@ public class QuestHandler : MonoBehaviour
         inventory.OnPickUp += PickUpEvent;
         crafting.OnCraft += CraftEvent;
         enemyManager.OnDinoDied += DinoDiedEvent;
+        StartNewQuest();
     }
 
     private void Start()
     {
-        StartNewQuest();
+
     }
 
     void StartNewQuest()
@@ -63,9 +64,9 @@ public class QuestHandler : MonoBehaviour
     {
         foreach (var task in currentTasks)
         {
-            if (!task.isCompleted() && RepairCheck(task, location))
+            if (!task.IsCompleted() && RepairCheck(task, location))
             {
-                task.complete();
+                task.Complete();
                 OnTaskProgress?.Invoke();
             }
         }
@@ -79,15 +80,17 @@ public class QuestHandler : MonoBehaviour
 
     private void PickUpEvent(Item item, int amount)
     {
-        foreach (var task in currentTasks)
+        for (int index = 0; index < currentTasks.Count; index++)
         {
-            if (!task.isCompleted() && PickUpCheck(task, item))
+            var task = currentTasks[index];
+            if (!task.IsCompleted() && PickUpCheck(task, item))
             {
                 task.pickUpAmount -= amount;
                 if (task.pickUpAmount <= 0)
                 {
-                    task.complete();
+                    task.Complete();    // todo: no se está moficicando a true la TASK.
                 }
+
                 OnTaskProgress?.Invoke();
             }
         }
@@ -105,12 +108,12 @@ public class QuestHandler : MonoBehaviour
     {
         foreach (var task in currentTasks)
         {
-            if (!task.isCompleted() && CraftCheck(task, item))
+            if (!task.IsCompleted() && CraftCheck(task, item))
             {
                 task.craftAmount--;
                 if (task.craftAmount <= 0)
                 {
-                    task.complete();
+                    task.Complete();
                 }
                 OnTaskProgress?.Invoke();
             }
@@ -127,12 +130,12 @@ public class QuestHandler : MonoBehaviour
     {
         foreach (var task in currentTasks)
         {
-            if (!task.isCompleted() && DinoCheck(task, dino))
+            if (!task.IsCompleted() && DinoCheck(task, dino))
             {
                 task.killAmount--;
                 if (task.killAmount <= 0)
                 {
-                    task.complete();
+                    task.Complete();
                 }
                 OnTaskProgress?.Invoke();
             }

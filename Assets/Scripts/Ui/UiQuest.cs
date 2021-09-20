@@ -1,21 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class UiQuest : MonoBehaviour
 {
-    public QuestHandler questHandler;
     public UiTask pfUiTask;
     [SerializeField] private RectTransform panelQuest;
     [SerializeField] private TextMeshProUGUI nameQuest;
     [SerializeField] private RectTransform panelTask;
+    private QuestHandler questHandler;
     private Quest quest;
     private List<UiTask> allUiTasks = new List<UiTask>();
 
+    private void Awake()
+    {
+        questHandler = GameManager.Get().questHandler;
+    }
     void Start()
     {
         SetQuest();
-        questHandler.OnTaskProgress += RefreshAllTask;  // todo: nunca se llama a este evento cuando pickeo o crafteo los items necesarios del task.
+        questHandler.OnTaskProgress += RefreshAllTask;
     }
     void SetQuest()
     {
@@ -72,7 +77,7 @@ public class UiQuest : MonoBehaviour
     {
         for (int i = 0; i < quest.tasks.Count; i++)
         {
-            bool finished = quest.tasks[i].isCompleted();
+            bool finished = quest.tasks[i].IsCompleted();
             allUiTasks[i].toggle.isOn = finished;
             Debug.Log("Task: " + allUiTasks[i].name + " Terminada: " + finished);
         }

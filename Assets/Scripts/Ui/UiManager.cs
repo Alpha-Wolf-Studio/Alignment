@@ -23,7 +23,8 @@ public class UiManager : MonoBehaviour
     public CanvasGroupList menuActual;
     public List<CanvasGroup> canvasGroup = new List<CanvasGroup>();
     private bool fromInventory;
-
+    [SerializeField] private GameObject console;
+    
     private void Awake()
     {
         character = GameManager.Get().character;
@@ -37,6 +38,7 @@ public class UiManager : MonoBehaviour
         character.OnDeath += Death;
         player.onShoot+= Shoot;
         player.OnPause+= Pause;
+        player.OnOpenConsole += OpenConsole;
         Time.timeScale = 1;
     }
     void Update()
@@ -61,6 +63,10 @@ public class UiManager : MonoBehaviour
     void Death()
     {
 
+    }
+    void OpenConsole()
+    {
+        console.SetActive(!console.activeSelf);
     }
     public void Pause()
     {

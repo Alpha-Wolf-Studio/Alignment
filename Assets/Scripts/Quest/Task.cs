@@ -20,9 +20,17 @@ public class Task
     public enum TaskType { KILL, PICKUP, CRAFT, REPAIR }
 
     public TaskType type;
-    bool completed = false;
-    public void complete() => completed = true;
-    public bool isCompleted() => completed;
+    private bool completed;
+
+    public void Complete()
+    {
+        completed = true;
+    }
+
+    public bool IsCompleted()
+    {
+        return completed;
+    }
 
     public DinoClass dinosaursToKill = DinoClass.Raptor;
     public int killAmount = 1;
