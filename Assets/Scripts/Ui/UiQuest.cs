@@ -10,8 +10,9 @@ public class UiQuest : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameQuest;
     [SerializeField] private RectTransform panelTask;
     private QuestHandler questHandler;
-    private Quest quest;
+    //private Quest quest;
     private List<UiTask> allUiTasks = new List<UiTask>();
+    private List<Task> tasks;
 
     private void Awake()
     {
@@ -25,15 +26,14 @@ public class UiQuest : MonoBehaviour
     void SetQuest()
     {
         ClearTasks();
-        quest = questHandler.allQuest[questHandler.GetCurrentQuest()];
-        int maxTasks = quest.tasks.Count;
+        tasks = questHandler.GetAllTask();
 
-        for (int i = 0; i < maxTasks; i++)
+        for (int i = 0; i < tasks.Count; i++)
         {
             UiTask uiTask = Instantiate(pfUiTask, panelTask);
             allUiTasks.Add(uiTask);
             uiTask.toggle.isOn = false;
-            SetTask(ref uiTask, quest.tasks[i], i);
+            SetTask(ref uiTask, tasks[i], i);
         }
 
         nameQuest.text = questHandler.allQuest[questHandler.GetCurrentQuest()].questTitle;
@@ -75,9 +75,9 @@ public class UiQuest : MonoBehaviour
     }
     void RefreshAllTask()
     {
-        for (int i = 0; i < quest.tasks.Count; i++)
+        for (int i = 0; i < tasks.Count; i++)
         {
-            bool finished = quest.tasks[i].IsCompleted();
+            bool finished = tasks[i].IsCompleted();
             allUiTasks[i].toggle.isOn = finished;
             Debug.Log("Task: " + allUiTasks[i].name + " Terminada: " + finished);
         }

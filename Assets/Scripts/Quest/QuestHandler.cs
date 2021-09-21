@@ -12,6 +12,7 @@ public class QuestHandler : MonoBehaviour
     [SerializeField] List<Task> currentTasks = new List<Task>();
     int currentQuest = -1;
     public int GetCurrentQuest() => currentQuest;
+    public List<Task> GetAllTask() => currentTasks;
 
     [Header("Repair Locations References")]
     [SerializeField] ReparableObject machine = null;
@@ -82,13 +83,14 @@ public class QuestHandler : MonoBehaviour
     {
         for (int index = 0; index < currentTasks.Count; index++)
         {
-            var task = currentTasks[index];
-            if (!task.IsCompleted() && PickUpCheck(task, item))
+            //var task = currentTasks[index];
+            if (!currentTasks[index].IsCompleted() && PickUpCheck(currentTasks[index], item))
             {
-                task.pickUpAmount -= amount;
-                if (task.pickUpAmount <= 0)
+                currentTasks[index].pickUpAmount -= amount;
+                if (currentTasks[index].pickUpAmount <= 0)
                 {
-                    task.Complete();    // todo: no se está moficicando a true la TASK.
+                    currentTasks[index].completed = true;
+                    //task.Complete();    // todo: no se está moficicando a true la TASK.
                 }
 
                 OnTaskProgress?.Invoke();

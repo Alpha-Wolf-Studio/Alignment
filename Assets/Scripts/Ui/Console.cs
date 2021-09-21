@@ -37,7 +37,8 @@ public class Console : MonoBehaviour, IPointerClickHandler
         invPlayer = player.GetComponent<Inventory>();
         character = GameManager.Get().character;
         rtConsole = gameObject.GetComponent<RectTransform>();
-    }private void Start()
+    }
+    private void Start()
     {
         startConsoleSize = rtConsole.sizeDelta;
         AllCmd();

@@ -23,6 +23,7 @@ public class TaskDrawer : PropertyDrawer
 
         Rect property1Rec = new Rect(position.x, position.y + 35, position.width, position.height * .25f);
         Rect property2Rec = new Rect(position.x, position.y + 60, position.width, position.height * .2f);
+        Rect property3Rec = new Rect(position.x, position.y + 90, position.width, position.height * .2f);
         Rect propertyItemRec = new Rect(position.x, position.y + 35, position.width - 4, position.height * .2f);
 
         switch (taskTypeEnum)
@@ -31,20 +32,24 @@ public class TaskDrawer : PropertyDrawer
                 GUI.backgroundColor = Color.red;
                 EditorGUI.PropertyField(property1Rec, property.FindPropertyRelative(nameof(Task.dinosaursToKill)));
                 EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative(nameof(Task.killAmount)));
+                //EditorGUI.PropertyField(property3Rec, property.FindPropertyRelative(nameof(Task.completed)));
                 break;
             case Task.TaskType.PICKUP:
                 GUI.backgroundColor = Color.yellow;
                 EditorGUI.PropertyField(propertyItemRec, property.FindPropertyRelative(nameof(Task.itemToPickUp)));
                 EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative(nameof(Task.pickUpAmount)));
+                //EditorGUI.PropertyField(property3Rec, property.FindPropertyRelative(nameof(Task.completed)));
                 break;
             case Task.TaskType.CRAFT:
                 GUI.backgroundColor = Color.green;
                 EditorGUI.PropertyField(propertyItemRec, property.FindPropertyRelative(nameof(Task.itemToCraft)));
                 EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative(nameof(Task.craftAmount)));
+                //EditorGUI.PropertyField(property3Rec, property.FindPropertyRelative(nameof(Task.completed)));
                 break;
             case Task.TaskType.REPAIR:
                 GUI.backgroundColor = Color.blue;
                 EditorGUI.PropertyField(property1Rec, property.FindPropertyRelative(nameof(Task.locationToRepair)));
+                //EditorGUI.PropertyField(property3Rec, property.FindPropertyRelative(nameof(Task.completed)));
                 break;
             default:
                 break;

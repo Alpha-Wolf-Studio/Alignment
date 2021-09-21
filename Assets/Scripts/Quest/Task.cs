@@ -20,7 +20,7 @@ public class Task
     public enum TaskType { KILL, PICKUP, CRAFT, REPAIR }
 
     public TaskType type;
-    private bool completed;
+    public bool completed;
 
     public void Complete()
     {

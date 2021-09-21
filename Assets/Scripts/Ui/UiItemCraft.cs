@@ -56,7 +56,10 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             if (uiCraft.craft.IsCraftPosible(item))
             {
                 buttonCraft.color = Color.green;
-                buttonCraft.GetComponent<Button>().interactable = true;
+                buttonCraft.GetComponent<Button>().interactable = true; // todo seguir con la cantidad
+                int maxAmountToCraft = uiCraft.craft.PosibleCraftAmount(item);
+                myAmount.text = (maxAmountToCraft < 10) ? "0" : "";
+                myAmount.text += maxAmountToCraft;
             }
             else
             {
