@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Transform playerTransform = null;
     [SerializeField] float spawnTime = 5f;
     [SerializeField] LayerMask groundLayer = default;
+    [SerializeField] LayerMask blockLayer = default;
     public Action<DinoClass> OnDinoDied;
 
     [Serializable]
@@ -61,14 +62,20 @@ public class EnemyManager : MonoBehaviour
 
     GameObject SpawnDino(GameObject prefab, List<DinoSpawn> spawns, int index) 
     {
-        float spawnDistanceX = UnityEngine.Random.value * spawns[index].spawnDistanceFromCenter;
-        float spawnDistanceZ = UnityEngine.Random.value * spawns[index].spawnDistanceFromCenter;
-        Vector3 variable = new Vector3(spawnDistanceX, 0, spawnDistanceZ);
-        Vector3 randPos = spawns[index].transform.position + variable;
-        randPos.y += 100f;
-        RaycastHit groundPosition;
-        Physics.Raycast(randPos, Vector3.down, out groundPosition, 200, groundLayer);
-        return Instantiate(prefab, groundPosition.point, Quaternion.identity, spawns[index].transform);
+        Vector3 randPos;
+        RaycastHit groundHit;
+        do
+        {
+            float spawnDistanceX = UnityEngine.Random.value * spawns[index].spawnDistanceFromCenter;
+            float spawnDistanceZ = UnityEngine.Random.value * spawns[index].spawnDistanceFromCenter;
+            Vector3 variable = new Vector3(spawnDistanceX, 0, spawnDistanceZ);
+            randPos = spawns[index].transform.position + variable;
+            randPos.y += 100f;
+            Physics.Raycast(randPos, Vector3.down, out groundHit, 200);
+        }
+        while (blockLayer == (blockLayer | (1 << groundHit.collider.gameObject.layer))); 
+        Physics.Raycast(randPos, Vector3.down, out groundHit, 200, groundLayer);
+        return Instantiate(prefab, groundHit.point, Quaternion.identity, spawns[index].transform);
     }
 
     IEnumerator DinoRespawn(DinoClass type, int spawnIndex) 

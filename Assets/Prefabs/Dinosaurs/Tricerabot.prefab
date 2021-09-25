@@ -885,7 +885,7 @@ MonoBehaviour:
   m_AgentTypeID: 1479372276
   m_Radius: 1.2
   m_Height: 1.5
-  m_WalkableMask: -1
+  m_WalkableMask: 5
   m_Speed: 3.5
   m_Acceleration: 25
   m_AngularSpeed: 120
@@ -948,7 +948,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1.5
   m_BaseOffset: -0.18
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!114 &875581337349143442
 MonoBehaviour:

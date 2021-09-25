@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_AgentTypeID: 0
   m_Radius: 0.4
   m_Height: 1.12
-  m_WalkableMask: -1
+  m_WalkableMask: 5
   m_Speed: 3.5
   m_Acceleration: 8
   m_AngularSpeed: 120
@@ -1335,7 +1335,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1.12
   m_BaseOffset: -0.5
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1810487242442812726
 MonoBehaviour:
@@ -1362,8 +1362,10 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   projectileSpawn: {fileID: 0}
   projectileSpeed: 50
-  chargeStrenght: 1000
-  chargeDistanceOffset: 1
+  chargePushStrenght: 600
+  chargeSpeedMultiplier: 5
+  minChargeDistance: 10
+  chargeStoppingTolerance: 2.5
 --- !u!54 &-2285362344330474111
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1860,7 +1862,6 @@ MonoBehaviour:
   typeLife: 0
   filledImage: {fileID: 1810487240434318087}
   character: {fileID: 2547520158362113444}
-  focus: {fileID: 0}
 --- !u!1 &4527492741467673455
 GameObject:
   m_ObjectHideFlags: 0
