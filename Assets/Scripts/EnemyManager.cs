@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour
     [Header("General")]
     [SerializeField] Transform playerTransform = null;
     [SerializeField] float spawnTime = 5f;
+    [SerializeField] float minSpawnDistanceFromPlayer = 50f;
     [SerializeField] LayerMask groundLayer = default;
     [SerializeField] LayerMask blockLayer = default;
     public Action<DinoClass> OnDinoDied;
@@ -48,7 +49,9 @@ public class EnemyManager : MonoBehaviour
         {
             for (int j = 0; j < spawns[i].dinoAmount; j++)
             {
-                GameObject go = SpawnDino(dinoPrefab, spawns, i);
+                Vector3 newPos;
+                newPos = GetNewGroundRandomPosition(spawns, i);
+                GameObject go = SpawnDino(dinoPrefab, newPos, spawns, i);
                 SetUpAI(go, i);
             }
         }
@@ -60,7 +63,12 @@ public class EnemyManager : MonoBehaviour
         StartCoroutine(DinoRespawn(type, spawnIndex));
     }
 
-    GameObject SpawnDino(GameObject prefab, List<DinoSpawn> spawns, int index) 
+    GameObject SpawnDino(GameObject prefab, Vector3 pos, List<DinoSpawn> spawns, int index) 
+    {
+        return Instantiate(prefab, pos, Quaternion.identity, spawns[index].transform);
+    }
+
+    Vector3 GetNewGroundRandomPosition(List<DinoSpawn> spawns, int index) 
     {
         Vector3 randPos;
         RaycastHit groundHit;
@@ -73,30 +81,47 @@ public class EnemyManager : MonoBehaviour
             randPos.y += 100f;
             Physics.Raycast(randPos, Vector3.down, out groundHit, 200);
         }
-        while (blockLayer == (blockLayer | (1 << groundHit.collider.gameObject.layer))); 
+        while (blockLayer == (blockLayer | (1 << groundHit.collider.gameObject.layer)));
         Physics.Raycast(randPos, Vector3.down, out groundHit, 200, groundLayer);
-        return Instantiate(prefab, groundHit.point, Quaternion.identity, spawns[index].transform);
+        return groundHit.point;
     }
 
     IEnumerator DinoRespawn(DinoClass type, int spawnIndex) 
     {
         yield return new WaitForSeconds(spawnTime);
-        GameObject go = new GameObject();
+        GameObject spawnPrefab;
+        List<DinoSpawn> listToSpawnFrom;
         switch (type)
         {
             case DinoClass.Raptor:
-                go = SpawnDino(raptorPrefab, raptorSpawns, spawnIndex);
+                listToSpawnFrom = raptorSpawns;
+                spawnPrefab = raptorPrefab;
                 break;
             case DinoClass.Triceratops:
-                go = SpawnDino(triPrefab, triSpawns, spawnIndex);
+                listToSpawnFrom = triSpawns;
+                spawnPrefab = triPrefab;
                 break;
             case DinoClass.Dilophosaurus:
-                go = SpawnDino(diloPrefab, diloSpawns, spawnIndex);
+                listToSpawnFrom = diloSpawns;
+                spawnPrefab = diloPrefab;
                 break;
             case DinoClass.Compsognathus:
-                go = SpawnDino(compiPrefab, compiSpawns, spawnIndex);
+                listToSpawnFrom = compiSpawns;
+                spawnPrefab = compiPrefab;
+                break;
+            default:
+                listToSpawnFrom = raptorSpawns;
+                spawnPrefab = raptorPrefab;
                 break;
         }
+        Vector3 newPos;
+        newPos = GetNewGroundRandomPosition(listToSpawnFrom, spawnIndex);
+        do
+        {
+            yield return null;
+        } while (Vector3.Distance(newPos, playerTransform.position) < minSpawnDistanceFromPlayer);
+        GameObject go = SpawnDino(spawnPrefab, newPos, listToSpawnFrom, spawnIndex);
+
         SetUpAI(go, spawnIndex);
     }
 
