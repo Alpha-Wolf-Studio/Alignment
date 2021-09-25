@@ -5,5 +5,5 @@ using UnityEngine;
 public class Quest : ScriptableObject
 {
     public string questTitle = "";
-    public List<Task> tasks = new List<Task>();
+    public List<SubQuest> tasks = new List<SubQuest>();
 }

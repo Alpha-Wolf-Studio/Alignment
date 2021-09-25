@@ -9,10 +9,10 @@ public class QuestHandler : MonoBehaviour
     public Action OnTaskProgress;
 
     public List<Quest> allQuest = new List<Quest>();
-    [SerializeField] List<Task> currentTasks = new List<Task>();
+    [SerializeField] List<SubQuest> currentTasks = new List<SubQuest>();
     int currentQuest = -1;
     public int GetCurrentQuest() => currentQuest;
-    public List<Task> GetAllTask() => currentTasks;
+    public List<SubQuest> GetAllTask() => currentTasks;
 
     [Header("Repair Locations References")]
     [SerializeField] ReparableObject machine = null;
@@ -51,12 +51,12 @@ public class QuestHandler : MonoBehaviour
             int killAmount = allQuest[currentQuest].tasks[i].killAmount;
             int pickUpAmount = allQuest[currentQuest].tasks[i].pickUpAmount;
             int craftAmount = allQuest[currentQuest].tasks[i].craftAmount;
-            Task t = new Task(allQuest[currentQuest].tasks[i], killAmount, pickUpAmount, craftAmount);
+            SubQuest t = new SubQuest(allQuest[currentQuest].tasks[i], killAmount, pickUpAmount, craftAmount);
             currentTasks.Add(t);
         }
     }
 
-    public List<Task> GetCurrentTasks()
+    public List<SubQuest> GetCurrentTasks()
     {
         return currentTasks;
     }
@@ -73,9 +73,9 @@ public class QuestHandler : MonoBehaviour
         }
     }
 
-    bool RepairCheck(Task task, RepairLocations location)
+    bool RepairCheck(SubQuest task, RepairLocations location)
     {
-        return task.type == Task.TaskType.REPAIR &&
+        return task.type == SubQuest.SubQuestType.REPAIR &&
                task.locationToRepair == location;
     }
 
@@ -98,9 +98,9 @@ public class QuestHandler : MonoBehaviour
         }
     }
 
-    bool PickUpCheck(Task task, Item item)
+    bool PickUpCheck(SubQuest task, Item item)
     {
-        bool taskType = task.type == Task.TaskType.PICKUP;
+        bool taskType = task.type == SubQuest.SubQuestType.PICKUP;
         if (!taskType) return false;
         bool itemType = task.itemToPickUp == item;
         return itemType;
@@ -122,9 +122,9 @@ public class QuestHandler : MonoBehaviour
         }
     }
 
-    bool CraftCheck(Task task, Item item)
+    bool CraftCheck(SubQuest task, Item item)
     {
-        return task.type == Task.TaskType.CRAFT &&
+        return task.type == SubQuest.SubQuestType.CRAFT &&
                task.itemToCraft == item;
     }
 
@@ -144,9 +144,9 @@ public class QuestHandler : MonoBehaviour
         }
     }
 
-    bool DinoCheck(Task task, DinoClass dino)
+    bool DinoCheck(SubQuest task, DinoClass dino)
     {
-        return task.type == Task.TaskType.KILL &&
+        return task.type == SubQuest.SubQuestType.KILL &&
                task.dinosaursToKill == dino;
     }
 

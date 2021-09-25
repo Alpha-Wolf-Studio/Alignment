@@ -7,5 +7,5 @@ public class UiTask : MonoBehaviour
     public TextMeshProUGUI nameTask;
     public TextMeshProUGUI description;
     public Toggle toggle;
-    public Task task;
+    public SubQuest task;
 }

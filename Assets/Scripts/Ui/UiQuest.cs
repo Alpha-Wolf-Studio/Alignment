@@ -12,7 +12,7 @@ public class UiQuest : MonoBehaviour
     private QuestHandler questHandler;
     //private Quest quest;
     private List<UiTask> allUiTasks = new List<UiTask>();
-    private List<Task> tasks;
+    private List<SubQuest> tasks;
 
     private void Awake()
     {
@@ -38,24 +38,24 @@ public class UiQuest : MonoBehaviour
 
         nameQuest.text = questHandler.allQuest[questHandler.GetCurrentQuest()].questTitle;
     }
-    void SetTask(ref UiTask uiTask,Task task, int i)
+    void SetTask(ref UiTask uiTask,SubQuest task, int i)
     {
 
         switch (task.type)
         {
-            case Task.TaskType.KILL:
+            case SubQuest.SubQuestType.KILL:
                 uiTask.nameTask.text = "Do not have Name yet";
                 uiTask.description.text = "Do not have Description yet";
                 break;
-            case Task.TaskType.PICKUP:
+            case SubQuest.SubQuestType.PICKUP:
                 uiTask.nameTask.text = "Collect " + task.pickUpAmount + " of " + task.itemToPickUp.itemName;
                 uiTask.description.text = "kill dinosaurs to get this item";
                 break;
-            case Task.TaskType.CRAFT:
+            case SubQuest.SubQuestType.CRAFT:
                 uiTask.nameTask.text = "Craft " + task.craftAmount + " of " + task.itemToCraft.itemName;
                 uiTask.description.text = "Open inventory with " + "E" + " and craft " + task.itemToCraft.itemName;
                 break;
-            case Task.TaskType.REPAIR:
+            case SubQuest.SubQuestType.REPAIR:
                 uiTask.nameTask.text = "Do not have Name yet";
                 uiTask.description.text = "Do not have Description yet";
                 break;

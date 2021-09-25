@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-[CustomPropertyDrawer(typeof(Task))]
+[CustomPropertyDrawer(typeof(SubQuest))]
 public class TaskDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -17,9 +17,9 @@ public class TaskDrawer : PropertyDrawer
         int indent = EditorGUI.indentLevel;
         EditorGUI.indentLevel = 1;
 
-        Task.TaskType taskTypeEnum = (Task.TaskType)property.FindPropertyRelative(nameof(Task.type)).enumValueIndex;
+        SubQuest.SubQuestType taskTypeEnum = (SubQuest.SubQuestType)property.FindPropertyRelative(nameof(SubQuest.type)).enumValueIndex;
         Rect typeRec = new Rect(position.x, position.y + 10, position.width, position.height * .25f);
-        EditorGUI.PropertyField(typeRec, property.FindPropertyRelative(nameof(Task.type)));
+        EditorGUI.PropertyField(typeRec, property.FindPropertyRelative(nameof(SubQuest.type)));
 
         Rect property1Rec = new Rect(position.x, position.y + 35, position.width, position.height * .25f);
         Rect property2Rec = new Rect(position.x, position.y + 60, position.width, position.height * .2f);
@@ -28,27 +28,27 @@ public class TaskDrawer : PropertyDrawer
 
         switch (taskTypeEnum)
         {
-            case Task.TaskType.KILL:
+            case SubQuest.SubQuestType.KILL:
                 GUI.backgroundColor = Color.red;
-                EditorGUI.PropertyField(property1Rec, property.FindPropertyRelative(nameof(Task.dinosaursToKill)));
-                EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative(nameof(Task.killAmount)));
+                EditorGUI.PropertyField(property1Rec, property.FindPropertyRelative(nameof(SubQuest.dinosaursToKill)));
+                EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative(nameof(SubQuest.killAmount)));
                 //EditorGUI.PropertyField(property3Rec, property.FindPropertyRelative(nameof(Task.completed)));
                 break;
-            case Task.TaskType.PICKUP:
+            case SubQuest.SubQuestType.PICKUP:
                 GUI.backgroundColor = Color.yellow;
-                EditorGUI.PropertyField(propertyItemRec, property.FindPropertyRelative(nameof(Task.itemToPickUp)));
-                EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative(nameof(Task.pickUpAmount)));
+                EditorGUI.PropertyField(propertyItemRec, property.FindPropertyRelative(nameof(SubQuest.itemToPickUp)));
+                EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative(nameof(SubQuest.pickUpAmount)));
                 //EditorGUI.PropertyField(property3Rec, property.FindPropertyRelative(nameof(Task.completed)));
                 break;
-            case Task.TaskType.CRAFT:
+            case SubQuest.SubQuestType.CRAFT:
                 GUI.backgroundColor = Color.green;
-                EditorGUI.PropertyField(propertyItemRec, property.FindPropertyRelative(nameof(Task.itemToCraft)));
-                EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative(nameof(Task.craftAmount)));
+                EditorGUI.PropertyField(propertyItemRec, property.FindPropertyRelative(nameof(SubQuest.itemToCraft)));
+                EditorGUI.PropertyField(property2Rec, property.FindPropertyRelative(nameof(SubQuest.craftAmount)));
                 //EditorGUI.PropertyField(property3Rec, property.FindPropertyRelative(nameof(Task.completed)));
                 break;
-            case Task.TaskType.REPAIR:
+            case SubQuest.SubQuestType.REPAIR:
                 GUI.backgroundColor = Color.blue;
-                EditorGUI.PropertyField(property1Rec, property.FindPropertyRelative(nameof(Task.locationToRepair)));
+                EditorGUI.PropertyField(property1Rec, property.FindPropertyRelative(nameof(SubQuest.locationToRepair)));
                 //EditorGUI.PropertyField(property3Rec, property.FindPropertyRelative(nameof(Task.completed)));
                 break;
             default:
@@ -60,8 +60,8 @@ public class TaskDrawer : PropertyDrawer
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        Task.TaskType taskTypeEnum = (Task.TaskType)property.FindPropertyRelative(nameof(Task.type)).enumValueIndex;
-        if(taskTypeEnum == Task.TaskType.REPAIR) 
+        SubQuest.SubQuestType taskTypeEnum = (SubQuest.SubQuestType)property.FindPropertyRelative(nameof(SubQuest.type)).enumValueIndex;
+        if(taskTypeEnum == SubQuest.SubQuestType.REPAIR) 
         {
             return 70f;
         }

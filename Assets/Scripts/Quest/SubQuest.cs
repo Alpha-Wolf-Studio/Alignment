@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class Task
+public class SubQuest
 {
 
-    public Task(Task t, int killAmount, int pickUpAmount, int craftAmount) 
+    public SubQuest(SubQuest t, int killAmount, int pickUpAmount, int craftAmount) 
     {
         type = t.type;
         dinosaursToKill = t.dinosaursToKill;
@@ -17,9 +17,9 @@ public class Task
         this.craftAmount = craftAmount;
     }
 
-    public enum TaskType { KILL, PICKUP, CRAFT, REPAIR }
+    public enum SubQuestType { KILL, PICKUP, CRAFT, REPAIR }
 
-    public TaskType type;
+    public SubQuestType type;
     public bool completed;
 
     public void Complete()
