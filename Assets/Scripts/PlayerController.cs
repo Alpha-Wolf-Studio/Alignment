@@ -205,7 +205,6 @@ public class PlayerController : MonoBehaviour
             case PlayerStatus.Inventory:
                 UpdateCoolDown();
                 CanInventory();
-                CanPause();
                 break;
             case PlayerStatus.Pause:
                 CanPause();

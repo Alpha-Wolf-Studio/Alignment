@@ -47,6 +47,7 @@ MonoBehaviour:
   typeLife: 0
   filledImage: {fileID: 8001290623943132494}
   character: {fileID: 0}
+  distanceShow: 50
 --- !u!1 &8001290623943132492
 GameObject:
   m_ObjectHideFlags: 0

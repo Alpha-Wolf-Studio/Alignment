@@ -55,7 +55,19 @@ public class UiInventory : MonoBehaviour
         Invoke(nameof(LoadInventoryUI), 0.1f);
 
         playerController.OnInventory += OnInventory;
-    } 
+    }
+
+    private void Update()
+    {
+        if (inventaryStatus == InventaryStatus.Open)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                OnInventory();
+            }
+        }
+    }
+
     void LoadInventoryUI()
     {
         CreateButtonsSlots();

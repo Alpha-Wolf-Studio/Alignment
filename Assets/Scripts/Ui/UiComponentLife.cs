@@ -9,6 +9,7 @@ public class UiComponentLife : MonoBehaviour
     [SerializeField] private Image filledImage;
     [SerializeField] private Character character;
     private Transform focus;
+    [SerializeField] private float distanceShow = 50.0f;
 
     private void Awake()
     {
@@ -19,10 +20,22 @@ public class UiComponentLife : MonoBehaviour
         character.OnUpdateStats += UpdateUI;
         UpdateUI();
     }
+
     void Update()
     {
-        transform.LookAt(focus, Vector3.up);
+        if (Vector3.Distance(character.transform.position, focus.transform.position) > distanceShow)
+        {
+            if (filledImage.enabled)            // Todo: ver performance, corregir.
+                filledImage.enabled = false;
+        }
+        else
+        {
+            if (!filledImage.enabled)
+                filledImage.enabled = true;
+            transform.LookAt(focus, Vector3.up);
+        }
     }
+
     void UpdateUI()
     {
         switch (typeLife)
