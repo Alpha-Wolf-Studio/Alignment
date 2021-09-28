@@ -15,10 +15,9 @@ MonoBehaviour:
   itemName: Signal Amplifier
   id: 0
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 6410180865831199, guid: ec210331c67fac743967671773ffd5ab,
+    type: 3}
   maxStack: 26
-  consumible: 0
   crafteable: 1
   recipe:
   - item: {fileID: 11400000, guid: 28b4d943a0f7cd244ac08da34f92a56a, type: 2}

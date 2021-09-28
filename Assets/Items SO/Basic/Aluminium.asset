@@ -15,9 +15,8 @@ MonoBehaviour:
   itemName: Aluminium
   id: 0
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 7362610656149943591, guid: d7e9263e5ed6e7f43928c1b01d2ad0d1,
+    type: 3}
   maxStack: 44
-  consumible: 0
   crafteable: 0
   recipe: []

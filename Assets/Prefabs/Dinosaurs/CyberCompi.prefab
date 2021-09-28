@@ -1439,6 +1439,7 @@ MonoBehaviour:
     amount: 1
   size: 0
   explosionStrenght: 400
+  explosionYOffset: 2.5
   canPickUpItems: 0
   pickUpDistance: 1
   pickUpMask:

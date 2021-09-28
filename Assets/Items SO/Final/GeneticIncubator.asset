@@ -15,9 +15,8 @@ MonoBehaviour:
   itemName: Genetic Incubator
   id: 0
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 8791116801645932994, guid: f783e4cff06129347a8b3451e2f341b6,
+    type: 3}
   maxStack: 26
-  consumible: 0
   crafteable: 0
   recipe: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Compressor
   id: 11
   icon: {fileID: 21300000, guid: 9ec0df2027a63334c948c9f658b26141, type: 3}
-  worldPrefab: {fileID: 6808080957239358881, guid: ed7704c6a712fb243a21a2d28e7c7779,
+  worldPrefab: {fileID: 7119288015553436825, guid: 2753044b061393f449667cf1123f41d3,
     type: 3}
   maxStack: 22
   crafteable: 1

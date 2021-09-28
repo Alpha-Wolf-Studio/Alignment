@@ -15,10 +15,9 @@ MonoBehaviour:
   itemName: Rotor
   id: 0
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 5372600087728732364, guid: 47a1da8d4d2aa1b479e1cd4306269f04,
+    type: 3}
   maxStack: 22
-  consumible: 0
   crafteable: 1
   recipe:
   - item: {fileID: 11400000, guid: a9e44da028215e845ba60bb84affc8a0, type: 2}

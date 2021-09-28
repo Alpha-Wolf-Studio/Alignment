@@ -15,10 +15,9 @@ MonoBehaviour:
   itemName: Titaneo Plates
   id: 0
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 8475233188541242394, guid: 2e248cc35f7427a458451f1bd5f262ec,
+    type: 3}
   maxStack: 26
-  consumible: 0
   crafteable: 1
   recipe:
   - item: {fileID: 11400000, guid: 74fb49b7e1662dd47a1743ef1c32139e, type: 2}

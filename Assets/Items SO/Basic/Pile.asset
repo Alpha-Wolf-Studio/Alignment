@@ -15,13 +15,15 @@ MonoBehaviour:
   itemName: Pile
   id: 1
   icon: {fileID: 21300000, guid: cd3044c9e682fbb4586ba29cbe742812, type: 3}
-  worldPrefab: {fileID: 290333133952922808, guid: be3a844976dbce54a90b9f091a1843b9,
+  worldPrefab: {fileID: 8074279989264916357, guid: 6e36ce709ebe89a4086fe4ebe205d243,
     type: 3}
   maxStack: 18
   crafteable: 0
   recipe: []
   currentEnergyUpgrade: 0
-  maxEnergyUpgrade: 0
+  currentArmorUpgrade: 0
   attackUpgrade: 0
   defenseUpgrade: 0
   speedUpgrade: 0
+  maxEnergyUpgrade: 0
+  maxArmorUpgrade: 0

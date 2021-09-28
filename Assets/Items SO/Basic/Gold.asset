@@ -15,9 +15,8 @@ MonoBehaviour:
   itemName: Gold
   id: 0
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 1899048728548883619, guid: 7cf883178fd49b3408e0c196e0372209,
+    type: 3}
   maxStack: 44
-  consumible: 0
   crafteable: 0
   recipe: []

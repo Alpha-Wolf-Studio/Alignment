@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Transistor
   id: 6
   icon: {fileID: 21300000, guid: 9954c944b52e2e94288f4df3f31f57b6, type: 3}
-  worldPrefab: {fileID: 4859930954857725961, guid: 06e16345f99f7a742b928b87e0480f89,
+  worldPrefab: {fileID: 2747094561591404851, guid: 963ee21559d2f284c98d567fd480d562,
     type: 3}
   maxStack: 22
   crafteable: 1

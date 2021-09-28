@@ -15,7 +15,8 @@ MonoBehaviour:
   itemName: Terminal
   id: 34
   icon: {fileID: 0}
-  worldPrefab: {fileID: 0}
+  worldPrefab: {fileID: 227288185128229093, guid: 002fe57cafd42934f89952fd7ec72840,
+    type: 3}
   maxStack: 26
   crafteable: 1
   recipe:

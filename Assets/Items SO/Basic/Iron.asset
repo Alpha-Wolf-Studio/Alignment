@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Iron
   id: 4
   icon: {fileID: 21300000, guid: e2758c91444169c4ca20d17fb1385487, type: 3}
-  worldPrefab: {fileID: 5256721333140853744, guid: 43d46a5d114f3d84b9f61ee3ad6ba86e,
+  worldPrefab: {fileID: 8660352929402739887, guid: 0e87a848160e92340bd7206a6007180c,
     type: 3}
   maxStack: 44
   crafteable: 0

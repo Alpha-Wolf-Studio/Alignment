@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(BoxCollider))]
 public class ItemComponent : MonoBehaviour
 {
     private Rigidbody rb;
@@ -9,6 +10,7 @@ public class ItemComponent : MonoBehaviour
     int amount = 0;
     int ID = 0;
     [SerializeField] private float destroyTime = 300;
+    public Iitem itemInterface;
     public float maxPickTime = 5;
 
     private void Awake()
@@ -17,10 +19,9 @@ public class ItemComponent : MonoBehaviour
     }
     private void Start()
     {
-        col = GetComponent<Collider>();
-        col.enabled = false;
-        Destroy(gameObject, destroyTime);
+        Destroy(itemInterface.gameObject, destroyTime);
     }
+
     private void Update()
     {
         maxPickTime -= Time.deltaTime;

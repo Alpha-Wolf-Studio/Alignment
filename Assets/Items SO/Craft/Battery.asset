@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Battery
   id: 9
   icon: {fileID: 21300000, guid: 9e4030d4fbbb4aa4895f807cf6bf41b1, type: 3}
-  worldPrefab: {fileID: 7233220011812138605, guid: 0984f06cea7583c419f4f2415556f6e4,
+  worldPrefab: {fileID: 4163826473773319006, guid: 81bd06d4556d013419629423f0c76407,
     type: 3}
   maxStack: 22
   crafteable: 1
@@ -27,7 +27,9 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: a9e44da028215e845ba60bb84affc8a0, type: 2}
     amount: 2
   currentEnergyUpgrade: 10
-  maxEnergyUpgrade: 0
+  currentArmorUpgrade: 0
   attackUpgrade: 0
   defenseUpgrade: 0
   speedUpgrade: 0
+  maxEnergyUpgrade: 0
+  maxArmorUpgrade: 0

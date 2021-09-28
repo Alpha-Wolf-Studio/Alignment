@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Zinc
   id: 3
   icon: {fileID: 21300000, guid: 792ffa03eff629c4b8e83d9864f96fe0, type: 3}
-  worldPrefab: {fileID: 7988004674051306169, guid: 7c82dd51f4d759d409e450dca8ad5061,
+  worldPrefab: {fileID: 6803956328621472425, guid: 1c7750e52d9c7444f9b509f2d7bd7277,
     type: 3}
   maxStack: 44
   crafteable: 0

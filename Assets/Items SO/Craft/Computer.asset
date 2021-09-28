@@ -15,10 +15,9 @@ MonoBehaviour:
   itemName: Computer
   id: 0
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 494460278758773388, guid: 003ba5acb9e741e4098888cb76868cae,
+    type: 3}
   maxStack: 22
-  consumible: 0
   crafteable: 1
   recipe:
   - item: {fileID: 11400000, guid: d8621a64397cc5042bfefa8ad23f71d0, type: 2}

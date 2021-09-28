@@ -8,7 +8,10 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] List<Slot> currentSlots;
     [SerializeField] int size = 10;
+    
+    [Header("Inventory Explosion")]
     [SerializeField] float explosionStrenght = 300f;
+    [SerializeField] float explosionYOffset = 2.5f; 
 
     [Header("Pick Up")]
     [SerializeField] bool canPickUpItems = false;
@@ -241,12 +244,12 @@ public class Inventory : MonoBehaviour
             if (slot.ID > 0)
             {
                 Vector3 randomForceDirection = UnityEngine.Random.insideUnitSphere * explosionStrenght;
-                Debug.DrawRay(transform.position, randomForceDirection * 10, Color.red, 10);
+                randomForceDirection = new Vector3(randomForceDirection.x, Mathf.Abs(randomForceDirection.y), randomForceDirection.z);
                 Transform parent = ItemManager.GetInstance().transform;
                 Vector3 posAux = transform.position;
-                posAux.y += 1;
+                posAux.y += explosionYOffset;
                 GameObject go = Instantiate(ItemManager.GetInstance().GetItemFromID(slot.ID).worldPrefab, posAux, Quaternion.identity, parent);
-                var itemComponent = go.GetComponent<ItemComponent>();
+                var itemComponent = go.GetComponent<Iitem>().GetItemComponent();
                 itemComponent.AddForce(randomForceDirection);
                 itemComponent.SetItem(slot.ID, slot.amount);
             }

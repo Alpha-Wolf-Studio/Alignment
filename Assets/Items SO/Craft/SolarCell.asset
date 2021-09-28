@@ -15,10 +15,9 @@ MonoBehaviour:
   itemName: Solar Cell
   id: 0
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 3804055830639992200, guid: 2b265c3210136d140a56b7fdd366f64b,
+    type: 3}
   maxStack: 22
-  consumible: 0
   crafteable: 1
   recipe:
   - item: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}

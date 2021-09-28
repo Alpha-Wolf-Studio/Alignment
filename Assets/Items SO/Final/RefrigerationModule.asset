@@ -15,10 +15,9 @@ MonoBehaviour:
   itemName: Refrigeration Module
   id: 0
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 5553392234530039504, guid: ae020b58f88bd634897c1b0cffebe3d7,
+    type: 3}
   maxStack: 26
-  consumible: 0
   crafteable: 1
   recipe:
   - item: {fileID: 11400000, guid: 01270ed10e4b5904d9c12941b8dd70d4, type: 2}

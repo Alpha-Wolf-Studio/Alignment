@@ -15,10 +15,9 @@ MonoBehaviour:
   itemName: Resistance
   id: 0
   icon: {fileID: 0}
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  worldPrefab: {fileID: 4398557934233372903, guid: b66bca520bcf2184b8ff4aac4a4c26e8,
+    type: 3}
   maxStack: 22
-  consumible: 0
   crafteable: 1
   recipe:
   - item: {fileID: 11400000, guid: b0df2048522e8f04798fa851f4d5eb7d, type: 2}
