@@ -8,6 +8,8 @@ public class Character : MonoBehaviour, IDamageable
 {
     public Action OnDeath;
     public Action OnUpdateStats;
+    public Action OnCharacterTakeEnergyDamage;
+    public Action OnCharacterTakeArmorDamage;
     public Action OnStatsLoaded;
 
     [Header("Animations")]
@@ -117,6 +119,7 @@ public class Character : MonoBehaviour, IDamageable
     public void TakeEnergyDamage(float damage)
     {
         if (!isAlive) return;
+        OnCharacterTakeEnergyDamage?.Invoke();
         damage -= stats[(int) Stats.Defense].GetCurrent();
         if (damage > 0)
         {
@@ -139,6 +142,7 @@ public class Character : MonoBehaviour, IDamageable
     public void TakeArmorDamage(float damage)
     {
         damage -= stats[(int)Stats.Defense].GetCurrent();
+        OnCharacterTakeArmorDamage?.Invoke();
         if (damage > 0 && isAlive) // todo: Agregar un daño mínimo
         {
             AddCurrentStat(Stats.Armor, -damage);
