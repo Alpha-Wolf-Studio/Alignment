@@ -66,6 +66,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         OnDied?.Invoke(dinoType, spawnIndex);
+        attackModule.StopMeleeDamage();
         anim.SetBool("Walking", false);
         playerTransform = null;
     }
