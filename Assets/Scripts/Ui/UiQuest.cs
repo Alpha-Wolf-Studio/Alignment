@@ -36,7 +36,7 @@ public class UiQuest : MonoBehaviour
             SetTask(ref uiTask, tasks[i], i);
         }
 
-        nameQuest.text = questHandler.allQuest[questHandler.GetCurrentQuest()].questTitle;
+        nameQuest.text = "(Q) " + questHandler.allQuest[questHandler.GetCurrentQuest()].questTitle;
     }
     void SetTask(ref UiTask uiTask,SubQuest task, int i)
     {

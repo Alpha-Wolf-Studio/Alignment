@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +25,9 @@ public class UiManager : MonoBehaviour
     public List<CanvasGroup> canvasGroup = new List<CanvasGroup>();
     private bool fromInventory;
     [SerializeField] private GameObject console;
-    
+    [SerializeField] private GameObject panelQuest;
+    [SerializeField] TextMeshProUGUI versionText;
+
     private void Awake()
     {
         character = GameManager.Get().character;
@@ -39,7 +42,10 @@ public class UiManager : MonoBehaviour
         player.onShoot+= Shoot;
         player.OnPause+= Pause;
         player.OnOpenConsole += OpenConsole;
+        player.OnOpenQuestPanel += OpenQuestPanel;
         Time.timeScale = 1;
+
+        versionText.text = "Version: " + Application.version;
     }
     void Update()
     {
@@ -67,6 +73,10 @@ public class UiManager : MonoBehaviour
     void OpenConsole()
     {
         console.SetActive(!console.activeSelf);
+    }
+    void OpenQuestPanel()
+    {
+        panelQuest.SetActive(!panelQuest.activeSelf);
     }
     public void Pause()
     {

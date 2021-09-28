@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Action OnInventory;
     public Action OnPause;
     public Action OnOpenConsole;
+    public Action OnOpenQuestPanel;
     public Action<float, bool> onShoot;
 
     private Rigidbody rb;
@@ -171,6 +172,14 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    void CanOpenTask()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            OnOpenQuestPanel?.Invoke();
+        }
+    }
     void Update()
     {
         switch (playerStatus)
@@ -190,6 +199,7 @@ public class PlayerController : MonoBehaviour
                 CanRun();
                 CanJumpAndFly();
                 CanOpenConsole();
+                CanOpenTask();
                 break;
             case PlayerStatus.Inventory:
                 UpdateCoolDown();

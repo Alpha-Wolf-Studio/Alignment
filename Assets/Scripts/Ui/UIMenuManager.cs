@@ -9,7 +9,7 @@ public class UIMenuManager : MonoBehaviour
     [SerializeField] private CanvasGroup[] menues;
     [SerializeField] private float timeTransition;
     [Space(10)]
-    [SerializeField] TextMeshProUGUI versionText = null;
+    [SerializeField] TextMeshProUGUI versionText;
 
     void Start()
     {
