@@ -96,7 +96,10 @@ public class Console : MonoBehaviour, IPointerClickHandler
         AddCommand("cheat armor", InfinityArmor, "Infinity Armor.");
         AddCommand("cheat energy", InfinityEnergy, "Infinity Energy.");
         AddCommand("cheat stamina", InfinityStamina, "Infinity Stamina.");
+        AddCommand("cheat jetpack", AddJetPack, "Add Jetpack.");
     }
+
+
     void AddCommand(string cmdName, Method cmdCommand, string cmdDescription)
     {
         DataCmd cmd = new DataCmd
@@ -157,5 +160,9 @@ public class Console : MonoBehaviour, IPointerClickHandler
     void InfinityStamina()
     {
         //cheats.CheatEnable(Character.Stats);
+    }
+    void AddJetPack()
+    {
+        player.jetpack = !player.jetpack;
     }
 }

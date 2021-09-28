@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxTimePressToFly;
     private bool grounded = true;
     private bool flying;
+    public bool jetpack;
 
     private void Awake()
     {
@@ -232,8 +233,11 @@ public class PlayerController : MonoBehaviour
 
             if (flying && useEnergyFly)
             {
-                rb.AddForce(transform.up * forceFly, ForceMode.Impulse);
-                currentStamina -= energySpendFly;
+                if (jetpack)
+                {
+                    rb.AddForce(transform.up * forceFly, ForceMode.Impulse);
+                    //currentStamina -= energySpendFly;
+                }
             }
 
             if (Mathf.Abs(Input.GetAxis("Vertical")) > 0 || Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
