@@ -255,6 +255,24 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
+    public bool ThrowItem(int index) 
+    {
+        if(currentSlots[index].ID > 0) 
+        {
+            Transform parent = ItemManager.GetInstance().transform;
+            Vector3 posAux = transform.position;
+            posAux.y += explosionYOffset;
+            GameObject go = Instantiate(ItemManager.GetInstance().GetItemFromID(currentSlots[index].ID).worldPrefab, posAux, Quaternion.identity, parent);
+            var itemComponent = go.GetComponent<Iitem>().GetItemComponent();
+            itemComponent.AddForce(transform.forward * explosionStrenght);
+            itemComponent.SetItem(currentSlots[index].ID, currentSlots[index].amount);
+            currentSlots[index].EmptySlot();
+            return true;
+        }
+        return false;
+    }
+
     IEnumerator PickUpCoroutine()
     {
         while (canPickUpItems)
