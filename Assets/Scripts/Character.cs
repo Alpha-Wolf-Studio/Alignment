@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Inventory))]
 public class Character : MonoBehaviour, IDamageable
 {
-    public Action OnDeath;
+    public Action<DamageOrigin> OnDeath;
     public Action OnUpdateStats;
     public Action OnCharacterTakeEnergyDamage;
     public Action OnCharacterTakeArmorDamage;
@@ -114,9 +114,9 @@ public class Character : MonoBehaviour, IDamageable
 
     public void AttackDir(Vector3 dir)
     {
-        if (attackComponent != null) attackComponent.Attack(dir);
+        if (attackComponent != null) attackComponent.Attack(dir, DamageOrigin.PLAYER);
     }
-    public void TakeEnergyDamage(float damage)
+    public void TakeEnergyDamage(float damage, DamageOrigin damageOrigin)
     {
         if (!isAlive) return;
         OnCharacterTakeEnergyDamage?.Invoke();
@@ -133,13 +133,13 @@ public class Character : MonoBehaviour, IDamageable
                 if (anim != null) anim.SetTrigger("Death");
                 StartCoroutine(BodyRemoveCoroutine());
                 inventory.BlowUpInventory();
-                OnDeath?.Invoke();
+                OnDeath?.Invoke(damageOrigin);
                 isAlive = false;
             }
         }
         OnUpdateStats?.Invoke();
     }
-    public void TakeArmorDamage(float damage)
+    public void TakeArmorDamage(float damage, DamageOrigin damageOrigin)
     {
         damage -= stats[(int)Stats.Defense].GetCurrent();
         OnCharacterTakeArmorDamage?.Invoke();
@@ -156,7 +156,7 @@ public class Character : MonoBehaviour, IDamageable
                 if (anim != null) anim.SetTrigger("Death");
                 StartCoroutine(BodyRemoveCoroutine());
                 inventory.BlowUpInventory();
-                OnDeath?.Invoke();
+                OnDeath?.Invoke(damageOrigin);
             }
         }
         OnUpdateStats?.Invoke();

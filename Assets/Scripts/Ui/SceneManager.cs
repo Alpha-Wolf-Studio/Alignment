@@ -14,7 +14,7 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
 
     IEnumerator AsynchronousLoadWithFake(string scene, string textInBetween)
     {
-        float loadingProgress = 0;
+        float loadingProgress;
         float timeLoading = 0;
 
         uI_LoadingScreen.FadeWithBlackScreen(textInBetween);

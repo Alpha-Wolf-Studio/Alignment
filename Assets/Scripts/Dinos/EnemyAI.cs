@@ -34,6 +34,7 @@ public class EnemyAI : MonoBehaviour
     CustomNavMeshAgent agent = null;
 
     [SerializeField] DinoClass dinoType = DinoClass.Raptor;
+    DamageOrigin origin;
     int spawnIndex = 0;
     public Action<DinoClass, int> OnDied;
 
@@ -48,6 +49,23 @@ public class EnemyAI : MonoBehaviour
         attackModule = GetComponent<AIAttackModule>();
         character.OnDeath += StopMoving;
         currentTimeBetweenPatrols = minTimeBetweenPatrols;
+        switch (dinoType)
+        {
+            case DinoClass.Raptor:
+                origin = DamageOrigin.RAPTOR;
+                break;
+            case DinoClass.Triceratops:
+                origin = DamageOrigin.TRICERATOPS;
+                break;
+            case DinoClass.Dilophosaurus:
+                origin = DamageOrigin.DILOPHOSAURUS;
+                break;
+            case DinoClass.Compsognathus:
+                origin = DamageOrigin.COMPSOGNATHUS;
+                break;
+            default:
+                break;
+        }
     }
 
     private void Start()
@@ -62,7 +80,7 @@ public class EnemyAI : MonoBehaviour
         playerTransform = trans;
     }
 
-    public void StopMoving() 
+    public void StopMoving(DamageOrigin origin) 
     {
         agent.SetDestination(transform.position);
         OnDied?.Invoke(dinoType, spawnIndex);
@@ -135,7 +153,7 @@ public class EnemyAI : MonoBehaviour
                 attackModule.StopAttack();
                 break;
             case EnemyBehaviour.ATTACKING:
-                attackModule.Attack(playerTransform.position);
+                attackModule.Attack(playerTransform.position, origin);
                 break;
         }
     }

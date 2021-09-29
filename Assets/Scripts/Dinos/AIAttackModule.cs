@@ -46,7 +46,7 @@ public class AIAttackModule : AttackComponent
         currentAttackType = newAttackType;
     }
 
-    public override void Attack(Vector3 dir) 
+    public override void Attack(Vector3 dir, DamageOrigin origin) 
     {
         Vector3 frontDir = dir - transform.position;
         switch (currentAttackType)
@@ -56,7 +56,7 @@ public class AIAttackModule : AttackComponent
                 AimToAttack(frontDir);
                 foreach (var collider in meleeColliders)
                 { 
-                    collider.SetColliders(attackStrenght);
+                    collider.SetColliders(attackStrenght, origin);
                 }
                 break;
             case attack_Type.Charge:
@@ -66,7 +66,7 @@ public class AIAttackModule : AttackComponent
                     {
                         if(collider.GetType() == typeof(ChargeAttackCollider)) 
                         {
-                            ((ChargeAttackCollider)collider).SetColliders(attackStrenght, chargePushStrenght);
+                            ((ChargeAttackCollider)collider).SetColliders(attackStrenght, chargePushStrenght, origin);
                         }
                     }
                     if(ChargeCoroutine != null) 
@@ -85,7 +85,7 @@ public class AIAttackModule : AttackComponent
                 {
                     StartCoroutine(CooldownCoroutine());
                     GameObject go = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-                    go.GetComponent<Projectile>().Launch(frontDir, projectileSpeed, attackStrenght);
+                    go.GetComponent<Projectile>().Launch(frontDir, projectileSpeed, attackStrenght, origin);
                 }
                 break;
             default:
@@ -148,7 +148,7 @@ public class AIAttackModule : AttackComponent
         transform.forward = Vector3.Lerp(transform.forward, dir.normalized, t);
     }
 
-    void StopAI() 
+    void StopAI(DamageOrigin origin) 
     {
         StopAllCoroutines();
     }

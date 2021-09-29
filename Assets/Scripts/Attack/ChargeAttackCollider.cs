@@ -7,17 +7,18 @@ public class ChargeAttackCollider : MeleeAttackCollider
 
     float pushStrenght = 0;
 
-    public void SetColliders(float damage, float pushStrenght) 
+    public void SetColliders(float damage, float pushStrenght, DamageOrigin origin) 
     {
         this.damage = damage;
         this.pushStrenght = pushStrenght;
+        this.origin = origin;
     }
     private void OnCollisionEnter(Collision collision)
     {
         IDamageable damageComponent = collision.collider.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
-            damageComponent.TakeArmorDamage(damage);
+            damageComponent.TakeArmorDamage(damage, origin);
             collision.rigidbody.AddForce(Vector3.up * pushStrenght);
         }
     }

@@ -66,7 +66,7 @@ public class UiManager : MonoBehaviour
             StartCoroutine(Reloading(maxCoolDown));
         }
     }
-    void Death()
+    void Death(DamageOrigin origin)
     {
 
     }

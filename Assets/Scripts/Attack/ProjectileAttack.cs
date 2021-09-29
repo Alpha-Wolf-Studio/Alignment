@@ -7,10 +7,10 @@ public class ProjectileAttack : AttackComponent
     [SerializeField] GameObject projectilePrefab = null;
     [SerializeField] float projectileSpeed = 50f;
 
-    public override void Attack(Vector3 dir)
+    public override void Attack(Vector3 dir, DamageOrigin origin)
     {
         GameObject go = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         go.name = gameObject.name + " Projectile Attack";
-        go.GetComponent<Projectile>().Launch(dir, projectileSpeed, attackStrenght);
+        go.GetComponent<Projectile>().Launch(dir, projectileSpeed, attackStrenght, origin);
     }
 }

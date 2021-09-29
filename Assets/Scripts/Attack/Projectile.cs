@@ -6,6 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     float hitDamage = 0;
+    DamageOrigin origin;
     private float onTimeDestroy = 5.0f;
 
     private void Start()
@@ -13,9 +14,10 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, onTimeDestroy);
     }
 
-    public void Launch(Vector3 dir, float speed, float damage)
+    public void Launch(Vector3 dir, float speed, float damage, DamageOrigin damageOrigin)
     {
         hitDamage = damage;
+        origin = damageOrigin;
         GetComponent<Rigidbody>().AddForce(dir * speed);
     }
 
@@ -24,7 +26,7 @@ public class Projectile : MonoBehaviour
         IDamageable damageComponent = other.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
-            damageComponent.TakeArmorDamage(hitDamage);
+            damageComponent.TakeArmorDamage(hitDamage, origin);
         }
         Destroy(gameObject);
     }

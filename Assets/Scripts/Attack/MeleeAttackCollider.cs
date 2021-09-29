@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeleeAttackCollider : MonoBehaviour
 {
     protected float damage = 0;
+    protected DamageOrigin origin;
     Collider col;
 
     private void Awake()
@@ -20,9 +21,10 @@ public class MeleeAttackCollider : MonoBehaviour
     {
         col.enabled = false;
     }
-    public void SetColliders(float damage) 
+    public void SetColliders(float damage, DamageOrigin damageOrigin) 
     {
         this.damage = damage;
+        origin = damageOrigin;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -30,7 +32,7 @@ public class MeleeAttackCollider : MonoBehaviour
         IDamageable damageComponent = collision.collider.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
-            damageComponent.TakeArmorDamage(damage);
+            damageComponent.TakeArmorDamage(damage, origin);
         }
     }
 }

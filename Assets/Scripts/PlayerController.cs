@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
             {
                 //Debug.Log("Dispara y se Daña");
                 onShoot?.Invoke(maxCoolDownShoot, false);
-                character.TakeEnergyDamage(damageForShoot);
+                character.TakeEnergyDamage(damageForShoot, DamageOrigin.PLAYER);
             }
             else
             {
