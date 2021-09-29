@@ -69,7 +69,7 @@ public class UIMenuManager : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.Get().LoadSceneAsync(scene);
     }
     public void ExitGame()
     {

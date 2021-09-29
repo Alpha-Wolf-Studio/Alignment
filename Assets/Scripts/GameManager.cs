@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,7 +42,7 @@ public class GameManager : MonoBehaviour
     void PlayerDeath()
     {
         player.playerStatus = PlayerController.PlayerStatus.EndLose;
-        GameOver();
+        GameOver("TIP: Water kills you automatically");
     }
     void RepairShip(RepairLocations location)
     {
@@ -51,17 +50,17 @@ public class GameManager : MonoBehaviour
         if (objectsRemaining == 0)
         {
             player.playerStatus = PlayerController.PlayerStatus.EndWin;
-            GameOver();
+            GameOver("You repaired the ship and got the timeline fixed.");
         }
     }
-    void GameOver()
+    void GameOver(string gameOverText = "")
     {
         character.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        ChangeScene("Menu");
+        ChangeScene("Menu", gameOverText);
     }
-    public void ChangeScene(string scene)
+    public void ChangeScene(string scene, string gameOverText)
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.Get().LoadSceneAsync(scene, gameOverText);
     }
 }
 

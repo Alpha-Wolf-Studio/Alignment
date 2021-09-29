@@ -61,6 +61,6 @@ public class NaveCapsula : MonoBehaviour
     }
     public void EndAnimation()
     {
-        SceneManager.LoadScene("GameMerge");
+        SceneManager.Get().LoadSceneAsync("GameMerge");
     }
 }
