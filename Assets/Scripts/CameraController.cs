@@ -29,16 +29,16 @@ public class CameraController : MonoBehaviour
     IEnumerator CameraShakeCoroutine() 
     {
         float t = 0;
-        Vector3 startingPos = transform.position;
+        Vector3 startingPos = transform.localPosition;
         shaking = true;
         do
         {
             t += Time.deltaTime;
             Vector3 rand = UnityEngine.Random.insideUnitSphere * shakeStrenght;
-            transform.position = new Vector3(startingPos.x + rand.x, startingPos.y + rand.y, startingPos.z);
+            transform.localPosition = new Vector3(startingPos.x + rand.x, startingPos.y + rand.y, startingPos.z);
             yield return null;
         } while (t < shakeTime);
-        transform.position = startingPos;
+        transform.localPosition = startingPos;
         shaking = false;
     }
 }
