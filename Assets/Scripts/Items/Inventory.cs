@@ -249,7 +249,7 @@ public class Inventory : MonoBehaviour
                 Vector3 posAux = transform.position;
                 posAux.y += explosionYOffset;
                 GameObject go = Instantiate(ItemManager.GetInstance().GetItemFromID(slot.ID).worldPrefab, posAux, Quaternion.identity, parent);
-                var itemComponent = go.GetComponent<Iitem>().GetItemComponent();
+                var itemComponent = go.GetComponent<ItemComponent>();
                 itemComponent.AddForce(randomForceDirection);
                 itemComponent.SetItem(slot.ID, slot.amount);
             }
@@ -264,7 +264,7 @@ public class Inventory : MonoBehaviour
             Vector3 posAux = transform.position;
             posAux.y += explosionYOffset;
             GameObject go = Instantiate(ItemManager.GetInstance().GetItemFromID(currentSlots[index].ID).worldPrefab, posAux, Quaternion.identity, parent);
-            var itemComponent = go.GetComponent<Iitem>().GetItemComponent();
+            var itemComponent = go.GetComponent<ItemComponent>();
             itemComponent.AddForce(transform.forward * explosionStrenght);
             itemComponent.SetItem(currentSlots[index].ID, currentSlots[index].amount);
             currentSlots[index].EmptySlot();

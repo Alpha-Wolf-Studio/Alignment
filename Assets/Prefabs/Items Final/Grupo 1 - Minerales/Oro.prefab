@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1953047773712425472}
-  - component: {fileID: 330437785}
+  - component: {fileID: 2052517239}
+  - component: {fileID: 2052517238}
+  - component: {fileID: 2052517237}
   m_Layer: 12
   m_Name: Oro
   m_TagString: Untagged
@@ -32,7 +34,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &330437785
+--- !u!54 &2052517239
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899048728548883619}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!65 &2052517238
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899048728548883619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.23938239, y: 0.08870143, z: 1.0784543}
+  m_Center: {x: -0.000000011175871, y: 0, z: 0}
+--- !u!114 &2052517237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +72,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1899048728548883619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2af0a6625f9173459d7756679103410, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  realComponent: {fileID: 4391937889084839313}
+  destroyTime: 300
+  maxPickTime: 5
 --- !u!1 &4391937889084839326
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,9 +88,6 @@ GameObject:
   - component: {fileID: 3157319921634123731}
   - component: {fileID: 6817842459039028972}
   - component: {fileID: 3633851752813528710}
-  - component: {fileID: 4391937889084839315}
-  - component: {fileID: 4391937889084839312}
-  - component: {fileID: 4391937889084839313}
   m_Layer: 12
   m_Name: pCube1
   m_TagString: Untagged
@@ -127,47 +156,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4391937889084839315
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4391937889084839326}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23938239, y: 0.08870143, z: 1.0784543}
-  m_Center: {x: -0.000000011175871, y: 0, z: 0}
---- !u!54 &4391937889084839312
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4391937889084839326}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!114 &4391937889084839313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4391937889084839326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyTime: 300
-  itemInterface: {fileID: 0}
-  maxPickTime: 5

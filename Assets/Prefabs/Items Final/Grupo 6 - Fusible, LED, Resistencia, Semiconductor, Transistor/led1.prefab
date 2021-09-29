@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 8474023881606089973}
   - component: {fileID: 5679298807498877704}
   - component: {fileID: 661362782282032223}
-  - component: {fileID: 6256437460427572344}
-  - component: {fileID: 6256437460427572345}
-  - component: {fileID: 6256437460427572346}
   m_Layer: 12
   m_Name: led:LEDpSphere1
   m_TagString: Untagged
@@ -82,50 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &6256437460427572344
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49988363625715741}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!65 &6256437460427572345
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49988363625715741}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31909317, y: 0.2541441, z: 0.88877344}
-  m_Center: {x: 0, y: 0, z: 0.22916675}
---- !u!114 &6256437460427572346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49988363625715741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyTime: 300
-  itemInterface: {fileID: 0}
-  maxPickTime: 5
 --- !u!1 &292439344275217528
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +167,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6938458240063587184}
-  - component: {fileID: 124480221}
+  - component: {fileID: 318068056}
+  - component: {fileID: 318068055}
+  - component: {fileID: 318068054}
   m_Layer: 12
   m_Name: led1
   m_TagString: Untagged
@@ -239,7 +194,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &124480221
+--- !u!54 &318068056
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235254695312061378}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!65 &318068055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235254695312061378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31909317, y: 0.2541441, z: 0.88877344}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &318068054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,10 +232,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3235254695312061378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2af0a6625f9173459d7756679103410, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  realComponent: {fileID: 6256437460427572346}
+  destroyTime: 300
+  maxPickTime: 5
 --- !u!1 &8201596874236607884
 GameObject:
   m_ObjectHideFlags: 0

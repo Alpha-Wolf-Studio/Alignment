@@ -960,7 +960,6 @@ GameObject:
   - component: {fileID: 6143151205997435810}
   - component: {fileID: 7105818658956442032}
   - component: {fileID: 6789300083636043866}
-  - component: {fileID: 313791102}
   m_Layer: 12
   m_Name: Modulo_de_refrigeracion2
   m_TagString: Untagged
@@ -1046,21 +1045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 300
-  itemInterface: {fileID: 0}
   maxPickTime: 5
---- !u!114 &313791102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5553392234530039504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2af0a6625f9173459d7756679103410, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  realComponent: {fileID: 6789300083636043866}
 --- !u!1 &5828326765898561702
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,11 +6,9 @@ using System.Collections;
 public class ItemComponent : MonoBehaviour
 {
     private Rigidbody rb;
-    private Collider col;
     int amount = 0;
     int ID = 0;
     [SerializeField] private float destroyTime = 300;
-    public Iitem itemInterface;
     public float maxPickTime = 5;
 
     private void Awake()
@@ -19,7 +17,7 @@ public class ItemComponent : MonoBehaviour
     }
     private void Start()
     {
-        Destroy(itemInterface.gameObject, destroyTime);
+        Destroy(gameObject, destroyTime);
     }
 
     private void Update()

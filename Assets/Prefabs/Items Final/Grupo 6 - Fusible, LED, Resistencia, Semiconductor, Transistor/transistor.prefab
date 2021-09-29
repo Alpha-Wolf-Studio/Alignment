@@ -88,7 +88,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4677929821490454318}
-  - component: {fileID: 462687783}
+  - component: {fileID: 481916589}
+  - component: {fileID: 481916588}
+  - component: {fileID: 481916587}
   m_Layer: 12
   m_Name: transistor
   m_TagString: Untagged
@@ -115,7 +117,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &462687783
+--- !u!54 &481916589
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2747094561591404851}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!65 &481916588
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2747094561591404851}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12785988, y: 0.072887525, z: 0.48269355}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &481916587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,10 +155,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2747094561591404851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2af0a6625f9173459d7756679103410, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  realComponent: {fileID: 5667458401505412666}
+  destroyTime: 300
+  maxPickTime: 5
 --- !u!1 &3472049349155635266
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,9 +250,6 @@ GameObject:
   - component: {fileID: 6359498808235614557}
   - component: {fileID: 9111308549000151}
   - component: {fileID: 3056547121691251735}
-  - component: {fileID: 7605713929528735160}
-  - component: {fileID: 5442333426852097850}
-  - component: {fileID: 5667458401505412666}
   m_Layer: 12
   m_Name: Transistor:transistorpCylinder3
   m_TagString: Untagged
@@ -289,50 +318,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &7605713929528735160
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4296519384928635915}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!65 &5442333426852097850
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4296519384928635915}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.12785988, y: 0.072887525, z: 0.48269355}
-  m_Center: {x: 0, y: -0.00551188, z: -0.179483}
---- !u!114 &5667458401505412666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4296519384928635915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyTime: 300
-  itemInterface: {fileID: 0}
-  maxPickTime: 5
 --- !u!1 &6873264600205051948
 GameObject:
   m_ObjectHideFlags: 0
