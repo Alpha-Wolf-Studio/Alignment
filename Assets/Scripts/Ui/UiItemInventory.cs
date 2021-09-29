@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
 public class UiItemInventory : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public UiInventory uiInv;
@@ -23,7 +22,7 @@ public class UiItemInventory : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     }
     void Start()
     {
-        uiInv.OnRefreshAllButtonsEvent += Refresh;
+        uiInv.onRefreshAllButtonsEvent += Refresh;
     }
     public void SetButton(int indexList, int id)
     {

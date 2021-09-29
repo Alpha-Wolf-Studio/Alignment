@@ -19,7 +19,7 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Start()
     {
         uiCraft = FindObjectOfType<UiCrafting>();
-        uiCraft.uiInv.OnRefreshAllButtonsEvent += Refresh;
+        uiCraft.uiInv.onRefreshAllButtonsEvent += Refresh;
         for (int i = 0; i < item.recipe.Count; i++)
         {
             UiItemCraft go = Instantiate(uiCraft.prefabCrafteable, toolTip.transform);

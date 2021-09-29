@@ -13,7 +13,7 @@ public class UiInventory : MonoBehaviour
     private PlayerController playerController;
 
     // Agarrar un evento para agarrar cuando el Inventario esté totalmente cargado.
-    public Action OnRefreshAllButtonsEvent;
+    public Action onRefreshAllButtonsEvent;
     public Image slotAux;
     public Button prefabItemInventory;
     public GameObject item;
@@ -56,7 +56,6 @@ public class UiInventory : MonoBehaviour
 
         playerController.OnInventory += OnInventory;
     }
-
     private void Update()
     {
         if (inventaryStatus == InventaryStatus.Open)
@@ -67,7 +66,6 @@ public class UiInventory : MonoBehaviour
             }
         }
     }
-
     void LoadInventoryUI()
     {
         CreateButtonsSlots();
@@ -235,7 +233,7 @@ public class UiInventory : MonoBehaviour
     }
     public void RefreshAllButtons()
     {
-        OnRefreshAllButtonsEvent?.Invoke();
+        onRefreshAllButtonsEvent?.Invoke();
     }
     public string RefreshToolTip(RectTransform btn)
     {
@@ -284,9 +282,9 @@ public class UiInventory : MonoBehaviour
         RectTransform aux = toolTip.GetComponent<RectTransform>();
         toolTip.GetComponent<RectTransform>().sizeDelta = new Vector2(aux.sizeDelta.x, lines * offset + margin);
     }
-    string TextFormatter(UiItemInventory UiSlot, int idItem)
+    string TextFormatter(UiItemInventory uiSlot, int idItem)
     {
-        int index = UiSlot.GetIndex();
+        int index = uiSlot.GetIndex();
         Slot slot;
 
         slot = inventory.GetSlot(index);
@@ -305,4 +303,5 @@ public class UiInventory : MonoBehaviour
         }
         return text;
     }
+    public bool DropItem(int index) => inventory.ThrowItem(index);
 }
