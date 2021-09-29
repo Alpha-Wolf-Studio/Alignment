@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2956155481610938127}
   - component: {fileID: 8001290624829856110}
+  - component: {fileID: -2811162896867724978}
   m_Layer: 11
   m_Name: UI
   m_TagString: Untagged
@@ -47,7 +48,25 @@ MonoBehaviour:
   typeLife: 0
   filledImage: {fileID: 8001290623943132494}
   character: {fileID: 0}
-  distanceShow: 50
+  uiFade: {fileID: 0}
+--- !u!114 &-2811162896867724978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408777688400452427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5d9a62c9cc01a49b2b0840fc745f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTransform: {fileID: 2956155481610938127}
+  otherTransform: {fileID: 0}
+  canvasGroupFade: {fileID: 5218940030313069358}
+  minDistanceToShow: 40
+  maxDistanceToShow: 100
+  enable: 0
 --- !u!1 &8001290623943132492
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +153,7 @@ GameObject:
   - component: {fileID: 8001290625869143470}
   - component: {fileID: 8001290625869143471}
   - component: {fileID: 8001290625869143468}
+  - component: {fileID: 5218940030313069358}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -221,3 +241,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &5218940030313069358
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001290625869143458}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

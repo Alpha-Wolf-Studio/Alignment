@@ -13,21 +13,15 @@ public class ReparableObject : MonoBehaviour
     public RectTransform panelObjects;
     public Transform player;
     public GameObject pfItem;
-    public float maxDistanceToShow;
-    public float minDistanceToShow;
-    public CanvasGroup canvasGroup;
     private List<BoxCollider> boxColliders = new List<BoxCollider>();
+    [SerializeField] private UiWorldFadeByDistance uiFade;
 
-    private bool enable;
     void Start()
     {
         LoadItemsRequired();
+        if (uiFade)
+            uiFade.onActive += ActiveColliders;
     }
-    void Update()
-    {
-        EnablePanel();
-    }
-
     void LoadItemsRequired()
     {
         nameToRepairTM.text = nameToRepair;
@@ -60,38 +54,11 @@ public class ReparableObject : MonoBehaviour
         }
         return true;
     }
-    void EnablePanel()
-    {
-        float distanceSqr = Vector3.SqrMagnitude(player.position - transform.position);
-        if (distanceSqr < maxDistanceToShow * maxDistanceToShow)
-        {
-            float distance = DistanceToPlayer();
-            canvasGroup.alpha = 1 - (distance - minDistanceToShow) / (maxDistanceToShow - minDistanceToShow);
-            if (!enable)
-            {
-                Enabled(true);
-            }
-        }
-        else
-        {
-            if (enable)
-            {
-                Enabled(false);
-            }
-        }
-    }
-    float DistanceToPlayer()
-    {
-        return Vector3.Distance(transform.position, player.position);
-    }
-    void Enabled(bool on)
+    void ActiveColliders(bool on)
     {
         foreach (var coll in boxColliders)
         {
             coll.enabled = on;
         }
-        enable = on;
-        canvasGroup.blocksRaycasts = on;
-        canvasGroup.interactable = on;
     }
 }
