@@ -20,7 +20,7 @@ public class SubQuest
     public enum SubQuestType { KILL, PICKUP, CRAFT, REPAIR }
 
     public SubQuestType type;
-    public bool completed;
+    private bool completed;
 
     public void Complete()
     {

@@ -36,12 +36,6 @@ public class QuestHandler : MonoBehaviour
         enemyManager.OnDinoDied += DinoDiedEvent;
         StartNewQuest();
     }
-
-    private void Start()
-    {
-
-    }
-
     void StartNewQuest()
     {
         currentQuest++;
@@ -55,12 +49,10 @@ public class QuestHandler : MonoBehaviour
             currentTasks.Add(t);
         }
     }
-
     public List<SubQuest> GetCurrentTasks()
     {
         return currentTasks;
     }
-
     private void RepairEvent(RepairLocations location)
     {
         foreach (var task in currentTasks)
@@ -69,45 +61,40 @@ public class QuestHandler : MonoBehaviour
             {
                 task.Complete();
                 OnTaskProgress?.Invoke();
-                if (IsCurrentQuestDone())
-                {
-                    StartNewQuest();
-                    OnQuestCompleted?.Invoke();
-                }
             }
         }
+        if (IsCurrentQuestDone())
+        {
+            StartNewQuest();
+            OnQuestCompleted?.Invoke();
+        }
     }
-
     bool RepairCheck(SubQuest task, RepairLocations location)
     {
         return task.type == SubQuest.SubQuestType.REPAIR &&
                task.locationToRepair == location;
     }
-
     private void PickUpEvent(Item item, int amount)
     {
-        for (int index = 0; index < currentTasks.Count; index++)
+        foreach (var task in currentTasks)
         {
             //var task = currentTasks[index];
-            if (!currentTasks[index].IsCompleted() && PickUpCheck(currentTasks[index], item))
+            if (!task.IsCompleted() && PickUpCheck(task, item))
             {
-                currentTasks[index].pickUpAmount -= amount;
-                if (currentTasks[index].pickUpAmount <= 0)
+                task.pickUpAmount -= amount;
+                if (task.pickUpAmount <= 0)
                 {
-                    currentTasks[index].completed = true;
-                    //task.Complete();    // todo: no se está moficicando a true la TASK.
-                    if (IsCurrentQuestDone())
-                    {
-                        StartNewQuest();
-                        OnQuestCompleted?.Invoke();
-                    }
+                    task.Complete();
                 }
-
                 OnTaskProgress?.Invoke();
             }
         }
+        if (IsCurrentQuestDone())
+        {
+            StartNewQuest();
+            OnQuestCompleted?.Invoke();
+        }
     }
-
     bool PickUpCheck(SubQuest task, Item item)
     {
         bool taskType = task.type == SubQuest.SubQuestType.PICKUP;
@@ -115,7 +102,6 @@ public class QuestHandler : MonoBehaviour
         bool itemType = task.itemToPickUp == item;
         return itemType;
     }
-
     private void CraftEvent(Item item)
     {
         foreach (var task in currentTasks)
@@ -126,23 +112,21 @@ public class QuestHandler : MonoBehaviour
                 if (task.craftAmount <= 0)
                 {
                     task.Complete();
-                    if (IsCurrentQuestDone())
-                    {
-                        StartNewQuest();
-                        OnQuestCompleted?.Invoke();
-                    }
                 }
                 OnTaskProgress?.Invoke();
             }
         }
+        if (IsCurrentQuestDone())
+        {
+            StartNewQuest();
+            OnQuestCompleted?.Invoke();
+        }
     }
-
     bool CraftCheck(SubQuest task, Item item)
     {
         return task.type == SubQuest.SubQuestType.CRAFT &&
                task.itemToCraft == item;
     }
-
     void DinoDiedEvent(DinoClass dino)
     {
         foreach (var task in currentTasks)
@@ -153,33 +137,30 @@ public class QuestHandler : MonoBehaviour
                 if (task.killAmount <= 0)
                 {
                     task.Complete();
-                    if (IsCurrentQuestDone())
-                    {
-                        StartNewQuest();
-                        OnQuestCompleted?.Invoke();
-                    }
                 }
                 OnTaskProgress?.Invoke();
             }
         }
+        if (IsCurrentQuestDone())
+        {
+            StartNewQuest();
+            OnQuestCompleted?.Invoke();
+        }
     }
-
     bool DinoCheck(SubQuest task, DinoClass dino)
     {
         return task.type == SubQuest.SubQuestType.KILL &&
                task.dinosaursToKill == dino;
     }
-
     bool IsCurrentQuestDone() 
     {
         foreach (var task in currentTasks)
         {
-            if (!task.completed) 
+            if (!task.IsCompleted())
             {
                 return false;
             }
         }
         return true;
     }
-
 }
