@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
         {
             if (grounded)
             {
-                Debug.Log("Jump.");
+                //Debug.Log("Jump.");
                 rb.AddForce(transform.up * forceJump, ForceMode.Impulse);
                 grounded = false;
             }

@@ -4,7 +4,7 @@ public class UiPopUps : MonoBehaviour
 {
     private Inventory inventory;
     public UiPopUpPickItem itemPopUp;
-    [SerializeField] private float timeShow = 1.5f;
+    [SerializeField] private float timeShow = 2.5f;
     [HideInInspector] public List<UiPopUpPickItem> uiPopList = new List<UiPopUpPickItem>();
     public int maxSizeList = 4;
 

@@ -19,6 +19,9 @@ public class SubQuest
 
         itemToCraft = t.itemToCraft;
         this.craftAmount = craftAmount;
+
+        hasCustomDescription = t.hasCustomDescription;
+        customDescription = t.customDescription;
     }
 
     public enum SubQuestType { KILL, PICKUP, CRAFT, REPAIR }

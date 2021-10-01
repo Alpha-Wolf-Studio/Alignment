@@ -14,35 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: Craft first Battery
   tasks:
-  - type: 0
-    dinosaursToKill: 2
-    killAmount: 4
+  - hasCustomDescription: 0
+    customDescription: 
+    type: 0
+    dinosaursToKill: 1
+    killAmount: 2
     itemToPickUp: {fileID: 11400000, guid: 125e2bdc01777cf44b21fa9ac4acdc01, type: 2}
     pickUpAmount: 2
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
-  - type: 0
+  - hasCustomDescription: 0
+    customDescription: 
+    type: 0
     dinosaursToKill: 0
-    killAmount: 3
+    killAmount: 2
     itemToPickUp: {fileID: 11400000, guid: 6082c22687e5805458b5d75050d72405, type: 2}
     pickUpAmount: 2
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
-  - type: 2
+  - hasCustomDescription: 0
+    customDescription: 
+    type: 2
     dinosaursToKill: 2
     killAmount: 4
     itemToPickUp: {fileID: 11400000, guid: a9e44da028215e845ba60bb84affc8a0, type: 2}
     pickUpAmount: 2
     itemToCraft: {fileID: 11400000, guid: 95cf3de6e97f8314ba8ba7e2a43fed4f, type: 2}
-    craftAmount: 3
+    craftAmount: 2
     locationToRepair: 0
-  - type: 1
+  - hasCustomDescription: 0
+    customDescription: 
+    type: 2
     dinosaursToKill: 2
     killAmount: 4
     itemToPickUp: {fileID: 11400000, guid: 7dc4e9bb23662d641a51377cf368d13e, type: 2}
     pickUpAmount: 5
-    itemToCraft: {fileID: 11400000, guid: 95cf3de6e97f8314ba8ba7e2a43fed4f, type: 2}
+    itemToCraft: {fileID: 11400000, guid: 1c25311c97da10b4185fb9a93c5e8862, type: 2}
     craftAmount: 1
     locationToRepair: 0

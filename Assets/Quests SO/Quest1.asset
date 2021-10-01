@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: Craft first Battery
   tasks:
-  - type: 1
+  - hasCustomDescription: 1
+    customDescription: Kill Trikes to get this
+    type: 1
     dinosaursToKill: 2
     killAmount: 4
     itemToPickUp: {fileID: 11400000, guid: 125e2bdc01777cf44b21fa9ac4acdc01, type: 2}
@@ -22,7 +24,9 @@ MonoBehaviour:
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
-  - type: 1
+  - hasCustomDescription: 1
+    customDescription: Kill Raptor to get this
+    type: 1
     dinosaursToKill: 2
     killAmount: 4
     itemToPickUp: {fileID: 11400000, guid: 6082c22687e5805458b5d75050d72405, type: 2}
@@ -30,7 +34,9 @@ MonoBehaviour:
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
-  - type: 1
+  - hasCustomDescription: 1
+    customDescription: Kill Copis to get this
+    type: 1
     dinosaursToKill: 2
     killAmount: 4
     itemToPickUp: {fileID: 11400000, guid: a9e44da028215e845ba60bb84affc8a0, type: 2}
@@ -38,7 +44,9 @@ MonoBehaviour:
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
-  - type: 2
+  - hasCustomDescription: 0
+    customDescription: 
+    type: 2
     dinosaursToKill: 2
     killAmount: 4
     itemToPickUp: {fileID: 0}

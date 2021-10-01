@@ -41,24 +41,23 @@ public class UiQuest : MonoBehaviour
     }
     void SetTask(ref UiTask uiTask,SubQuest task, int i)
     {
-
         switch (task.type)
         {
             case SubQuest.SubQuestType.KILL:
-                uiTask.nameTask.text = "Do not have Name yet";
-                uiTask.description.text = "Do not have Description yet";
+                uiTask.nameTask.text = "Kill Dino";
+                uiTask.description.text = task.hasCustomDescription ? task.customDescription : "Look for the dino to kill";
                 break;
             case SubQuest.SubQuestType.PICKUP:
                 uiTask.nameTask.text = "Collect " + task.pickUpAmount + " of " + task.itemToPickUp.itemName;
-                uiTask.description.text = "kill dinosaurs to get this item";
+                uiTask.description.text = task.hasCustomDescription ? task.customDescription : "kill dinosaurs to get this item";
                 break;
             case SubQuest.SubQuestType.CRAFT:
                 uiTask.nameTask.text = "Craft " + task.craftAmount + " of " + task.itemToCraft.itemName;
-                uiTask.description.text = "Open inventory with " + "E" + " and craft " + task.itemToCraft.itemName;
+                uiTask.description.text = task.hasCustomDescription ? task.customDescription : "Open inventory with " + "E" + " and craft " + task.itemToCraft.itemName;
                 break;
             case SubQuest.SubQuestType.REPAIR:
-                uiTask.nameTask.text = "Do not have Name yet";
-                uiTask.description.text = "Do not have Description yet";
+                uiTask.nameTask.text = "Repair Spaceship";
+                uiTask.description.text = task.hasCustomDescription ? task.customDescription : "Left Click on Object to deposite.";
                 break;
             default:
                 Debug.LogError("El index " + i + " no está en el switch de la quest: ", gameObject);

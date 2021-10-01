@@ -8,7 +8,7 @@ public class UiPopUpPickItem : MonoBehaviour
     public TextMeshProUGUI textName;
     public TextMeshProUGUI textAmount;
     private float ontime;
-    public float maxTime;
+    [HideInInspector] public float maxTime;
     private UiPopUps uiPopUp;
 
     private void Awake()
