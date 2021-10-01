@@ -17,14 +17,26 @@ public class TaskDrawer : PropertyDrawer
         int indent = EditorGUI.indentLevel;
         EditorGUI.indentLevel = 1;
 
-        SubQuest.SubQuestType taskTypeEnum = (SubQuest.SubQuestType)property.FindPropertyRelative(nameof(SubQuest.type)).enumValueIndex;
-        Rect typeRec = new Rect(position.x, position.y + 10, position.width, position.height * .25f);
-        EditorGUI.PropertyField(typeRec, property.FindPropertyRelative(nameof(SubQuest.type)));
+        Rect fullRect = new Rect(position.x, position.y + 5, position.width, position.height - 5);
 
-        Rect property1Rec = new Rect(position.x, position.y + 35, position.width, position.height * .25f);
-        Rect property2Rec = new Rect(position.x, position.y + 60, position.width, position.height * .2f);
-        Rect property3Rec = new Rect(position.x, position.y + 90, position.width, position.height * .2f);
-        Rect propertyItemRec = new Rect(position.x, position.y + 35, position.width - 4, position.height * .2f);
+        EditorGUI.DrawRect(fullRect, new Color(0.25f, 0.25f, 0.25f, 1));
+
+        Rect typeRec = new Rect(position.x, position.y + 10, position.width, position.height * .15f);
+        EditorGUI.PropertyField(typeRec, property.FindPropertyRelative(nameof(SubQuest.hasCustomDescription)));
+        bool hasCustomDesc = property.FindPropertyRelative(nameof(SubQuest.hasCustomDescription)).boolValue;
+        if (hasCustomDesc) 
+        {
+            Rect typeRec2 = new Rect(position.x, position.y + 35, position.width, position.height * .15f);
+            EditorGUI.PropertyField(typeRec2, property.FindPropertyRelative(nameof(SubQuest.customDescription)));
+        }
+
+        SubQuest.SubQuestType taskTypeEnum = (SubQuest.SubQuestType)property.FindPropertyRelative(nameof(SubQuest.type)).enumValueIndex;
+        Rect typeRec3 = new Rect(position.x, position.y + 60, position.width, position.height * .25f);
+        EditorGUI.PropertyField(typeRec3, property.FindPropertyRelative(nameof(SubQuest.type)));
+
+        Rect property1Rec = new Rect(position.x, position.y + 85, position.width, position.height * .25f);
+        Rect property2Rec = new Rect(position.x, position.y + 115, position.width, position.height * .15f);
+        Rect propertyItemRec = new Rect(position.x, position.y + 85, position.width - 4, position.height * .15f);
 
         switch (taskTypeEnum)
         {
@@ -63,11 +75,11 @@ public class TaskDrawer : PropertyDrawer
         SubQuest.SubQuestType taskTypeEnum = (SubQuest.SubQuestType)property.FindPropertyRelative(nameof(SubQuest.type)).enumValueIndex;
         if(taskTypeEnum == SubQuest.SubQuestType.REPAIR) 
         {
-            return 70f;
+            return 120f;
         }
         else 
         {
-            return 100f;
+            return 150f;
         }
     }
 }

@@ -4,6 +4,10 @@
 public class SubQuest
 {
 
+    public bool hasCustomDescription = false;
+
+    public string customDescription = "";
+
     public SubQuest(SubQuest t, int killAmount, int pickUpAmount, int craftAmount) 
     {
         type = t.type;
