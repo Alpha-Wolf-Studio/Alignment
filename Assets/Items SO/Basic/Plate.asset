@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Plate
   m_EditorClassIdentifier: 
   itemName: Plate
-  id: 0
-  icon: {fileID: 0}
+  id: 8
+  icon: {fileID: 21300000, guid: ae3e2612af99a6d458a52a0c42bc428f, type: 3}
   worldPrefab: {fileID: 6047592322895394815, guid: 5c44a8336d63e934cad5679481d26ba2,
     type: 3}
   maxStack: 44

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Propeller
   m_EditorClassIdentifier: 
   itemName: Propeller
-  id: 0
-  icon: {fileID: 0}
+  id: 33
+  icon: {fileID: 21300000, guid: d65eb369de0b0fd4b83dbbe818aa2ec8, type: 3}
   worldPrefab: {fileID: 8050509147055384861, guid: d24c2a58012014245bebd1bff3dca4ce,
     type: 3}
   maxStack: 26

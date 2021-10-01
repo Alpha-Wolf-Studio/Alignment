@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GeneticIncubator
   m_EditorClassIdentifier: 
   itemName: Genetic Incubator
-  id: 0
-  icon: {fileID: 0}
+  id: 32
+  icon: {fileID: 21300000, guid: 1ff7e1387d1d232418955e0ddd2d3ceb, type: 3}
   worldPrefab: {fileID: 8791116801645932994, guid: f783e4cff06129347a8b3451e2f341b6,
     type: 3}
   maxStack: 26

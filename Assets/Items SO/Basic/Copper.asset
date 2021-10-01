@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Copper
   m_EditorClassIdentifier: 
   itemName: Copper
-  id: 0
-  icon: {fileID: 0}
+  id: 2
+  icon: {fileID: 21300000, guid: 60a0f5af62dbd5d4ea0a0c57ce21c418, type: 3}
   worldPrefab: {fileID: 9033648124221455376, guid: ae2303b5d04d48547adad8e3468947c0,
     type: 3}
   maxStack: 44

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Terminal
   m_EditorClassIdentifier: 
   itemName: Terminal
-  id: 34
-  icon: {fileID: 0}
+  id: 38
+  icon: {fileID: 21300000, guid: 592b246da3f802946bc21f0255df6f73, type: 3}
   worldPrefab: {fileID: 227288185128229093, guid: 002fe57cafd42934f89952fd7ec72840,
     type: 3}
   maxStack: 26

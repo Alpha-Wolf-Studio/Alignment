@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Fuse
   m_EditorClassIdentifier: 
   itemName: Fuse
-  id: 0
-  icon: {fileID: 0}
+  id: 17
+  icon: {fileID: 21300000, guid: 70ea747b30152b74fb271bd08175049f, type: 3}
   worldPrefab: {fileID: 2101490393503747615, guid: 1b8958393c99b7e42b669dec17272d30,
     type: 3}
   maxStack: 22
@@ -22,7 +22,7 @@ MonoBehaviour:
   recipe:
   - item: {fileID: 11400000, guid: aa085048451827c40ae3283f5744b777, type: 2}
     amount: 1
-  - item: {fileID: 11400000, guid: 110b395fca29f0c4791d573ef93b74a6, type: 2}
+  - item: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
     amount: 1
-  - item: {fileID: 11400000, guid: b0df2048522e8f04798fa851f4d5eb7d, type: 2}
+  - item: {fileID: 11400000, guid: a9e44da028215e845ba60bb84affc8a0, type: 2}
     amount: 1

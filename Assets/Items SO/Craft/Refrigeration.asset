@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Refrigeration
   m_EditorClassIdentifier: 
   itemName: Refrigeration
-  id: 0
-  icon: {fileID: 0}
+  id: 21
+  icon: {fileID: 21300000, guid: d74a6831d8eeab6498d269660058ea44, type: 3}
   worldPrefab: {fileID: 4093011084167729950, guid: 6cae4d658b813d0458928b34b4c9c328,
     type: 3}
   maxStack: 22

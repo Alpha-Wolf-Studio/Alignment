@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Gold
   m_EditorClassIdentifier: 
   itemName: Gold
-  id: 0
-  icon: {fileID: 0}
+  id: 3
+  icon: {fileID: 21300000, guid: fa81c9faeacab384f8a08473a0a57a55, type: 3}
   worldPrefab: {fileID: 1899048728548883619, guid: 7cf883178fd49b3408e0c196e0372209,
     type: 3}
   maxStack: 44

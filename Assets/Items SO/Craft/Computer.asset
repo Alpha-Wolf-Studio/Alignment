@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Computer
   m_EditorClassIdentifier: 
   itemName: Computer
-  id: 0
-  icon: {fileID: 0}
+  id: 15
+  icon: {fileID: 21300000, guid: c3f60766b191a6e45bd0bf9d13c9ae0c, type: 3}
   worldPrefab: {fileID: 494460278758773388, guid: 003ba5acb9e741e4098888cb76868cae,
     type: 3}
   maxStack: 22

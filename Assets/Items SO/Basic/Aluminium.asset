@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Aluminium
   m_EditorClassIdentifier: 
   itemName: Aluminium
-  id: 0
-  icon: {fileID: 0}
+  id: 1
+  icon: {fileID: 21300000, guid: 20c799a3d849e6d40bc3ce6688406315, type: 3}
   worldPrefab: {fileID: 7362610656149943591, guid: d7e9263e5ed6e7f43928c1b01d2ad0d1,
     type: 3}
   maxStack: 44

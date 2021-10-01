@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Switch
   m_EditorClassIdentifier: 
   itemName: Switch
-  id: 0
-  icon: {fileID: 0}
+  id: 27
+  icon: {fileID: 21300000, guid: 616dbc05869207644a597248934ab447, type: 3}
   worldPrefab: {fileID: 983832109704656273, guid: 7ac8eadb03758394c82ff832cefec23f,
     type: 3}
   maxStack: 22
@@ -22,5 +22,5 @@ MonoBehaviour:
   recipe:
   - item: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
     amount: 2
-  - item: {fileID: 11400000, guid: b0df2048522e8f04798fa851f4d5eb7d, type: 2}
+  - item: {fileID: 11400000, guid: a9e44da028215e845ba60bb84affc8a0, type: 2}
     amount: 3

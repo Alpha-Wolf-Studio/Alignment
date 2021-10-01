@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TitaneoPlates
   m_EditorClassIdentifier: 
   itemName: Titaneo Plates
-  id: 0
-  icon: {fileID: 0}
+  id: 39
+  icon: {fileID: 21300000, guid: 30a754bd8089312489dd46a7c7d0f3b8, type: 3}
   worldPrefab: {fileID: 8475233188541242394, guid: 2e248cc35f7427a458451f1bd5f262ec,
     type: 3}
   maxStack: 26

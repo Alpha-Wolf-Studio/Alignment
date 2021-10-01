@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Display
   m_EditorClassIdentifier: 
   itemName: Display
-  id: 0
-  icon: {fileID: 0}
+  id: 16
+  icon: {fileID: 21300000, guid: 22ce4b460670da44c841ba4194e2fda5, type: 3}
   worldPrefab: {fileID: 549474776053548208, guid: ce349256a48c469419964f489b9c4418,
     type: 3}
   maxStack: 22

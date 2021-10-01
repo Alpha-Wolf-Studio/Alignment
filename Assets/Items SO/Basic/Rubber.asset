@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Rubber
   m_EditorClassIdentifier: 
   itemName: Rubber
-  id: 0
-  icon: {fileID: 0}
+  id: 9
+  icon: {fileID: 21300000, guid: a3210ddc53df2eb43b73c6de53b542e4, type: 3}
   worldPrefab: {fileID: 2908671116529598973, guid: 686b5718229e9a441a4f1ee6e9c41102,
     type: 3}
   maxStack: 44

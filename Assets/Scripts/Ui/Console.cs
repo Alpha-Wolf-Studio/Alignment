@@ -98,7 +98,8 @@ public class Console : MonoBehaviour, IPointerClickHandler
         AddCommand("contract", ContractConsole, "Retract the Console.");
         AddCommand("pause", PauseGame, "Alternate game pause.");
         AddCommand("hud", ToggleHud, "Disable HUD.");
-        AddCommand("Inv clear", ClearInventory, "Clear your Inventory.");
+        AddCommand("kill enemy", KillEnemies, "kill all enemies.");
+        AddCommand("inv clear", ClearInventory, "Clear your Inventory.");
         AddCommand("inv add", AddFiveSlotsInventory, "Add 5 slots in Inventory.");
 
         AddCommand("cheat armor", InfinityArmor, "Infinity Armor.");
@@ -192,5 +193,18 @@ public class Console : MonoBehaviour, IPointerClickHandler
         InfinityEnergy();
         InfinityStamina();
         AddJetPack();
+    }
+    private void KillEnemies()
+    {
+        Character[] characters = FindObjectsOfType<Character>();
+
+        for (int i = 0; i < characters.Length; i++)
+        {
+            PlayerController player = characters[i].GetComponent<PlayerController>();
+            if (!player)
+            {
+                characters[i].TakeArmorDamage(9999, DamageOrigin.WATER);
+            }
+        }
     }
 }

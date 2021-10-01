@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SignalAmplifier
   m_EditorClassIdentifier: 
   itemName: Signal Amplifier
-  id: 0
-  icon: {fileID: 0}
+  id: 36
+  icon: {fileID: 21300000, guid: cb0aaee89b9c16f4598fd613558e9c8e, type: 3}
   worldPrefab: {fileID: 6410180865831199, guid: ec210331c67fac743967671773ffd5ab,
     type: 3}
   maxStack: 26

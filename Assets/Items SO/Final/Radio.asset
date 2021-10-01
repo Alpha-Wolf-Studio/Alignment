@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Radio
   m_EditorClassIdentifier: 
   itemName: Radio
-  id: 0
-  icon: {fileID: 0}
+  id: 34
+  icon: {fileID: 21300000, guid: 6f57da217ad9b234c88c1178425ec014, type: 3}
   worldPrefab: {fileID: 8379200113286836454, guid: 22607fe939d8b7444a7e2f664ffd8ecc,
     type: 3}
   maxStack: 26
@@ -22,7 +22,7 @@ MonoBehaviour:
   recipe:
   - item: {fileID: 11400000, guid: 8ca637706ac26864fa76b5d066303eb8, type: 2}
     amount: 8
-  - item: {fileID: 11400000, guid: b0df2048522e8f04798fa851f4d5eb7d, type: 2}
+  - item: {fileID: 11400000, guid: a9e44da028215e845ba60bb84affc8a0, type: 2}
     amount: 20
   - item: {fileID: 11400000, guid: 28b4d943a0f7cd244ac08da34f92a56a, type: 2}
     amount: 12

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Rotor
   m_EditorClassIdentifier: 
   itemName: Rotor
-  id: 0
-  icon: {fileID: 0}
+  id: 23
+  icon: {fileID: 21300000, guid: 85a2b0a033c09744ca4514df422fdac4, type: 3}
   worldPrefab: {fileID: 5372600087728732364, guid: 47a1da8d4d2aa1b479e1cd4306269f04,
     type: 3}
   maxStack: 22

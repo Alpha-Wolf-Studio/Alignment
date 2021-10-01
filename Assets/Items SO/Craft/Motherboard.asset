@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Motherboard
   m_EditorClassIdentifier: 
   itemName: Motherboard
-  id: 0
-  icon: {fileID: 0}
+  id: 20
+  icon: {fileID: 21300000, guid: bb9d65fb20d8e0d40bab6409803534f8, type: 3}
   worldPrefab: {fileID: 8132029551815496386, guid: a06802335c172fe4084f6d1b704436d8,
     type: 3}
   maxStack: 22

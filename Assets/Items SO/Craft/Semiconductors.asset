@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Semiconductors
   m_EditorClassIdentifier: 
   itemName: Semiconductors
-  id: 0
-  icon: {fileID: 0}
+  id: 25
+  icon: {fileID: 21300000, guid: c38c601729dcf8844bff7ee4719b2dfb, type: 3}
   worldPrefab: {fileID: 7976779387507982374, guid: ac8c7caec61cc9a4fbc375a0b064a76e,
     type: 3}
   maxStack: 22

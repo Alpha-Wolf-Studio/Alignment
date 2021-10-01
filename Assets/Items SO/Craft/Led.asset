@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Led
   m_EditorClassIdentifier: 
   itemName: Led
-  id: 0
-  icon: {fileID: 0}
+  id: 18
+  icon: {fileID: 21300000, guid: 24f86e437e4e87a4c8cfe193604bb573, type: 3}
   worldPrefab: {fileID: 3235254695312061378, guid: 0b9a15cea714c5f489ab03397218ad9c,
     type: 3}
   maxStack: 22
