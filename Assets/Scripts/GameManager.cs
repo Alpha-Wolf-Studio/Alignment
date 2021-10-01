@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public Character character;
     public QuestHandler questHandler;
     public PlayerController player;
-    public List<ReparableObject> toRepair = new List<ReparableObject>();
+    public List<ReparableObject> toRepair;
     private int objectsRemaining;
 
     public static GameManager Get() => gameManager;

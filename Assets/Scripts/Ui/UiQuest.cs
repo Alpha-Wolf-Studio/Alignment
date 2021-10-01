@@ -20,6 +20,7 @@ public class UiQuest : MonoBehaviour
     }
     void Start()
     {
+        questHandler.OnQuestCompleted += SetQuest;
         SetQuest();
         questHandler.OnTaskProgress += RefreshAllTask;
     }
