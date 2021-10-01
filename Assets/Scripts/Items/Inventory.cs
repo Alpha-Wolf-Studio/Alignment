@@ -7,7 +7,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] List<Slot> currentSlots;
-    [SerializeField] int size = 10;
+    [SerializeField] int size = 10;     // Porque el Size del inventario no es el largo de la lista y tiene una variable.
     
     [Header("Inventory Explosion")]
     [SerializeField] float explosionStrenght = 300f;
@@ -314,5 +314,14 @@ public class Inventory : MonoBehaviour
     public List<Slot> GetInventoryList()
     {
         return currentSlots;
+    }
+    public void AddSlots(int addValue)
+    {
+        size += addValue;
+        for (int i = 0; i < addValue; i++)
+        {
+            Slot slot = new Slot();
+            currentSlots.Add(slot);
+        }
     }
 }

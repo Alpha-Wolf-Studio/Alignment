@@ -48,6 +48,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
     }
     private void OnEnable()
     {
+        PauseGame(true);
         lastPlayerStatus = player.playerStatus;
         player.playerStatus = PlayerController.PlayerStatus.Console;
         inputField.Select();
@@ -55,11 +56,16 @@ public class Console : MonoBehaviour, IPointerClickHandler
     }
     private void OnDisable()
     {
+        PauseGame(false);
         player.playerStatus = lastPlayerStatus;
         player.AvailableCursor(false);
     }
-    void Update()
+    private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+        }
         inputField.Select();
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
@@ -80,11 +86,11 @@ public class Console : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                textConsole.text += "  <---- Command don't exist.";
+                textConsole.text += "  <---- Command don't exist. Type: help";
             }
         }
     }
-    void AllCmd()   // Se cargan todas las funciones de la consola
+    private void AllCmd()   // Se cargan todas las funciones de la consola
     {
         AddCommand("clear", Clear, "Clean the Console.");
         AddCommand("help", Help, "Show help.");
@@ -92,15 +98,16 @@ public class Console : MonoBehaviour, IPointerClickHandler
         AddCommand("contract", ContractConsole, "Retract the Console.");
         AddCommand("pause", PauseGame, "Alternate game pause.");
         AddCommand("hud", ToggleHud, "Disable HUD.");
+        AddCommand("Inv clear", ClearInventory, "Clear your Inventory.");
+        AddCommand("inv add", AddFiveSlotsInventory, "Add 5 slots in Inventory.");
 
         AddCommand("cheat armor", InfinityArmor, "Infinity Armor.");
         AddCommand("cheat energy", InfinityEnergy, "Infinity Energy.");
         AddCommand("cheat stamina", InfinityStamina, "Infinity Stamina.");
         AddCommand("cheat jetpack", AddJetPack, "Add Jetpack.");
+        AddCommand("cheat godmode", AddGodMode, "Add GodMode.");
     }
-
-
-    void AddCommand(string cmdName, Method cmdCommand, string cmdDescription)
+    private void AddCommand(string cmdName, Method cmdCommand, string cmdDescription)
     {
         DataCmd cmd = new DataCmd
         {
@@ -111,34 +118,39 @@ public class Console : MonoBehaviour, IPointerClickHandler
 
         consoleCommands.Add(cmdName, cmd);
     }
-    void Write(string text)
+    private void Write(string text)
     {
         textConsole.text += "\n" + text;
         inputField.text = "";
     }
-    void Clear()
+    private void Clear()
     {
         textConsole.text = "";
     }
-    void Help()
+    private void Help()
     {
         foreach (var cmd in consoleCommands)
         {
             Write(cmd.ToString());
         }
     }
-    void ExpandConsole()
+    private void ExpandConsole()
     {
         rtConsole.sizeDelta = new Vector2(rtConsole.sizeDelta.x, 700);
     }
-    void ContractConsole()
+    private void ContractConsole()
     {
         rtConsole.sizeDelta = startConsoleSize;
     }
-    void PauseGame()
+    private void PauseGame()
     {
         pause = !pause;
         Time.timeScale = pause ? 0 : 1;
+    }
+    private void PauseGame(bool on)
+    {
+        pause = on;
+        Time.timeScale = on ? 0 : 1;
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -149,20 +161,36 @@ public class Console : MonoBehaviour, IPointerClickHandler
         hud = !hud;
         cvHud.SetActive(hud);
     }
-    void InfinityArmor()
+    private void InfinityArmor()
     {
         cheats.CheatEnable(Character.Stats.Armor);
     }
-    void InfinityEnergy()
+    private void InfinityEnergy()
     {
         cheats.CheatEnable(Character.Stats.Energy);
     }
-    void InfinityStamina()
+    private void InfinityStamina()
     {
         //cheats.CheatEnable(Character.Stats);
     }
-    void AddJetPack()
+    private void AddJetPack()
     {
         player.jetpack = !player.jetpack;
+    }
+    void ClearInventory()
+    {
+        List<Slot> slots = new List<Slot>();
+        invPlayer.SetNewInventory(slots);
+    }
+    private void AddFiveSlotsInventory()
+    {
+        invPlayer.AddSlots(5);
+    }
+    private void AddGodMode()
+    {
+        InfinityArmor();
+        InfinityEnergy();
+        InfinityStamina();
+        AddJetPack();
     }
 }

@@ -30,6 +30,7 @@ public class ModuleCheat : MonoBehaviour
     private float cheatDamage = 10;
     private float cheatSpeed = 0.01f;
 
+    private bool forceScriptDisable = true;
     private void Awake()
     {
         character = player.GetComponent<Character>();
@@ -44,70 +45,71 @@ public class ModuleCheat : MonoBehaviour
     }
     void Update()
     {
-        if (!cheatEnable)
-        {
-            if (Input.GetKeyDown(KeyCode.Keypad0))
+        if(!forceScriptDisable)
+            if (!cheatEnable)
             {
-                activeSecuence = true;
-                if (onTime < maxTimeDelay)
+                if (Input.GetKeyDown(KeyCode.Keypad0))
                 {
-                    count++;
-                    if (count >= maxCount)
+                    activeSecuence = true;
+                    if (onTime < maxTimeDelay)
                     {
-                        //CheatEnable();
+                        count++;
+                        if (count >= maxCount)
+                        {
+                            //CheatEnable();
+                        }
                     }
                 }
-            }
 
-            if (activeSecuence)
-                onTime += Time.deltaTime;
+                if (activeSecuence)
+                    onTime += Time.deltaTime;
 
-            if (onTime > maxTimeDelay)
-            {
-                activeSecuence = false;
-                count = 0;
-                onTime = 0;
+                if (onTime > maxTimeDelay)
+                {
+                    activeSecuence = false;
+                    count = 0;
+                    onTime = 0;
+                }
             }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Keypad1))
+            else
             {
-                Debug.Log("Cheated Armor: " + cheatArmor);
-                CheatArmor();
-            }
-            else if (Input.GetKeyDown(KeyCode.Keypad2))
-            {
-                Debug.Log("Cheated Energy: " + cheatEnergy);
-                CheatEnergy();
-            }
-            else if (Input.GetKeyDown(KeyCode.Keypad3))
-            {
-                Debug.Log("Cheated Damage: " + cheatDamage);
-                CheatDamage();
-            }
-            else if (Input.GetKeyDown(KeyCode.Keypad4))
-            {
-                Debug.Log("GodMode Deshabilitado.");
-            }
-            else if (Input.GetKeyDown(KeyCode.Keypad5))
-            {
-                player.AddSpeed(cheatSpeed);
-                Debug.Log("Current Speed: " + character.GetSpeed());
-            }
-            else if (Input.GetKeyDown(KeyCode.Keypad6))
-            {
+                if (Input.GetKeyDown(KeyCode.Keypad1))
+                {
+                    Debug.Log("Cheated Armor: " + cheatArmor);
+                    CheatArmor();
+                }
+                else if (Input.GetKeyDown(KeyCode.Keypad2))
+                {
+                    Debug.Log("Cheated Energy: " + cheatEnergy);
+                    CheatEnergy();
+                }
+                else if (Input.GetKeyDown(KeyCode.Keypad3))
+                {
+                    Debug.Log("Cheated Damage: " + cheatDamage);
+                    CheatDamage();
+                }
+                else if (Input.GetKeyDown(KeyCode.Keypad4))
+                {
+                    Debug.Log("GodMode Deshabilitado.");
+                }
+                else if (Input.GetKeyDown(KeyCode.Keypad5))
+                {
+                    player.AddSpeed(cheatSpeed);
+                    Debug.Log("Current Speed: " + character.GetSpeed());
+                }
+                else if (Input.GetKeyDown(KeyCode.Keypad6))
+                {
 
-            }
-            else if (Input.GetKeyDown(KeyCode.Keypad7))
-            {
+                }
+                else if (Input.GetKeyDown(KeyCode.Keypad7))
+                {
 
-            }
-            else if (Input.GetKeyDown(KeyCode.Keypad8))
-            {
+                }
+                else if (Input.GetKeyDown(KeyCode.Keypad8))
+                {
 
+                }
             }
-        }
     }
     void SuscribeInfinityCheat(Stat stat)
     {
@@ -144,7 +146,8 @@ public class ModuleCheat : MonoBehaviour
         PrintDataCheat();
         for (int i = 0; i < hud.Length; i++)
         {
-            hud[i].color = Color.red;
+            if (hud[i])
+                hud[i].color = Color.red;
         }
 
         switch (stats)

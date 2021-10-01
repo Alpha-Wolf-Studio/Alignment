@@ -65,7 +65,7 @@ MonoBehaviour:
   otherTransform: {fileID: 0}
   canvasGroupFade: {fileID: 5218940030313069358}
   minDistanceToShow: 40
-  maxDistanceToShow: 100
+  maxDistanceToShow: 80
   enable: 0
 --- !u!1 &8001290623943132492
 GameObject:

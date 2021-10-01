@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Xml;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,11 +38,11 @@ public class UiInventory : MonoBehaviour
     Vector4[] close = new Vector4[3];
 
     public bool picked;
-    public UiItemInventory slotPick;
-    public UiItemInventory slotDrop;
+    [HideInInspector] public UiItemInventory slotPick;
+    [HideInInspector] public UiItemInventory slotDrop;
     public Vector2 mousePos;
     public RectTransform contentInventory;
-
+    private List<UiItemInventory> listUItemInventory = new List<UiItemInventory>();
     private void Awake()
     {
         playerController = GameManager.Get().player;
@@ -56,6 +58,10 @@ public class UiInventory : MonoBehaviour
 
         playerController.OnInventory += OnInventory;
     }
+    private void OnEnable()
+    {
+        
+    }
     private void Update()
     {
         if (inventaryStatus == InventaryStatus.Open)
@@ -68,7 +74,7 @@ public class UiInventory : MonoBehaviour
     }
     void LoadInventoryUI()
     {
-        CreateButtonsSlots();
+        CreateButtonsSlots(0);
         RefreshAllButtons();
         //ResizeContent();
 
@@ -100,10 +106,10 @@ public class UiInventory : MonoBehaviour
 
         contentInventory.sizeDelta = new Vector2(contentInventory.sizeDelta.x, cantChild * cellSize / columns + padding);
     }
-    void CreateButtonsSlots()
+    void CreateButtonsSlots(int index)
     {
         int invSize = inventory.GetSize();
-        for (int i = 0; i < invSize; i++)
+        for (int i = index; i < invSize; i++)
         {
             Slot slot = inventory.GetSlot(i);
             Button newButton = Instantiate(prefabItemInventory, contentInventory);
@@ -111,10 +117,26 @@ public class UiInventory : MonoBehaviour
             UiItemInventory item = newButton.GetComponent<UiItemInventory>();
             item.uiInv = this;
             item.SetButton(i, slot.ID);
+            listUItemInventory.Add(item);
         }
+    }
+    bool CheckForNewItemsSlots()
+    {
+        int invSize = inventory.GetSize();
+        int uiList = listUItemInventory.Count;
+
+        if (invSize != uiList)
+        {
+            CreateButtonsSlots(uiList);
+            return true;
+        }
+
+        return false;
     }
     void OnInventory()
     {
+        if (CheckForNewItemsSlots())
+            Debug.Log("Nuevos Items Agregados.");
         RefreshAllButtons();
         switch (inventaryStatus)
         {
