@@ -69,6 +69,11 @@ public class QuestHandler : MonoBehaviour
             {
                 task.Complete();
                 OnTaskProgress?.Invoke();
+                if (IsCurrentQuestDone())
+                {
+                    StartNewQuest();
+                    OnQuestCompleted?.Invoke();
+                }
             }
         }
     }
@@ -91,6 +96,11 @@ public class QuestHandler : MonoBehaviour
                 {
                     currentTasks[index].completed = true;
                     //task.Complete();    // todo: no se está moficicando a true la TASK.
+                    if (IsCurrentQuestDone())
+                    {
+                        StartNewQuest();
+                        OnQuestCompleted?.Invoke();
+                    }
                 }
 
                 OnTaskProgress?.Invoke();
@@ -116,6 +126,11 @@ public class QuestHandler : MonoBehaviour
                 if (task.craftAmount <= 0)
                 {
                     task.Complete();
+                    if (IsCurrentQuestDone())
+                    {
+                        StartNewQuest();
+                        OnQuestCompleted?.Invoke();
+                    }
                 }
                 OnTaskProgress?.Invoke();
             }
@@ -138,6 +153,11 @@ public class QuestHandler : MonoBehaviour
                 if (task.killAmount <= 0)
                 {
                     task.Complete();
+                    if (IsCurrentQuestDone())
+                    {
+                        StartNewQuest();
+                        OnQuestCompleted?.Invoke();
+                    }
                 }
                 OnTaskProgress?.Invoke();
             }
@@ -148,6 +168,18 @@ public class QuestHandler : MonoBehaviour
     {
         return task.type == SubQuest.SubQuestType.KILL &&
                task.dinosaursToKill == dino;
+    }
+
+    bool IsCurrentQuestDone() 
+    {
+        foreach (var task in currentTasks)
+        {
+            if (!task.completed) 
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
