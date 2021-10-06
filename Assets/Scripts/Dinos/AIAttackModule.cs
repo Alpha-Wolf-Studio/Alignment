@@ -18,8 +18,7 @@ public class AIAttackModule : AttackComponent
     [Header("Charge")]
     [SerializeField] float chargePushStrenght = 600f;
     [SerializeField] float chargeSpeedMultiplier = 5f;
-    [SerializeField] float minChargeDistance = 10f;
-    [SerializeField] float chargeStoppingTolerance = 2.5f;
+    [SerializeField] float ChargeStoppingDistance = 2.0f;
     float startingSpeed = 0;
     float startingRotationSpeed = 0;
     float multipliedSpeed = 0;
@@ -37,7 +36,7 @@ public class AIAttackModule : AttackComponent
         startingSpeed = agent.Speed;
         multipliedSpeed = agent.Speed * chargeSpeedMultiplier;
         startingRotationSpeed = agent.AngularSpeed;
-        multipliedRotationSpeed = agent.AngularSpeed * chargeSpeedMultiplier;
+        multipliedRotationSpeed = agent.AngularSpeed;
     }
 
     public void ChangeAttackType(attack_Type newAttackType)
@@ -75,6 +74,7 @@ public class AIAttackModule : AttackComponent
                     }
                     ChargeCoroutine = Charge(dir);
                     StartCoroutine(CooldownCoroutine());
+                    agent.basicNavAgent.isStopped = false;
                     StartCoroutine(ChargeCoroutine);
                 }
                 break;
@@ -117,24 +117,28 @@ public class AIAttackModule : AttackComponent
     }
     IEnumerator Charge(Vector3 dir) 
     {
+        anim.SetBool("Walking", false);
+        anim.SetBool("Attacking", true);
         dir.y = transform.position.y;
-        Vector3 directionDifference = dir - transform.position;
-        directionDifference += directionDifference.normalized * minChargeDistance;
-        directionDifference += transform.position;
-
-        t = 0;
-        while(t < 1) 
-        {
-            AimToAttack(dir - transform.position);
-            yield return null;
-        }
         agent.Speed = multipliedSpeed;
         agent.AngularSpeed = multipliedRotationSpeed;
-        agent.SetDestination(directionDifference);
+        if(Vector3.Distance(transform.position, dir) < ChargeStoppingDistance + 5f) 
+        {   //En caso de tener al player demasiado cerca al empezar la carga
+            float t = 0;
+            do
+            {
+                agent.Move(transform.forward * 0.75f);
+                t += Time.deltaTime;
+                yield return null;
+            } while (t < 2);
+        }
+        agent.SetDestination(dir);
         do
         {
             yield return null;
-        } while (Vector3.Distance(transform.position, directionDifference) > chargeStoppingTolerance);
+            agent.Move(transform.forward * 0.75f); //Tengo un offset para naturalizar la direccion del enemigo
+        } while (Vector3.Distance(transform.position, dir) > ChargeStoppingDistance);
+        agent.basicNavAgent.isStopped = true;
         anim.SetBool("Walking", false);
         anim.SetBool("Attacking", false);
     }

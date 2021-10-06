@@ -104,7 +104,6 @@ public class EnemyAI : MonoBehaviour
         else if (distanceToPlayer < chaseDistance)
         {
             idleTime = 0;
-            anim.SetBool("Walking", true);
             currentBehaviour = EnemyBehaviour.CHASING;
             agent.SetDestination(playerTransform.position);
         }
@@ -138,9 +137,10 @@ public class EnemyAI : MonoBehaviour
         switch (currentBehaviour)
         {
             case EnemyBehaviour.IDLE:
-                agent.SetDestination(transform.position);
+                agent.basicNavAgent.isStopped = true;
                 break;
             case EnemyBehaviour.PATROLLING:
+                agent.basicNavAgent.isStopped = false;
                 agent.SetDestination(targetPos);
                 float distance = Vector3.Distance(targetPos, transform.position);
                 if (distance < patrolStoppingTolerance) 
@@ -150,6 +150,8 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case EnemyBehaviour.CHASING:
+                agent.basicNavAgent.isStopped = false;
+                anim.SetBool("Walking", true);
                 attackModule.StopAttack();
                 break;
             case EnemyBehaviour.ATTACKING:

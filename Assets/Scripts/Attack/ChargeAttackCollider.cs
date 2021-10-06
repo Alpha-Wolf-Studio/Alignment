@@ -13,13 +13,18 @@ public class ChargeAttackCollider : MeleeAttackCollider
         this.pushStrenght = pushStrenght;
         this.origin = origin;
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        IDamageable damageComponent = collision.collider.GetComponent<IDamageable>();
+        IDamageable damageComponent = other.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
             damageComponent.TakeArmorDamage(damage, origin);
-            collision.rigidbody.AddForce(Vector3.up * pushStrenght);
+            var rb = other.gameObject.GetComponent<Rigidbody>();
+            if (rb)
+            {
+                rb.AddForce(Vector3.up * pushStrenght);
+            }
         }
     }
 }
