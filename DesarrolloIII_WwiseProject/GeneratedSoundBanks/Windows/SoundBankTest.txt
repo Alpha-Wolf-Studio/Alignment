@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2170705828	New_EventTest			\Default Work Unit\New_EventTest	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	998479197	Salto 1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Salto 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto 1		123040
+

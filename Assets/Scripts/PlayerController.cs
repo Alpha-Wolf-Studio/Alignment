@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log("Jump.");
                 rb.AddForce(transform.up * forceJump, ForceMode.Impulse);
                 grounded = false;
+                AkSoundEngine.PostEvent("New_EventTest", gameObject);
             }
             else
             {
