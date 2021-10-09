@@ -282,19 +282,19 @@ public class Inventory : MonoBehaviour
             foreach (var item in colliders)
             {
                 ItemComponent itemComponent = item.GetComponent<ItemComponent>();
-                if (itemComponent.maxPickTime < 0)
+                if (itemComponent.IsPickeable())
                 {
                     if (AddNewItem(itemComponent.GetID(), itemComponent.GetAmount()))
                     {
                         OnPickUp?.Invoke(ItemManager.GetInstance().GetItemFromID(itemComponent.GetID()), itemComponent.GetAmount());
-                        Destroy(item.gameObject);
+                        itemComponent.AttractorItemToPlayer();
                     }
                 }
             }
             yield return null;
         }
     }
-
+    
     public int GetSize()
     {
         return size;
