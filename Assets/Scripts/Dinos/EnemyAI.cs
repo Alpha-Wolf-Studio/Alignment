@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float yPositionTolerance = 2.5f;
     Vector3 checkPosition = Vector3.zero;
     [Header("Chase Behaviour")]
+    [SerializeField] float spotAngle = 30;
     [SerializeField] float chaseDistance = 50f;
     [Header("Patrol Behaviour")]
     [SerializeField] float maxTimeBetweenPatrols = 5f;
@@ -103,9 +104,13 @@ public class EnemyAI : MonoBehaviour
         }
         else if (distanceToPlayer < chaseDistance)
         {
-            idleTime = 0;
-            currentBehaviour = EnemyBehaviour.CHASING;
-            agent.SetDestination(playerTransform.position);
+            float dotProduct = Vector3.Dot(playerTransform.position - transform.position, transform.forward);
+            if(dotProduct > Mathf.Cos(spotAngle)) 
+            {
+                idleTime = 0;
+                currentBehaviour = EnemyBehaviour.CHASING;
+                agent.SetDestination(playerTransform.position);
+            }
         }
         else if (currentBehaviour == EnemyBehaviour.IDLE)
         {
@@ -153,13 +158,24 @@ public class EnemyAI : MonoBehaviour
                 agent.basicNavAgent.isStopped = false;
                 anim.SetBool("Walking", true);
                 attackModule.StopAttack();
+                ResetEnemyCheck(distanceToPlayer);
                 break;
             case EnemyBehaviour.ATTACKING:
                 attackModule.Attack(playerTransform.position, origin);
+                ResetEnemyCheck(distanceToPlayer);
                 break;
         }
+
     }
 
+    void ResetEnemyCheck(float distanceToPlayer) 
+    {
+        if (distanceToPlayer > chaseDistance)
+        {
+            idleTime = 0;
+            currentBehaviour = EnemyBehaviour.IDLE;
+        }
+    }
     public void SetSpawnIndex(int index) 
     {
         spawnIndex = index;

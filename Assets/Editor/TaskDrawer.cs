@@ -21,7 +21,7 @@ public class TaskDrawer : PropertyDrawer
 
         EditorGUI.DrawRect(fullRect, new Color(0.25f, 0.25f, 0.25f, 1));
 
-        Rect typeRec = new Rect(position.x, position.y + 10, position.width, position.height * .15f);
+        Rect typeRec = new Rect(position.x, position.y + 10, position.width, position.height * .10f);
         EditorGUI.PropertyField(typeRec, property.FindPropertyRelative(nameof(SubQuest.hasCustomDescription)));
         bool hasCustomDesc = property.FindPropertyRelative(nameof(SubQuest.hasCustomDescription)).boolValue;
         if (hasCustomDesc) 
