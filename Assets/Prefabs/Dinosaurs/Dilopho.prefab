@@ -901,11 +901,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4291b4dc3d475914b92b4e3e62ff8226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 3247137947644890674}
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.1
   deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 0}
+  attackComponent: {fileID: 3262539795392515526}
   freePoints: 0
   stats:
   - name: Energy
@@ -986,6 +986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 15
   yPositionTolerance: 2.5
+  spotAngle: 30
   chaseDistance: 50
   maxTimeBetweenPatrols: 5
   minTimeBetweenPatrols: 3
