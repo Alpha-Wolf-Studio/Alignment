@@ -133,4 +133,25 @@ public class EnemyManager : MonoBehaviour
         ai.playerTransform = playerTransform;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        foreach (var dinoSpawn in raptorSpawns)
+        {
+            Gizmos.DrawWireSphere(dinoSpawn.transform.position, dinoSpawn.spawnDistanceFromCenter);
+        }
+        foreach (var dinoSpawn in compiSpawns)
+        {
+            Gizmos.DrawWireSphere(dinoSpawn.transform.position, dinoSpawn.spawnDistanceFromCenter);
+        }
+        foreach (var dinoSpawn in triSpawns)
+        {
+            Gizmos.DrawWireSphere(dinoSpawn.transform.position, dinoSpawn.spawnDistanceFromCenter);
+        }
+        foreach (var dinoSpawn in diloSpawns)
+        {
+            Gizmos.DrawWireSphere(dinoSpawn.transform.position, dinoSpawn.spawnDistanceFromCenter);
+        }
+    }
+
 }

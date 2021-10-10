@@ -161,7 +161,8 @@ public class EnemyAI : MonoBehaviour
                 ResetEnemyCheck(distanceToPlayer);
                 break;
             case EnemyBehaviour.ATTACKING:
-                attackModule.Attack(playerTransform.position, origin);
+                Vector3 attackDirection = new Vector3(playerTransform.position.x, playerTransform.position.y + yPositionTolerance, playerTransform.position.z);
+                attackModule.Attack(attackDirection, origin);
                 ResetEnemyCheck(distanceToPlayer);
                 break;
         }
