@@ -27,7 +27,7 @@ public class AIAttackModule : AttackComponent
 
     Rigidbody rb = null;
     CustomNavMeshAgent agent = null;
-
+    private DinoClass dinoClass = DinoClass.Compsognathus;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -37,6 +37,7 @@ public class AIAttackModule : AttackComponent
         multipliedSpeed = agent.Speed * chargeSpeedMultiplier;
         startingRotationSpeed = agent.AngularSpeed;
         multipliedRotationSpeed = agent.AngularSpeed;
+        dinoClass = GetComponent<EnemyAI>().dinoType;
     }
 
     public void ChangeAttackType(attack_Type newAttackType)
@@ -57,6 +58,7 @@ public class AIAttackModule : AttackComponent
                 { 
                     collider.SetColliders(attackStrenght, origin);
                 }
+                Attacked();
                 break;
             case attack_Type.Charge:
                 if (canAttack)
@@ -76,6 +78,8 @@ public class AIAttackModule : AttackComponent
                     StartCoroutine(CooldownCoroutine());
                     agent.basicNavAgent.isStopped = false;
                     StartCoroutine(ChargeCoroutine);
+
+                    Attacked();
                 }
                 break;
             case attack_Type.Range:
@@ -86,6 +90,7 @@ public class AIAttackModule : AttackComponent
                     StartCoroutine(CooldownCoroutine());
                     GameObject go = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
                     go.GetComponent<Projectile>().Launch(frontDir, projectileSpeed, attackStrenght, origin);
+                    Attacked();
                 }
                 break;
             default:
@@ -93,6 +98,31 @@ public class AIAttackModule : AttackComponent
         }
     }
 
+    void Attacked()
+    {
+        switch (dinoClass)
+        {
+            case DinoClass.Compsognathus:
+                if (Sfx.Get().GetEnable(Sfx.ListSfx.CompiAttack))
+                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.CompiAttack), gameObject);
+                break;
+            case DinoClass.Dilophosaurus:
+                if (Sfx.Get().GetEnable(Sfx.ListSfx.DiloAttack))
+                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.DiloAttack), gameObject);
+                break;
+            case DinoClass.Raptor:
+                if (Sfx.Get().GetEnable(Sfx.ListSfx.RaptorAttack))
+                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.RaptorAttack), gameObject);
+                break;
+            case DinoClass.Triceratops:
+                if (Sfx.Get().GetEnable(Sfx.ListSfx.TrikeAttack))
+                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.TrikeAttack), gameObject);
+                break;
+            default:
+                Debug.LogWarning("No está seteado dinoClass: ", gameObject);
+                break;
+        }
+    }
     public void StopAttack() 
     {
         t = 0;

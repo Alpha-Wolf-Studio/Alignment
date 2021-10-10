@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour
     public Transform playerTransform { get; set; }
     CustomNavMeshAgent agent = null;
 
-    [SerializeField] DinoClass dinoType = DinoClass.Raptor;
+    public DinoClass dinoType = DinoClass.Raptor;
     DamageOrigin origin;
     int spawnIndex = 0;
     public Action<DinoClass, int> OnDied;

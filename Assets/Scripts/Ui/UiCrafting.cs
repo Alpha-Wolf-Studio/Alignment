@@ -1,26 +1,24 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class UiCrafting : MonoBehaviour
 {
     public UiInventory uiInv;
     public List<int> listCraftID = new List<int>();
-    public Transform panelCraft;
-    public UiItemCraft prefabCrafteable;
+    public Transform panelContentCraft;
+    private RectTransform panelContentCraftRt;
+    public UiItemCraft uiItemCraft;
     [HideInInspector] public Crafting craft;
-    public RectTransform contentCraft;
 
     private void Awake()
     {
         craft = GameManager.Get().player.GetComponent<Crafting>();
+        panelContentCraftRt = panelContentCraft.GetComponent<RectTransform>();
     }
-
     void Start()
     {
         Invoke(nameof(LoadCraft), 1f);
     }
-
     void LoadCraft()
     {
         int lastID = ItemManager.GetInstance().GetLastID();
@@ -34,8 +32,9 @@ public class UiCrafting : MonoBehaviour
                     if (ItemManager.GetInstance().GetItemFromID(id).recipe[0].item)
                     {
                         listCraftID.Add(id);
-                        UiItemCraft craft = Instantiate(prefabCrafteable, panelCraft.transform);
+                        UiItemCraft craft = Instantiate(uiItemCraft, panelContentCraft.transform);
                         craft.item = ItemManager.GetInstance().GetItemFromID(id);
+                        craft.name = item.name;
                     }
                     else
                     {
@@ -48,30 +47,24 @@ public class UiCrafting : MonoBehaviour
                 }
             }
         }
-        //ResizeContent();
-    }
+        ResizeContent();
+    } 
     void ResizeContent()
     {
-        int cantChild = contentCraft.transform.childCount;
-        GridLayoutGroup grid = contentCraft.GetComponent<GridLayoutGroup>();
+        GridLayoutGroup grid = panelContentCraft.GetComponent<GridLayoutGroup>();
+        int cantChild = panelContentCraft.transform.childCount;
+        int columns = 2;
+        int height = 50;
+        int spacing = 10;
 
-        float cellSize = grid.cellSize.y;
-        cellSize += grid.spacing.y;
-        int columns = grid.constraintCount;
-
-        int currentColumn = 0;
         while (cantChild % columns != 0)
         {
             cantChild++;
-            currentColumn++;
-            if (currentColumn > columns)
-            {
-                Debug.LogError("Supera el Maximo de Columnas ", gameObject);
-                break; // Salida de de emergencia de While
-            }
         }
-        int padding = grid.padding.bottom + grid.padding.top;
 
-        contentCraft.sizeDelta = new Vector2(contentCraft.sizeDelta.x, cantChild * cellSize / columns + padding);
+        int maxHeights = (cantChild / columns) * height;
+        int maxSpacings = ((cantChild / columns) - 1) * spacing;
+
+        panelContentCraftRt.sizeDelta = new Vector2(panelContentCraftRt.sizeDelta.x, maxHeights + maxSpacings);
     }
 }

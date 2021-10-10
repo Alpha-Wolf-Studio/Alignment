@@ -105,6 +105,8 @@ public class UiManager : MonoBehaviour
     }
     IEnumerator PauseEnabling()
     {
+        if (Sfx.Get().GetEnable(Sfx.ListSfx.PauseOn))
+            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PauseOn), gameObject);
         Time.timeScale = 0;
         player.playerStatus = PlayerController.PlayerStatus.Fading;
         onTimeFadePause = 0;
@@ -158,6 +160,8 @@ public class UiManager : MonoBehaviour
         Time.timeScale = 1;
         player.AvailableCursor(fromInventory);
         menuActual = CanvasGroupList.GamePlay;
+        if (Sfx.Get().GetEnable(Sfx.ListSfx.PauseOff))
+            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PauseOff), gameObject);
     }
     public void SwitchPanel(int otherMenu)
     {

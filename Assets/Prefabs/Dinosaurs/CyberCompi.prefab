@@ -1446,6 +1446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 1.85
   yPositionTolerance: 1
+  spotAngle: 30
   chaseDistance: 20
   maxTimeBetweenPatrols: 10
   minTimeBetweenPatrols: 8

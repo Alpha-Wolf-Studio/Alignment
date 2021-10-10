@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviour
     }
     void PlayerDeath(DamageOrigin origin)
     {
+        if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerDie))
+            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerDie), gameObject);
+
         player.playerStatus = PlayerController.PlayerStatus.EndLose;
         var gameOverText = UIGameOverScreen.GetGameOverText(origin);
         GameOver(gameOverText);

@@ -20,7 +20,6 @@ public class UiInventory : MonoBehaviour
     public Button prefabItemInventory;
     public GameObject item;
     public GameObject toolTip;
-    public Button buttonSortName;
     public CanvasGroup hud;
 
     private float onTime;
@@ -141,12 +140,18 @@ public class UiInventory : MonoBehaviour
         switch (inventaryStatus)
         {
             case InventaryStatus.Close:
+                if (Sfx.Get().GetEnable(Sfx.ListSfx.UiOpenInventory))
+                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiOpenInventory), gameObject);
+
                 playerController.playerStatus = PlayerController.PlayerStatus.Inventory;
                 inventaryStatus = InventaryStatus.Opening;
                 StartCoroutine(OpeningInventory());
 
                 break;
             case InventaryStatus.Open:
+                if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCloseInventory))
+                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCloseInventory), gameObject);
+
                 playerController.playerStatus = PlayerController.PlayerStatus.Game;
                 inventaryStatus = InventaryStatus.Closeing;
                 StartCoroutine(OpeningInventory());
@@ -275,6 +280,8 @@ public class UiInventory : MonoBehaviour
 
         slotPick.Refresh();
         slotDrop.Refresh();
+        if (Sfx.Get().GetEnable(Sfx.ListSfx.UiSwapItem))
+            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiSwapItem), gameObject);
     }
     public void MouseEnterOver(RectTransform btn)
     {

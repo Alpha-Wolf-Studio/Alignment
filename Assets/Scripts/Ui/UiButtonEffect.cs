@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] private float scaleMultiply = 3;
     [SerializeField] private float limit = 1.2f;
@@ -13,27 +13,26 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         increment = false;
         initialScale = transform.localScale;
     }
-
     private void OnEnable()
     {
         transform.localScale = initialScale;
         increment = false;
     }
-
     private void Update()
     {
         ChangeScale();
     }
-
     public void OnMouseEnterButton()
     {
         increment = true;
-        // todo: evento de mouse sobre boton ENTRA.
+        if (Sfx.Get().GetEnable(Sfx.ListSfx.UiButtonEnter))
+            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiButtonEnter), gameObject);
     }
     public void OnMouseExitButton()
     {
         increment = false;
-        // todo: evento de mouse sobre boton SALE.
+        if (Sfx.Get().GetEnable(Sfx.ListSfx.UiButtonExit))
+            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiButtonExit), gameObject);
     }
     private void ChangeScale()
     {
@@ -64,7 +63,6 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             }
         }
     }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         OnMouseEnterButton();
@@ -72,5 +70,10 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerExit(PointerEventData eventData)
     {
         OnMouseExitButton();
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (Sfx.Get().GetEnable(Sfx.ListSfx.UiClickButton))
+            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiClickButton), gameObject);
     }
 }

@@ -148,6 +148,9 @@ public class Inventory : MonoBehaviour
         Item item = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPos].ID);
         if (item.GetType() == typeof(Consumible))
         {
+            if (Sfx.Get().GetEnable(Sfx.ListSfx.UiUseItem))
+                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiUseItem), gameObject);
+
             character.AddInitialAttack(((Consumible)item).attackUpgrade);
             character.AddCurrentDefense(((Consumible)item).defenseUpgrade);
             character.AddInitialSpeed(((Consumible)item).speedUpgrade);
@@ -268,6 +271,10 @@ public class Inventory : MonoBehaviour
             itemComponent.AddForce(transform.forward * explosionStrenght);
             itemComponent.SetItem(currentSlots[index].ID, currentSlots[index].amount);
             currentSlots[index].EmptySlot();
+
+            if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerDropItem))
+                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerDropItem), gameObject);
+
             return true;
         }
         return false;
@@ -288,7 +295,10 @@ public class Inventory : MonoBehaviour
                     {
                         OnPickUp?.Invoke(ItemManager.GetInstance().GetItemFromID(itemComponent.GetID()), itemComponent.GetAmount());
                         itemComponent.AttractorItemToPlayer();
+                        if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerPickItem))
+                            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerPickItem), gameObject);
                     }
+
                 }
             }
             yield return null;

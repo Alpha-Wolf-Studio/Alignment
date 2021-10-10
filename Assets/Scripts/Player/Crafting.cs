@@ -25,6 +25,13 @@ public class Crafting : MonoBehaviour
             }
             inventory.AddNewItem(item.id, 1);
             OnCraft?.Invoke(item);
+            if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCraftSuccessful))
+                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCraftSuccessful), gameObject);
+        }
+        else
+        {
+            if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCraftFail))
+                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCraftFail), gameObject);
         }
     }
     public bool IsCraftPosible(Item item)

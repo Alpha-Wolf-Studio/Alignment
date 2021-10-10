@@ -61,12 +61,16 @@ public class QuestHandler : MonoBehaviour
             {
                 task.Complete();
                 OnTaskProgress?.Invoke();
+                if (Sfx.Get().GetEnable(Sfx.ListSfx.CompletedTask))
+                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.CompletedTask), gameObject);
             }
         }
         if (IsCurrentQuestDone())
         {
             StartNewQuest();
             OnQuestCompleted?.Invoke();
+            if (Sfx.Get().GetEnable(Sfx.ListSfx.CompletedQuest))
+                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.CompletedQuest), gameObject);
         }
     }
     bool RepairCheck(SubQuest task, RepairLocations location)

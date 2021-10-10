@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private bool grounded = true;
     private bool flying;
     public bool jetpack;
+    private bool walking;
 
     private void Awake()
     {
@@ -62,6 +63,9 @@ public class PlayerController : MonoBehaviour
     {
         AvailableCursor(false);
         currentStamina = maxStamina;
+
+        character.OnCharacterTakeArmorDamage += ArmorDamage;
+        character.OnCharacterTakeEnergyDamage += EnergyDamage;
     }
     void CanPause()
     {
@@ -114,10 +118,11 @@ public class PlayerController : MonoBehaviour
         {
             if (grounded)
             {
-                //Debug.Log("Jump.");
                 rb.AddForce(transform.up * forceJump, ForceMode.Impulse);
                 grounded = false;
-                AkSoundEngine.PostEvent("New_EventTest", gameObject);
+
+                if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerJump))
+                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerJump), gameObject);
             }
             else
             {
@@ -144,6 +149,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerAttack))
+                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerAttack), gameObject);
+
             if (currentCoolDownShoot < maxCoolDownShoot) // Si no supera el CD se daña. Siempre puede disparar.
             {
                 //Debug.Log("Dispara y se Daña");
@@ -174,7 +182,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
     void CanOpenTask()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -240,7 +247,29 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (Mathf.Abs(Input.GetAxis("Vertical")) > 0 || Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
+            float velX = Mathf.Abs(Input.GetAxis("Horizontal"));
+            float velY = Mathf.Abs(Input.GetAxis("Vertical"));
+
+            if (velX > 0)
+            {
+                if (!walking)
+                {
+                    if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerStepsOn))
+                        AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerStepsOn), gameObject);
+                }
+                walking = true;
+            }
+            else
+            {
+                if (walking)
+                {
+                    if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerStepsOff))
+                        AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerStepsOff), gameObject);
+                }
+                walking = false;
+            }
+
+            if (velY > 0 || velX > 0)
             {
                 Vector3 movementVector = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")) * speedMovement;
                 rb.MovePosition(transform.position + movementVector);
@@ -302,5 +331,16 @@ public class PlayerController : MonoBehaviour
     public float GetSpeed()
     {
         return speedMovement;
+    }
+
+    void EnergyDamage()
+    {
+        if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerEnergyDamage))
+            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerEnergyDamage), gameObject);
+    }
+    void ArmorDamage()
+    {
+        if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerArmorDamage))
+            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerArmorDamage), gameObject);
     }
 }
