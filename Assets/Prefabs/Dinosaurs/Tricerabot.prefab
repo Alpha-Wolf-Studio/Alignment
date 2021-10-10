@@ -809,6 +809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 40
   yPositionTolerance: 2.5
+  spotAngle: 30
   chaseDistance: 50
   maxTimeBetweenPatrols: 5
   minTimeBetweenPatrols: 3
@@ -866,7 +867,6 @@ MonoBehaviour:
   projectileSpeed: 50
   chargePushStrenght: 600
   chargeSpeedMultiplier: 3
-  minChargeDistance: 15
   ChargeStoppingDistance: 5
 --- !u!1 &4056326457477406088
 GameObject:
@@ -1803,6 +1803,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001290624829856110, guid: bedd125422f663849b75830fe5d675b1,
         type: 3}
+      propertyPath: uiFade
+      value: 
+      objectReference: {fileID: 3255941960060097144}
+    - target: {fileID: 8001290624829856110, guid: bedd125422f663849b75830fe5d675b1,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 3917014630346785536}
@@ -1814,3 +1819,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8490362591571026742}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3255941960060097144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2811162896867724978, guid: bedd125422f663849b75830fe5d675b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8490362591571026742}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5d9a62c9cc01a49b2b0840fc745f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

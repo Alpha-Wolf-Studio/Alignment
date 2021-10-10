@@ -92,7 +92,7 @@ public class ItemComponent : MonoBehaviour
         float distance = Vector3.Distance(objetive.position, transform.position);
         while (onTime < maxTimeAttractor && distance > minDistaceDestroy)
         {
-            Debug.Log("Sacale: " + transform.localScale);
+            //Debug.Log("Sacale: " + transform.localScale);
             Vector3 itemPos = transform.position;
             Vector3 playerPos = objetive.position;
 

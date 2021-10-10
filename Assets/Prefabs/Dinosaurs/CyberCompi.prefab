@@ -2784,6 +2784,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001290624829856110, guid: bedd125422f663849b75830fe5d675b1,
         type: 3}
+      propertyPath: uiFade
+      value: 
+      objectReference: {fileID: 8631024604390594520}
+    - target: {fileID: 8001290624829856110, guid: bedd125422f663849b75830fe5d675b1,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 3695730682713451181}
@@ -2799,6 +2804,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bedd125422f663849b75830fe5d675b1, type: 3}
+--- !u!114 &8631024604390594520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2811162896867724978, guid: bedd125422f663849b75830fe5d675b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3403367936619669142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5d9a62c9cc01a49b2b0840fc745f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &449637191683211673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2956155481610938127, guid: bedd125422f663849b75830fe5d675b1,

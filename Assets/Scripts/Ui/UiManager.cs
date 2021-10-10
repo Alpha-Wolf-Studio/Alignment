@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class UiManager : MonoBehaviour
 {
     public Image filledImageCoolDown;
@@ -192,5 +190,9 @@ public class UiManager : MonoBehaviour
     {
         canvasGroup.interactable = enable;
         canvasGroup.blocksRaycasts = enable;
+    }
+    public void ChangeScene(string scene)
+    {
+        SceneManager.Get().LoadSceneAsync(scene);
     }
 }
