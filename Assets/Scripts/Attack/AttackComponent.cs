@@ -7,7 +7,8 @@ public abstract class AttackComponent : MonoBehaviour
     protected float attackStrenght = 1;
     public LayerMask attackLayer;
     [SerializeField] float maxCooldown = 5f;
-    protected float currentCooldown = -1;
+    float currentCooldown = -1;
+    protected bool canAttack = true;
 
     public void SetAttackSpeed(float atkSpeed)
     {
@@ -31,12 +32,14 @@ public abstract class AttackComponent : MonoBehaviour
 
     protected IEnumerator CooldownCoroutine()
     {
+        canAttack = false;
         currentCooldown = maxCooldown;
         while (currentCooldown > 0)
         {
             currentCooldown -= Time.deltaTime;
             yield return null;
         }
+        canAttack = true;
     }
 
     public abstract void Attack(Vector3 dir, DamageOrigin origin);

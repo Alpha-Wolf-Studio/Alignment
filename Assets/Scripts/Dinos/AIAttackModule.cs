@@ -59,7 +59,7 @@ public class AIAttackModule : AttackComponent
                 }
                 break;
             case attack_Type.Charge:
-                if (currentCooldown < 0)
+                if (canAttack)
                 {
                     foreach (var collider in meleeColliders)
                     {
@@ -81,7 +81,7 @@ public class AIAttackModule : AttackComponent
             case attack_Type.Range:
                 agent.SetDestination(transform.position);
                 AimToAttack(frontDir);
-                if (currentCooldown < 0) 
+                if (canAttack) 
                 {
                     StartCoroutine(CooldownCoroutine());
                     GameObject go = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);

@@ -7,7 +7,7 @@ public class RayAttack : AttackComponent
 
     public override void Attack(Vector3 dir, DamageOrigin origin)
     {
-        if(currentCooldown < 0)
+        if(canAttack)
         {
             StartCoroutine(CooldownCoroutine());
             RaycastHit hit;

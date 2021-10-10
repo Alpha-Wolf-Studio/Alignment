@@ -1011,14 +1011,14 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 1024
-  maxCooldown: 5
+  maxCooldown: 1.5
   currentAttackType: 2
   anim: {fileID: 3247137947644890674}
   meleeColliders: []
   projectilePrefab: {fileID: 1529946139122123432, guid: e8eb34df166d24e489170a21026d381e,
     type: 3}
   projectileSpawn: {fileID: 8387710510737473164}
-  projectileSpeed: 10
+  projectileSpeed: 5
   chargePushStrenght: 600
   chargeSpeedMultiplier: 5
   ChargeStoppingDistance: 2
