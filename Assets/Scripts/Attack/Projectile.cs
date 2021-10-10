@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] LayerMask areaMask;
     float hitDamage = 0;
     DamageOrigin origin;
     private float onTimeDestroy = 5.0f;
@@ -23,6 +24,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (Global.LayerEquals(areaMask, other.gameObject.layer)) return;
         IDamageable damageComponent = other.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
