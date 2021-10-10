@@ -62,22 +62,25 @@ public class UiItemInventory : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public void OnPointerDown(PointerEventData eventData)
     {
         //Debug.Log("OnPointerDown: " + gameObject.name, gameObject);
-        if (Input.GetMouseButton(0))
+        if (id > 0)
         {
-            uiInv.slotAux.transform.position = Input.mousePosition;
-            uiInv.slotAux.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
-            uiInv.slotAux.gameObject.SetActive(true);
-            uiInv.slotAux.transform.GetChild(0).GetComponent<Image>().sprite = myImage.sprite;
+            if (Input.GetMouseButton(0))
+            {
+                uiInv.slotAux.transform.position = Input.mousePosition;
+                uiInv.slotAux.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
+                uiInv.slotAux.gameObject.SetActive(true);
+                uiInv.slotAux.transform.GetChild(0).GetComponent<Image>().sprite = myImage.sprite;
 
-            uiInv.toolTip.gameObject.SetActive(false);
+                uiInv.toolTip.gameObject.SetActive(false);
 
-            uiInv.picked = true;
-            uiInv.slotPick = this;
-        }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            uiInv.inventory.Divide(indexList);  // Ya que dividir es Void, me podría devolver la ubicación en la lista donde se metió la otra mitad así en vez de refrescar todos los botones, solo refresco el actual y donde fue a parar
-            uiInv.RefreshAllButtons();
+                uiInv.picked = true;
+                uiInv.slotPick = this;
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                uiInv.inventory.Divide(indexList); // Ya que dividir es Void, me podría devolver la ubicación en la lista donde se metió la otra mitad así en vez de refrescar todos los botones, solo refresco el actual y donde fue a parar
+                uiInv.RefreshAllButtons();
+            }
         }
     }
     public void OnDrag(PointerEventData eventData)

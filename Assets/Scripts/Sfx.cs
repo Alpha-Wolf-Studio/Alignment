@@ -37,6 +37,9 @@ public class Sfx : MonoBehaviour
         CompletedTask,
         CompletedQuest,
         HelpPopUp,
+        AmbField,
+        AmbBeach,
+        AmbForest,
         PauseOn,
         PauseOff,
 
@@ -71,6 +74,9 @@ public class Sfx : MonoBehaviour
         "CompletedTask",
         "CompletedQuest",
         "HelpPopUp",
+        "AmbField",
+        "AmbBeach",
+        "AmbForest",
         "PauseOn",
         "PauseOff",
 
@@ -90,7 +96,7 @@ public class Sfx : MonoBehaviour
         false,  // RaptorAttack,   
         false,  // TrikeAttack,    
         false,  // DiloAttack,               
-                //
+        
         false,  // PlayerStepsOn,            
         false,  // PlayerStepsOff,           
         false,  // PlayerPickItem,           
@@ -101,13 +107,16 @@ public class Sfx : MonoBehaviour
         false,  // PlayerArmorDamage,        
         false,  // PlayerEnergyDamage,       
         false,  // PlayerDie,                
-                // 
+               
         false,  // CompletedTask,            
         false,  // CompletedQuest,           
-        false,  // HelpPopUp,                
+        false,  // HelpPopUp,
+        false,  // AmbField,
+        false,  // AmbBeach,
+        false,  // AmbForest,
         false,  // PauseOn,                  
         false,  // PauseOff,                 
-                // 
+                
         false,  // UiClickButton,            
         false,  // UiButtonEnter,            
         false,  // UiButtonExit,             
