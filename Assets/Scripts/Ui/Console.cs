@@ -29,10 +29,11 @@ public class Console : MonoBehaviour, IPointerClickHandler
     private bool pause;
     private bool hud = true;
     public GameObject cvHud;
-    public ModuleCheat cheats;
+    private ModuleCheat cheats;
 
     private void Awake()
     {
+        cheats = GetComponent<ModuleCheat>();
         player = GameManager.Get().player;
         invPlayer = player.GetComponent<Inventory>();
         character = GameManager.Get().character;

@@ -21,7 +21,6 @@ public class ModuleCheat : MonoBehaviour
     private Character character;
     private Inventory inventory;
     public Image[] hud;
-    public ReparableObject reparableObject;
 
     private bool godMode;
 
@@ -33,6 +32,7 @@ public class ModuleCheat : MonoBehaviour
     private bool forceScriptDisable = true;
     private void Awake()
     {
+        player = GameManager.Get().player;
         character = player.GetComponent<Character>();
         inventory = player.GetComponent<Inventory>();
     }
