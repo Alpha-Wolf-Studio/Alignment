@@ -924,8 +924,8 @@ GameObject:
   - component: {fileID: 1810487241904736097}
   - component: {fileID: 1810487242442812729}
   - component: {fileID: 1810487242442812728}
-  - component: {fileID: 1810487242442812726}
   - component: {fileID: -2285362344330474111}
+  - component: {fileID: 3790070837434236438}
   m_Layer: 11
   m_Name: RoboRaptor_Melee
   m_TagString: Untagged
@@ -995,7 +995,7 @@ MonoBehaviour:
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.1
   deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 1810487242442812726}
+  attackComponent: {fileID: 0}
   freePoints: 0
   stats:
   - name: Energy
@@ -1094,6 +1094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 2.5
   yPositionTolerance: 2.5
+  spotAngle: 30
   chaseDistance: 50
   maxTimeBetweenPatrols: 15
   minTimeBetweenPatrols: 20
@@ -1126,34 +1127,6 @@ NavMeshAgent:
   m_BaseOffset: -0.5
   m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
---- !u!114 &1810487242442812726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2547520158362113447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b61f5de9be81844a9324424e6f997c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  maxCooldown: 5
-  currentAttackType: 0
-  anim: {fileID: 8559486557907072112}
-  meleeColliders:
-  - {fileID: 1810487241560441138}
-  - {fileID: 1810487242150132037}
-  - {fileID: 1810487241916891592}
-  projectilePrefab: {fileID: 0}
-  projectileSpawn: {fileID: 0}
-  projectileSpeed: 50
-  chargePushStrenght: 600
-  chargeSpeedMultiplier: 5
-  ChargeStoppingDistance: 2
 --- !u!54 &-2285362344330474111
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1170,6 +1143,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3790070837434236438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2547520158362113447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13df9a716226f994e93c29afe06aa81e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  maxCooldown: 5
+  currentAttackType: 0
+  anim: {fileID: 8559486557907072112}
+  meleeColliders:
+  - {fileID: 1810487241916891592}
+  - {fileID: 1810487241560441138}
+  - {fileID: 1810487242150132037}
 --- !u!1 &2750008650525624770
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,7 +3133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d9133472e91424a8a32c634cadec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiAttackModule: {fileID: 1810487242442812726}
+  aiAttackModule: {fileID: 3790070837434236438}
 --- !u!1 &8576132730628291990
 GameObject:
   m_ObjectHideFlags: 0

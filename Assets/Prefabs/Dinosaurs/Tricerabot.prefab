@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d9133472e91424a8a32c634cadec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiAttackModule: {fileID: 875581337349143442}
+  aiAttackModule: {fileID: 186264259606818104}
 --- !u!1 &1883097163309368331
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 875581337885331909}
   - component: {fileID: 875581337349143453}
   - component: {fileID: 875581337349143452}
-  - component: {fileID: 875581337349143442}
+  - component: {fileID: 186264259606818104}
   m_Layer: 11
   m_Name: Tricerabot
   m_TagString: Untagged
@@ -694,7 +694,7 @@ MonoBehaviour:
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.1
   deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 875581337349143442}
+  attackComponent: {fileID: 0}
   freePoints: 0
   stats:
   - name: Energy
@@ -842,7 +842,7 @@ NavMeshAgent:
   m_BaseOffset: -0.18
   m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
---- !u!114 &875581337349143442
+--- !u!114 &186264259606818104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -851,23 +851,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 3917014630346785539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b61f5de9be81844a9324424e6f997c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7329c3094f9a9c74bab569431aa5716a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackLayer:
     serializedVersion: 2
     m_Bits: 1024
-  maxCooldown: 10
-  currentAttackType: 1
+  maxCooldown: 5
+  currentAttackType: 0
   anim: {fileID: 1114128467719146974}
   meleeColliders:
   - {fileID: 4204586854832778168}
-  projectilePrefab: {fileID: 0}
-  projectileSpawn: {fileID: 0}
-  projectileSpeed: 50
   chargePushStrenght: 600
-  chargeSpeedMultiplier: 3
-  ChargeStoppingDistance: 5
+  chargeSpeedMultiplier: 5
+  ChargeStoppingDistance: 2
 --- !u!1 &4056326457477406088
 GameObject:
   m_ObjectHideFlags: 0

@@ -878,7 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d9133472e91424a8a32c634cadec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiAttackModule: {fileID: 4288919740303833304}
+  aiAttackModule: {fileID: 6282258693734719997}
 --- !u!1 &3463072487128282299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,12 +1293,12 @@ GameObject:
   - component: {fileID: 5218187656231218211}
   - component: {fileID: 3695730682713451181}
   - component: {fileID: 126573022399881312}
-  - component: {fileID: 4288919740303833304}
   - component: {fileID: 4241996279657674751}
   - component: {fileID: 4214432730633940242}
   - component: {fileID: 139200824685194340}
   - component: {fileID: 4904180733165620298}
   - component: {fileID: 3112948152063107332}
+  - component: {fileID: 6282258693734719997}
   m_Layer: 11
   m_Name: CyberCompi
   m_TagString: Untagged
@@ -1339,7 +1339,7 @@ MonoBehaviour:
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.25
   deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 4288919740303833304}
+  attackComponent: {fileID: 0}
   freePoints: 0
   stats:
   - name: Energy
@@ -1406,32 +1406,6 @@ MonoBehaviour:
   pickUpMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &4288919740303833304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837264753926420121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b61f5de9be81844a9324424e6f997c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  maxCooldown: 5
-  currentAttackType: 0
-  anim: {fileID: 3360362208952099462}
-  meleeColliders:
-  - {fileID: 5114805369448925666}
-  projectilePrefab: {fileID: 0}
-  projectileSpawn: {fileID: 0}
-  projectileSpeed: 50
-  chargePushStrenght: 600
-  chargeSpeedMultiplier: 5
-  ChargeStoppingDistance: 2
 --- !u!114 &4241996279657674751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1542,6 +1516,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6282258693734719997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837264753926420121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e22246df5f865849b654a7ff7033367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  maxCooldown: 5
+  currentAttackType: 0
+  anim: {fileID: 3360362208952099462}
+  meleeColliders:
+  - {fileID: 5114805369448925666}
 --- !u!1 &5130260616790262660
 GameObject:
   m_ObjectHideFlags: 0

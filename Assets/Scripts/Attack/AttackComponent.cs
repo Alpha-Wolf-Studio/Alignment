@@ -3,10 +3,14 @@ using UnityEngine;
 
 public abstract class AttackComponent : MonoBehaviour
 {
+    public enum attack_Type { Melee, Charge, Range };
+
     protected float attackSpeed = 1;
     protected float attackStrenght = 1;
     public LayerMask attackLayer;
     [SerializeField] float maxCooldown = 5f;
+    [SerializeField] protected attack_Type currentAttackType = attack_Type.Melee; // { get; set; }
+    [SerializeField] protected Animator anim = null;
     float currentCooldown = -1;
     protected bool canAttack = true;
 

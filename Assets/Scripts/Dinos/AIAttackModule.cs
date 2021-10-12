@@ -2,103 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIAttackModule : AttackComponent
+public abstract class AIAttackModule : AttackComponent
 {
-    public enum attack_Type { Melee, Charge, Range};
-    [Header("General")] 
-    [SerializeField] attack_Type currentAttackType = attack_Type.Melee; // { get; set; }
-    [SerializeField] Animator anim = null;
-    float t = 0; 
-    [Header("Melee")]
-    [SerializeField] List<MeleeAttackCollider> meleeColliders = new List<MeleeAttackCollider>();
-    [Header("Range")]
-    [SerializeField] GameObject projectilePrefab = null;
-    [SerializeField] Transform projectileSpawn = null;
-    [SerializeField] float projectileSpeed = 50f;
-    [Header("Charge")]
-    [SerializeField] float chargePushStrenght = 600f;
-    [SerializeField] float chargeSpeedMultiplier = 5f;
-    [SerializeField] float ChargeStoppingDistance = 2.0f;
-    float startingSpeed = 0;
-    float startingRotationSpeed = 0;
-    float multipliedSpeed = 0;
-    float multipliedRotationSpeed = 0;
-    IEnumerator ChargeCoroutine = null;
-
-    Rigidbody rb = null;
-    CustomNavMeshAgent agent = null;
-    private DinoClass dinoClass = DinoClass.Compsognathus;
+    float t = 0;
+    protected Rigidbody rb = null;
+    protected CustomNavMeshAgent agent = null;
+    protected DinoClass dinoClass = DinoClass.Compsognathus;
+    protected float startingSpeed = 0;
+    protected float startingRotationSpeed = 0;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         agent = GetComponent<CustomNavMeshAgent>();
-        GetComponent<Character>().OnDeath += StopAI;
         startingSpeed = agent.Speed;
-        multipliedSpeed = agent.Speed * chargeSpeedMultiplier;
         startingRotationSpeed = agent.AngularSpeed;
-        multipliedRotationSpeed = agent.AngularSpeed;
+        GetComponent<Character>().OnDeath += AIStopAll;
         dinoClass = GetComponent<EnemyAI>().dinoType;
     }
-
-    public void ChangeAttackType(attack_Type newAttackType)
-    {
-        StopAttack();
-        currentAttackType = newAttackType;
-    }
-
-    public override void Attack(Vector3 dir, DamageOrigin origin) 
-    {
-        Vector3 frontDir = dir - transform.position;
-        switch (currentAttackType)
-        {
-            case attack_Type.Melee:
-                agent.SetDestination(transform.position);
-                AimToAttack(frontDir);
-                foreach (var collider in meleeColliders)
-                { 
-                    collider.SetColliders(attackStrenght, origin);
-                }
-                Attacked();
-                break;
-            case attack_Type.Charge:
-                if (canAttack)
-                {
-                    foreach (var collider in meleeColliders)
-                    {
-                        if(collider.GetType() == typeof(ChargeAttackCollider)) 
-                        {
-                            ((ChargeAttackCollider)collider).SetColliders(attackStrenght, chargePushStrenght, origin);
-                        }
-                    }
-                    if(ChargeCoroutine != null) 
-                    {
-                        StopCoroutine(ChargeCoroutine);
-                    }
-                    ChargeCoroutine = Charge(dir);
-                    StartCoroutine(CooldownCoroutine());
-                    agent.basicNavAgent.isStopped = false;
-                    StartCoroutine(ChargeCoroutine);
-
-                    Attacked();
-                }
-                break;
-            case attack_Type.Range:
-                agent.SetDestination(transform.position);
-                AimToAttack(frontDir);
-                if (canAttack) 
-                {
-                    StartCoroutine(CooldownCoroutine());
-                    GameObject go = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-                    go.GetComponent<Projectile>().Launch(frontDir, projectileSpeed, attackStrenght, origin);
-                    Attacked();
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-    void Attacked()
+    protected void AIAttacked()
     {
         switch (dinoClass)
         {
@@ -123,68 +44,26 @@ public class AIAttackModule : AttackComponent
                 break;
         }
     }
-    public void StopAttack() 
+    public void AIStopAttack() 
     {
         t = 0;
-        anim.SetBool("Attacking", false);
-        anim.SetBool("Walking", true);
         agent.Speed = startingSpeed;
         agent.AngularSpeed = startingRotationSpeed;
-    }
-    public void StartMeleeDamage()
-    {
-        foreach (var collider in meleeColliders)
-        {
-            collider.StartCollider();
-        }
-    }
-    public void StopMeleeDamage()
-    {
-        foreach (var collider in meleeColliders)
-        {
-            collider.StopCollider();
-        }
-    }
-    IEnumerator Charge(Vector3 dir) 
-    {
-        anim.SetBool("Walking", false);
-        anim.SetBool("Attacking", true);
-        dir.y = transform.position.y;
-        agent.Speed = multipliedSpeed;
-        agent.AngularSpeed = multipliedRotationSpeed;
-        if(Vector3.Distance(transform.position, dir) < ChargeStoppingDistance + 5f) 
-        {   //En caso de tener al player demasiado cerca al empezar la carga
-            float t = 0;
-            do
-            {
-                agent.Move(transform.forward * 0.75f);
-                t += Time.deltaTime;
-                yield return null;
-            } while (t < 2);
-        }
-        agent.SetDestination(dir);
-        do
-        {
-            yield return null;
-            agent.Move(transform.forward * 0.75f); //Tengo un offset para naturalizar la direccion del enemigo
-        } while (Vector3.Distance(transform.position, dir) > ChargeStoppingDistance);
-        agent.basicNavAgent.isStopped = true;
-        anim.SetBool("Walking", false);
         anim.SetBool("Attacking", false);
+        anim.SetBool("Walking", true);
     }
-
-    void AimToAttack(Vector3 dir) 
+    protected void AIAimToAttack(Vector3 dir) 
     {
-        anim.SetBool("Walking", false);
-        anim.SetBool("Attacking", true);
         t += Time.deltaTime;
         dir.y = transform.forward.y;
         transform.forward = Vector3.Lerp(transform.forward, dir.normalized, t);
+        anim.SetBool("Walking", false);
+        anim.SetBool("Attacking", true);
     }
-
-    void StopAI(DamageOrigin origin) 
+    void AIStopAll(DamageOrigin origin) 
     {
         StopAllCoroutines();
     }
-
+    abstract public void StartAttackEvent();
+    abstract public void StopAttackEvent();
 }

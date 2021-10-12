@@ -6,10 +6,8 @@ using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Character))]
-[RequireComponent(typeof(AIAttackModule))]
 public class EnemyAI : MonoBehaviour
 {
-
     [Header("Attack Behaviour")]
     [SerializeField] float attackDistance = 1.85f;
     [SerializeField] float yPositionTolerance = 2.5f;
@@ -85,7 +83,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         OnDied?.Invoke(dinoType, spawnIndex);
-        attackModule.StopMeleeDamage();
+        attackModule.StopAttackEvent();
         anim.SetBool("Walking", false);
         playerTransform = null;
     }
@@ -134,7 +132,7 @@ public class EnemyAI : MonoBehaviour
             }
             else 
             {
-                attackModule.StopAttack();
+                attackModule.AIStopAttack();
                 anim.SetBool("Walking", false);
             }
         }
@@ -157,7 +155,7 @@ public class EnemyAI : MonoBehaviour
             case EnemyBehaviour.CHASING:
                 agent.basicNavAgent.isStopped = false;
                 anim.SetBool("Walking", true);
-                attackModule.StopAttack();
+                attackModule.AIStopAttack();
                 ResetEnemyCheck(distanceToPlayer);
                 break;
             case EnemyBehaviour.ATTACKING:

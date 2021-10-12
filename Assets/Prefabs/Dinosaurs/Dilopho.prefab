@@ -726,9 +726,9 @@ GameObject:
   - component: {fileID: 1674325532805212697}
   - component: {fileID: 3262539797283872815}
   - component: {fileID: 3262539795392515524}
-  - component: {fileID: 3262539795392515526}
   - component: {fileID: 3262539795635730653}
   - component: {fileID: 3262539795635730652}
+  - component: {fileID: 7267851849150364270}
   m_Layer: 11
   m_Name: Dilopho
   m_TagString: Untagged
@@ -798,7 +798,7 @@ MonoBehaviour:
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.1
   deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 3262539795392515526}
+  attackComponent: {fileID: 0}
   freePoints: 0
   stats:
   - name: Energy
@@ -890,32 +890,6 @@ MonoBehaviour:
     m_Bits: 256
   anim: {fileID: 3247137947644890674}
   dinoType: 2
---- !u!114 &3262539795392515526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674325532805212699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b61f5de9be81844a9324424e6f997c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  maxCooldown: 1.5
-  currentAttackType: 2
-  anim: {fileID: 3247137947644890674}
-  meleeColliders: []
-  projectilePrefab: {fileID: 1529946139122123432, guid: e8eb34df166d24e489170a21026d381e,
-    type: 3}
-  projectileSpawn: {fileID: 8387710510737473164}
-  projectileSpeed: 5
-  chargePushStrenght: 600
-  chargeSpeedMultiplier: 5
-  ChargeStoppingDistance: 2
 --- !u!114 &3262539795635730653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,6 +946,28 @@ NavMeshAgent:
   m_BaseOffset: -1.24
   m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7267851849150364270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674325532805212699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36bc1334ca9d16141ac4da012a9f7b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  maxCooldown: 1.5
+  currentAttackType: 0
+  anim: {fileID: 3247137947644890674}
+  projectilePrefab: {fileID: 1529946139122123432, guid: e8eb34df166d24e489170a21026d381e,
+    type: 3}
+  projectileSpawn: {fileID: 8387710510737473164}
+  projectileSpeed: 7.5
 --- !u!1 &1686550313561913394
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,6 +19,8 @@ public class CameraController : MonoBehaviour
     ChromaticAberration chromaticAberration;
     float startingChromaticValue;
 
+    Camera cam;
+
     bool shaking = false;
     private void Awake()
     {

@@ -8,10 +8,10 @@ public class MeleeAttackEvents: MonoBehaviour
 
     void StartCollidersDamage()
     {
-        aiAttackModule.StartMeleeDamage();
+        aiAttackModule.StartAttackEvent();
     }
     void StopCollidersDamage()
     {
-        aiAttackModule.StopMeleeDamage();
+        aiAttackModule.StopAttackEvent();
     }
 }
