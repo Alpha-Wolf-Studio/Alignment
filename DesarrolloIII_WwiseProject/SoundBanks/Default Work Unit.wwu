@@ -5,7 +5,29 @@
 			<ChildrenList>
 				<SoundBank Name="SoundBankTest" ID="{BB132838-F3C9-41D7-BDBD-D44CFA6E72E7}">
 					<ObjectInclusionList>
+						<ObjectRef Name="UiSwapItem" ID="{25ED25D9-4C53-4080-BF9C-77A6148234E3}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerPickItem" ID="{C9CEB72D-F722-409C-A42C-5F78C302DB0F}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerAttack" ID="{6E5B7240-B370-4173-85CD-64EFF355A941}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="CompletedTask" ID="{FC681339-491B-4198-9DD4-38C8452A27BD}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerArmorDamage" ID="{9992A5C0-BAF6-4398-95AE-ECE24D840D20}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UiOpenInventory" ID="{83B7DC77-4A81-43FC-A105-00F76BAFA01F}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UiClickButton" ID="{82251FB2-C3E7-4514-A2F4-A7B8935E3407}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerStepsOff" ID="{BC468463-E83D-4542-859E-580F4624F4C6}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UiButtonEnter" ID="{1186E499-75D2-4589-BC01-BE271403C040}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UiCraftFail" ID="{4A3F4A19-BB78-4673-AF84-596478FC8A5D}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UiCloseInventory" ID="{17613B5B-CD47-4729-BE03-8ED44935C33F}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerDropItem" ID="{8C2B3E82-AC48-4861-8D57-4A240314A69F}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="New_EventTest" ID="{E1863261-73BA-48A1-8924-B56802ED885E}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerJump" ID="{4020E6A7-12AB-4A0F-BDDE-CF3BF0A96084}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UiCraftSuccessful" ID="{2BD260A3-4513-4AAC-83EF-6D757EE054F7}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UiUseItem" ID="{F4CED4CC-5379-4B54-89CF-38E1C0B7D08D}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerEnergyDamage" ID="{6A33BF2B-605A-4C37-8B9A-6394247CDAF0}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UiButtonExit" ID="{EF696983-008A-4C6B-9217-732D8F3002F7}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerDie" ID="{F028D97A-D034-4F6F-9CC0-EB5D59C7AB25}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="CompletedQuest" ID="{669CF6CA-C058-4F7A-90F2-EA9CFBF38D65}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerStepsOn" ID="{88E0969E-1D03-4FA4-B9E2-C8E42FA22B16}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

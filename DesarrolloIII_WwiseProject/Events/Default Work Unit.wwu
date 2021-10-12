@@ -14,6 +14,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="PlayerStepsOn" ID="{88E0969E-1D03-4FA4-B9E2-C8E42FA22B16}"/>
+				<Event Name="PlayerStepsOff" ID="{BC468463-E83D-4542-859E-580F4624F4C6}"/>
+				<Event Name="PlayerPickItem" ID="{C9CEB72D-F722-409C-A42C-5F78C302DB0F}"/>
+				<Event Name="PlayerDropItem" ID="{8C2B3E82-AC48-4861-8D57-4A240314A69F}"/>
+				<Event Name="PlayerAttack" ID="{6E5B7240-B370-4173-85CD-64EFF355A941}"/>
+				<Event Name="PlayerJump" ID="{4020E6A7-12AB-4A0F-BDDE-CF3BF0A96084}"/>
+				<Event Name="PlayerArmorDamage" ID="{9992A5C0-BAF6-4398-95AE-ECE24D840D20}"/>
+				<Event Name="PlayerEnergyDamage" ID="{6A33BF2B-605A-4C37-8B9A-6394247CDAF0}"/>
+				<Event Name="PlayerDie" ID="{F028D97A-D034-4F6F-9CC0-EB5D59C7AB25}"/>
+				<Event Name="CompletedTask" ID="{FC681339-491B-4198-9DD4-38C8452A27BD}"/>
+				<Event Name="CompletedQuest" ID="{669CF6CA-C058-4F7A-90F2-EA9CFBF38D65}"/>
+				<Event Name="UiClickButton" ID="{82251FB2-C3E7-4514-A2F4-A7B8935E3407}"/>
+				<Event Name="UiButtonEnter" ID="{1186E499-75D2-4589-BC01-BE271403C040}"/>
+				<Event Name="UiButtonExit" ID="{EF696983-008A-4C6B-9217-732D8F3002F7}"/>
+				<Event Name="UiOpenInventory" ID="{83B7DC77-4A81-43FC-A105-00F76BAFA01F}"/>
+				<Event Name="UiCloseInventory" ID="{17613B5B-CD47-4729-BE03-8ED44935C33F}"/>
+				<Event Name="UiSwapItem" ID="{25ED25D9-4C53-4080-BF9C-77A6148234E3}"/>
+				<Event Name="UiUseItem" ID="{F4CED4CC-5379-4B54-89CF-38E1C0B7D08D}"/>
+				<Event Name="UiCraftSuccessful" ID="{2BD260A3-4513-4AAC-83EF-6D757EE054F7}"/>
+				<Event Name="UiCraftFail" ID="{4A3F4A19-BB78-4673-AF84-596478FC8A5D}"/>
+				<Event Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}"/>
+				<Event Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
