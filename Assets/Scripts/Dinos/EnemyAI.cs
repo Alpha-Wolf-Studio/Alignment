@@ -85,7 +85,7 @@ public class EnemyAI : MonoBehaviour
 
     public void StopMoving(DamageOrigin origin) 
     {
-        agent.SetDestination(transform.position);
+        agent.basicNavAgent.isStopped = true;
         OnDied?.Invoke(dinoType, spawnIndex);
         attackModule.StopAttackEvent();
         anim.SetBool("Walking", false);
@@ -205,6 +205,8 @@ public class EnemyAI : MonoBehaviour
         {
             idleTime = 0;
             currentBehaviour = EnemyBehaviour.IDLE;
+            anim.SetBool("Walking", false);
+            agent.basicNavAgent.isStopped = true;
         }
     }
     public void SetSpawnIndex(int index) 
