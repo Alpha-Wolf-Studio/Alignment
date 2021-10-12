@@ -102,8 +102,8 @@ public class EnemyAI : MonoBehaviour
         if(distanceToPlayer < maxPlayerDistanceToUpdate) 
         {
             anim.enabled = true;
-            StateUpdates(distanceToPlayer);
             StatesChanges(distanceToPlayer);
+            StateUpdates(distanceToPlayer);
         }
     }
     private void StatesChanges(float distanceToPlayer)
