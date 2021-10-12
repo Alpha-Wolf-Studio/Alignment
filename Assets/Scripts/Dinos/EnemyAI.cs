@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Character))]
 public class EnemyAI : MonoBehaviour
 {
+    [Header("General")]
+    [SerializeField] float maxPlayerDistanceToUpdate = 150f;
     [Header("Attack Behaviour")]
     [SerializeField] float attackDistance = 1.85f;
     [SerializeField] float yPositionTolerance = 2.5f;
@@ -97,8 +99,12 @@ public class EnemyAI : MonoBehaviour
         checkPosition = transform.position;
         checkPosition.y += yPositionTolerance;
         float distanceToPlayer = Vector3.Distance(playerTransform.position, checkPosition);
-        StateUpdates(distanceToPlayer);
-        StatesChanges(distanceToPlayer);
+        if(distanceToPlayer < maxPlayerDistanceToUpdate) 
+        {
+            anim.enabled = true;
+            StateUpdates(distanceToPlayer);
+            StatesChanges(distanceToPlayer);
+        }
     }
     private void StatesChanges(float distanceToPlayer)
     {
@@ -214,5 +220,7 @@ public class EnemyAI : MonoBehaviour
             Gizmos.color = Color.green;
             Global.GizmosDisk(transform.position, transform.right, groupChaseCallDistance);
         }
+        Gizmos.color = Color.black;
+        Global.GizmosDisk(transform.position, transform.right, maxPlayerDistanceToUpdate);
     }
 }
