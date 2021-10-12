@@ -877,10 +877,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882f6310e0bc3ba41b8bd04ccff2a6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxPlayerDistanceToUpdate: 150
   attackDistance: 15
   yPositionTolerance: -2
   spotAngle: 30
   chaseDistance: 50
+  groupChase: 0
+  groupChaseCallDistance: 10
   maxTimeBetweenPatrols: 5
   minTimeBetweenPatrols: 3
   distanceToPatrol: 30
@@ -890,6 +893,7 @@ MonoBehaviour:
     m_Bits: 256
   anim: {fileID: 3247137947644890674}
   dinoType: 2
+  currentBehaviour: 0
 --- !u!114 &3262539795635730653
 MonoBehaviour:
   m_ObjectHideFlags: 0
