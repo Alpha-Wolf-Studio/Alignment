@@ -14,14 +14,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] LayerMask blockLayer = default;
     public Action<DinoClass> OnDinoDied;
 
-    [Serializable]
-    public class DinoSpawn
-    {
-        public Transform transform = null;
-        public float spawnDistanceFromCenter = 50f;
-        public int dinoAmount = 0; 
-    }
-
     [Header("Robo Raptor")]
     [SerializeField] GameObject raptorPrefab = null;
     [SerializeField] List<DinoSpawn> raptorSpawns = null;
