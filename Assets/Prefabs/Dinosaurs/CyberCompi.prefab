@@ -1420,7 +1420,7 @@ MonoBehaviour:
   maxPlayerDistanceToUpdate: 150
   attackDistance: 1.85
   yPositionTolerance: 1
-  spotAngle: 30
+  spotAngle: 50
   chaseDistance: 20
   groupChase: 1
   groupChaseCallDistance: 25
