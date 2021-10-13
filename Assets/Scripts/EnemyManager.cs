@@ -127,21 +127,25 @@ public class EnemyManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
+        
         foreach (var dinoSpawn in raptorSpawns)
         {
+            Gizmos.color = Color.red;
             Global.GizmosDisk(dinoSpawn.transform.position, dinoSpawn.transform.right, dinoSpawn.spawnDistanceFromCenter);
         }
         foreach (var dinoSpawn in compiSpawns)
         {
+            Gizmos.color = new Color(.94f, .0094f, .49f, 1);
             Global.GizmosDisk(dinoSpawn.transform.position, dinoSpawn.transform.right, dinoSpawn.spawnDistanceFromCenter);
         }
         foreach (var dinoSpawn in triSpawns)
         {
+            Gizmos.color = Color.blue;
             Global.GizmosDisk(dinoSpawn.transform.position, dinoSpawn.transform.right, dinoSpawn.spawnDistanceFromCenter);
         }
         foreach (var dinoSpawn in diloSpawns)
         {
+            Gizmos.color = new Color(.54f, .39f, .157f, 1);
             Global.GizmosDisk(dinoSpawn.transform.position, dinoSpawn.transform.right, dinoSpawn.spawnDistanceFromCenter);
         }
     }
