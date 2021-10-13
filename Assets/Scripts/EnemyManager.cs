@@ -57,7 +57,7 @@ public class EnemyManager : MonoBehaviour
 
     GameObject SpawnDino(GameObject prefab, Vector3 pos, List<DinoSpawn> spawns, int index) 
     {
-        return Instantiate(prefab, pos, Quaternion.identity, spawns[index].transform);
+        return Instantiate(prefab, pos, Quaternion.identity, spawns[index].gameObject.transform);
     }
 
     Vector3 GetNewGroundRandomPosition(List<DinoSpawn> spawns, int index) 
