@@ -1097,8 +1097,10 @@ MonoBehaviour:
   yPositionTolerance: 2.5
   spotAngle: 50
   chaseDistance: 50
+  chaseSpeedMultiplier: 2
   groupChase: 0
   groupChaseCallDistance: 10
+  groupChaseFrenzyTime: 1
   maxTimeBetweenPatrols: 15
   minTimeBetweenPatrols: 20
   distanceToPatrol: 30

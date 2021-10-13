@@ -17,8 +17,13 @@ public class EnemyAI : MonoBehaviour
     [Header("Chase Behaviour")]
     [SerializeField] float spotAngle = 30;
     [SerializeField] float chaseDistance = 50f;
+    [SerializeField] float chaseSpeedMultiplier = 1.0f;
+    float baseSpeed;
+    float baseChaseSpeed;
+    [Header("Group Chase Behaviour")]
     [SerializeField] bool groupChase = false;
     [SerializeField] float groupChaseCallDistance = 10f;
+    [SerializeField] float groupChaseFrenzyTime = 1f;
     [Header("Patrol Behaviour")]
     [SerializeField] float maxTimeBetweenPatrols = 5f;
     [SerializeField] float minTimeBetweenPatrols = 3f;
@@ -44,6 +49,7 @@ public class EnemyAI : MonoBehaviour
     enum EnemyBehaviour { IDLE, PATROLLING, GROUP_CHASING, CHASING, ATTACKING}
     [SerializeField] EnemyBehaviour currentBehaviour = EnemyBehaviour.IDLE;
     float idleTime = 0;
+    float groupChaseTime = 0;
 
     private void Awake()
     {
@@ -76,6 +82,8 @@ public class EnemyAI : MonoBehaviour
         if (!playerTransform)
             playerTransform = FindObjectOfType<PlayerController>().transform;
         startingPosition = transform.position;
+        baseSpeed = agent.Speed;
+        baseChaseSpeed = agent.Speed * chaseSpeedMultiplier;
     }
 
     public void SetPlayerReference(Transform trans) 
@@ -85,6 +93,7 @@ public class EnemyAI : MonoBehaviour
 
     public void StopMoving(DamageOrigin origin) 
     {
+        agent.SetDestination(transform.position);
         agent.basicNavAgent.isStopped = true;
         OnDied?.Invoke(dinoType, spawnIndex);
         attackModule.StopAttackEvent();
@@ -123,6 +132,7 @@ public class EnemyAI : MonoBehaviour
                 anim.SetBool("Walking", true);
                 attackModule.AIStopAttack();
                 agent.SetDestination(playerTransform.position);
+                agent.Speed = baseChaseSpeed;
                 currentBehaviour = EnemyBehaviour.CHASING;
                 RaycastHit[] hits = Physics.SphereCastAll(transform.position, groupChaseCallDistance, transform.up);
                 foreach (var hit in hits)
@@ -138,6 +148,7 @@ public class EnemyAI : MonoBehaviour
         else if (!agent.basicNavAgent.isStopped && currentBehaviour == EnemyBehaviour.IDLE)
         {
             agent.basicNavAgent.isStopped = true;
+            agent.Speed = baseSpeed;
             anim.SetBool("Walking", false);
         }
     }
@@ -180,6 +191,12 @@ public class EnemyAI : MonoBehaviour
                 break;
             case EnemyBehaviour.GROUP_CHASING:
                 agent.SetDestination(playerTransform.position);
+                groupChaseTime += Time.deltaTime;
+                if(groupChaseTime > groupChaseFrenzyTime) 
+                {
+                    groupChaseTime = 0;
+                    currentBehaviour = EnemyBehaviour.CHASING;
+                }
                 break;
             case EnemyBehaviour.ATTACKING:
                 Vector3 attackDirection = new Vector3(playerTransform.position.x, playerTransform.position.y + yPositionTolerance, playerTransform.position.z);
@@ -206,6 +223,7 @@ public class EnemyAI : MonoBehaviour
             idleTime = 0;
             currentBehaviour = EnemyBehaviour.IDLE;
             anim.SetBool("Walking", false);
+            agent.SetDestination(transform.position);
             agent.basicNavAgent.isStopped = true;
         }
     }
