@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [RequireComponent(typeof(Character))]
 public class EnemyAI : MonoBehaviour
@@ -117,7 +120,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void StatesChanges(float distanceToPlayer)
     {
-        if (currentBehaviour != EnemyBehaviour.ATTACKING && distanceToPlayer < attackDistance)
+        if (distanceToPlayer < attackDistance)
         {
             anim.SetBool("Walking", false);
             currentBehaviour = EnemyBehaviour.ATTACKING;
@@ -201,7 +204,6 @@ public class EnemyAI : MonoBehaviour
             case EnemyBehaviour.ATTACKING:
                 Vector3 attackDirection = new Vector3(playerTransform.position.x, playerTransform.position.y + yPositionTolerance, playerTransform.position.z);
                 attackModule.Attack(attackDirection, origin);
-                ResetEnemyCheck(distanceToPlayer);
                 break;
         }
     }
@@ -231,16 +233,19 @@ public class EnemyAI : MonoBehaviour
     {
         spawnIndex = index;
     }
-    private void OnDrawGizmos()
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Global.GizmosDisk(transform.position, transform.right, chaseDistance);
+        Handles.color = Color.yellow;
+        Handles.DrawWireDisc(transform.position, transform.up, chaseDistance);
         if (groupChase) 
         {
-            Gizmos.color = Color.green;
-            Global.GizmosDisk(transform.position, transform.right, groupChaseCallDistance);
+            Handles.color = Color.green;
+            Handles.DrawWireDisc(transform.position, transform.up, groupChaseCallDistance);
         }
-        Gizmos.color = Color.black;
-        Global.GizmosDisk(transform.position, transform.right, maxPlayerDistanceToUpdate);
+        Handles.color = Color.black;
+        Handles.DrawWireDisc(transform.position, transform.up, maxPlayerDistanceToUpdate);
     }
+#endif
 }

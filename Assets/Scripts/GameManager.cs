@@ -73,25 +73,5 @@ public class Global
     public static bool LayerEquals(LayerMask mask, int layer)
     {
         return mask == (mask | (1 << layer));
-    }    
-
-    //Can only be used on OnGizmosDraw
-    public static void GizmosDisk(Vector3 centerPosition, Vector3 startPosition, float size) 
-    {
-        float corners = 30; // How many corners the circle should have
-        Vector3 origin = centerPosition; // Where the circle will be drawn around
-        Vector3 startRotation = startPosition * size; // Where the first point of the circle starts
-        Vector3 lastPosition = origin + startRotation;
-        float angle = 0;
-        while (angle <= 360)
-        {
-            angle += 360 / corners;
-            Vector3 nextPosition = origin + (Quaternion.Euler(0, angle, 0) * startRotation);
-            Gizmos.DrawLine(lastPosition, nextPosition);
-            Gizmos.DrawSphere(nextPosition, .1f);
-
-            lastPosition = nextPosition;
-        }
-    }
-
+    } 
 }

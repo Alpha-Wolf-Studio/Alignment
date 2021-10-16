@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class EnemyManager : MonoBehaviour
 {
@@ -125,29 +128,31 @@ public class EnemyManager : MonoBehaviour
         ai.playerTransform = playerTransform;
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         
         foreach (var dinoSpawn in raptorSpawns)
         {
-            Gizmos.color = Color.red;
-            Global.GizmosDisk(dinoSpawn.transform.position, dinoSpawn.transform.right, dinoSpawn.spawnDistanceFromCenter);
+            Handles.color = Color.red;
+            Handles.DrawWireDisc(dinoSpawn.transform.position, Vector3.up, dinoSpawn.spawnDistanceFromCenter);
         }
         foreach (var dinoSpawn in compiSpawns)
         {
-            Gizmos.color = new Color(.94f, .0094f, .49f, 1);
-            Global.GizmosDisk(dinoSpawn.transform.position, dinoSpawn.transform.right, dinoSpawn.spawnDistanceFromCenter);
+            Handles.color = new Color(.94f, .0094f, .49f, 1);
+            Handles.DrawWireDisc(dinoSpawn.transform.position, Vector3.up, dinoSpawn.spawnDistanceFromCenter);
         }
         foreach (var dinoSpawn in triSpawns)
         {
-            Gizmos.color = Color.blue;
-            Global.GizmosDisk(dinoSpawn.transform.position, dinoSpawn.transform.right, dinoSpawn.spawnDistanceFromCenter);
+            Handles.color = Color.blue;
+            Handles.DrawWireDisc(dinoSpawn.transform.position, Vector3.up, dinoSpawn.spawnDistanceFromCenter);
         }
         foreach (var dinoSpawn in diloSpawns)
         {
-            Gizmos.color = new Color(.54f, .39f, .157f, 1);
-            Global.GizmosDisk(dinoSpawn.transform.position, dinoSpawn.transform.right, dinoSpawn.spawnDistanceFromCenter);
+            Handles.color = new Color(.54f, .39f, .157f, 1);
+            Handles.DrawWireDisc(dinoSpawn.transform.position, Vector3.up, dinoSpawn.spawnDistanceFromCenter);
         }
     }
+#endif
 
 }
