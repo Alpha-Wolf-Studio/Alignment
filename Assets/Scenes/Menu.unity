@@ -902,7 +902,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Art:\nNicol\xE1s Jim\xE9nez Lamberti.\nSantiago Laffosse.\n\nDev:\nAdri\xE1n
-    Sgro.\nFederico Oliv\xE9.\n\nSound:\n_______________________"
+    Sgro.\nFederico Oliv\xE9.\n\nSound:\nDaniel Guerrero\nMart\xEDn Moscato"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a74dbc96a5e89be409f0fbeef74937d4, type: 2}
   m_sharedMaterial: {fileID: 1840986220843964430, guid: a74dbc96a5e89be409f0fbeef74937d4,
@@ -930,7 +930,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 66.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1269,11 +1269,11 @@ RectTransform:
   m_Father: {fileID: 1033334608}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -100, y: 25}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &770759236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1357,7 +1357,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 10, w: 0}
+  m_margin: {x: 10, y: 0, z: 10, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3289,6 +3289,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 66325067}
+    - target: {fileID: 1646663084597769757, guid: 1783cf4a7b1a6264f91a424460550541,
+        type: 3}
+      propertyPath: m_text
+      value: Settings
+      objectReference: {fileID: 0}
     - target: {fileID: 1646663084867401527, guid: 1783cf4a7b1a6264f91a424460550541,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -3302,6 +3307,26 @@ PrefabInstance:
     - target: {fileID: 1646663084867401527, guid: 1783cf4a7b1a6264f91a424460550541,
         type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646663085061276711, guid: 1783cf4a7b1a6264f91a424460550541,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 43.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646663085061276711, guid: 1783cf4a7b1a6264f91a424460550541,
+        type: 3}
+      propertyPath: m_margin.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646663085061276711, guid: 1783cf4a7b1a6264f91a424460550541,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646663085087423320, guid: 1783cf4a7b1a6264f91a424460550541,
+        type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1646663085087423321, guid: 1783cf4a7b1a6264f91a424460550541,
@@ -3476,3 +3501,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1783cf4a7b1a6264f91a424460550541, type: 3}
+--- !u!114 &8881267686330601550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881267686330601551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf45a6b1d6cd2047a568084882ae4bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e1946bb99b80e4341bb377a126e1024e,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
+--- !u!1 &8881267686330601551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8881267686330601553}
+  - component: {fileID: 8881267686330601550}
+  - component: {fileID: 8881267686330601552}
+  m_Layer: 0
+  m_Name: LoadSoundBank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &8881267686330601552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881267686330601551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3b0cbe869e904409468e23557444a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &8881267686330601553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881267686330601551}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 388.91098, y: 124.219124, z: 141.80032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

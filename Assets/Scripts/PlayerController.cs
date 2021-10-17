@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-
 [RequireComponent(typeof(Character))]
 public class PlayerController : MonoBehaviour
 {
@@ -15,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private Camera camara;
-    Character character;
+    private Character character;
 
     [Header("Movement")]
     [SerializeField] private float verticalSensitive = 2;
@@ -23,8 +22,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int minCameraClampVertical = -50;
     [SerializeField] private int maxCameraClampVertical = 50;
     private float speedMovement = 0.1f;
-    [SerializeField] private float walkSpeedMovement = 0.1f;
-    [SerializeField] private float runSpeedMovement = 0.15f;
 
     private float movH;
     private float movV;
@@ -32,21 +29,18 @@ public class PlayerController : MonoBehaviour
 
     public float maxCoolDownShoot;
     public float currentCoolDownShoot = 10;
-    private float damageForShoot = 7;
     private float maxDistInteract = 50;
     
     private bool useEnergyRun;
     private float energySpendRun = 0.2f;
     private float energyRegenerate = 0.05f;
 
-    private float maxStamina = 100;
-    [SerializeField] private float currentStamina = 100;
     public enum State { Walk, Run, Flying }
     [SerializeField] private float forceJump;
     [SerializeField] private float forceFly;
     private float onTimePressFly;
     private bool useEnergyFly;
-    private float energySpendFly = 0.8f;
+
     [SerializeField] private float maxTimePressToFly;
     private bool grounded = true;
     private bool flying;
@@ -62,14 +56,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         AvailableCursor(false);
-        currentStamina = maxStamina;
 
         character.OnCharacterTakeArmorDamage += ArmorDamage;
         character.OnCharacterTakeEnergyDamage += EnergyDamage;
     }
     void CanPause()
     {
-        if (Input.GetButtonDown("Cancel")) //(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel"))
         {
             OnPause?.Invoke();
         }
@@ -103,12 +96,12 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            speedMovement = runSpeedMovement;
+            speedMovement = character.characterStats.GetStat(StatType.Walk).GetCurrent() * character.multiplyRun;
             useEnergyRun = true;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speedMovement = walkSpeedMovement;
+            speedMovement = character.characterStats.GetStat(StatType.Walk).GetCurrent();
             useEnergyRun = false;
         }
     }
@@ -156,7 +149,7 @@ public class PlayerController : MonoBehaviour
             {
                 //Debug.Log("Dispara y se Daña");
                 onShoot?.Invoke(maxCoolDownShoot, false);
-                character.TakeEnergyDamage(damageForShoot, DamageOrigin.PLAYER);
+                character.TakeEnergyDamage(character.characterStats.GetStat(StatType.Damage).GetCurrent(), DamageOrigin.PLAYER);
             }
             else
             {
@@ -273,12 +266,13 @@ public class PlayerController : MonoBehaviour
             {
                 Vector3 movementVector = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")) * speedMovement;
                 rb.MovePosition(transform.position + movementVector);
-                if (useEnergyRun) currentStamina -= energySpendRun;
+                if (useEnergyRun)
+                    character.characterStats.GetStat(StatType.Stamina).AddCurrent(-energySpendRun);
             }
 
-            if (currentStamina < 0)
+            if (character.characterStats.GetStat(StatType.Stamina).GetCurrent() < 0)
             {
-                speedMovement = walkSpeedMovement;
+                speedMovement = character.characterStats.GetStat(StatType.Walk).GetCurrent();
                 useEnergyRun = false;
                 flying = false;
             }
@@ -286,7 +280,6 @@ public class PlayerController : MonoBehaviour
         if (playerStatus == PlayerStatus.Game || playerStatus == PlayerStatus.Inventory)
             UpdateStamina();
     }
-
     void CanOpenConsole()
     {
         if (Input.GetKeyDown(KeyCode.F1))
@@ -298,15 +291,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!useEnergyRun)
         {
-            if (currentStamina < maxStamina)
+            if (character.characterStats.GetStat(StatType.Stamina).GetCurrent()< character.characterStats.GetStat(StatType.Stamina).GetMax())
             {
                 if (grounded)
                 {
-                    currentStamina += energyRegenerate;
-                    if (currentStamina > maxStamina)
-                    {
-                        currentStamina = maxStamina;
-                    }
+                    character.characterStats.GetStat(StatType.Stamina).AddCurrent(energyRegenerate);
                 }
             }
         }
@@ -318,21 +307,13 @@ public class PlayerController : MonoBehaviour
             grounded = true;
         }
     }
-    public float GetCurrentStamina() => currentStamina;
-    public float GetMaxStamina() => maxStamina;
-    public void AddSpeed(float speed)
+    public float GetCurrentStamina() => character.characterStats.GetStat(StatType.Stamina).GetCurrent();
+    public float GetMaxStamina() => character.characterStats.GetStat(StatType.Stamina).GetMax();
+    public void AddSpeed(float increaseIn)
     {
-        speedMovement += speed;
+        speedMovement += increaseIn;
+        character.characterStats.GetStat(StatType.Walk).AddCurrent(increaseIn);
     }
-    public void SetSpeed(float speed)
-    {
-        speedMovement = speed;
-    }
-    public float GetSpeed()
-    {
-        return speedMovement;
-    }
-
     void EnergyDamage()
     {
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerEnergyDamage))

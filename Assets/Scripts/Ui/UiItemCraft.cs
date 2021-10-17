@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
@@ -16,6 +18,13 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public TextMeshProUGUI myAmount;
     public GameObject toolTip;
     
+    private IEnumerator WaitingTimeCor;
+
+    private void Awake()
+    {
+        WaitingTimeCor = WaitingTime();
+    }
+
     void Start()
     {
         uiCraft = FindObjectOfType<UiCrafting>();
@@ -28,7 +37,6 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             go.index = index + 1;
 
             go.myAmount.text = "";
-            if (item.recipe[i].amount < 10) go.myAmount.text = " ";
             go.myAmount.text = item.recipe[i].amount.ToString();
         }
 
@@ -58,8 +66,7 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 buttonCraft.color = Color.green;
                 buttonCraft.GetComponent<Button>().interactable = true; // todo seguir con la cantidad
                 int maxAmountToCraft = uiCraft.craft.PosibleCraftAmount(item);
-                myAmount.text = (maxAmountToCraft < 10) ? "0" : "";
-                myAmount.text += maxAmountToCraft;
+                myAmount.text = maxAmountToCraft > 0 ? maxAmountToCraft.ToString() : "";
             }
             else
             {
@@ -75,15 +82,22 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (toolTip)
         {
-            toolTip.SetActive(true);
+            WaitingTimeCor = WaitingTime();
+            StartCoroutine(WaitingTimeCor);
         }
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         if (toolTip)
         {
+            StopCoroutine(WaitingTimeCor);
             toolTip.SetActive(false);
         }
+    }
+    IEnumerator WaitingTime()
+    {
+        yield return new WaitForSeconds(uiCraft.seconsWaitToolTip);
+        toolTip.SetActive(true);
     }
     public void TryCraftButton()
     {
@@ -116,7 +130,6 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         
         for (int i = 0; i < item.recipe.Count; i++)
         {
-            if (item.recipe[i].amount < 10) text += " ";
             text += item.recipe[i].amount + "  " + item.recipe[i].item.name;
             text += "\n";
         }

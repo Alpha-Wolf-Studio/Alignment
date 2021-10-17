@@ -726,6 +726,7 @@ GameObject:
   - component: {fileID: 1674325532805212697}
   - component: {fileID: 3262539797283872815}
   - component: {fileID: 3262539795392515524}
+  - component: {fileID: -323414408970278589}
   - component: {fileID: 3262539795635730653}
   - component: {fileID: 3262539795635730652}
   - component: {fileID: 7267851849150364270}
@@ -799,43 +800,8 @@ MonoBehaviour:
   deadBodyRemoveSpeed: 0.1
   deadBodyunderGroundOffset: 0.5
   attackComponent: {fileID: 0}
-  freePoints: 0
-  stats:
-  - name: Energy
-    initial: 0
-    points: 0
-    amountPlus: 0
-    multiplySubtract: 0
-    current: 0
-    max: 0
-  - name: Armor
-    initial: 100
-    points: 0
-    amountPlus: 0
-    multiplySubtract: 0
-    current: 0
-    max: 0
-  - name: Damage
-    initial: 10
-    points: 0
-    amountPlus: 0
-    multiplySubtract: 0
-    current: 0
-    max: 0
-  - name: Defense
-    initial: 0
-    points: 0
-    amountPlus: 0
-    multiplySubtract: 0
-    current: 0
-    max: 0
-  - name: Speed
-    initial: 0.1
-    points: 0
-    amountPlus: 0
-    multiplySubtract: 0
-    current: 0
-    max: 0
+  characterStats: {fileID: 0}
+  multiplyRun: 2
 --- !u!54 &1674325532805212697
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -882,8 +848,10 @@ MonoBehaviour:
   yPositionTolerance: -2
   spotAngle: 50
   chaseDistance: 50
+  chaseSpeedMultiplier: 1
   groupChase: 0
   groupChaseCallDistance: 10
+  groupChaseFrenzyTime: 1
   maxTimeBetweenPatrols: 5
   minTimeBetweenPatrols: 3
   distanceToPatrol: 30
@@ -894,6 +862,39 @@ MonoBehaviour:
   anim: {fileID: 3247137947644890674}
   dinoType: 2
   currentBehaviour: 0
+--- !u!114 &-323414408970278589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674325532805212699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8852262d8dc56014d9f24d8c0d3d5d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterStats:
+  - statType: 0
+    baseInitial: 100
+    amountPlus: 15
+    multiplySubtract: 0.9
+  - statType: 1
+    baseInitial: 1
+    amountPlus: 2
+    multiplySubtract: 0.8
+  - statType: 3
+    baseInitial: 10
+    amountPlus: 2
+    multiplySubtract: 1
+  - statType: 4
+    baseInitial: 0.1
+    amountPlus: 0.15
+    multiplySubtract: 0.8
+  - statType: 5
+    baseInitial: 5
+    amountPlus: 1
+    multiplySubtract: 1
 --- !u!114 &3262539795635730653
 MonoBehaviour:
   m_ObjectHideFlags: 0

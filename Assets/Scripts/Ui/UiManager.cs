@@ -31,7 +31,6 @@ public class UiManager : MonoBehaviour
         character = GameManager.Get().character;
         player = GameManager.Get().player;
     }
-
     void Start()
     {
         player.playerStatus = PlayerController.PlayerStatus.Inization;
@@ -52,10 +51,18 @@ public class UiManager : MonoBehaviour
     }
     void TakeDamage()
     {
-        if (character.GetEnergy().GetMax() > 0)
-            filledImageEnergy.fillAmount = character.GetEnergy().GetCurrent() / character.GetEnergy().GetMax();
-        if (character.GetArmor().GetMax() > 0)
-            filledImageArmor.fillAmount = character.GetArmor().GetCurrent() / character.GetArmor().GetMax();
+        if (character.characterStats.GetStat(StatType.Energy).GetMax() > 0)
+        {
+            float currentEnergy = character.characterStats.GetStat(StatType.Energy).GetCurrent();
+            float maxEnergy = character.characterStats.GetStat(StatType.Energy).GetMax();
+            filledImageEnergy.fillAmount = currentEnergy / maxEnergy;
+        }
+        if (character.characterStats.GetStat(StatType.Armor).GetMax() > 0)
+        {
+            float currentArmor = character.characterStats.GetStat(StatType.Armor).GetCurrent();
+            float maxArmor = character.characterStats.GetStat(StatType.Armor).GetMax();
+            filledImageArmor.fillAmount = currentArmor / maxArmor;
+        }
     }
     void Shoot(float maxCoolDown, bool reloading)
     {

@@ -53,6 +53,8 @@ public class Console : MonoBehaviour, IPointerClickHandler
         lastPlayerStatus = player.playerStatus;
         player.playerStatus = PlayerController.PlayerStatus.Console;
         inputField.Select();
+        EventSystem.current.SetSelectedGameObject(inputField.gameObject, null);
+        inputField.OnPointerClick(new PointerEventData(EventSystem.current));
         player.AvailableCursor(true);
     }
     private void OnDisable()
@@ -67,7 +69,6 @@ public class Console : MonoBehaviour, IPointerClickHandler
         {
             gameObject.SetActive(false);
         }
-        inputField.Select();
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             string text = inputField.text.ToLower();
@@ -89,6 +90,8 @@ public class Console : MonoBehaviour, IPointerClickHandler
             {
                 textConsole.text += "  <---- Command don't exist. Type: help";
             }
+            EventSystem.current.SetSelectedGameObject(inputField.gameObject, null);
+            inputField.OnPointerClick(new PointerEventData(EventSystem.current));
         }
     }
     private void AllCmd()   // Se cargan todas las funciones de la consola
@@ -165,15 +168,15 @@ public class Console : MonoBehaviour, IPointerClickHandler
     }
     private void InfinityArmor()
     {
-        cheats.CheatEnable(Character.Stats.Armor);
+        cheats.CheatEnable(character.characterStats.GetStat(StatType.Armor));
     }
     private void InfinityEnergy()
     {
-        cheats.CheatEnable(Character.Stats.Energy);
+        cheats.CheatEnable(character.characterStats.GetStat(StatType.Energy));
     }
     private void InfinityStamina()
     {
-        //cheats.CheatEnable(Character.Stats);
+        cheats.CheatEnable(character.characterStats.GetStat(StatType.Stamina));
     }
     private void AddJetPack()
     {
@@ -181,8 +184,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
     }
     void ClearInventory()
     {
-        List<Slot> slots = new List<Slot>();
-        invPlayer.SetNewInventory(slots);
+        invPlayer.ClearInventory();
     }
     private void AddFiveSlotsInventory()
     {

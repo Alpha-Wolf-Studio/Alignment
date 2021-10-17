@@ -44,6 +44,16 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void ClearInventory()
+    {
+        currentSlots.Clear();
+        for (int i = 0; i < size; i++)
+        {
+            Slot newSlot = new Slot();
+            currentSlots.Add(newSlot);
+        }
+    }
+
     public bool AddNewItem(int ID, int amount, int slotPos)
     {
         if (currentSlots[slotPos].IsEmpty())
@@ -151,13 +161,16 @@ public class Inventory : MonoBehaviour
             if (Sfx.Get().GetEnable(Sfx.ListSfx.UiUseItem))
                 AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiUseItem), gameObject);
 
-            character.AddInitialAttack(((Consumible)item).attackUpgrade);
-            character.AddCurrentDefense(((Consumible)item).defenseUpgrade);
-            character.AddInitialSpeed(((Consumible)item).speedUpgrade);
-            character.AddCurrentEnergy(((Consumible)item).currentEnergyUpgrade);
-            character.AddInitialEnergy(((Consumible)item).maxEnergyUpgrade);
-            character.AddInitialArmor(((Consumible)item).maxArmorUpgrade);
-            character.AddCurrentArmor(((Consumible)item).currentArmorUpgrade);
+            character.characterStats.GetStat(StatType.Damage).AddMax(((Consumible) item).attackUpgrade);
+            character.characterStats.GetStat(StatType.Defense).AddCurrent(((Consumible) item).defenseUpgrade);
+            character.characterStats.GetStat(StatType.Walk).AddMax(((Consumible) item).speedUpgrade);
+
+            character.characterStats.GetStat(StatType.Energy).AddCurrent(((Consumible) item).currentEnergyUpgrade);
+            character.characterStats.GetStat(StatType.Energy).AddMax(((Consumible) item).maxEnergyUpgrade);
+
+            character.characterStats.GetStat(StatType.Armor).AddCurrent(((Consumible) item).currentArmorUpgrade);
+            character.characterStats.GetStat(StatType.Armor).AddMax(((Consumible) item).maxArmorUpgrade);
+
             currentSlots[slotPos].AddAmount(-1);
             if (currentSlots[slotPos].IsEmpty())
                 return false;

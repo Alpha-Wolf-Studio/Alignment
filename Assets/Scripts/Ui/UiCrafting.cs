@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class UiCrafting : MonoBehaviour
@@ -9,6 +10,8 @@ public class UiCrafting : MonoBehaviour
     private RectTransform panelContentCraftRt;
     public UiItemCraft uiItemCraft;
     [HideInInspector] public Crafting craft;
+    public float seconsWaitToolTip = 0.5f;
+    private List<TextMeshProUGUI> craftsNames = new List<TextMeshProUGUI>();
 
     private void Awake()
     {
@@ -35,6 +38,7 @@ public class UiCrafting : MonoBehaviour
                         UiItemCraft craft = Instantiate(uiItemCraft, panelContentCraft.transform);
                         craft.item = ItemManager.GetInstance().GetItemFromID(id);
                         craft.name = item.name;
+                        craftsNames.Add(craft.myName);
                     }
                     else
                     {
@@ -66,5 +70,20 @@ public class UiCrafting : MonoBehaviour
         int maxSpacings = ((cantChild / columns) - 1) * spacing;
 
         panelContentCraftRt.sizeDelta = new Vector2(panelContentCraftRt.sizeDelta.x, maxHeights + maxSpacings);
+        Invoke(nameof(SetSameSize), 0.1f);
+    }
+    public void SetSameSize()
+    {
+        float minSize = 999;
+        for (int i = 0; i < craftsNames.Count; i++)
+        {
+            if (craftsNames[i].fontSize < minSize)
+                minSize = craftsNames[i].fontSize;
+        }
+        for (int i = 0; i < craftsNames.Count; i++)
+        {
+            craftsNames[i].enableAutoSizing = false;
+            craftsNames[i].fontSize = minSize;
+        }
     }
 }

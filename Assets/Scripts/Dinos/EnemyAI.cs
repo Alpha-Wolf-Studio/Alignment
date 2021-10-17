@@ -87,6 +87,7 @@ public class EnemyAI : MonoBehaviour
         startingPosition = transform.position;
         baseSpeed = agent.Speed;
         baseChaseSpeed = agent.Speed * chaseSpeedMultiplier;
+        character.characterStats.SetDifficult();
     }
 
     public void SetPlayerReference(Transform trans) 
