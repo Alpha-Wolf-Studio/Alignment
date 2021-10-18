@@ -192,7 +192,8 @@ public class Inventory : MonoBehaviour
     public void Sort()
     {
         currentSlots.Sort();
-    } public bool CanItemBeAdded(int id, int amount)
+    } 
+    public bool CanItemBeAdded(int id, int amount)
     {
         int currentEmptySpaces = 0;
         for (int i = 0; i < currentSlots.Count; i++)

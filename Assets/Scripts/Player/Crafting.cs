@@ -17,21 +17,40 @@ public class Crafting : MonoBehaviour
 
     public void Craft(Item item)
     {
+        bool craftFailed = false;
         if(IsCraftPosible(item))
         {
             foreach (var ingredient in item.recipe)
             {
                 inventory.RemoveItem(ingredient.item, ingredient.amount);
             }
-            inventory.AddNewItem(item.id, 1);
-            OnCraft?.Invoke(item);
-            if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCraftSuccessful))
-                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCraftSuccessful), gameObject);
+            if(inventory.CanItemBeAdded(item.id, 1)) 
+            {
+                inventory.AddNewItem(item.id, 1);
+            }
+            else 
+            {
+                foreach (var ingredient in item.recipe)
+                {
+                    inventory.AddNewItem(ingredient.item.id, ingredient.amount);
+                }
+                craftFailed = true;
+            }
         }
         else
         {
+            craftFailed = true;
+        }
+        if (craftFailed) 
+        {
             if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCraftFail))
                 AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCraftFail), gameObject);
+        }
+        else 
+        {
+            OnCraft?.Invoke(item);
+            if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCraftSuccessful))
+                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCraftSuccessful), gameObject);
         }
     }
     public bool IsCraftPosible(Item item)
