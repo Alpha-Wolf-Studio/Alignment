@@ -1339,7 +1339,7 @@ MonoBehaviour:
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.25
   deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 0}
+  attackComponent: {fileID: 6282258693734719997}
   characterStats: {fileID: 0}
   multiplyRun: 2
 --- !u!114 &126573022399881312
@@ -1435,7 +1435,7 @@ MonoBehaviour:
     current: 0
     maxCurrent: 0
   - statType: 4
-    baseInitial: 0.1
+    baseInitial: 3.5
     amountPlus: 0.15
     multiplySubtract: 0.8
     current: 0

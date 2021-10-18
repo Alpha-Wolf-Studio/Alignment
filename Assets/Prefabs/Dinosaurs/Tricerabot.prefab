@@ -694,7 +694,7 @@ MonoBehaviour:
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.1
   deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 0}
+  attackComponent: {fileID: 186264259606818104}
   characterStats: {fileID: 0}
   multiplyRun: 2
 --- !u!54 &3917014630346785537
@@ -746,7 +746,7 @@ MonoBehaviour:
     current: 0
     maxCurrent: 0
   - statType: 4
-    baseInitial: 0.1
+    baseInitial: 3.5
     amountPlus: 0.15
     multiplySubtract: 0.8
     current: 0
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_WalkableMask: 5
   m_Speed: 3.5
   m_Acceleration: 25
-  m_AngularSpeed: 180
+  m_AngularSpeed: 100
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -835,7 +835,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 25
   avoidancePriority: 50
-  m_AngularSpeed: 180
+  m_AngularSpeed: 100
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

@@ -996,7 +996,7 @@ MonoBehaviour:
   deadBodyRemoveTime: 5
   deadBodyRemoveSpeed: 0.1
   deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 0}
+  attackComponent: {fileID: 3790070837434236438}
   characterStats: {fileID: 0}
   multiplyRun: 2
 --- !u!65 &1810487241412485011
@@ -1024,27 +1024,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8852262d8dc56014d9f24d8c0d3d5d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 1
   characterStats:
   - statType: 0
     baseInitial: 100
     amountPlus: 15
     multiplySubtract: 0.9
+    current: 0
+    maxCurrent: 0
   - statType: 1
     baseInitial: 1
     amountPlus: 2
     multiplySubtract: 0.8
+    current: 0
+    maxCurrent: 0
   - statType: 3
     baseInitial: 10
     amountPlus: 2
     multiplySubtract: 1
+    current: 0
+    maxCurrent: 0
   - statType: 4
-    baseInitial: 0.1
+    baseInitial: 3.5
     amountPlus: 0.15
     multiplySubtract: 0.8
+    current: 0
+    maxCurrent: 0
   - statType: 5
     baseInitial: 5
     amountPlus: 1
     multiplySubtract: 1
+    current: 0
+    maxCurrent: 0
 --- !u!114 &1810487241904736097
 MonoBehaviour:
   m_ObjectHideFlags: 0

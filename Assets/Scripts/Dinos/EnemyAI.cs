@@ -85,9 +85,10 @@ public class EnemyAI : MonoBehaviour
         if (!playerTransform)
             playerTransform = FindObjectOfType<PlayerController>().transform;
         startingPosition = transform.position;
+        character.characterStats.SetDifficult();
+        agent.Speed = character.characterStats.GetStat(StatType.Walk).GetCurrent();
         baseSpeed = agent.Speed;
         baseChaseSpeed = agent.Speed * chaseSpeedMultiplier;
-        character.characterStats.SetDifficult();
     }
 
     public void SetPlayerReference(Transform trans) 
@@ -204,7 +205,7 @@ public class EnemyAI : MonoBehaviour
                 break;
             case EnemyBehaviour.ATTACKING:
                 Vector3 attackDirection = new Vector3(playerTransform.position.x, playerTransform.position.y + yPositionTolerance, playerTransform.position.z);
-                attackModule.Attack(attackDirection, origin);
+                character.AttackDir(attackDirection, origin);
                 break;
         }
     }
