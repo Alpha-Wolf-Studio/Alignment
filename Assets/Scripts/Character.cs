@@ -32,12 +32,6 @@ public class Character : MonoBehaviour, IDamageable
         col = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         characterStats = GetComponent<CharacterStats>();
-
-        if (attackComponent != null)
-        {
-            attackComponent.SetAttackStrenght(characterStats.GetStat(StatType.Damage).GetCurrent());
-            attackComponent.SetAttackSpeed(characterStats.GetStat(StatType.AttackSpeed).GetCurrent());
-        }
         OnStatsLoaded?.Invoke();
     }
     private void AddCurrentStat(Stat stat, float value)
@@ -45,9 +39,14 @@ public class Character : MonoBehaviour, IDamageable
         stat.AddCurrent(value);
         OnUpdateStats?.Invoke();
     }
-    public void AttackDir(Vector3 dir)
+    public void AttackDir(Vector3 dir, DamageOrigin from)
     {
-        if (attackComponent != null) attackComponent.Attack(dir, DamageOrigin.PLAYER);
+        if (attackComponent != null)
+        {
+            attackComponent.SetAttackStrenght(characterStats.GetStat(StatType.Damage).GetCurrent());
+            attackComponent.SetAttackSpeed(characterStats.GetStat(StatType.AttackSpeed).GetCurrent());
+            attackComponent.Attack(dir, from);
+        }
     }
     public void TakeEnergyDamage(float damage, DamageOrigin damageOrigin)
     {
@@ -94,6 +93,7 @@ public class Character : MonoBehaviour, IDamageable
         }
         OnUpdateStats?.Invoke();
     }
+
     IEnumerator BodyRemoveCoroutine()
     {
         col.enabled = false;

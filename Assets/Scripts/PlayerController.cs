@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
                 currentCoolDownShoot = 0;
             }
             Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
-            character.AttackDir(screenRay.direction);
+            character.AttackDir(screenRay.direction, DamageOrigin.PLAYER);
         }
     }
     void CanDeposite()
