@@ -8,6 +8,7 @@ public class TriAttackAI : AIAttackModule
     [SerializeField] float chargePushStrenght = 600f;
     [SerializeField] float chargeSpeedMultiplier = 5f;
     [SerializeField] float ChargeStoppingDistance = 2.0f;
+    [SerializeField] float chargeForwardOffset = 10.0f;
     float multipliedSpeed = 0;
     float multipliedRotationSpeed = 0;
     IEnumerator ChargeCoroutine = null;
@@ -46,26 +47,25 @@ public class TriAttackAI : AIAttackModule
         dir.y = transform.position.y;
         agent.Speed = multipliedSpeed;
         agent.AngularSpeed = multipliedRotationSpeed;
-        if (Vector3.Distance(transform.position, dir) < ChargeStoppingDistance + 5f)
+        if (Vector3.Distance(transform.position, dir) < ChargeStoppingDistance + chargeForwardOffset)
         {   //En caso de tener al player demasiado cerca al empezar la carga
             float t = 0;
             do
             {
-                agent.Move(transform.forward * 0.75f);
+                agent.Move(transform.forward * Time.deltaTime * chargeForwardOffset);
                 t += Time.deltaTime;
-                yield return null;
-            } while (t < 2);
+                yield return new WaitForEndOfFrame();
+            } while (t < 1);
         }
-        agent.SetDestination(dir);
         do
         {
-            yield return null;
-            agent.Move(transform.forward * 0.5f); //Tengo un offset para naturalizar la direccion del enemigo
+            agent.SetDestination(dir);
+            agent.Move(transform.forward * Time.deltaTime * chargeForwardOffset); //Tengo un offset para naturalizar la direccion del enemigo
+            yield return new WaitForEndOfFrame();
         } while (Vector3.Distance(transform.position, dir) > ChargeStoppingDistance);
+        agent.SetDestination(transform.position);
         agent.basicNavAgent.isStopped = true;
-        anim.SetBool("Walking", false);
-        anim.SetBool("Attacking", false);
-        canCharge = true;
+        anim.SetBool("Melee Attack", true);
     }
     public override void StartAttackEvent()
     {
@@ -81,5 +81,7 @@ public class TriAttackAI : AIAttackModule
         {
             collider.StopCollider();
         }
+        canCharge = true;
+        anim.SetBool("Melee Attack", false);
     }
 }

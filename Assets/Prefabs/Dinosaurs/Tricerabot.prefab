@@ -725,27 +725,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8852262d8dc56014d9f24d8c0d3d5d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 1
   characterStats:
   - statType: 0
     baseInitial: 100
     amountPlus: 15
     multiplySubtract: 0.9
+    current: 0
+    maxCurrent: 0
   - statType: 1
     baseInitial: 1
     amountPlus: 2
     multiplySubtract: 0.8
+    current: 0
+    maxCurrent: 0
   - statType: 3
     baseInitial: 10
     amountPlus: 2
     multiplySubtract: 1
+    current: 0
+    maxCurrent: 0
   - statType: 4
     baseInitial: 0.1
     amountPlus: 0.15
     multiplySubtract: 0.8
+    current: 0
+    maxCurrent: 0
   - statType: 5
     baseInitial: 5
     amountPlus: 1
     multiplySubtract: 1
+    current: 0
+    maxCurrent: 0
 --- !u!114 &875581337885331909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,7 +866,8 @@ MonoBehaviour:
   - {fileID: 4204586854832778168}
   chargePushStrenght: 600
   chargeSpeedMultiplier: 5
-  ChargeStoppingDistance: 2
+  ChargeStoppingDistance: 5
+  chargeForwardOffset: 10
 --- !u!136 &4319950791244232466
 CapsuleCollider:
   m_ObjectHideFlags: 0
