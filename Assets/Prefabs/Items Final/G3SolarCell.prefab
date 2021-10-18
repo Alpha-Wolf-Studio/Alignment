@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  glowColor: {r: 2, g: 0.0691934, b: 0.031413555, a: 2}
 --- !u!1 &7877230526560487851
 GameObject:
   m_ObjectHideFlags: 0

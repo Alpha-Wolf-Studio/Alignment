@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 5366916426144870407}
   - component: {fileID: 5940859784996105290}
   m_Layer: 12
-  m_Name: Refrigeracion3
+  m_Name: G2Refrigeration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,8 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 300
-  maxPickTime: 5
+  glowColor: {r: 0.06707834, g: 0.031413555, b: 2, a: 2}
 --- !u!1 &4520501621990392819
 GameObject:
   m_ObjectHideFlags: 0

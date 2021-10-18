@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 393520759}
   - component: {fileID: 393520758}
   m_Layer: 12
-  m_Name: Iman
+  m_Name: G7Magnets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,8 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 300
-  maxPickTime: 5
+  glowColor: {r: 2, g: 0.34908977, b: 0.031413555, a: 2}
 --- !u!1 &4964397309450187398
 GameObject:
   m_ObjectHideFlags: 0

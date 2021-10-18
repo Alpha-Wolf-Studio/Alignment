@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1505586965}
   - component: {fileID: 1505586964}
   m_Layer: 12
-  m_Name: tornillo
+  m_Name: G7Screws
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,8 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 300
-  maxPickTime: 5
+  glowColor: {r: 2, g: 0.34908977, b: 0.031413555, a: 2}
 --- !u!1 &5775306719865439944
 GameObject:
   m_ObjectHideFlags: 0

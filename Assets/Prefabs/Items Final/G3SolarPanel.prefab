@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 879372142}
   - component: {fileID: 879372141}
   m_Layer: 12
-  m_Name: panel_solar
+  m_Name: G3SolarPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1153,8 +1153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b945c6b4da4aa1488be9e5714d0f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 300
-  maxPickTime: 5
+  glowColor: {r: 2, g: 0.0691934, b: 0.031413555, a: 2}
 --- !u!1 &7377229106745008046
 GameObject:
   m_ObjectHideFlags: 0

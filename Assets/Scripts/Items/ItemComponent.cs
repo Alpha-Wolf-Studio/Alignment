@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
 public class ItemComponent : MonoBehaviour
 {
+    private MeshRenderer[] renderers;
     private Rigidbody rb;
     private int amount;
     private int ID;
@@ -19,10 +21,17 @@ public class ItemComponent : MonoBehaviour
     private float minDistaceDestroy = 1f;
     private Vector3 initialSize;
 
+    [ColorUsageAttribute(true, true)]
+    [SerializeField] Color glowColor = Color.yellow;
+    private bool glowingUp = true;
+    private float glowDelta = 0;
+
+
     public bool IsPickeable() => pickeable;
 
     private void Awake()
     {
+        renderers = GetComponentsInChildren<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
         destroyItem = DestroyingItem();
         pickeableItem = PickeableItem();
@@ -45,7 +54,27 @@ public class ItemComponent : MonoBehaviour
     private void Update()
     {
         onTime += Time.deltaTime;
+        GlowUpdate();
     }
+    private void GlowUpdate()
+    {
+        Color newColor = Color.Lerp(Color.black, glowColor, glowDelta);
+        if (glowingUp)
+        {
+            glowDelta += Time.deltaTime;
+            if (glowDelta > 1) glowingUp = false;
+        }
+        else
+        {
+            glowDelta -= Time.deltaTime;
+            if (glowDelta < 0) glowingUp = true;
+        }
+        foreach (var item in renderers)
+        {
+            item.material.SetColor("_EmissionColor", newColor);
+        }
+    }
+
     public void SetItem(int ID, int amount)
     {
         this.ID = ID;
