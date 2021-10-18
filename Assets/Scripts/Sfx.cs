@@ -92,39 +92,48 @@ public class Sfx : MonoBehaviour
     };
     bool[] listOn =
     {
-        false,   // CompiAttack,
-        false,   // RaptorAttack,
-        false,   // TrikeAttack,
-        false,   // DiloAttack,
-                  
-        false,   // PlayerStepsOn,
-        false,   // PlayerStepsOff,
-        false,   // PlayerPickItem,
-        false,   // PlayerDropItem,
-        false,   // PlayerAttack,
-        false,   // PlayerJetPack,
-        false,   // PlayerJump,
-        false,   // PlayerArmorDamage,
-        false,   // PlayerEnergyDamage,
-        false,   // PlayerDie,
-                  
-        false,   // CompletedTask,
-        false,   // CompletedQuest,
-        false,   // HelpPopUp,
-        false,   // AmbField,
-        false,   // AmbBeach,
-        false,   // AmbForest,
-        false,   // PauseOn,
-        false,   // PauseOff,
-                  
-        false,   // UiClickButton,
-        false,   // UiButtonEnter,
-        false,   // UiButtonExit,
-        false,   // UiOpenInventory,
-        false,   // UiCloseInventory,
-        false,   // UiSwapItem,
-        false,   // UiUseItem,
-        false,   // UiCraftSuccessful,
-        false    // UiCraftFail
+        false,   // CompiAttack,                || 
+        false,   // RaptorAttack,               || 
+        false,   // TrikeAttack,                || 
+        false,   // DiloAttack,                 || 
+                                                
+        true,   // PlayerStepsOn,               || PlayerStepsOn
+        true,   // PlayerStepsOff,             || PlayerStepsOff
+        true,   // PlayerPickItem,             || PlayerPickItem
+        true,   // PlayerDropItem,             || PlayerDropItem
+        true,   // PlayerAttack,               || PlayerAttack
+        false,   // PlayerJetPack,              || 
+        true,   // PlayerJump,                 || PlayerJump
+        true,   // PlayerArmorDamage,          || PlayerArmorDamage
+        true,   // PlayerEnergyDamage,         || PlayerEnergyDamage
+        true,   // PlayerDie,                  || PlayerDie
+                                                
+        true,   // CompletedTask,              || CompletedTask
+        true,   // CompletedQuest,             || CompletedQuest
+        false,   // HelpPopUp,                  || 
+        false,   // AmbField,                   || 
+        false,   // AmbBeach,                   || 
+        false,   // AmbForest,                  || 
+        true,   // PauseOn,                    || PauseOn
+        true,   // PauseOff,                   || PauseOff
+                                                
+        true,   // UiClickButton,              || UiClickButton
+        true,   // UiButtonEnter,              || UiButtonEnter
+        true,   // UiButtonExit,               || UiButtonExit
+        true,   // UiOpenInventory,            || UiOpenInventory
+        true,   // UiCloseInventory,           || UiCloseInventory
+        true,   // UiSwapItem,                 || UiSwapItem
+        true,   // UiUseItem,                  || UiUseItem
+        true,   // UiCraftSuccessful,          || UiCraftSuccessful
+        true    // UiCraftFail                 || UiCraftFail
     };
 }
+/*
+
+
+ 
+ 
+ 
+ 
+ 
+ */
