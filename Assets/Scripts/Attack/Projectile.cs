@@ -24,7 +24,8 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Global.LayerEquals(areaMask, other.gameObject.layer)) return;
+        bool ignoreCollider = Global.LayerEquals(areaMask, other.gameObject.layer) || other.GetComponent<Projectile>(); 
+        if (ignoreCollider) return;
         IDamageable damageComponent = other.GetComponent<IDamageable>();
         if (damageComponent != null)
         {

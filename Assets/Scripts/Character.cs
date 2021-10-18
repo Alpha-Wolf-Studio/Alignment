@@ -56,7 +56,7 @@ public class Character : MonoBehaviour, IDamageable
         damage -= characterStats.GetStat(StatType.Defense).GetCurrent();
         if (damage > 0)
         {
-            AddCurrentStat(characterStats.GetStat(StatType.Armor), -damage);
+            AddCurrentStat(characterStats.GetStat(StatType.Energy), -damage);
             if (characterStats.GetStat(StatType.Energy).GetCurrent() > 0)
             {
                 //if(anim != null) anim.SetTrigger("Hit");
