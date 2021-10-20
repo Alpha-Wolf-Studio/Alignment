@@ -72,6 +72,7 @@ public class UiItemCraft : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             {
                 buttonCraft.color = Color.red;
                 buttonCraft.GetComponent<Button>().interactable = false;
+                myAmount.text = "";
             }
         }
 

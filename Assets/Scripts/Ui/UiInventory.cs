@@ -41,6 +41,8 @@ public class UiInventory : MonoBehaviour
     public Vector2 mousePos;
     public RectTransform contentInventory;
     private List<UiItemInventory> listUItemInventory = new List<UiItemInventory>();
+
+    private bool loaded;
     private void Awake()
     {
         playerController = GameManager.Get().player;
@@ -56,10 +58,6 @@ public class UiInventory : MonoBehaviour
 
         playerController.OnInventory += OnInventory;
     }
-    private void OnEnable()
-    {
-        
-    }
     private void Update()
     {
         if (inventaryStatus == InventaryStatus.Open)
@@ -72,9 +70,10 @@ public class UiInventory : MonoBehaviour
     }
     void LoadInventoryUI()
     {
+        loaded = true;
         CreateButtonsSlots(0);
         RefreshAllButtons();
-        //ResizeContent();
+        ResizeContent();
 
         panelGral.alpha = 0;
         panelGral.interactable = false;
@@ -82,27 +81,40 @@ public class UiInventory : MonoBehaviour
     }
     void ResizeContent()
     {
-        int cantChild = contentInventory.transform.childCount;
-        GridLayoutGroup grid = contentInventory.GetComponent<GridLayoutGroup>();
-
-        float cellSize = grid.cellSize.y;
-        cellSize += grid.spacing.y;
-        int columns = grid.constraintCount;
-
-        int currentColumn = 0;
-        while (cantChild % columns != 0)
+        if (loaded)
         {
-            cantChild++;
-            currentColumn++;
-            if (currentColumn > columns)
-            {
-                Debug.LogError("Supera el Maximo de Columnas ", gameObject);
-                break; // Salida de de emergencia de While
-            }
-        }
-        int padding = grid.padding.bottom + grid.padding.top;
+            int cantChild = contentInventory.transform.childCount;
+            GridLayoutGroup grid = contentInventory.GetComponent<GridLayoutGroup>();
 
-        contentInventory.sizeDelta = new Vector2(contentInventory.sizeDelta.x, cantChild * cellSize / columns + padding);
+            float cellSize = grid.cellSize.y;
+            cellSize += grid.spacing.y;
+            int columns = grid.constraintCount;
+            int rows = 1;
+
+            int currentColumn = 0;
+            while (cantChild % columns != 0)
+            {
+                cantChild++;
+                currentColumn++;
+                if (currentColumn > columns)
+                {
+                    Debug.LogError("Supera el Maximo de Columnas ", gameObject);
+                    break; // Salida de de emergencia de While
+                }
+            }
+
+            while (rows < cantChild / columns)
+            {
+                rows++;
+            }
+
+            int padding = grid.padding.bottom + grid.padding.top;
+
+            Vector2 size = contentInventory.sizeDelta;
+            size.y = rows * cellSize + 70;
+            Debug.Log("SizeY: " + size.y);
+            contentInventory.sizeDelta = size;
+        }
     }
     void CreateButtonsSlots(int index)
     {
@@ -165,6 +177,7 @@ public class UiInventory : MonoBehaviour
     // Padding:     || x = Left || z = Right || w = Top || y = Bottom ||
     IEnumerator OpeningInventory()
     {
+        ResizeContent();
         float maxDuration = (inventoryOpenDuration > panelOpacityOn) ? inventoryOpenDuration : panelOpacityOn;
 
         open[0] = rmPanelInventory.padding;

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Vector2 = UnityEngine.Vector2;
 
 public class DataCmd
 {
@@ -18,6 +20,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
     private PlayerController player;
     private Inventory invPlayer;
     private Character character;
+    public RectTransform content;
     public TextMeshProUGUI textConsole;
     private RectTransform rtConsole;
     public TMP_InputField inputField;
@@ -30,7 +33,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
     private bool hud = true;
     public GameObject cvHud;
     private ModuleCheat cheats;
-
+    private float expandOnWrite = 43.5f;
     private void Awake()
     {
         cheats = GetComponent<ModuleCheat>();
@@ -127,10 +130,12 @@ public class Console : MonoBehaviour, IPointerClickHandler
     {
         textConsole.text += "\n" + text;
         inputField.text = "";
+        ExpandContent(false);
     }
     private void Clear()
     {
         textConsole.text = "";
+        ExpandContent(true);
     }
     private void Help()
     {
@@ -209,5 +214,11 @@ public class Console : MonoBehaviour, IPointerClickHandler
                 characters[i].TakeArmorDamage(9999, DamageOrigin.WATER);
             }
         }
+    }
+    public void ExpandContent(bool resetSize)
+    {
+        Vector2 size = content.sizeDelta;
+        size.y = resetSize ? 0 : size.y + expandOnWrite;
+        content.sizeDelta = size;
     }
 }

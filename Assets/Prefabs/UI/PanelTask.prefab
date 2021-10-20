@@ -93,8 +93,9 @@ MonoBehaviour:
   description: {fileID: 9130847067513866737}
   toggle: {fileID: 9130847068159450740}
   task:
+    hasCustomDescription: 0
+    customDescription: 
     type: 0
-    completed: 0
     dinosaursToKill: 0
     killAmount: 1
     itemToPickUp: {fileID: 0}
@@ -671,7 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}

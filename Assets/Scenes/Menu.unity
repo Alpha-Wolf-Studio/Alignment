@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -901,7 +901,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Art:\nNicol\xE1s Jim\xE9nez Lamberti.\nSantiago Laffosse.\n\nDev:\nAdri\xE1n
+  m_text: "Art:\nNicol\xE1s Jim\xE9nez Lamberti.\nSantiago Lafosse.\n\nDev:\nAdri\xE1n
     Sgro.\nFederico Oliv\xE9.\n\nSound:\nDaniel Guerrero\nMart\xEDn Moscato"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a74dbc96a5e89be409f0fbeef74937d4, type: 2}
@@ -2448,7 +2448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3289,11 +3289,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 66325067}
-    - target: {fileID: 1646663084597769757, guid: 1783cf4a7b1a6264f91a424460550541,
-        type: 3}
-      propertyPath: m_text
-      value: Settings
-      objectReference: {fileID: 0}
     - target: {fileID: 1646663084867401527, guid: 1783cf4a7b1a6264f91a424460550541,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -3307,26 +3302,6 @@ PrefabInstance:
     - target: {fileID: 1646663084867401527, guid: 1783cf4a7b1a6264f91a424460550541,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646663085061276711, guid: 1783cf4a7b1a6264f91a424460550541,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 43.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646663085061276711, guid: 1783cf4a7b1a6264f91a424460550541,
-        type: 3}
-      propertyPath: m_margin.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646663085061276711, guid: 1783cf4a7b1a6264f91a424460550541,
-        type: 3}
-      propertyPath: m_margin.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646663085087423320, guid: 1783cf4a7b1a6264f91a424460550541,
-        type: 3}
-      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1646663085087423321, guid: 1783cf4a7b1a6264f91a424460550541,

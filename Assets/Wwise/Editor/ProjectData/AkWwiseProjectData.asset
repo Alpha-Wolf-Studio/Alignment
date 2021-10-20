@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: b8dd45da69e9104c8fe61301ca7f2a0f
     GuidInternal: 
-    m_lastTime: -8585678970525492004
+    m_lastTime: -8585675191144413896
     List:
     - name: SoundBankTest
       guid: 382813bbc9f3d741bdbdd44cfa6e72e7
@@ -94,8 +94,42 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: ef7188ef8b223d43803ff70594d394b5
     GuidInternal: 
-    m_lastTime: -8585678957671126461
+    m_lastTime: -8585675191147328054
     List:
+    - name: CompletedQuest
+      guid: caf69c6658c07a4f90f2ea9cfbf38d65
+      id: 4152337806
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: CompletedQuest
+        ObjectType: 3
+        guid: caf69c6658c07a4f90f2ea9cfbf38d65
+      Path: Events\Default Work Unit\CompletedQuest
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: CompletedTask
+      guid: 391368fc1b4998419dd438c8452a27bd
+      id: 3758255951
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: CompletedTask
+        ObjectType: 3
+        guid: 391368fc1b4998419dd438c8452a27bd
+      Path: Events\Default Work Unit\CompletedTask
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: New_EventTest
       guid: 613286e1ba73a1488924b56802ed885e
       id: 2170705828
@@ -113,6 +147,346 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.696417
       minDuration: 0.696417
+    - name: PauseOff
+      guid: 5e38def6daf74d4c80d40fe154c58baf
+      id: 3921005316
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PauseOff
+        ObjectType: 3
+        guid: 5e38def6daf74d4c80d40fe154c58baf
+      Path: Events\Default Work Unit\PauseOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PauseOn
+      guid: 64fba1912c9190439750ba8d3f4a84f2
+      id: 80751710
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PauseOn
+        ObjectType: 3
+        guid: 64fba1912c9190439750ba8d3f4a84f2
+      Path: Events\Default Work Unit\PauseOn
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayerArmorDamage
+      guid: c0a59299f6ba984395aeece24d840d20
+      id: 2739055032
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerArmorDamage
+        ObjectType: 3
+        guid: c0a59299f6ba984395aeece24d840d20
+      Path: Events\Default Work Unit\PlayerArmorDamage
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayerAttack
+      guid: 40725b6e70b3734185cd64eff355a941
+      id: 2169369406
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerAttack
+        ObjectType: 3
+        guid: 40725b6e70b3734185cd64eff355a941
+      Path: Events\Default Work Unit\PlayerAttack
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayerDie
+      guid: 7ad928f034d06f4f9cc0eb5d59c7ab25
+      id: 3966601280
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerDie
+        ObjectType: 3
+        guid: 7ad928f034d06f4f9cc0eb5d59c7ab25
+      Path: Events\Default Work Unit\PlayerDie
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayerDropItem
+      guid: 823e2b8c48ac61488d574a240314a69f
+      id: 1394561708
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerDropItem
+        ObjectType: 3
+        guid: 823e2b8c48ac61488d574a240314a69f
+      Path: Events\Default Work Unit\PlayerDropItem
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayerEnergyDamage
+      guid: 2bbf336a5a60374c8b9a6394247cdaf0
+      id: 890299361
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerEnergyDamage
+        ObjectType: 3
+        guid: 2bbf336a5a60374c8b9a6394247cdaf0
+      Path: Events\Default Work Unit\PlayerEnergyDamage
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayerJump
+      guid: a7e62040ab120f4abddecf3bf0a96084
+      id: 4008126242
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerJump
+        ObjectType: 3
+        guid: a7e62040ab120f4abddecf3bf0a96084
+      Path: Events\Default Work Unit\PlayerJump
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayerPickItem
+      guid: 2db7cec922f79c40a42c5f78c302db0f
+      id: 3452482440
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerPickItem
+        ObjectType: 3
+        guid: 2db7cec922f79c40a42c5f78c302db0f
+      Path: Events\Default Work Unit\PlayerPickItem
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayerStepsOff
+      guid: 638446bc3de84245859e580f4624f4c6
+      id: 1607351782
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerStepsOff
+        ObjectType: 3
+        guid: 638446bc3de84245859e580f4624f4c6
+      Path: Events\Default Work Unit\PlayerStepsOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayerStepsOn
+      guid: 9e96e088031da44fb9e2c8e42fa22b16
+      id: 3291823240
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerStepsOn
+        ObjectType: 3
+        guid: 9e96e088031da44fb9e2c8e42fa22b16
+      Path: Events\Default Work Unit\PlayerStepsOn
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: UiButtonEnter
+      guid: 99e48611d2758945bc01be271403c040
+      id: 3935862555
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: UiButtonEnter
+        ObjectType: 3
+        guid: 99e48611d2758945bc01be271403c040
+      Path: Events\Default Work Unit\UiButtonEnter
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: UiButtonExit
+      guid: 836969ef8a006b4c9217732d8f3002f7
+      id: 106216603
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: UiButtonExit
+        ObjectType: 3
+        guid: 836969ef8a006b4c9217732d8f3002f7
+      Path: Events\Default Work Unit\UiButtonExit
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: UiClickButton
+      guid: b21f2582e7c31445a2f4a7b8935e3407
+      id: 878168405
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: UiClickButton
+        ObjectType: 3
+        guid: b21f2582e7c31445a2f4a7b8935e3407
+      Path: Events\Default Work Unit\UiClickButton
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: UiCloseInventory
+      guid: 5b3b611747cd2947be038ed44935c33f
+      id: 1968229471
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: UiCloseInventory
+        ObjectType: 3
+        guid: 5b3b611747cd2947be038ed44935c33f
+      Path: Events\Default Work Unit\UiCloseInventory
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: UiCraftFail
+      guid: 194a3f4a78bb7346af84596478fc8a5d
+      id: 538913891
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: UiCraftFail
+        ObjectType: 3
+        guid: 194a3f4a78bb7346af84596478fc8a5d
+      Path: Events\Default Work Unit\UiCraftFail
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: UiCraftSuccessful
+      guid: a360d22b1345ac4a83ef6d757ee054f7
+      id: 3041684469
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: UiCraftSuccessful
+        ObjectType: 3
+        guid: a360d22b1345ac4a83ef6d757ee054f7
+      Path: Events\Default Work Unit\UiCraftSuccessful
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: UiOpenInventory
+      guid: 77dcb783814afc43a10500f76bafa01f
+      id: 863504537
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: UiOpenInventory
+        ObjectType: 3
+        guid: 77dcb783814afc43a10500f76bafa01f
+      Path: Events\Default Work Unit\UiOpenInventory
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: UiSwapItem
+      guid: d925ed25534c8040bf9c77a6148234e3
+      id: 3210062703
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: UiSwapItem
+        ObjectType: 3
+        guid: d925ed25534c8040bf9c77a6148234e3
+      Path: Events\Default Work Unit\UiSwapItem
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: UiUseItem
+      guid: ccd4cef47953544b89cf38e1c0b7d08d
+      id: 2685053305
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: UiUseItem
+        ObjectType: 3
+        guid: ccd4cef47953544b89cf38e1c0b7d08d
+      Path: Events\Default Work Unit\UiUseItem
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -170,7 +544,7 @@ MonoBehaviour:
     m_lastTime: -8585681289193779116
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0100000005000000070000000a0000000c00000026000000270000006100000062000000
+  ExpandedWaapiItemIds: 010000000200000003000000050000000700000008000000090000000a0000000c000000210000002200000023000000250000002600000027000000510000005200000061000000620000006c0000006d0000009b000000bb000000bc000000d0000000f500000008010000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
