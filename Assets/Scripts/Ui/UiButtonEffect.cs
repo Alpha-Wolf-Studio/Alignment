@@ -15,14 +15,37 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private bool increment = false;
     private Vector3 initialScale;
     private Vector3 scale;
+    [Header("Effect Image:")]
+    [SerializeField] private bool modifyImage;
+    [SerializeField] private Sprite imageDefault;
+    [SerializeField] private Sprite imageHighlighted;
+    private Image currentImage;
+
+    [Header("Other:")]
+    [SerializeField] private bool enableObject;
+    [SerializeField] private GameObject objectToEnable;
 
     private void Awake()
     {
         increment = false;
         initialScale = transform.localScale;
+
         if (modifyHitBox)
             GetComponent<Image>().alphaHitTestMinimumThreshold = alphaRayCast;
+
+        if (modifyImage)
+            currentImage = GetComponent<Image>();
+
+        if (enableObject)
+        {
+            if (!objectToEnable)
+            {
+                Debug.LogWarning("No tiene un objeto asignado.", gameObject);
+                enableObject = false;
+            }
+        }
     }
+
     private void OnEnable()
     {
         transform.localScale = initialScale;
@@ -37,12 +60,24 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         increment = true;
         if (Sfx.Get().GetEnable(Sfx.ListSfx.UiButtonEnter))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiButtonEnter), gameObject);
+
+        if (modifyImage)
+            currentImage.sprite = imageHighlighted;
+
+        if (enableObject)
+            objectToEnable.SetActive(true);
     }
     public void OnMouseExitButton()
     {
         increment = false;
         if (Sfx.Get().GetEnable(Sfx.ListSfx.UiButtonExit))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiButtonExit), gameObject);
+
+        if (modifyImage)
+            currentImage.sprite = imageDefault;
+
+        if (enableObject)
+            objectToEnable.SetActive(false);
     }
     private void ChangeScale()
     {

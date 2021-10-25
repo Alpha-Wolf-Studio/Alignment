@@ -154,7 +154,7 @@ public class UiInventory : MonoBehaviour
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.UiOpenInventory))
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiOpenInventory), gameObject);
 
-                playerController.playerStatus = PlayerController.PlayerStatus.Inventory;
+                playerController.ChangeStatus(PlayerController.PlayerStatus.Inventory);
                 inventaryStatus = InventaryStatus.Opening;
                 StartCoroutine(OpeningInventory());
 
@@ -163,7 +163,7 @@ public class UiInventory : MonoBehaviour
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCloseInventory))
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCloseInventory), gameObject);
 
-                playerController.playerStatus = PlayerController.PlayerStatus.Game;
+                playerController.ChangeStatus(PlayerController.PlayerStatus.Game);
                 inventaryStatus = InventaryStatus.Closeing;
                 StartCoroutine(OpeningInventory());
 

@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerDie))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerDie), gameObject);
 
-        player.playerStatus = PlayerController.PlayerStatus.EndLose;
+        player.ChangeStatus(PlayerController.PlayerStatus.EndLose);
         var gameOverText = UIGameOverScreen.GetGameOverText(info.origin);
         GameOver(gameOverText);
     }
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         objectsRemaining--;
         if (objectsRemaining == 0)
         {
-            player.playerStatus = PlayerController.PlayerStatus.EndWin;
+            player.ChangeStatus(PlayerController.PlayerStatus.EndWin);
             GameOver("You repaired the ship and got the timeline fixed.");
         }
     }

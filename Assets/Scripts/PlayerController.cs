@@ -3,8 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(Entity))]
 public class PlayerController : MonoBehaviour
 {
-    public enum PlayerStatus { Fading, Inization, Game, Pause, Inventory, Console, EndWin, EndLose }
-    public PlayerStatus playerStatus = PlayerStatus.Inization;
+    public delegate void Method();
+    private Method customUpdate;  void CustomUpdate() => customUpdate();
+    public enum PlayerStatus { None, Game, Pause, Inventory, Console, EndWin, EndLose }
+    private PlayerStatus playerStatus = PlayerStatus.Game;
     
     public Action OnInventory;
     public Action OnPause;
@@ -84,6 +86,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire3"))
         {
             OnInventory?.Invoke();
+            customUpdate = InputOnInventory;
         }
     }
     void UpdateCoolDown()
@@ -182,42 +185,39 @@ public class PlayerController : MonoBehaviour
             OnOpenQuestPanel?.Invoke();
         }
     }
+    void InputOnInventory()
+    {
+        UpdateCoolDown();
+        CanInventory();
+    }
+    void InputOnGame()
+    {
+        UpdateCoolDown();
+        CanAttack();
+        CanDeposite();
+        CanRun();
+        CanJumpAndFly();
+        CanOpenTask();
+
+        CanPause();
+        CanInventory();
+        CanOpenConsole();
+    }
+    void InputOnPause()
+    {
+        CanPause();
+    }
+    void InputOnConsole()
+    {
+        CanOpenConsole();
+    }
+    void InputNothing()
+    {
+
+    }
     void Update()
     {
-        switch (playerStatus)
-        {
-            case PlayerStatus.Fading:
-                break;
-            case PlayerStatus.Inization:
-                playerStatus = PlayerStatus.Game;
-                break;
-            case PlayerStatus.Game:
-                CanAttack();
-                CanDeposite();
-
-                UpdateCoolDown();
-                CanInventory();
-                CanPause();
-                CanRun();
-                CanJumpAndFly();
-                CanOpenConsole();
-                CanOpenTask();
-                break;
-            case PlayerStatus.Inventory:
-                UpdateCoolDown();
-                CanInventory();
-                break;
-            case PlayerStatus.Pause:
-                CanPause();
-                break;
-            case PlayerStatus.Console:
-                CanOpenConsole();
-                break;
-            case PlayerStatus.EndWin:
-            case PlayerStatus.EndLose:
-            default:
-                break;
-        }
+        CustomUpdate();
     }
     private void FixedUpdate()
     {
@@ -319,4 +319,33 @@ public class PlayerController : MonoBehaviour
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerEnergyDamage))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerEnergyDamage), gameObject);
     }
+    public void ChangeStatus(PlayerStatus currentStatus)
+    {
+        playerStatus = currentStatus;
+        switch (playerStatus)
+        {
+            case PlayerStatus.Game:
+                customUpdate = InputOnGame;
+                break;
+            case PlayerStatus.Inventory:
+                customUpdate = InputOnInventory;
+                break;
+            case PlayerStatus.Console:
+                customUpdate = InputOnConsole;
+                break;
+            case PlayerStatus.Pause:
+                customUpdate = InputOnPause;
+                break;
+            case PlayerStatus.EndLose:
+                customUpdate = InputNothing;
+                break;
+            case PlayerStatus.EndWin:
+                customUpdate = InputNothing;
+                break;
+            case PlayerStatus.None:
+                customUpdate = InputNothing;
+                break;
+        }
+    }
+    public PlayerStatus GetStatus() => playerStatus;
 }

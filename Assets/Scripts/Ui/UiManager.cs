@@ -33,7 +33,7 @@ public class UiManager : MonoBehaviour
     }
     void Start()
     {
-        player.playerStatus = PlayerController.PlayerStatus.Inization;
+        player.ChangeStatus(PlayerController.PlayerStatus.None);
         entity.OnUpdateStats += TakeDamage;
         entity.OnDeath += Death;
         player.onShoot+= Shoot;
@@ -85,9 +85,10 @@ public class UiManager : MonoBehaviour
     }
     public void Pause()
     {
-        if (player.playerStatus == PlayerController.PlayerStatus.Game || player.playerStatus == PlayerController.PlayerStatus.Inventory)
+        bool isInGameplay = (player.GetStatus() == PlayerController.PlayerStatus.Game || player.GetStatus() == PlayerController.PlayerStatus.Inventory);
+        if (isInGameplay)
         {
-            fromInventory = (player.playerStatus == PlayerController.PlayerStatus.Inventory);
+            fromInventory = (player.GetStatus() == PlayerController.PlayerStatus.Inventory);
             StartCoroutine(PauseEnabling());
         }
         else
@@ -113,7 +114,7 @@ public class UiManager : MonoBehaviour
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PauseOn))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PauseOn), gameObject);
         Time.timeScale = 0;
-        player.playerStatus = PlayerController.PlayerStatus.Fading;
+        player.ChangeStatus(PlayerController.PlayerStatus.None);
         onTimeFadePause = 0;
         canvasGroup[(int)CanvasGroupList.Pause].alpha = 0;
         canvasGroup[(int)CanvasGroupList.Options].alpha = 0;
@@ -135,13 +136,13 @@ public class UiManager : MonoBehaviour
         canvasGroup[(int) CanvasGroupList.Pause].blocksRaycasts = true;
 
         onTimeFadePause = 0;
-        player.playerStatus = PlayerController.PlayerStatus.Pause;
+        player.ChangeStatus(PlayerController.PlayerStatus.Pause);
         player.AvailableCursor(true);
         menuActual = CanvasGroupList.Pause;
     }
     IEnumerator PauseDisabling()
     {
-        player.playerStatus = PlayerController.PlayerStatus.Fading;
+        player.ChangeStatus(PlayerController.PlayerStatus.None);
         onTimeFadePause = 0;
 
         EnableCanvasGroup(canvasGroup[(int)CanvasGroupList.Pause], false);
@@ -161,7 +162,7 @@ public class UiManager : MonoBehaviour
         canvasGroup[(int)CanvasGroupList.Options].alpha = 0;
         EnableCanvasGroup(canvasGroup[(int) CanvasGroupList.GamePlay], true);
         onTimeFadePause = 0;
-        player.playerStatus = PlayerController.PlayerStatus.Game;
+        player.ChangeStatus(PlayerController.PlayerStatus.Game);
         Time.timeScale = 1;
         player.AvailableCursor(fromInventory);
         menuActual = CanvasGroupList.GamePlay;

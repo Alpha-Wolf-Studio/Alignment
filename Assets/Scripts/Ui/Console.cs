@@ -53,8 +53,8 @@ public class Console : MonoBehaviour, IPointerClickHandler
     private void OnEnable()
     {
         PauseGame(true);
-        lastPlayerStatus = player.playerStatus;
-        player.playerStatus = PlayerController.PlayerStatus.Console;
+        lastPlayerStatus = player.GetStatus();
+        player.ChangeStatus(PlayerController.PlayerStatus.Console);
         inputField.Select();
         EventSystem.current.SetSelectedGameObject(inputField.gameObject, null);
         inputField.OnPointerClick(new PointerEventData(EventSystem.current));
@@ -63,7 +63,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
     private void OnDisable()
     {
         PauseGame(false);
-        player.playerStatus = lastPlayerStatus;
+        player.ChangeStatus(lastPlayerStatus);
         player.AvailableCursor(false);
     }
     private void Update()
