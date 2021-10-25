@@ -19,7 +19,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
 
     private PlayerController player;
     private Inventory invPlayer;
-    private Character character;
+    private Entity character;
     public RectTransform content;
     public TextMeshProUGUI textConsole;
     private RectTransform rtConsole;
@@ -39,7 +39,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
         cheats = GetComponent<ModuleCheat>();
         player = GameManager.Get().player;
         invPlayer = player.GetComponent<Inventory>();
-        character = GameManager.Get().character;
+        character = GameManager.Get().playerEntity;
         rtConsole = gameObject.GetComponent<RectTransform>();
     }
     private void Start()
@@ -173,15 +173,15 @@ public class Console : MonoBehaviour, IPointerClickHandler
     }
     private void InfinityArmor()
     {
-        cheats.CheatEnable(character.characterStats.GetStat(StatType.Armor));
+        cheats.CheatEnable(character.entityStats.GetStat(StatType.Armor));
     }
     private void InfinityEnergy()
     {
-        cheats.CheatEnable(character.characterStats.GetStat(StatType.Energy));
+        cheats.CheatEnable(character.entityStats.GetStat(StatType.Energy));
     }
     private void InfinityStamina()
     {
-        cheats.CheatEnable(character.characterStats.GetStat(StatType.Stamina));
+        cheats.CheatEnable(character.entityStats.GetStat(StatType.Stamina));
     }
     private void AddJetPack()
     {
@@ -204,14 +204,15 @@ public class Console : MonoBehaviour, IPointerClickHandler
     }
     private void KillEnemies()
     {
-        Character[] characters = FindObjectsOfType<Character>();
+        Entity[] characters = FindObjectsOfType<Entity>();
 
         for (int i = 0; i < characters.Length; i++)
         {
             PlayerController player = characters[i].GetComponent<PlayerController>();
             if (!player)
             {
-                characters[i].TakeArmorDamage(9999, DamageOrigin.WATER);
+                DamageInfo info = new DamageInfo(9999, DamageOrigin.Water, DamageType.Armor);
+                characters[i].TakeDamage(info);
             }
         }
     }

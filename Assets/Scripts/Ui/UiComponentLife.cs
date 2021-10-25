@@ -6,7 +6,7 @@ public class UiComponentLife : MonoBehaviour
     public enum TypeLife { Armor, Energy }
     [SerializeField] private TypeLife typeLife = TypeLife.Armor;
     [SerializeField] private Image filledImage;
-    [SerializeField] private Character character;
+    [SerializeField] private Entity character;
     [SerializeField] private UiWorldFadeByDistance uiFade;
     private Transform focus;
     private bool enable;
@@ -38,13 +38,13 @@ public class UiComponentLife : MonoBehaviour
         switch (typeLife)
         {
             case TypeLife.Armor:
-                float currentArmor = character.characterStats.GetStat(StatType.Armor).GetCurrent();
-                float maxArmor = character.characterStats.GetStat(StatType.Armor).GetMax();
+                float currentArmor = character.entityStats.GetStat(StatType.Armor).GetCurrent();
+                float maxArmor = character.entityStats.GetStat(StatType.Armor).GetMax();
                 filledImage.fillAmount = currentArmor / maxArmor;
                 break;
             case TypeLife.Energy:
-                float currentEnergy = character.characterStats.GetStat(StatType.Armor).GetCurrent();
-                float maxEnergy = character.characterStats.GetStat(StatType.Armor).GetMax();
+                float currentEnergy = character.entityStats.GetStat(StatType.Armor).GetCurrent();
+                float maxEnergy = character.entityStats.GetStat(StatType.Armor).GetMax();
                 filledImage.fillAmount = currentEnergy / maxEnergy;
                 break;
             default:

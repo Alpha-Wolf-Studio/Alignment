@@ -7,7 +7,7 @@ using UnityEngine.Rendering.PostProcessing;
 public class CameraController : MonoBehaviour
 {
 
-    [SerializeField] Character playerCharacter;
+    [SerializeField] Entity playerCharacter;
 
     [Header("Shake")]
     [SerializeField] float shakeTime = .25f;
@@ -26,11 +26,10 @@ public class CameraController : MonoBehaviour
     {
 
         AddPostProccesingReferences();
-        playerCharacter.OnCharacterTakeArmorDamage += CameraShake;
-        playerCharacter.OnCharacterTakeEnergyDamage += CameraShake;
+        playerCharacter.OnEntityTakeDamage += CameraShake;
     }
 
-    void CameraShake() 
+    void CameraShake(DamageInfo info) 
     {
         if(!shaking) 
         {

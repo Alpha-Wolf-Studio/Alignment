@@ -613,8 +613,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4402225347037518265}
-  - component: {fileID: 3917014630346785543}
   - component: {fileID: 3917014630346785536}
+  - component: {fileID: 3917014630346785543}
   - component: {fileID: 3917014630346785537}
   - component: {fileID: 314301881685013952}
   - component: {fileID: 875581337885331909}
@@ -622,6 +622,7 @@ GameObject:
   - component: {fileID: 875581337349143452}
   - component: {fileID: 186264259606818104}
   - component: {fileID: 4319950791244232466}
+  - component: {fileID: 7023190671830608586}
   m_Layer: 11
   m_Name: Tricerabot
   m_TagString: Untagged
@@ -645,6 +646,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 146.48, z: 0}
+--- !u!114 &3917014630346785536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917014630346785539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92384a211a8cb3c419caac49f80ecbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackComponent: {fileID: 186264259606818104}
+  characterStats: {fileID: 0}
+  multiplyRun: 2
 --- !u!114 &3917014630346785543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,25 +694,6 @@ MonoBehaviour:
   pickUpMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &3917014630346785536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3917014630346785539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4291b4dc3d475914b92b4e3e62ff8226, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1114128467719146974}
-  deadBodyRemoveTime: 5
-  deadBodyRemoveSpeed: 0.1
-  deadBodyunderGroundOffset: 0.5
-  attackComponent: {fileID: 186264259606818104}
-  characterStats: {fileID: 0}
-  multiplyRun: 2
 --- !u!54 &3917014630346785537
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -882,6 +879,22 @@ CapsuleCollider:
   m_Height: 4.46
   m_Direction: 2
   m_Center: {x: 0, y: 0.98, z: -0.24}
+--- !u!114 &7023190671830608586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917014630346785539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9083086211e64a845bed0fb530abde4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1114128467719146974}
+  deadBodyRemoveTime: 5
+  deadBodyRemoveSpeed: 0.1
+  deadBodyunderGroundOffset: 0.5
 --- !u!1 &4056326457477406088
 GameObject:
   m_ObjectHideFlags: 0

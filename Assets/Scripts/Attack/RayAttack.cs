@@ -16,7 +16,7 @@ public class RayAttack : AttackComponent
                 IDamageable damageComponent = hit.collider.GetComponent<IDamageable>();
                 if (damageComponent != null)
                 {
-                    damageComponent.TakeArmorDamage(attackStrenght, origin);
+                    damageComponent.TakeDamage(new DamageInfo(attackStrenght, origin, DamageType.Armor));
                 }
             }
         }

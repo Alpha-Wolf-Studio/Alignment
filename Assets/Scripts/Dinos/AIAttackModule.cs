@@ -16,7 +16,7 @@ public abstract class AIAttackModule : AttackComponent
         agent = GetComponent<CustomNavMeshAgent>();
         startingSpeed = agent.Speed;
         startingRotationSpeed = agent.AngularSpeed;
-        GetComponent<Character>().OnDeath += AIStopAll;
+        GetComponent<Entity>().OnDeath += AIStopAll;
         dinoClass = GetComponent<EnemyAI>().dinoType;
     }
     protected void AIAttacked()
@@ -60,7 +60,7 @@ public abstract class AIAttackModule : AttackComponent
         anim.SetBool("Walking", false);
         anim.SetBool("Attacking", true);
     }
-    void AIStopAll(DamageOrigin origin) 
+    void AIStopAll(DamageInfo info) 
     {
         StopAllCoroutines();
     }

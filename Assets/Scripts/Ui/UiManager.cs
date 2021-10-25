@@ -10,7 +10,7 @@ public class UiManager : MonoBehaviour
     public Image filledImageArmor;
     public Image filledImageStamina;
     public Color CoolDownReloading = Color.red;
-    [HideInInspector] public Character character;
+    [HideInInspector] public Entity entity;
     [HideInInspector] public PlayerController player;
     public RectTransform sightHud;
     private float speed = 10f;
@@ -28,14 +28,14 @@ public class UiManager : MonoBehaviour
 
     private void Awake()
     {
-        character = GameManager.Get().character;
+        entity = GameManager.Get().playerEntity;
         player = GameManager.Get().player;
     }
     void Start()
     {
         player.playerStatus = PlayerController.PlayerStatus.Inization;
-        character.OnUpdateStats += TakeDamage;
-        character.OnDeath += Death;
+        entity.OnUpdateStats += TakeDamage;
+        entity.OnDeath += Death;
         player.onShoot+= Shoot;
         player.OnPause+= Pause;
         player.OnOpenConsole += OpenConsole;
@@ -51,16 +51,16 @@ public class UiManager : MonoBehaviour
     }
     void TakeDamage()
     {
-        if (character.characterStats.GetStat(StatType.Energy).GetMax() > 0)
+        if (entity.entityStats.GetStat(StatType.Energy).GetMax() > 0)
         {
-            float currentEnergy = character.characterStats.GetStat(StatType.Energy).GetCurrent();
-            float maxEnergy = character.characterStats.GetStat(StatType.Energy).GetMax();
+            float currentEnergy = entity.entityStats.GetStat(StatType.Energy).GetCurrent();
+            float maxEnergy = entity.entityStats.GetStat(StatType.Energy).GetMax();
             filledImageEnergy.fillAmount = currentEnergy / maxEnergy;
         }
-        if (character.characterStats.GetStat(StatType.Armor).GetMax() > 0)
+        if (entity.entityStats.GetStat(StatType.Armor).GetMax() > 0)
         {
-            float currentArmor = character.characterStats.GetStat(StatType.Armor).GetCurrent();
-            float maxArmor = character.characterStats.GetStat(StatType.Armor).GetMax();
+            float currentArmor = entity.entityStats.GetStat(StatType.Armor).GetCurrent();
+            float maxArmor = entity.entityStats.GetStat(StatType.Armor).GetMax();
             filledImageArmor.fillAmount = currentArmor / maxArmor;
         }
     }
@@ -71,7 +71,7 @@ public class UiManager : MonoBehaviour
             StartCoroutine(Reloading(maxCoolDown));
         }
     }
-    void Death(DamageOrigin origin)
+    void Death(DamageInfo info)
     {
 
     }

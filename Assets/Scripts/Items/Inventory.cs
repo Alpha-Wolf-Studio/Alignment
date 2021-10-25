@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Character))]
+[RequireComponent(typeof(Entity))]
 public class Inventory : MonoBehaviour
 {
     [SerializeField] List<Slot> currentSlots;
@@ -20,11 +20,11 @@ public class Inventory : MonoBehaviour
 
     public Action<Item, int> OnPickUp;
 
-    Character character;
+    Entity character;
 
     private void Awake()
     {
-        character = GetComponent<Character>();
+        character = GetComponent<Entity>();
         for (int i = 0; i < size; i++)
         {
             Slot newSlot = new Slot();
@@ -161,15 +161,15 @@ public class Inventory : MonoBehaviour
             if (Sfx.Get().GetEnable(Sfx.ListSfx.UiUseItem))
                 AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiUseItem), gameObject);
 
-            character.characterStats.GetStat(StatType.Damage).AddMax(((Consumible) item).attackUpgrade);
-            character.characterStats.GetStat(StatType.Defense).AddCurrent(((Consumible) item).defenseUpgrade);
-            character.characterStats.GetStat(StatType.Walk).AddMax(((Consumible) item).speedUpgrade);
+            character.entityStats.GetStat(StatType.Damage).AddMax(((Consumible) item).attackUpgrade);
+            character.entityStats.GetStat(StatType.Defense).AddCurrent(((Consumible) item).defenseUpgrade);
+            character.entityStats.GetStat(StatType.Walk).AddMax(((Consumible) item).speedUpgrade);
 
-            character.characterStats.GetStat(StatType.Energy).AddCurrent(((Consumible) item).currentEnergyUpgrade);
-            character.characterStats.GetStat(StatType.Energy).AddMax(((Consumible) item).maxEnergyUpgrade);
+            character.entityStats.GetStat(StatType.Energy).AddCurrent(((Consumible) item).currentEnergyUpgrade);
+            character.entityStats.GetStat(StatType.Energy).AddMax(((Consumible) item).maxEnergyUpgrade);
 
-            character.characterStats.GetStat(StatType.Armor).AddCurrent(((Consumible) item).currentArmorUpgrade);
-            character.characterStats.GetStat(StatType.Armor).AddMax(((Consumible) item).maxArmorUpgrade);
+            character.entityStats.GetStat(StatType.Armor).AddCurrent(((Consumible) item).currentArmorUpgrade);
+            character.entityStats.GetStat(StatType.Armor).AddMax(((Consumible) item).maxArmorUpgrade);
 
             currentSlots[slotPos].AddAmount(-1);
             if (currentSlots[slotPos].IsEmpty())

@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 using UnityEditor;
 #endif
 
-[RequireComponent(typeof(Character))]
+[RequireComponent(typeof(Entity))]
 public class EnemyAI : MonoBehaviour
 {
     [Header("General")]
@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
     Vector3 targetPos;
     [Space(10)]
     [SerializeField] Animator anim = null;
-    Character character = null;
+    Entity entity = null;
     AIAttackModule attackModule = null;
 
     public Transform playerTransform { get; set; }
@@ -56,24 +56,24 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        character = GetComponent<Character>();
+        entity = GetComponent<Entity>();
         agent = GetComponent<CustomNavMeshAgent>();
         attackModule = GetComponent<AIAttackModule>();
-        character.OnDeath += StopMoving;
+        entity.OnDeath += StopMoving;
         currentTimeBetweenPatrols = minTimeBetweenPatrols;
         switch (dinoType)
         {
             case DinoClass.Raptor:
-                origin = DamageOrigin.RAPTOR;
+                origin = DamageOrigin.Raptor;
                 break;
             case DinoClass.Triceratops:
-                origin = DamageOrigin.TRICERATOPS;
+                origin = DamageOrigin.Triceratops;
                 break;
             case DinoClass.Dilophosaurus:
-                origin = DamageOrigin.DILOPHOSAURUS;
+                origin = DamageOrigin.Dilophosaurus;
                 break;
             case DinoClass.Compsognathus:
-                origin = DamageOrigin.COMPSOGNATHUS;
+                origin = DamageOrigin.Compsognathus;
                 break;
             default:
                 break;
@@ -85,8 +85,8 @@ public class EnemyAI : MonoBehaviour
         if (!playerTransform)
             playerTransform = FindObjectOfType<PlayerController>().transform;
         startingPosition = transform.position;
-        character.characterStats.SetDifficult();
-        agent.Speed = character.characterStats.GetStat(StatType.Walk).GetCurrent();
+        entity.entityStats.SetDifficult();
+        agent.Speed = entity.entityStats.GetStat(StatType.Walk).GetCurrent();
         baseSpeed = agent.Speed;
         baseChaseSpeed = agent.Speed * chaseSpeedMultiplier;
     }
@@ -96,7 +96,7 @@ public class EnemyAI : MonoBehaviour
         playerTransform = trans;
     }
 
-    public void StopMoving(DamageOrigin origin) 
+    public void StopMoving(DamageInfo info) 
     {
         agent.SetDestination(transform.position);
         agent.basicNavAgent.isStopped = true;
@@ -205,7 +205,7 @@ public class EnemyAI : MonoBehaviour
                 break;
             case EnemyBehaviour.ATTACKING:
                 Vector3 attackDirection = new Vector3(playerTransform.position.x, playerTransform.position.y + yPositionTolerance, playerTransform.position.z);
-                character.AttackDir(attackDirection, origin);
+                entity.AttackDir(attackDirection, origin);
                 break;
         }
     }

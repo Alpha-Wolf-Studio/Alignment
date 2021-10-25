@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-[RequireComponent(typeof(Character))]
+[RequireComponent(typeof(Entity))]
 public class PlayerController : MonoBehaviour
 {
     public enum PlayerStatus { Fading, Inization, Game, Pause, Inventory, Console, EndWin, EndLose }
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private Camera camara;
-    private Character character;
+    private Entity entity;
 
     [Header("Movement")]
     [SerializeField] private float verticalSensitive = 2;
@@ -50,15 +50,14 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        character = GetComponent<Character>();
+        entity = GetComponent<Entity>();
         camara = Camera.main;
     }
     void Start()
     {
         AvailableCursor(false);
 
-        character.OnCharacterTakeArmorDamage += ArmorDamage;
-        character.OnCharacterTakeEnergyDamage += EnergyDamage;
+        entity.OnEntityTakeDamage += PlayerTakeDamage;
     }
     void CanPause()
     {
@@ -96,12 +95,12 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            speedMovement = character.characterStats.GetStat(StatType.Walk).GetCurrent() * character.multiplyRun;
+            speedMovement = entity.entityStats.GetStat(StatType.Walk).GetCurrent() * entity.multiplyRun;
             useEnergyRun = true;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speedMovement = character.characterStats.GetStat(StatType.Walk).GetCurrent();
+            speedMovement = entity.entityStats.GetStat(StatType.Walk).GetCurrent();
             useEnergyRun = false;
         }
     }
@@ -149,7 +148,8 @@ public class PlayerController : MonoBehaviour
             {
                 //Debug.Log("Dispara y se Daña");
                 onShoot?.Invoke(maxCoolDownShoot, false);
-                character.TakeEnergyDamage(character.characterStats.GetStat(StatType.Damage).GetCurrent(), DamageOrigin.PLAYER);
+                DamageInfo info = new DamageInfo(entity.entityStats.GetStat(StatType.Damage).GetCurrent(), DamageOrigin.Player, DamageType.Energy);
+                entity.TakeDamage(info);
             }
             else
             {
@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
                 currentCoolDownShoot = 0;
             }
             Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
-            character.AttackDir(screenRay.direction, DamageOrigin.PLAYER);
+            entity.AttackDir(screenRay.direction, DamageOrigin.Player);
         }
     }
     void CanDeposite()
@@ -267,12 +267,12 @@ public class PlayerController : MonoBehaviour
                 Vector3 movementVector = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")) * speedMovement;
                 rb.MovePosition(transform.position + movementVector);
                 if (useEnergyRun)
-                    character.characterStats.GetStat(StatType.Stamina).AddCurrent(-energySpendRun);
+                    entity.entityStats.GetStat(StatType.Stamina).AddCurrent(-energySpendRun);
             }
 
-            if (character.characterStats.GetStat(StatType.Stamina).GetCurrent() < 0)
+            if (entity.entityStats.GetStat(StatType.Stamina).GetCurrent() < 0)
             {
-                speedMovement = character.characterStats.GetStat(StatType.Walk).GetCurrent();
+                speedMovement = entity.entityStats.GetStat(StatType.Walk).GetCurrent();
                 useEnergyRun = false;
                 flying = false;
             }
@@ -291,11 +291,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!useEnergyRun)
         {
-            if (character.characterStats.GetStat(StatType.Stamina).GetCurrent()< character.characterStats.GetStat(StatType.Stamina).GetMax())
+            if (entity.entityStats.GetStat(StatType.Stamina).GetCurrent()< entity.entityStats.GetStat(StatType.Stamina).GetMax())
             {
                 if (grounded)
                 {
-                    character.characterStats.GetStat(StatType.Stamina).AddCurrent(energyRegenerate);
+                    entity.entityStats.GetStat(StatType.Stamina).AddCurrent(energyRegenerate);
                 }
             }
         }
@@ -307,21 +307,16 @@ public class PlayerController : MonoBehaviour
             grounded = true;
         }
     }
-    public float GetCurrentStamina() => character.characterStats.GetStat(StatType.Stamina).GetCurrent();
-    public float GetMaxStamina() => character.characterStats.GetStat(StatType.Stamina).GetMax();
+    public float GetCurrentStamina() => entity.entityStats.GetStat(StatType.Stamina).GetCurrent();
+    public float GetMaxStamina() => entity.entityStats.GetStat(StatType.Stamina).GetMax();
     public void AddSpeed(float increaseIn)
     {
         speedMovement += increaseIn;
-        character.characterStats.GetStat(StatType.Walk).AddCurrent(increaseIn);
+        entity.entityStats.GetStat(StatType.Walk).AddCurrent(increaseIn);
     }
-    void EnergyDamage()
+    void PlayerTakeDamage(DamageInfo info)
     {
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerEnergyDamage))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerEnergyDamage), gameObject);
-    }
-    void ArmorDamage()
-    {
-        if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerArmorDamage))
-            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerArmorDamage), gameObject);
     }
 }

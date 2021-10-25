@@ -19,7 +19,8 @@ public class ChargeAttackCollider : MeleeAttackCollider
         IDamageable damageComponent = other.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
-            damageComponent.TakeArmorDamage(damage, origin);
+            DamageInfo info = new DamageInfo(damage, origin, DamageType.Armor);
+            damageComponent.TakeDamage(info);
             var rb = other.gameObject.GetComponent<Rigidbody>();
             if (rb)
             {

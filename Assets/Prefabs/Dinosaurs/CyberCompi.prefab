@@ -1295,11 +1295,12 @@ GameObject:
   - component: {fileID: 126573022399881312}
   - component: {fileID: 4241996279657674751}
   - component: {fileID: -4786035309269634425}
+  - component: {fileID: 6282258693734719997}
   - component: {fileID: 4214432730633940242}
   - component: {fileID: 139200824685194340}
   - component: {fileID: 3112948152063107332}
-  - component: {fileID: 6282258693734719997}
   - component: {fileID: 5011584292176221915}
+  - component: {fileID: -8989102427700031970}
   m_Layer: 11
   m_Name: CyberCompi
   m_TagString: Untagged
@@ -1332,13 +1333,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4837264753926420121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4291b4dc3d475914b92b4e3e62ff8226, type: 3}
+  m_Script: {fileID: 11500000, guid: 92384a211a8cb3c419caac49f80ecbc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 3360362208952099462}
-  deadBodyRemoveTime: 5
-  deadBodyRemoveSpeed: 0.25
-  deadBodyunderGroundOffset: 0.5
   attackComponent: {fileID: 6282258693734719997}
   characterStats: {fileID: 0}
   multiplyRun: 2
@@ -1446,6 +1443,26 @@ MonoBehaviour:
     multiplySubtract: 1
     current: 0
     maxCurrent: 0
+--- !u!114 &6282258693734719997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837264753926420121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e22246df5f865849b654a7ff7033367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  maxCooldown: 5
+  currentAttackType: 0
+  anim: {fileID: 3360362208952099462}
+  meleeColliders:
+  - {fileID: 5114805369448925666}
 --- !u!114 &4214432730633940242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,26 +1535,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6282258693734719997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837264753926420121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e22246df5f865849b654a7ff7033367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  maxCooldown: 5
-  currentAttackType: 0
-  anim: {fileID: 3360362208952099462}
-  meleeColliders:
-  - {fileID: 5114805369448925666}
 --- !u!136 &5011584292176221915
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1552,6 +1549,22 @@ CapsuleCollider:
   m_Height: 1.3269353
   m_Direction: 2
   m_Center: {x: 0, y: 0.3591881, z: -0.24746108}
+--- !u!114 &-8989102427700031970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837264753926420121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9083086211e64a845bed0fb530abde4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 3360362208952099462}
+  deadBodyRemoveTime: 5
+  deadBodyRemoveSpeed: 0.25
+  deadBodyunderGroundOffset: 0.5
 --- !u!1 &5130260616790262660
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
         IDamageable damageComponent = other.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
-            damageComponent.TakeArmorDamage(hitDamage, origin);
+            damageComponent.TakeDamage(new DamageInfo(hitDamage, origin, DamageType.Energy));
         }
         Destroy(gameObject);
     }

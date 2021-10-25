@@ -6,22 +6,22 @@
         var gameOverText = "";
         switch (origin)
         {
-            case DamageOrigin.PLAYER:
+            case DamageOrigin.Player:
                 gameOverText = "Spamming shoot kills you.\nPay attention to your overload meter to the side\nof your aim marker.";
                 break;
-            case DamageOrigin.RAPTOR:
+            case DamageOrigin.Raptor:
                 gameOverText = "Raptor are balanced dinos.\nKeep your distance and kill them one by one.";
                 break;
-            case DamageOrigin.TRICERATOPS:
+            case DamageOrigin.Triceratops:
                 gameOverText = "Triceratops fling you into the air after each hit.\nTry to evade after they start charging.";
                 break;
-            case DamageOrigin.DILOPHOSAURUS:
+            case DamageOrigin.Dilophosaurus:
                 gameOverText = "Dilophosaurus shoot energy bolts.\nAttack in between their range attacks.";
                 break;
-            case DamageOrigin.COMPSOGNATHUS:
+            case DamageOrigin.Compsognathus:
                 gameOverText = "Compsognathus are weak by they move in groups.\nMove constantly while attacking.";
                 break;
-            case DamageOrigin.WATER:
+            case DamageOrigin.Water:
                 gameOverText = "Robots don't like water.\n Stay away from water.";
                 break;
             default:

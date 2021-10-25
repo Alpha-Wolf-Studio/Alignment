@@ -5,13 +5,14 @@ using UnityEngine;
 public class WaterCollider : MonoBehaviour
 {
     [SerializeField] float killDamage = 1000f;
-    readonly DamageOrigin origin = DamageOrigin.WATER;
+    readonly DamageOrigin origin = DamageOrigin.Water;
     private void OnCollisionEnter(Collision collision)
     {
         IDamageable damageable = collision.collider.GetComponent<IDamageable>(); 
         if(damageable != null) 
         {
-            damageable.TakeEnergyDamage(killDamage, origin);
+            DamageInfo info = new DamageInfo(killDamage, origin, DamageType.Energy);
+            damageable.TakeDamage(info);
         }
     }
 }

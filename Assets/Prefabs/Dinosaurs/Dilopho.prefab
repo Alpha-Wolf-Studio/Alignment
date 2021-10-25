@@ -730,6 +730,7 @@ GameObject:
   - component: {fileID: 3262539795635730652}
   - component: {fileID: 7267851849150364270}
   - component: {fileID: 8570076786609529790}
+  - component: {fileID: -752948145474423905}
   m_Layer: 11
   m_Name: Dilopho
   m_TagString: Untagged
@@ -791,13 +792,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1674325532805212699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4291b4dc3d475914b92b4e3e62ff8226, type: 3}
+  m_Script: {fileID: 11500000, guid: 92384a211a8cb3c419caac49f80ecbc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 3247137947644890674}
-  deadBodyRemoveTime: 5
-  deadBodyRemoveSpeed: 0.1
-  deadBodyunderGroundOffset: 0.5
   attackComponent: {fileID: 7267851849150364270}
   characterStats: {fileID: 0}
   multiplyRun: 2
@@ -984,6 +981,22 @@ CapsuleCollider:
   m_Height: 5.871918
   m_Direction: 2
   m_Center: {x: 0, y: 2.5, z: -0.75742793}
+--- !u!114 &-752948145474423905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674325532805212699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9083086211e64a845bed0fb530abde4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 3247137947644890674}
+  deadBodyRemoveTime: 5
+  deadBodyRemoveSpeed: 0.1
+  deadBodyunderGroundOffset: 0.5
 --- !u!1 &1686550313561913394
 GameObject:
   m_ObjectHideFlags: 0

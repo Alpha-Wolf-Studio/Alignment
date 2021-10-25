@@ -32,7 +32,7 @@ public class MeleeAttackCollider : MonoBehaviour
         IDamageable damageComponent = collision.collider.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
-            damageComponent.TakeArmorDamage(damage, origin);
+            damageComponent.TakeDamage(new DamageInfo(damage, origin, DamageType.Armor));
         }
     }
 }

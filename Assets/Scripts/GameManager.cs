@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     static GameManager gameManager;
-    public Character character;
+    public Entity playerEntity;
     public QuestHandler questHandler;
     public PlayerController player;
     public List<ReparableObject> toRepair;
@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     }
     void LoadGameManager()
     {
-        if (!character) character = FindObjectOfType<PlayerController>().GetComponent<Character>();
-        character.OnDeath += PlayerDeath;
+        if (!playerEntity) playerEntity = FindObjectOfType<PlayerController>().GetComponent<Entity>();
+        playerEntity.OnDeath += PlayerDeath;
         foreach (ReparableObject obj in toRepair)
         {
             obj.OnRepair += RepairShip;
@@ -37,15 +37,15 @@ public class GameManager : MonoBehaviour
     }
     void UnloadGameManager()
     {
-        if (character) character.OnDeath -= PlayerDeath;
+        if (playerEntity) playerEntity.OnDeath -= PlayerDeath;
     }
-    void PlayerDeath(DamageOrigin origin)
+    void PlayerDeath(DamageInfo info)
     {
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerDie))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerDie), gameObject);
 
         player.playerStatus = PlayerController.PlayerStatus.EndLose;
-        var gameOverText = UIGameOverScreen.GetGameOverText(origin);
+        var gameOverText = UIGameOverScreen.GetGameOverText(info.origin);
         GameOver(gameOverText);
     }
     void RepairShip(RepairLocations location)
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     }
     void GameOver(string gameOverText = "")
     {
-        character.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        playerEntity.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         ChangeScene("Menu", gameOverText);
     }
     public void ChangeScene(string scene, string gameOverText)
