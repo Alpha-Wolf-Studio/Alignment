@@ -21,7 +21,7 @@ public class ItemComponent : MonoBehaviour
     private float minDistaceDestroy = 1f;
     private Vector3 initialSize;
 
-    [ColorUsageAttribute(true, true)]
+    [ColorUsage(true, true)]
     [SerializeField] Color glowColor = Color.yellow;
     private bool glowingUp = true;
     private float glowDelta = 0;
