@@ -1,9 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    [SerializeField] private float scaleMultiply = 3;
-    [SerializeField] private float limit = 1.2f;
+    [Header("RayCast Collision:")]
+    [Tooltip("Chequea Alphas en el raycast. Modificar el Read/Write Enabled en la imagen si éste es true.")]
+    [SerializeField] private bool modifyHitBox;
+    [SerializeField] private float alphaRayCast = 0.1f;
+    
+    [Header("Effect Scale:")]
+    [SerializeField] private float scaleSpeed= 3;
+    [SerializeField] private float scaleLimit = 1.2f;
     private bool increment = false;
     private Vector3 initialScale;
     private Vector3 scale;
@@ -12,6 +20,8 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         increment = false;
         initialScale = transform.localScale;
+        if (modifyHitBox)
+            GetComponent<Image>().alphaHitTestMinimumThreshold = alphaRayCast;
     }
     private void OnEnable()
     {
@@ -36,18 +46,18 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
     private void ChangeScale()
     {
-        float timeStep = scaleMultiply * Time.unscaledDeltaTime;
+        float timeStep = scaleSpeed * Time.unscaledDeltaTime;
         scale = transform.localScale;
         if (increment)
         {
-            if (transform.localScale.x < limit)
+            if (transform.localScale.x < scaleLimit)
             {
                 scale = new Vector3(scale.x + timeStep, scale.y + timeStep, scale.z + timeStep);
                 transform.localScale = scale;
             }
             else
             {
-                transform.localScale = new Vector3(limit, limit, limit);
+                transform.localScale = new Vector3(scaleLimit, scaleLimit, scaleLimit);
             }
         }
         else
