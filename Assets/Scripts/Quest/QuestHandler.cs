@@ -131,7 +131,7 @@ public class QuestHandler : MonoBehaviour
         return task.type == SubQuest.SubQuestType.CRAFT &&
                task.itemToCraft == item;
     }
-    void DinoDiedEvent(DinoClass dino)
+    void DinoDiedEvent(DinoType dino)
     {
         foreach (var task in currentTasks)
         {
@@ -151,7 +151,7 @@ public class QuestHandler : MonoBehaviour
             OnQuestCompleted?.Invoke();
         }
     }
-    bool DinoCheck(SubQuest task, DinoClass dino)
+    bool DinoCheck(SubQuest task, DinoType dino)
     {
         return task.type == SubQuest.SubQuestType.KILL &&
                task.dinosaursToKill == dino;

@@ -7,7 +7,7 @@ public abstract class AIAttackModule : AttackComponent
     float t = 0;
     protected Rigidbody rb = null;
     protected CustomNavMeshAgent agent = null;
-    protected DinoClass dinoClass = DinoClass.Compsognathus;
+    protected DinoType dinoClass = DinoType.Compsognathus;
     protected float startingSpeed = 0;
     protected float startingRotationSpeed = 0;
     private void Awake()
@@ -23,19 +23,19 @@ public abstract class AIAttackModule : AttackComponent
     {
         switch (dinoClass)
         {
-            case DinoClass.Compsognathus:
+            case DinoType.Compsognathus:
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.CompiAttack))
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.CompiAttack), gameObject);
                 break;
-            case DinoClass.Dilophosaurus:
+            case DinoType.Dilophosaurus:
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.DiloAttack))
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.DiloAttack), gameObject);
                 break;
-            case DinoClass.Raptor:
+            case DinoType.Raptor:
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.RaptorAttack))
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.RaptorAttack), gameObject);
                 break;
-            case DinoClass.Triceratops:
+            case DinoType.Triceratops:
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.TrikeAttack))
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.TrikeAttack), gameObject);
                 break;

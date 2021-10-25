@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+
 
 public class EnemyManager : MonoBehaviour
 {
@@ -15,7 +13,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] float minSpawnDistanceFromPlayer = 50f;
     [SerializeField] LayerMask groundLayer = default;
     [SerializeField] LayerMask blockLayer = default;
-    public Action<DinoClass> OnDinoDied;
+    public Action<DinoType> OnDinoDied;
 
     [Header("Robo Raptor")]
     [SerializeField] GameObject raptorPrefab = null;
@@ -30,129 +28,26 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject triPrefab = null;
     [SerializeField] List<DinoSpawn> triSpawns = null;
 
-    private void Start()
+    private void Awake()
     {
-        SpawnAllDinosFromSpawnList(raptorSpawns, raptorPrefab);
-        SpawnAllDinosFromSpawnList(compiSpawns, compiPrefab);
-        SpawnAllDinosFromSpawnList(diloSpawns, diloPrefab);
-        SpawnAllDinosFromSpawnList(triSpawns, triPrefab);
+        SetUpSpawns(raptorPrefab, raptorSpawns);
+        SetUpSpawns(compiPrefab, compiSpawns);
+        SetUpSpawns(diloPrefab, diloSpawns);
+        SetUpSpawns(triPrefab, triSpawns);
     }
 
-    void SpawnAllDinosFromSpawnList(List<DinoSpawn> spawns, GameObject dinoPrefab) 
+    void SetUpSpawns(GameObject prefab, List<DinoSpawn> spawns) 
     {
         for (int i = 0; i < spawns.Count; i++)
         {
-            for (int j = 0; j < spawns[i].dinoAmount; j++)
-            {
-                Vector3 newPos;
-                newPos = GetNewGroundRandomPosition(spawns, i);
-                GameObject go = SpawnDino(dinoPrefab, newPos, spawns, i);
-                SetUpAI(go, i);
-            }
+            spawns[i].SetSpawn(prefab, groundLayer, blockLayer, spawnTime, minSpawnDistanceFromPlayer, playerTransform);
+            spawns[i].OnDinoDied += DinoDied;
         }
     }
 
-    void DinoDied(DinoClass type, int spawnIndex) 
+    void DinoDied(DinoType type)
     {
         OnDinoDied?.Invoke(type);
-        StartCoroutine(DinoRespawn(type, spawnIndex));
     }
-
-    GameObject SpawnDino(GameObject prefab, Vector3 pos, List<DinoSpawn> spawns, int index) 
-    {
-        return Instantiate(prefab, pos, Quaternion.identity, spawns[index].gameObject.transform);
-    }
-
-    Vector3 GetNewGroundRandomPosition(List<DinoSpawn> spawns, int index) 
-    {
-        Vector3 randPos;
-        RaycastHit groundHit;
-        do
-        {
-            float spawnDistanceX = UnityEngine.Random.value * spawns[index].spawnDistanceFromCenter;
-            float spawnDistanceZ = UnityEngine.Random.value * spawns[index].spawnDistanceFromCenter;
-            Vector3 variable = new Vector3(spawnDistanceX, 0, spawnDistanceZ);
-            randPos = spawns[index].transform.position + variable;
-            randPos.y += 100f;
-            Physics.Raycast(randPos, Vector3.down, out groundHit, 200);
-        }
-        while (blockLayer == (blockLayer | (1 << groundHit.collider.gameObject.layer)));
-        Physics.Raycast(randPos, Vector3.down, out groundHit, 200, groundLayer);
-        return groundHit.point;
-    }
-
-    IEnumerator DinoRespawn(DinoClass type, int spawnIndex) 
-    {
-        yield return new WaitForSeconds(spawnTime);
-        GameObject spawnPrefab;
-        List<DinoSpawn> listToSpawnFrom;
-        switch (type)
-        {
-            case DinoClass.Raptor:
-                listToSpawnFrom = raptorSpawns;
-                spawnPrefab = raptorPrefab;
-                break;
-            case DinoClass.Triceratops:
-                listToSpawnFrom = triSpawns;
-                spawnPrefab = triPrefab;
-                break;
-            case DinoClass.Dilophosaurus:
-                listToSpawnFrom = diloSpawns;
-                spawnPrefab = diloPrefab;
-                break;
-            case DinoClass.Compsognathus:
-                listToSpawnFrom = compiSpawns;
-                spawnPrefab = compiPrefab;
-                break;
-            default:
-                listToSpawnFrom = raptorSpawns;
-                spawnPrefab = raptorPrefab;
-                break;
-        }
-        Vector3 newPos;
-        newPos = GetNewGroundRandomPosition(listToSpawnFrom, spawnIndex);
-        do
-        {
-            yield return null;
-        } while (Vector3.Distance(newPos, playerTransform.position) < minSpawnDistanceFromPlayer);
-        GameObject go = SpawnDino(spawnPrefab, newPos, listToSpawnFrom, spawnIndex);
-
-        SetUpAI(go, spawnIndex);
-    }
-
-    void SetUpAI(GameObject dinoGO, int index) 
-    {
-        EnemyAI ai = dinoGO.GetComponent<EnemyAI>();
-        ai.OnDied += DinoDied;
-        ai.SetSpawnIndex(index);
-        ai.playerTransform = playerTransform;
-    }
-
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        
-        foreach (var dinoSpawn in raptorSpawns)
-        {
-            Handles.color = Color.red;
-            Handles.DrawWireDisc(dinoSpawn.transform.position, Vector3.up, dinoSpawn.spawnDistanceFromCenter);
-        }
-        foreach (var dinoSpawn in compiSpawns)
-        {
-            Handles.color = new Color(.94f, .0094f, .49f, 1);
-            Handles.DrawWireDisc(dinoSpawn.transform.position, Vector3.up, dinoSpawn.spawnDistanceFromCenter);
-        }
-        foreach (var dinoSpawn in triSpawns)
-        {
-            Handles.color = Color.blue;
-            Handles.DrawWireDisc(dinoSpawn.transform.position, Vector3.up, dinoSpawn.spawnDistanceFromCenter);
-        }
-        foreach (var dinoSpawn in diloSpawns)
-        {
-            Handles.color = new Color(.54f, .39f, .157f, 1);
-            Handles.DrawWireDisc(dinoSpawn.transform.position, Vector3.up, dinoSpawn.spawnDistanceFromCenter);
-        }
-    }
-#endif
 
 }

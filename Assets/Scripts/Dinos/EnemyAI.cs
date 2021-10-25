@@ -41,10 +41,10 @@ public class EnemyAI : MonoBehaviour
     public Transform playerTransform { get; set; }
     CustomNavMeshAgent agent = null;
 
-    public DinoClass dinoType = DinoClass.Raptor;
+    public DinoType dinoType = DinoType.Raptor;
     DamageOrigin origin;
     int spawnIndex = 0;
-    public Action<DinoClass, int> OnDied;
+    public Action<DinoType, int> OnDied;
 
     float idleTime = 0;
 
@@ -153,6 +153,7 @@ public class EnemyAI : MonoBehaviour
         }
         ResetChaseCheck(distanceToPlayer);
     }
+
     void AttackUpdate(float distanceToPlayer)
     {
         Vector3 attackDirection = new Vector3(playerTransform.position.x, playerTransform.position.y + yPositionTolerance, playerTransform.position.z);
@@ -161,6 +162,16 @@ public class EnemyAI : MonoBehaviour
         {
             StartChaseCheck(distanceToPlayer);
         }
+    }
+
+    void FrenzyUpdate(float distanceToPlayer) 
+    {
+
+    }
+
+    public void ChangeToFrenzy() 
+    {
+        currentBehaviourUpdate = FrenzyUpdate;
     }
 
     void StartChaseCheck(float distanceToPlayer) 

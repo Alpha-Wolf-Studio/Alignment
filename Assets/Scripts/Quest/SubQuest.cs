@@ -39,7 +39,7 @@ public class SubQuest
         return completed;
     }
 
-    public DinoClass dinosaursToKill = DinoClass.Raptor;
+    public DinoType dinosaursToKill = DinoType.Raptor;
     public int killAmount = 1;
 
     public Item itemToPickUp = null;
