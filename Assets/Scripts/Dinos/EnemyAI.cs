@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -23,10 +21,6 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float chaseSpeedMultiplier = 1.0f;
     float baseSpeed;
     float baseChaseSpeed;
-    [Header("Group Chase Behaviour")]
-    [SerializeField] bool groupChase = false;
-    [SerializeField] float groupChaseCallDistance = 10f;
-    [SerializeField] float groupChaseFrenzyTime = 1f;
     [Header("Patrol Behaviour")]
     [SerializeField] float maxTimeBetweenPatrols = 5f;
     [SerializeField] float minTimeBetweenPatrols = 3f;
@@ -41,6 +35,9 @@ public class EnemyAI : MonoBehaviour
     Entity entity = null;
     AIAttackModule attackModule = null;
 
+    delegate void Behaviour(float distanceToPlayer);
+    Behaviour currentBehaviourUpdate;
+
     public Transform playerTransform { get; set; }
     CustomNavMeshAgent agent = null;
 
@@ -49,10 +46,7 @@ public class EnemyAI : MonoBehaviour
     int spawnIndex = 0;
     public Action<DinoClass, int> OnDied;
 
-    enum EnemyBehaviour { IDLE, PATROLLING, GROUP_CHASING, CHASING, ATTACKING}
-    [SerializeField] EnemyBehaviour currentBehaviour = EnemyBehaviour.IDLE;
     float idleTime = 0;
-    float groupChaseTime = 0;
 
     private void Awake()
     {
@@ -61,23 +55,6 @@ public class EnemyAI : MonoBehaviour
         attackModule = GetComponent<AIAttackModule>();
         entity.OnDeath += StopMoving;
         currentTimeBetweenPatrols = minTimeBetweenPatrols;
-        switch (dinoType)
-        {
-            case DinoClass.Raptor:
-                origin = DamageOrigin.Raptor;
-                break;
-            case DinoClass.Triceratops:
-                origin = DamageOrigin.Triceratops;
-                break;
-            case DinoClass.Dilophosaurus:
-                origin = DamageOrigin.Dilophosaurus;
-                break;
-            case DinoClass.Compsognathus:
-                origin = DamageOrigin.Compsognathus;
-                break;
-            default:
-                break;
-        }
     }
 
     private void Start()
@@ -89,6 +66,7 @@ public class EnemyAI : MonoBehaviour
         agent.Speed = entity.entityStats.GetStat(StatType.Walk).GetCurrent();
         baseSpeed = agent.Speed;
         baseChaseSpeed = agent.Speed * chaseSpeedMultiplier;
+        currentBehaviourUpdate = IdleUpdate;
     }
 
     public void SetPlayerReference(Transform trans) 
@@ -116,18 +94,78 @@ public class EnemyAI : MonoBehaviour
         if(distanceToPlayer < maxPlayerDistanceToUpdate) 
         {
             anim.enabled = true;
-            StatesChanges(distanceToPlayer);
-            StateUpdates(distanceToPlayer);
+            currentBehaviourUpdate?.Invoke(distanceToPlayer);
         }
     }
-    private void StatesChanges(float distanceToPlayer)
+    public void SetSpawnIndex(int index) 
     {
+        spawnIndex = index;
+    }
+
+    void IdleUpdate(float distanceToPlayer)
+    {
+        idleTime += Time.deltaTime;
+        if (idleTime > currentTimeBetweenPatrols)
+        {
+            currentBehaviourUpdate = PatrolUpdate;
+            idleTime = 0;
+            agent.basicNavAgent.isStopped = false;
+            anim.SetBool("Walking", true);
+            currentTimeBetweenPatrols = Random.Range(minTimeBetweenPatrols, maxTimeBetweenPatrols);
+            NavMeshPath path = new NavMeshPath();
+            do
+            {
+                var randTarget = startingPosition + Random.insideUnitSphere * distanceToPatrol;
+                randTarget.y += 100f;
+                RaycastHit groundPosition;
+                Physics.Raycast(randTarget, Vector3.down, out groundPosition, distanceToPatrol * 100, groundLayer);
+                targetPos = groundPosition.point;
+            }
+            while (!agent.basicNavAgent.CalculatePath(targetPos, path) || targetPos.Equals(Vector3.zero));
+        }
+        else 
+        {
+            agent.basicNavAgent.isStopped = true;
+            agent.Speed = baseSpeed;
+            anim.SetBool("Walking", false);
+        }
+        StartChaseCheck(distanceToPlayer);
+    }
+
+    void PatrolUpdate(float distanceToPlayer)
+    {
+        agent.SetDestination(targetPos);
+        float distance = Vector3.Distance(targetPos, transform.position);
+        if (distance < patrolStoppingTolerance)
+        {
+            currentBehaviourUpdate = IdleUpdate;
+        }
+        StartChaseCheck(distanceToPlayer);
+    }
+
+    void ChaseUpdate(float distanceToPlayer) 
+    {
+        agent.SetDestination(playerTransform.position);
         if (distanceToPlayer < attackDistance)
         {
             anim.SetBool("Walking", false);
-            currentBehaviour = EnemyBehaviour.ATTACKING;
+            currentBehaviourUpdate = AttackUpdate;
         }
-        else if (currentBehaviour != EnemyBehaviour.CHASING && distanceToPlayer < chaseDistance)
+        ResetChaseCheck(distanceToPlayer);
+    }
+    void AttackUpdate(float distanceToPlayer)
+    {
+        Vector3 attackDirection = new Vector3(playerTransform.position.x, playerTransform.position.y + yPositionTolerance, playerTransform.position.z);
+        entity.AttackDir(attackDirection, origin);
+        if(distanceToPlayer > attackDistance) 
+        {
+            StartChaseCheck(distanceToPlayer);
+        }
+    }
+
+    void StartChaseCheck(float distanceToPlayer) 
+    {
+        if (distanceToPlayer < chaseDistance)
         {
             float dotProduct = Vector3.Dot(playerTransform.position - transform.position, transform.forward);
             if (dotProduct > Mathf.Cos(spotAngle))
@@ -138,102 +176,20 @@ public class EnemyAI : MonoBehaviour
                 attackModule.AIStopAttack();
                 agent.SetDestination(playerTransform.position);
                 agent.Speed = baseChaseSpeed;
-                currentBehaviour = EnemyBehaviour.CHASING;
-                RaycastHit[] hits = Physics.SphereCastAll(transform.position, groupChaseCallDistance, transform.up);
-                foreach (var hit in hits)
-                {
-                    var enemyAI = hit.collider.GetComponent<EnemyAI>();
-                    if (enemyAI) 
-                    {
-                        enemyAI.ActivateGroupChase();
-                    }
-                }
+                currentBehaviourUpdate = ChaseUpdate;
             }
         }
-        else if (!agent.basicNavAgent.isStopped && currentBehaviour == EnemyBehaviour.IDLE)
-        {
-            agent.basicNavAgent.isStopped = true;
-            agent.Speed = baseSpeed;
-            anim.SetBool("Walking", false);
-        }
     }
-    private void StateUpdates(float distanceToPlayer)
-    {
-        switch (currentBehaviour)
-        {
-            case EnemyBehaviour.IDLE:
-                idleTime += Time.deltaTime;
-                if (idleTime > currentTimeBetweenPatrols)
-                {
-                    idleTime = 0;
-                    agent.basicNavAgent.isStopped = false;
-                    anim.SetBool("Walking", true);
-                    currentTimeBetweenPatrols = Random.Range(minTimeBetweenPatrols, maxTimeBetweenPatrols);
-                    currentBehaviour = EnemyBehaviour.PATROLLING;
-                    NavMeshPath path = new NavMeshPath();
-                    do
-                    {
-                        var randTarget = startingPosition + Random.insideUnitSphere * distanceToPatrol;
-                        randTarget.y += 100f;
-                        RaycastHit groundPosition;
-                        Physics.Raycast(randTarget, Vector3.down, out groundPosition, distanceToPatrol * 100, groundLayer);
-                        targetPos = groundPosition.point;
-                    }
-                    while (!agent.basicNavAgent.CalculatePath(targetPos, path) || targetPos.Equals(Vector3.zero));
-                }
-                break;
-            case EnemyBehaviour.PATROLLING:
-                agent.SetDestination(targetPos);
-                float distance = Vector3.Distance(targetPos, transform.position);
-                if (distance < patrolStoppingTolerance)
-                {
-                    currentBehaviour = EnemyBehaviour.IDLE;
-                }
-                break;
-            case EnemyBehaviour.CHASING:
-                agent.SetDestination(playerTransform.position);
-                ResetEnemyCheck(distanceToPlayer);
-                break;
-            case EnemyBehaviour.GROUP_CHASING:
-                agent.SetDestination(playerTransform.position);
-                groupChaseTime += Time.deltaTime;
-                if(groupChaseTime > groupChaseFrenzyTime) 
-                {
-                    groupChaseTime = 0;
-                    currentBehaviour = EnemyBehaviour.CHASING;
-                }
-                break;
-            case EnemyBehaviour.ATTACKING:
-                Vector3 attackDirection = new Vector3(playerTransform.position.x, playerTransform.position.y + yPositionTolerance, playerTransform.position.z);
-                entity.AttackDir(attackDirection, origin);
-                break;
-        }
-    }
-
-    public void ActivateGroupChase() 
-    {
-        if (groupChase && currentBehaviour != EnemyBehaviour.CHASING && currentBehaviour != EnemyBehaviour.ATTACKING) 
-        {
-            agent.basicNavAgent.isStopped = false;
-            anim.SetBool("Walking", true);
-            currentBehaviour = EnemyBehaviour.GROUP_CHASING;
-        }
-    }
-
-    void ResetEnemyCheck(float distanceToPlayer) 
+    void ResetChaseCheck(float distanceToPlayer) 
     {
         if (distanceToPlayer > chaseDistance)
         {
             idleTime = 0;
-            currentBehaviour = EnemyBehaviour.IDLE;
+            currentBehaviourUpdate = IdleUpdate;
             anim.SetBool("Walking", false);
             agent.SetDestination(transform.position);
             agent.basicNavAgent.isStopped = true;
         }
-    }
-    public void SetSpawnIndex(int index) 
-    {
-        spawnIndex = index;
     }
 
 #if UNITY_EDITOR
@@ -241,11 +197,6 @@ public class EnemyAI : MonoBehaviour
     {
         Handles.color = Color.yellow;
         Handles.DrawWireDisc(transform.position, transform.up, chaseDistance);
-        if (groupChase) 
-        {
-            Handles.color = Color.green;
-            Handles.DrawWireDisc(transform.position, transform.up, groupChaseCallDistance);
-        }
         Handles.color = Color.black;
         Handles.DrawWireDisc(transform.position, transform.up, maxPlayerDistanceToUpdate);
     }
