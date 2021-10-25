@@ -13,7 +13,7 @@ public class UiManager : MonoBehaviour
     [HideInInspector] public Character character;
     [HideInInspector] public PlayerController player;
     public RectTransform sightHud;
-    private float speed = 0.1f;
+    private float speed = 10f;
     private float onTimeCD;
     private float onTimeFadePause;
     private float fadePause = 1;
