@@ -18,7 +18,7 @@ public class Entity : MonoBehaviour, IDamageable
 
     private bool isAlive = true;
 
-    private void Awake()    // todo: Arreglar carrera de Awake con MeleeAttackCollider.cs y MeleeAttack.cs
+    private void Awake()
     {
         inventory = GetComponent<Inventory>();
         entityStats = GetComponent<CharacterStats>();
