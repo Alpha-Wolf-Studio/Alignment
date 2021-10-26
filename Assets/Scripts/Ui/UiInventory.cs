@@ -112,7 +112,7 @@ public class UiInventory : MonoBehaviour
 
             Vector2 size = contentInventory.sizeDelta;
             size.y = rows * cellSize + 70;
-            Debug.Log("SizeY: " + size.y);
+            //Debug.Log("SizeY: " + size.y);
             contentInventory.sizeDelta = size;
         }
     }
