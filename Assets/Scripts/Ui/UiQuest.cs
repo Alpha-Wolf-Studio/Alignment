@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class UiQuest : MonoBehaviour
 {
-    public UiTask pfUiTask;
-    [SerializeField] private RectTransform panelQuest;
+    [SerializeField] private Sprite lastSpritesTasks;
+    [SerializeField] private UiTask pfUiTask;
     [SerializeField] private TextMeshProUGUI nameQuest;
     [SerializeField] private RectTransform panelTask;
+
     private QuestHandler questHandler;
-    //private Quest quest;
     private List<UiTask> allUiTasks = new List<UiTask>();
     private List<SubQuest> tasks;
 
@@ -32,6 +31,8 @@ public class UiQuest : MonoBehaviour
         for (int i = 0; i < tasks.Count; i++)
         {
             UiTask uiTask = Instantiate(pfUiTask, panelTask);
+            if (i == tasks.Count - 1)
+                uiTask.GetComponent<Image>().sprite = lastSpritesTasks;
             allUiTasks.Add(uiTask);
             uiTask.toggle.isOn = false;
             SetTask(ref uiTask, tasks[i], i);
