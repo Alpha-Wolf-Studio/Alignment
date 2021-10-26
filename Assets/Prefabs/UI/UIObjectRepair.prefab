@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &5411785862739031432
 RectTransform:
@@ -152,7 +152,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &1131200436533678864
 RectTransform:
@@ -262,7 +262,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &848378853366358274
 RectTransform:
@@ -331,12 +331,13 @@ GameObject:
   m_Component:
   - component: {fileID: 123232026007127250}
   - component: {fileID: 8825866855168114022}
+  - component: {fileID: 1763799266}
   m_Layer: 9
   m_Name: UIObjectRepair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &123232026007127250
 Transform:
@@ -345,7 +346,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5019855513000469928}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.2200003, y: 0.64197826, z: 18.5}
   m_LocalScale: {x: 1, y: 0.37494, z: 1}
   m_Children:
@@ -365,18 +366,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb1db1c62fd22d40b50d123e41369e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: 0
-  nameToRepair: Maquinaria
+  location: 1
+  nameToRepair: Oxigenator
   nameToRepairTM: {fileID: 954139104725260911}
   idRequired:
-  - ID: 5
-    amount: 2
-  - ID: 1
+  - ID: 11
     amount: 5
+  - ID: 10
+    amount: 6
+  - ID: 9
+    amount: 2
+  - ID: 7
+    amount: 6
+  - ID: 2
+    amount: 3
   panelObjects: {fileID: 5212275948644177779}
   player: {fileID: 0}
   pfItem: {fileID: 5191757680199682933, guid: 5cb631c446dfbeb4aa813a7d119557a1, type: 3}
   uiFade: {fileID: 0}
+--- !u!114 &1763799266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019855513000469928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5d9a62c9cc01a49b2b0840fc745f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTransform: {fileID: 0}
+  otherTransform: {fileID: 0}
+  canvasGroupFade: {fileID: 5187925030288827318}
+  minDistanceToShow: 10
+  maxDistanceToShow: 20
+  enable: 0
 --- !u!1 &7444532456132602954
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +418,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &5212275948644177779
 RectTransform:
