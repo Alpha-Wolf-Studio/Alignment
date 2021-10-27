@@ -5,30 +5,18 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
 
     public Entity playerEntity;
-    public QuestHandler questHandler;
+    public QuestManager questHandler;
     public PlayerController player;
-    public List<ReparableObject> toRepair;
-    private int objectsRemaining;
+
     void Start()
     {
+        QuestManager.Get().OnRepairedShip += CompletedGame;
         LoadGameManager();  // Sacar esta linea cuando se instancie en el menu
     }
     void LoadGameManager()
     {
         if (!playerEntity) playerEntity = FindObjectOfType<PlayerController>().GetComponent<Entity>();
         playerEntity.OnDeath += PlayerDeath;
-        foreach (ReparableObject obj in toRepair)
-        {
-            obj.OnRepair += RepairShip;
-            objectsRemaining++;
-        }
-
-        ReparableObject[] raparableObjects = FindObjectsOfType<ReparableObject>();
-        toRepair.Clear();
-        for (var i = 0; i < raparableObjects.Length; i++)
-        {
-            toRepair.Add(raparableObjects[i]);
-        }
     }
     void UnloadGameManager()
     {
@@ -43,14 +31,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         var gameOverText = UIGameOverScreen.GetGameOverText(info.origin);
         GameOver(gameOverText);
     }
-    void RepairShip(RepairLocations location)
+    void CompletedGame() 
     {
-        objectsRemaining--;
-        if (objectsRemaining == 0)
-        {
-            player.ChangeStatus(PlayerController.PlayerStatus.EndWin);
-            GameOver("You repaired the ship and got the timeline fixed.");
-        }
+        player.ChangeStatus(PlayerController.PlayerStatus.EndWin);
+        GameOver("You repaired the ship and got the timeline fixed.");
     }
     void GameOver(string gameOverText = "")
     {

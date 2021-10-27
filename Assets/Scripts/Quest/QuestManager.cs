@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestHandler : MonoBehaviour
+public class QuestManager : MonoBehaviourSingleton<QuestManager>
 {
 
     public Action OnQuestCompleted;
     public Action OnTaskProgress;
+    public Action OnRepairedShip;
 
     public List<Quest> allQuest = new List<Quest>();
-    [SerializeField] List<SubQuest> currentTasks = new List<SubQuest>();
+    [SerializeField] List<SubQuest> currentSubquest = new List<SubQuest>();
     int currentQuest = -1;
     public int GetCurrentQuest() => currentQuest;
-    public List<SubQuest> GetAllTask() => currentTasks;
+    public List<SubQuest> GetAllTask() => currentSubquest;
 
     [Header("Repair Locations References")]
-    [SerializeField] ReparableObject machine = null;
-    [SerializeField] ReparableObject oxigen = null;
-    [SerializeField] ReparableObject generator = null;
+    ReparableObject[] objectsToRepair;
+    int objectsRepaired = 0;
 
     [Header("Player references")]
     [SerializeField] Inventory inventory = null;
@@ -26,11 +26,14 @@ public class QuestHandler : MonoBehaviour
     [Header("Enemy References")]
     [SerializeField] EnemyManager enemyManager = null;
 
-    private void Awake()
+    private void Start()
     {
-        machine.OnRepair += RepairEvent;
-        oxigen.OnRepair += RepairEvent;
-        generator.OnRepair += RepairEvent;
+        objectsToRepair = FindObjectsOfType<ReparableObject>();
+        foreach (var repairObjects in objectsToRepair)
+        {
+            repairObjects.OnRepair += RepairEvent;
+        }
+
         inventory.OnPickUp += PickUpEvent;
         crafting.OnCraft += CraftEvent;
         enemyManager.OnDinoDied += DinoDiedEvent;
@@ -39,23 +42,23 @@ public class QuestHandler : MonoBehaviour
     void StartNewQuest()
     {
         currentQuest++;
-        currentTasks.Clear();
+        currentSubquest.Clear();
         for (int i = 0; i < allQuest[currentQuest].tasks.Count; i++)
         {
             int killAmount = allQuest[currentQuest].tasks[i].killAmount;
             int pickUpAmount = allQuest[currentQuest].tasks[i].pickUpAmount;
             int craftAmount = allQuest[currentQuest].tasks[i].craftAmount;
             SubQuest t = new SubQuest(allQuest[currentQuest].tasks[i], killAmount, pickUpAmount, craftAmount);
-            currentTasks.Add(t);
+            currentSubquest.Add(t);
         }
     }
     public List<SubQuest> GetCurrentTasks()
     {
-        return currentTasks;
+        return currentSubquest;
     }
     private void RepairEvent(RepairLocations location)
     {
-        foreach (var task in currentTasks)
+        foreach (var task in currentSubquest)
         {
             if (!task.IsCompleted() && RepairCheck(task, location))
             {
@@ -63,6 +66,7 @@ public class QuestHandler : MonoBehaviour
                 OnTaskProgress?.Invoke();
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.CompletedTask))
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.CompletedTask), gameObject);
+                objectsRepaired++;
             }
         }
         if (IsCurrentQuestDone())
@@ -72,6 +76,10 @@ public class QuestHandler : MonoBehaviour
             if (Sfx.Get().GetEnable(Sfx.ListSfx.CompletedQuest))
                 AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.CompletedQuest), gameObject);
         }
+        if(objectsRepaired == objectsToRepair.Length) 
+        {
+            OnRepairedShip?.Invoke();
+        }
 
     }
     bool RepairCheck(SubQuest task, RepairLocations location)
@@ -79,9 +87,9 @@ public class QuestHandler : MonoBehaviour
         return task.type == SubQuest.SubQuestType.REPAIR &&
                task.locationToRepair == location;
     }
-    private void PickUpEvent(Item item, int amount)
+    public void PickUpEvent(Item item, int amount)
     {
-        foreach (var task in currentTasks)
+        foreach (var task in currentSubquest)
         {
             //var task = currentTasks[index];
             if (!task.IsCompleted() && PickUpCheck(task, item))
@@ -107,9 +115,9 @@ public class QuestHandler : MonoBehaviour
         bool itemType = task.itemToPickUp == item;
         return itemType;
     }
-    private void CraftEvent(Item item)
+    public void CraftEvent(Item item)
     {
-        foreach (var task in currentTasks)
+        foreach (var task in currentSubquest)
         {
             if (!task.IsCompleted() && CraftCheck(task, item))
             {
@@ -132,9 +140,9 @@ public class QuestHandler : MonoBehaviour
         return task.type == SubQuest.SubQuestType.CRAFT &&
                task.itemToCraft == item;
     }
-    void DinoDiedEvent(DinoType dino)
+    public void DinoDiedEvent(DinoType dino)
     {
-        foreach (var task in currentTasks)
+        foreach (var task in currentSubquest)
         {
             if (!task.IsCompleted() && DinoCheck(task, dino))
             {
@@ -159,7 +167,7 @@ public class QuestHandler : MonoBehaviour
     }
     bool IsCurrentQuestDone() 
     {
-        foreach (var task in currentTasks)
+        foreach (var task in currentSubquest)
         {
             if (!task.IsCompleted())
             {

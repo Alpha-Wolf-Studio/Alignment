@@ -9,7 +9,7 @@ public class UiQuest : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameQuest;
     [SerializeField] private RectTransform panelTask;
 
-    private QuestHandler questHandler;
+    private QuestManager questHandler;
     private List<UiTask> allUiTasks = new List<UiTask>();
     private List<SubQuest> tasks;
 
