@@ -24,30 +24,30 @@ public class UiCrafting : MonoBehaviour
     }
     void LoadCraft()
     {
-        int lastID = ItemManager.GetInstance().GetLastID();
+        int lastID = ItemManager.Get().GetLastID();
         for (int id = 0; id < lastID; id++)
         {
-            Item item = ItemManager.GetInstance().GetItemFromID(id);
+            Item item = ItemManager.Get().GetItemFromID(id);
             if (item.crafteable)
             {
-                if (ItemManager.GetInstance().GetItemFromID(id).recipe.Count > 0)
+                if (ItemManager.Get().GetItemFromID(id).recipe.Count > 0)
                 {
-                    if (ItemManager.GetInstance().GetItemFromID(id).recipe[0].item)
+                    if (ItemManager.Get().GetItemFromID(id).recipe[0].item)
                     {
                         listCraftID.Add(id);
                         UiItemCraft craft = Instantiate(uiItemCraft, panelContentCraft.transform);
-                        craft.item = ItemManager.GetInstance().GetItemFromID(id);
+                        craft.item = ItemManager.Get().GetItemFromID(id);
                         craft.name = item.name;
                         craftsNames.Add(craft.myName);
                     }
                     else
                     {
-                        Debug.LogWarning("Es crafteable y el item es nulo: " + ItemManager.GetInstance().GetItemFromID(id).itemName);
+                        Debug.LogWarning("Es crafteable y el item es nulo: " + ItemManager.Get().GetItemFromID(id).itemName);
                     }
                 }
                 else
                 {
-                    Debug.LogWarning("Es crafteable y no tiene items: " + ItemManager.GetInstance().GetItemFromID(id).itemName);
+                    Debug.LogWarning("Es crafteable y no tiene items: " + ItemManager.Get().GetItemFromID(id).itemName);
                 }
             }
         }

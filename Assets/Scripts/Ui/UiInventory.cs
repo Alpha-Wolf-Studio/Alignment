@@ -335,7 +335,7 @@ public class UiInventory : MonoBehaviour
             toolTip.gameObject.SetActive(false);
             return "";
         }
-        Item myItem = ItemManager.GetInstance().GetItemFromID(idItem);
+        Item myItem = ItemManager.Get().GetItemFromID(idItem);
 
         string text = myItem.name;
         if (myItem.maxStack > 1)

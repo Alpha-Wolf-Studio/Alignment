@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04969ef65b55ce4fac701e479fe8f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
   minTimeToLoadScene: 5
   timeBeforeSceneChange: 1
   uI_LoadingScreen: {fileID: 109070728404240878}

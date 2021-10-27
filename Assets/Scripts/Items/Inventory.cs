@@ -63,7 +63,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            if (ID == currentSlots[slotPos].ID && ItemManager.GetInstance().GetItemFromID(ID).maxStack >= currentSlots[slotPos].amount + amount)
+            if (ID == currentSlots[slotPos].ID && ItemManager.Get().GetItemFromID(ID).maxStack >= currentSlots[slotPos].amount + amount)
             {
                 currentSlots[slotPos].AddAmount(amount);
                 return true;
@@ -79,7 +79,7 @@ public class Inventory : MonoBehaviour
         if(CanItemBeAdded(ID, amount))
         {
             int remainingAmount = amount;
-            int maxAmountPerSlot = ItemManager.GetInstance().GetItemFromID(ID).maxStack;
+            int maxAmountPerSlot = ItemManager.Get().GetItemFromID(ID).maxStack;
             for (int i = 0; i < currentSlots.Count; i++)
             {
                 if (currentSlots[i].ID == ID)
@@ -137,7 +137,7 @@ public class Inventory : MonoBehaviour
         {
             if (currentSlots[slotPosFrom].ID == currentSlots[slotPosTo].ID)
             {
-                int maxStack = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPosTo].ID).maxStack;
+                int maxStack = ItemManager.Get().GetItemFromID(currentSlots[slotPosTo].ID).maxStack;
                 if (maxStack > 1)
                 {
                     currentSlots[slotPosFrom].amount = currentSlots[slotPosTo].AddAmount(currentSlots[slotPosFrom].amount);
@@ -155,7 +155,7 @@ public class Inventory : MonoBehaviour
     }
     public bool UseItem(int slotPos)
     {
-        Item item = ItemManager.GetInstance().GetItemFromID(currentSlots[slotPos].ID);
+        Item item = ItemManager.Get().GetItemFromID(currentSlots[slotPos].ID);
         if (item.GetType() == typeof(Consumible))
         {
             if (Sfx.Get().GetEnable(Sfx.ListSfx.UiUseItem))
@@ -204,7 +204,7 @@ public class Inventory : MonoBehaviour
             }
             else if (id == currentSlots[i].ID)
             {
-                currentEmptySpaces += ItemManager.GetInstance().GetItemFromID(id).maxStack - currentSlots[i].amount;
+                currentEmptySpaces += ItemManager.Get().GetItemFromID(id).maxStack - currentSlots[i].amount;
                 if(currentEmptySpaces >= amount)
                 {
                     return true;
@@ -262,10 +262,10 @@ public class Inventory : MonoBehaviour
             {
                 Vector3 randomForceDirection = UnityEngine.Random.insideUnitSphere * explosionStrenght;
                 randomForceDirection = new Vector3(randomForceDirection.x, Mathf.Abs(randomForceDirection.y), randomForceDirection.z);
-                Transform parent = ItemManager.GetInstance().transform;
+                Transform parent = ItemManager.Get().transform;
                 Vector3 posAux = transform.position;
                 posAux.y += explosionYOffset;
-                GameObject go = Instantiate(ItemManager.GetInstance().GetItemFromID(slot.ID).worldPrefab, posAux, Quaternion.identity, parent);
+                GameObject go = Instantiate(ItemManager.Get().GetItemFromID(slot.ID).worldPrefab, posAux, Quaternion.identity, parent);
                 var itemComponent = go.GetComponent<ItemComponent>();
                 itemComponent.AddForce(randomForceDirection);
                 itemComponent.SetItem(slot.ID, slot.amount);
@@ -277,10 +277,10 @@ public class Inventory : MonoBehaviour
     {
         if(currentSlots[index].ID > 0) 
         {
-            Transform parent = ItemManager.GetInstance().transform;
+            Transform parent = ItemManager.Get().transform;
             Vector3 posAux = transform.position;
             posAux.y += explosionYOffset;
-            GameObject go = Instantiate(ItemManager.GetInstance().GetItemFromID(currentSlots[index].ID).worldPrefab, posAux, Quaternion.identity, parent);
+            GameObject go = Instantiate(ItemManager.Get().GetItemFromID(currentSlots[index].ID).worldPrefab, posAux, Quaternion.identity, parent);
             var itemComponent = go.GetComponent<ItemComponent>();
             itemComponent.AddForce(transform.forward * explosionStrenght);
             itemComponent.SetItem(currentSlots[index].ID, currentSlots[index].amount);
@@ -307,7 +307,7 @@ public class Inventory : MonoBehaviour
                 {
                     if (AddNewItem(itemComponent.GetID(), itemComponent.GetAmount()))
                     {
-                        OnPickUp?.Invoke(ItemManager.GetInstance().GetItemFromID(itemComponent.GetID()), itemComponent.GetAmount());
+                        OnPickUp?.Invoke(ItemManager.Get().GetItemFromID(itemComponent.GetID()), itemComponent.GetAmount());
                         itemComponent.AttractorItemToPlayer();
                         if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerPickItem))
                             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerPickItem), gameObject);

@@ -14,7 +14,7 @@ public class UiItemRepair : MonoBehaviour, IInteractuable
 
     public void Interact()
     {
-        Item item = ItemManager.GetInstance().GetItemFromID(obj.idRequired[index].ID);
+        Item item = ItemManager.Get().GetItemFromID(obj.idRequired[index].ID);
         if (inv.CheckForItem(item, restAmount))
         {
             if (obj.idRequired[index].amount > 0)
