@@ -2,38 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : MonoBehaviourSingleton<ItemManager>
 {
     [SerializeField] ItemList allItems;
 
     Inventory playerInventory;
 
-    static private ItemManager instance;
-
-    static public ItemManager GetInstance() { return instance; }
 
     string savePath = "SaveFile.json";
 
-    private void Awake()
+    void Start()
     {
-        if (!instance)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
 #if UNITY_EDITOR
         for (int i = 0; i < allItems.List.Count; i++)
         {
             allItems.List[i].id = i;
         }
 #endif 
-    }
-
-    void Start()
-    {
         LoadJson();
     }
     public int GetRandomItemID()

@@ -29,13 +29,13 @@ public class UiItemInventory : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         this.indexList = indexList;
         this.id = id;
         
-        myImage.sprite = ItemManager.GetInstance().GetItemFromID(id).icon;
+        myImage.sprite = ItemManager.Get().GetItemFromID(id).icon;
         myImage.color = (id > 0) ? Color.white : Color.clear;
-        if (ItemManager.GetInstance().GetItemFromID(id).maxStack > 1)
+        if (ItemManager.Get().GetItemFromID(id).maxStack > 1)
         {
             textAmount.text = uiInv.inventory.GetSlot(indexList).amount.ToString();
         }
-        textAmount.gameObject.SetActive(ItemManager.GetInstance().GetItemFromID(id).maxStack > 1);
+        textAmount.gameObject.SetActive(ItemManager.Get().GetItemFromID(id).maxStack > 1);
     }
     public void Refresh()
     {

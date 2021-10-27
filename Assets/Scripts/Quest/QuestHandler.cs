@@ -72,6 +72,7 @@ public class QuestHandler : MonoBehaviour
             if (Sfx.Get().GetEnable(Sfx.ListSfx.CompletedQuest))
                 AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.CompletedQuest), gameObject);
         }
+
     }
     bool RepairCheck(SubQuest task, RepairLocations location)
     {

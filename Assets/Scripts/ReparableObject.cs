@@ -29,7 +29,7 @@ public class ReparableObject : MonoBehaviour
         {
             UiItemRepair itemReq = Instantiate(pfItem, panelObjects).GetComponent<UiItemRepair>();
             boxColliders.Add(itemReq.GetComponent<BoxCollider>());
-            itemReq.image.sprite = ItemManager.GetInstance().GetItemFromID(idRequired[i].ID).icon;
+            itemReq.image.sprite = ItemManager.Get().GetItemFromID(idRequired[i].ID).icon;
             RefreshUI(itemReq, i);
             itemReq.index = i;
             itemReq.obj = this;
@@ -38,7 +38,7 @@ public class ReparableObject : MonoBehaviour
     }
     public void RefreshUI(UiItemRepair item, int index)
     {
-        item.text.text = ItemManager.GetInstance().GetItemFromID(idRequired[index].ID).itemName; 
+        item.text.text = ItemManager.Get().GetItemFromID(idRequired[index].ID).itemName; 
         item.text.text += "\nRemaining: " + idRequired[index].amount;
         if (CheckRepaired())
         {

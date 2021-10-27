@@ -1,13 +1,6 @@
 ﻿using UnityEngine;
-public class Sfx : MonoBehaviour
+public class Sfx : MonoBehaviourSingleton<Sfx>
 {
-    private static Sfx _sfx;
-    public static Sfx Get() => _sfx;
-
-    private void Awake()
-    {
-        _sfx = this;
-    }
     public bool GetEnable(ListSfx sound)
     {
         return listOn[(int)sound];

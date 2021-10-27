@@ -1,20 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-    static GameManager gameManager;
+
     public Entity playerEntity;
     public QuestHandler questHandler;
     public PlayerController player;
     public List<ReparableObject> toRepair;
     private int objectsRemaining;
-
-    public static GameManager Get() => gameManager;
-    private void Awake()
-    {
-        gameManager = this;
-    } void Start()
+    void Start()
     {
         LoadGameManager();  // Sacar esta linea cuando se instancie en el menu
     }
