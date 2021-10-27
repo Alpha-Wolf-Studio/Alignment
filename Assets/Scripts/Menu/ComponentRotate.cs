@@ -23,9 +23,7 @@ public class ComponentRotate : MonoBehaviour
         switch (axisForce)
         {
             case Axis.Random:
-                force.x = Random.Range(-speed, speed);
-                force.y = Random.Range(-speed, speed);
-                force.z = Random.Range(-speed, speed);
+                force = Random.insideUnitSphere * speed;
                 break;
             case Axis.X:
                 force = transform.right * speed;

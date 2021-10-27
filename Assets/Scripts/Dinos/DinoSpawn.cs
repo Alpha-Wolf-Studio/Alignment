@@ -18,7 +18,6 @@ public class DinoSpawn : MonoBehaviour
         this.blockLayer = blockLayer;
     }
 
-
     Transform playerTransform = null;
     GameObject dinoPrefab = null;
     float spawnTime = 5f;
