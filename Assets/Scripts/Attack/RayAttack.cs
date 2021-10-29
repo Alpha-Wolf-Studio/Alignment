@@ -5,7 +5,7 @@ public class RayAttack : AttackComponent
 
     [SerializeField] float distance = 10f;
 
-    public override void Attack(Vector3 dir, DamageOrigin origin)
+    public override void Attack(Vector3 dir, DamageInfo info)
     {
         if(canAttack)
         {
@@ -16,7 +16,7 @@ public class RayAttack : AttackComponent
                 IDamageable damageComponent = hit.collider.GetComponent<IDamageable>();
                 if (damageComponent != null)
                 {
-                    damageComponent.TakeDamage(new DamageInfo(attackStrenght, origin, DamageType.Armor));
+                    damageComponent.TakeDamage(new DamageInfo(attackStrenght, info.origin, DamageType.Armor, transform));
                 }
             }
         }

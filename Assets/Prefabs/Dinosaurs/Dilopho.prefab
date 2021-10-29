@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackComponent: {fileID: 7267851849150364270}
-  characterStats: {fileID: 0}
+  entityStats: {fileID: 0}
   multiplyRun: 2
 --- !u!54 &1674325532805212697
 Rigidbody:
@@ -832,9 +832,6 @@ MonoBehaviour:
   spotAngle: 50
   chaseDistance: 50
   chaseSpeedMultiplier: 1
-  groupChase: 0
-  groupChaseCallDistance: 10
-  groupChaseFrenzyTime: 1
   maxTimeBetweenPatrols: 5
   minTimeBetweenPatrols: 3
   distanceToPatrol: 30
@@ -844,7 +841,7 @@ MonoBehaviour:
     m_Bits: 256
   anim: {fileID: 3247137947644890674}
   dinoType: 2
-  currentBehaviour: 0
+  origin: 3
 --- !u!114 &-323414408970278589
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class DiloAttackAI : AIAttackModule
     [SerializeField] GameObject projectilePrefab = null;
     [SerializeField] Transform projectileSpawn = null;
     [SerializeField] float projectileSpeed = 50f;
-    public override void Attack(Vector3 dir, DamageOrigin origin)
+    public override void Attack(Vector3 dir, DamageInfo info)
     {
         Vector3 frontDir = dir - transform.position;
         agent.SetDestination(transform.position);
@@ -16,7 +16,7 @@ public class DiloAttackAI : AIAttackModule
         {
             StartCoroutine(CooldownCoroutine());
             GameObject go = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            go.GetComponent<Projectile>().Launch(frontDir, projectileSpeed, attackStrenght, origin);
+            go.GetComponent<Projectile>().Launch(frontDir, projectileSpeed, attackStrenght, info.origin);
             AIAttacked();
         }
     }

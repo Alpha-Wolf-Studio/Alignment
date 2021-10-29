@@ -5,14 +5,14 @@ using UnityEngine;
 public class RaptorAttackAI : AIAttackModule
 {
     [SerializeField] List<MeleeAttackCollider> meleeColliders = new List<MeleeAttackCollider>();
-    public override void Attack(Vector3 dir, DamageOrigin origin)
+    public override void Attack(Vector3 dir, DamageInfo info)
     {
         Vector3 frontDir = dir - transform.position;
         agent.SetDestination(transform.position);
         AIAimToAttack(frontDir);
         foreach (var collider in meleeColliders)
         {
-            collider.SetColliders(attackStrenght, origin);
+            collider.SetColliders(attackStrenght, info.origin);
         }
     }
     public override void StartAttackEvent()

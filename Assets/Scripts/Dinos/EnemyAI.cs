@@ -41,8 +41,9 @@ public class EnemyAI : MonoBehaviour
     public Transform playerTransform { get; set; }
     CustomNavMeshAgent agent = null;
 
+    [Space(10)]
     public DinoType dinoType = DinoType.Raptor;
-    DamageOrigin origin;
+    [SerializeField] DamageOrigin origin = DamageOrigin.Raptor;
     int spawnIndex = 0;
     public Action<DinoType, int> OnDied;
 
@@ -157,7 +158,8 @@ public class EnemyAI : MonoBehaviour
     void AttackUpdate(float distanceToPlayer)
     {
         Vector3 attackDirection = new Vector3(playerTransform.position.x, playerTransform.position.y + yPositionTolerance, playerTransform.position.z);
-        entity.AttackDir(attackDirection, origin);
+        DamageInfo info = new DamageInfo(100, origin, DamageType.Armor, transform);
+        entity.AttackDir(attackDirection, info);
         if(distanceToPlayer > attackDistance) 
         {
             StartChaseCheck(distanceToPlayer);

@@ -211,7 +211,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
             PlayerController player = characters[i].GetComponent<PlayerController>();
             if (!player)
             {
-                DamageInfo info = new DamageInfo(9999, DamageOrigin.Water, DamageType.Armor);
+                DamageInfo info = new DamageInfo(9999, DamageOrigin.Water, DamageType.Armor, transform);
                 characters[i].TakeDamage(info);
             }
         }

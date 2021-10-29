@@ -11,7 +11,7 @@ public class WaterCollider : MonoBehaviour
         IDamageable damageable = collision.collider.GetComponent<IDamageable>(); 
         if(damageable != null) 
         {
-            DamageInfo info = new DamageInfo(killDamage, origin, DamageType.Energy);
+            DamageInfo info = new DamageInfo(killDamage, origin, DamageType.Energy, transform);
             damageable.TakeDamage(info);
         }
     }

@@ -146,12 +146,11 @@ public class PlayerController : MonoBehaviour
         {
             if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerAttack))
                 AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerAttack), gameObject);
-
+            DamageInfo info = new DamageInfo(entity.entityStats.GetStat(StatType.Damage).GetCurrent(), DamageOrigin.Player, DamageType.Energy, transform);
             if (currentCoolDownShoot < maxCoolDownShoot) // Si no supera el CD se daña. Siempre puede disparar.
             {
                 //Debug.Log("Dispara y se Daña");
                 onShoot?.Invoke(maxCoolDownShoot, false);
-                DamageInfo info = new DamageInfo(entity.entityStats.GetStat(StatType.Damage).GetCurrent(), DamageOrigin.Player, DamageType.Energy);
                 entity.TakeDamage(info);
             }
             else
@@ -161,7 +160,7 @@ public class PlayerController : MonoBehaviour
                 currentCoolDownShoot = 0;
             }
             Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
-            entity.AttackDir(screenRay.direction, DamageOrigin.Player);
+            entity.AttackDir(screenRay.direction, info);
         }
     }
     void CanDeposite()

@@ -29,13 +29,14 @@ public class Entity : MonoBehaviour, IDamageable
         stat.AddCurrent(value);
         OnUpdateStats?.Invoke();
     }
-    public void AttackDir(Vector3 dir, DamageOrigin from)
+    public void AttackDir(Vector3 dir, DamageInfo info)
     {
         if (attackComponent != null)
         {
             attackComponent.SetAttackStrenght(entityStats.GetStat(StatType.Damage).GetCurrent());
             attackComponent.SetAttackSpeed(entityStats.GetStat(StatType.AttackSpeed).GetCurrent());
-            attackComponent.Attack(dir, from);
+            info.amount = entityStats.GetStat(StatType.Damage).GetCurrent();
+            attackComponent.Attack(dir, info);
         }
     }
     public void TakeDamage(DamageInfo damageInfo) 
