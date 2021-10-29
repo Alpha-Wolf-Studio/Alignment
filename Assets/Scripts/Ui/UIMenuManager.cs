@@ -19,8 +19,8 @@ public class UIMenuManager : MonoBehaviour
         versionText.text = "Version: " + Application.version;
     }
 
-    enum Menues { Main, Play, Credits, Options, Exit }
-    private Menues menuActual = Menues.Main;
+    public enum Menues { Main, Play, Credits, Options, Exit }
+    public Menues menuActual = Menues.Main;
     private float onTime;
 
     public void OffPanel()
