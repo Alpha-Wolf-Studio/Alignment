@@ -21,7 +21,7 @@ public class TriAttackAI : AIAttackModule
         multipliedSpeed = agent.Speed * chargeSpeedMultiplier;
         multipliedRotationSpeed = agent.AngularSpeed;
     }
-    public override void Attack(Vector3 dir, DamageInfo info)
+    public override void Attack(Transform dirTransform, DamageInfo info)
     {
         if (canCharge)
         {
@@ -36,12 +36,12 @@ public class TriAttackAI : AIAttackModule
             {
                 StopCoroutine(ChargeCoroutine);
             }
-            ChargeCoroutine = Charge(dir);
+            ChargeCoroutine = Charge(dirTransform);
             StartCoroutine(ChargeCoroutine);
             AIAttacked();
         }
     }
-    IEnumerator Charge(Vector3 dir)
+    IEnumerator Charge(Transform dirTransform)
     {
         canCharge = false;
         anim.SetBool("Walking", false);
@@ -55,7 +55,7 @@ public class TriAttackAI : AIAttackModule
         agent.basicNavAgent.isStopped = false;
         agent.Speed = multipliedSpeed;
         agent.AngularSpeed = multipliedRotationSpeed;
-        if (Vector3.Distance(transform.position, dir) < ChargeStoppingDistance + chargeMinStart)
+        if (Vector3.Distance(transform.position, dirTransform.position) < ChargeStoppingDistance + chargeMinStart)
         {   //En caso de tener al player demasiado cerca al empezar la carga
             float t = 0;
             do
@@ -65,6 +65,7 @@ public class TriAttackAI : AIAttackModule
                 yield return new WaitForEndOfFrame();
             } while (t < chargeMinResolveTime);
         }
+        Vector3 dir = dirTransform.position;
         do
         {
             dir.y = transform.position.y;

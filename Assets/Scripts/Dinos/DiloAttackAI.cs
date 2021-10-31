@@ -7,9 +7,11 @@ public class DiloAttackAI : AIAttackModule
     [SerializeField] GameObject projectilePrefab = null;
     [SerializeField] Transform projectileSpawn = null;
     [SerializeField] float projectileSpeed = 50f;
-    public override void Attack(Vector3 dir, DamageInfo info)
+    [SerializeField] float aimOffset = -2f;
+    public override void Attack(Transform dirTransform, DamageInfo info)
     {
-        Vector3 frontDir = dir - transform.position;
+        Vector3 frontDir = dirTransform.position - transform.position;
+        frontDir.y += aimOffset;
         agent.SetDestination(transform.position);
         AIAimToAttack(frontDir);
         if (canAttack)

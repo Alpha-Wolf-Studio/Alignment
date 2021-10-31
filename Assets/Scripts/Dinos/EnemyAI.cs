@@ -157,9 +157,9 @@ public class EnemyAI : MonoBehaviour
 
     void AttackUpdate(float distanceToPlayer)
     {
-        Vector3 attackDirection = new Vector3(playerTransform.position.x, playerTransform.position.y + yPositionTolerance, playerTransform.position.z);
         DamageInfo info = new DamageInfo(100, origin, DamageType.Armor, transform);
-        entity.AttackDir(attackDirection, info);
+        entity.RefreshAttackStats(ref info);
+        attackModule.Attack(playerTransform, info);
         if(distanceToPlayer > attackDistance) 
         {
             StartChaseCheck(distanceToPlayer);

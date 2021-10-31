@@ -46,5 +46,6 @@ public abstract class AttackComponent : MonoBehaviour
         canAttack = true;
     }
 
-    public abstract void Attack(Vector3 dir, DamageInfo origin);
+    public abstract void Attack(Transform dirTransform, DamageInfo origin);
+    public virtual void Attack(Vector3 dir, DamageInfo origin) {}
 }

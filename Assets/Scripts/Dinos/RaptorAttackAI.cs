@@ -5,9 +5,9 @@ using UnityEngine;
 public class RaptorAttackAI : AIAttackModule
 {
     [SerializeField] List<MeleeAttackCollider> meleeColliders = new List<MeleeAttackCollider>();
-    public override void Attack(Vector3 dir, DamageInfo info)
+    public override void Attack(Transform dirTransform, DamageInfo info)
     {
-        Vector3 frontDir = dir - transform.position;
+        Vector3 frontDir = dirTransform.position - transform.position;
         agent.SetDestination(transform.position);
         AIAimToAttack(frontDir);
         foreach (var collider in meleeColliders)

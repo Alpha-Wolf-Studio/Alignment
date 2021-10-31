@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Action OnOpenConsole;
     public Action OnOpenQuestPanel;
     public Action<float, bool> onShoot;
+    [Space(10)]
 
     private Rigidbody rb;
     private Camera camara;
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour
     private float movV;
     private float verticalLookRotation;
 
+    [Space (10)]
+    public AttackComponent attackComponent;
     public float maxCoolDownShoot;
     public float currentCoolDownShoot = 10;
     private float maxDistInteract = 50;
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private float energyRegenerate = 0.05f;
 
     public enum State { Walk, Run, Flying }
+    [Space(10)]
     [SerializeField] private float forceJump;
     [SerializeField] private float forceFly;
     private float onTimePressFly;
@@ -160,7 +164,8 @@ public class PlayerController : MonoBehaviour
                 currentCoolDownShoot = 0;
             }
             Ray screenRay = camara.ScreenPointToRay(Input.mousePosition);
-            entity.AttackDir(screenRay.direction, info);
+            entity.RefreshAttackStats(ref info);
+            attackComponent.Attack(screenRay.direction, info);
         }
     }
     void CanDeposite()
