@@ -201,6 +201,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
         InfinityEnergy();
         InfinityStamina();
         AddJetPack();
+        RenderSettings.fog = false;
     }
     private void KillEnemies()
     {
