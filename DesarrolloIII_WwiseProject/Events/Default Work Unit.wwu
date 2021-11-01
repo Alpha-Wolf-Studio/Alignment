@@ -14,7 +14,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="PlayerStepsOn" ID="{88E0969E-1D03-4FA4-B9E2-C8E42FA22B16}"/>
+				<Event Name="PlayerStepsOn" ID="{88E0969E-1D03-4FA4-B9E2-C8E42FA22B16}">
+					<ChildrenList>
+						<Action Name="" ID="{72F10282-2EB7-469A-AC44-68E46456C672}" ShortID="366129486">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="PlayerStepsOff" ID="{BC468463-E83D-4542-859E-580F4624F4C6}"/>
 				<Event Name="PlayerPickItem" ID="{C9CEB72D-F722-409C-A42C-5F78C302DB0F}"/>
 				<Event Name="PlayerDropItem" ID="{8C2B3E82-AC48-4861-8D57-4A240314A69F}"/>
