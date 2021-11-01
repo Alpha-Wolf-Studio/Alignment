@@ -59,6 +59,8 @@
 				<Event Name="UiCraftFail" ID="{4A3F4A19-BB78-4673-AF84-596478FC8A5D}"/>
 				<Event Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}"/>
 				<Event Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}"/>
+				<Event Name="PlayerRunOn" ID="{9FCF69F1-7734-4423-A2D9-AA016F3438E2}"/>
+				<Event Name="PlayerRunOff" ID="{B7DA0096-6000-4F75-82A0-E1AB37C7288A}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
