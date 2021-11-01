@@ -25,7 +25,20 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="PlayerStepsOff" ID="{BC468463-E83D-4542-859E-580F4624F4C6}"/>
+				<Event Name="PlayerStepsOff" ID="{BC468463-E83D-4542-859E-580F4624F4C6}">
+					<ChildrenList>
+						<Action Name="" ID="{E788BAD3-49A2-4FCD-9C02-6A8CD5AF6514}" ShortID="941761913">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="PlayerPickItem" ID="{C9CEB72D-F722-409C-A42C-5F78C302DB0F}"/>
 				<Event Name="PlayerDropItem" ID="{8C2B3E82-AC48-4861-8D57-4A240314A69F}"/>
 				<Event Name="PlayerAttack" ID="{6E5B7240-B370-4173-85CD-64EFF355A941}"/>
@@ -46,6 +59,8 @@
 				<Event Name="UiCraftFail" ID="{4A3F4A19-BB78-4673-AF84-596478FC8A5D}"/>
 				<Event Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}"/>
 				<Event Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}"/>
+				<Event Name="PlayerRunOn" ID="{9FCF69F1-7734-4423-A2D9-AA016F3438E2}"/>
+				<Event Name="PlayerRunOff" ID="{B7DA0096-6000-4F75-82A0-E1AB37C7288A}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
