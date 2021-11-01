@@ -1,6 +1,41 @@
 Event	ID	Name			Wwise Object Path	Notes
-	2170705828	New_EventTest			\Default Work Unit\New_EventTest	
+	80751710	PauseOn			\Default Work Unit\PauseOn	
+	106216603	UiButtonExit			\Default Work Unit\UiButtonExit	
+	501044006	PlayerRunOn			\Default Work Unit\PlayerRunOn	
+	538913891	UiCraftFail			\Default Work Unit\UiCraftFail	
+	829026572	PlayerRunOff			\Default Work Unit\PlayerRunOff	
+	863504537	UiOpenInventory			\Default Work Unit\UiOpenInventory	
+	878168405	UiClickButton			\Default Work Unit\UiClickButton	
+	890299361	PlayerEnergyDamage			\Default Work Unit\PlayerEnergyDamage	
+	1394561708	PlayerDropItem			\Default Work Unit\PlayerDropItem	
+	1607351782	PlayerStepsOff			\Default Work Unit\PlayerStepsOff	
+	1968229471	UiCloseInventory			\Default Work Unit\UiCloseInventory	
+	2169369406	PlayerAttack			\Default Work Unit\PlayerAttack	
+	2685053305	UiUseItem			\Default Work Unit\UiUseItem	
+	2739055032	PlayerArmorDamage			\Default Work Unit\PlayerArmorDamage	
+	3041684469	UiCraftSuccessful			\Default Work Unit\UiCraftSuccessful	
+	3210062703	UiSwapItem			\Default Work Unit\UiSwapItem	
+	3291823240	PlayerStepsOn			\Default Work Unit\PlayerStepsOn	
+	3452482440	PlayerPickItem			\Default Work Unit\PlayerPickItem	
+	3758255951	CompletedTask			\Default Work Unit\CompletedTask	
+	3921005316	PauseOff			\Default Work Unit\PauseOff	
+	3935862555	UiButtonEnter			\Default Work Unit\UiButtonEnter	
+	3966601280	PlayerDie			\Default Work Unit\PlayerDie	
+	4008126242	PlayerJump			\Default Work Unit\PlayerJump	
+	4152337806	CompletedQuest			\Default Work Unit\CompletedQuest	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	998479197	Salto 1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Salto 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto 1		123040
+	5998164	Player_Pick Item_3	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Pick Item_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Pick_Item\Player_Pick Item_3		18472
+	24436010	Player_Drop Item	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Drop Item_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Drop Item		66214
+	79051648	Player_Jump_With Landing	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Jump_With Landing_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Jump_With Landing		120434
+	88209200	Menu_Out	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Menu_Out_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu_Out		37076
+	290825574	Pasos_2	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Pasos_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_2		125012
+	337994893	Player_Shoot	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Shoot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Shoot		86884
+	413870853	Pasos_3	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Pasos_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_3		103068
+	428508052	Pasos_4	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Pasos_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_4		117664
+	477441384	Pasos_1	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Pasos_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_1		161924
+	727224815	Player_Pick Item_2	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Pick Item_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Pick_Item\Player_Pick Item_2		12992
+	929226526	Menu_In	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Menu_In_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu_In		37076
+	985901743	Player_Pick Item_1	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Pick Item_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Pick_Item\Player_Pick Item_1		17704
+	1023765488	Menu_Click_1	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Menu_Click_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu_Click_1		94144
 

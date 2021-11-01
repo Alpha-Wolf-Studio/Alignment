@@ -19,7 +19,6 @@
 						<ObjectRef Name="UiCraftFail" ID="{4A3F4A19-BB78-4673-AF84-596478FC8A5D}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UiCloseInventory" ID="{17613B5B-CD47-4729-BE03-8ED44935C33F}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerDropItem" ID="{8C2B3E82-AC48-4861-8D57-4A240314A69F}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="New_EventTest" ID="{E1863261-73BA-48A1-8924-B56802ED885E}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerJump" ID="{4020E6A7-12AB-4A0F-BDDE-CF3BF0A96084}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UiCraftSuccessful" ID="{2BD260A3-4513-4AAC-83EF-6D757EE054F7}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UiUseItem" ID="{F4CED4CC-5379-4B54-89CF-38E1C0B7D08D}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>

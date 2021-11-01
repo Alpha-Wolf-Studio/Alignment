@@ -15,7 +15,6 @@ namespace AK
     {
         static const AkUniqueID COMPLETEDQUEST = 4152337806U;
         static const AkUniqueID COMPLETEDTASK = 3758255951U;
-        static const AkUniqueID NEW_EVENTTEST = 2170705828U;
         static const AkUniqueID PAUSEOFF = 3921005316U;
         static const AkUniqueID PAUSEON = 80751710U;
         static const AkUniqueID PLAYERARMORDAMAGE = 2739055032U;
@@ -25,6 +24,8 @@ namespace AK
         static const AkUniqueID PLAYERENERGYDAMAGE = 890299361U;
         static const AkUniqueID PLAYERJUMP = 4008126242U;
         static const AkUniqueID PLAYERPICKITEM = 3452482440U;
+        static const AkUniqueID PLAYERRUNOFF = 829026572U;
+        static const AkUniqueID PLAYERRUNON = 501044006U;
         static const AkUniqueID PLAYERSTEPSOFF = 1607351782U;
         static const AkUniqueID PLAYERSTEPSON = 3291823240U;
         static const AkUniqueID UIBUTTONENTER = 3935862555U;

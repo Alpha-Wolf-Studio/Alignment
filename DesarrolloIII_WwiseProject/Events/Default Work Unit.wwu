@@ -3,17 +3,6 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{EF8871EF-228B-433D-803F-F70594D394B5}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="New_EventTest" ID="{E1863261-73BA-48A1-8924-B56802ED885E}">
-					<ChildrenList>
-						<Action Name="" ID="{4E84FEB7-2263-4B20-A9CE-01E500F5A1DE}" ShortID="874672924">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Salto 1" ID="{3DD1CBB4-8900-46B7-93FE-6464605529E3}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="PlayerStepsOn" ID="{88E0969E-1D03-4FA4-B9E2-C8E42FA22B16}">
 					<ChildrenList>
 						<Action Name="" ID="{72F10282-2EB7-469A-AC44-68E46456C672}" ShortID="366129486">
@@ -39,18 +28,88 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="PlayerPickItem" ID="{C9CEB72D-F722-409C-A42C-5F78C302DB0F}"/>
-				<Event Name="PlayerDropItem" ID="{8C2B3E82-AC48-4861-8D57-4A240314A69F}"/>
-				<Event Name="PlayerAttack" ID="{6E5B7240-B370-4173-85CD-64EFF355A941}"/>
-				<Event Name="PlayerJump" ID="{4020E6A7-12AB-4A0F-BDDE-CF3BF0A96084}"/>
+				<Event Name="PlayerPickItem" ID="{C9CEB72D-F722-409C-A42C-5F78C302DB0F}">
+					<ChildrenList>
+						<Action Name="" ID="{BB735CCB-7AC0-459B-A0F2-F1B3F0E06D30}" ShortID="762318272">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Pick_Item" ID="{48D19D14-6706-4176-B771-0691A58CF7F7}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerDropItem" ID="{8C2B3E82-AC48-4861-8D57-4A240314A69F}">
+					<ChildrenList>
+						<Action Name="" ID="{09EEEC33-4488-4CA4-8624-4DEDD109D4AE}" ShortID="581744264">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Drop Item" ID="{2EC73485-4A8D-42E8-BA8D-3093E0F09782}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerAttack" ID="{6E5B7240-B370-4173-85CD-64EFF355A941}">
+					<ChildrenList>
+						<Action Name="" ID="{A5A3C252-ADF2-45D3-84E6-7050783B9454}" ShortID="551965980">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Shoot" ID="{E73DA50C-3582-473D-B833-9CB1E689598A}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerJump" ID="{4020E6A7-12AB-4A0F-BDDE-CF3BF0A96084}">
+					<ChildrenList>
+						<Action Name="" ID="{192ED7C7-20C7-4D82-866A-36CEAE6041CE}" ShortID="189867808">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Jump_With Landing" ID="{137F140E-A53E-441A-9EE6-7532E96DD15E}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="PlayerArmorDamage" ID="{9992A5C0-BAF6-4398-95AE-ECE24D840D20}"/>
 				<Event Name="PlayerEnergyDamage" ID="{6A33BF2B-605A-4C37-8B9A-6394247CDAF0}"/>
 				<Event Name="PlayerDie" ID="{F028D97A-D034-4F6F-9CC0-EB5D59C7AB25}"/>
 				<Event Name="CompletedTask" ID="{FC681339-491B-4198-9DD4-38C8452A27BD}"/>
 				<Event Name="CompletedQuest" ID="{669CF6CA-C058-4F7A-90F2-EA9CFBF38D65}"/>
-				<Event Name="UiClickButton" ID="{82251FB2-C3E7-4514-A2F4-A7B8935E3407}"/>
-				<Event Name="UiButtonEnter" ID="{1186E499-75D2-4589-BC01-BE271403C040}"/>
-				<Event Name="UiButtonExit" ID="{EF696983-008A-4C6B-9217-732D8F3002F7}"/>
+				<Event Name="UiClickButton" ID="{82251FB2-C3E7-4514-A2F4-A7B8935E3407}">
+					<ChildrenList>
+						<Action Name="" ID="{828125DD-EF30-4B18-9C1C-61733764B851}" ShortID="981311588">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_Click_1" ID="{D028AF86-4607-4DB1-BDAF-809F89ECB45E}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UiButtonEnter" ID="{1186E499-75D2-4589-BC01-BE271403C040}">
+					<ChildrenList>
+						<Action Name="" ID="{31FA4F25-E156-4E08-91D7-1BE79CCE4048}" ShortID="218637657">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_In" ID="{6F283D6E-333A-461E-85F7-C66614D553C4}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UiButtonExit" ID="{EF696983-008A-4C6B-9217-732D8F3002F7}">
+					<ChildrenList>
+						<Action Name="" ID="{340C36A7-9B69-47AB-9257-20E21326CA76}" ShortID="197827617">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_Out" ID="{6617B838-C2E0-478F-8CFE-36338E8E230B}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="UiOpenInventory" ID="{83B7DC77-4A81-43FC-A105-00F76BAFA01F}"/>
 				<Event Name="UiCloseInventory" ID="{17613B5B-CD47-4729-BE03-8ED44935C33F}"/>
 				<Event Name="UiSwapItem" ID="{25ED25D9-4C53-4080-BF9C-77A6148234E3}"/>
