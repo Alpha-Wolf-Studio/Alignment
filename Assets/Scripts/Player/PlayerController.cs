@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
 
     private float movH;
     private float movV;
-    private float verticalLookRotation;
 
     [Space (10)]
     public AttackComponent attackComponent;
@@ -258,10 +257,10 @@ public class PlayerController : MonoBehaviour
             movH = Input.GetAxis("Mouse X") * horizontalSensitive;
             transform.Rotate(0, movH, 0);
 
-            verticalLookRotation += Input.GetAxisRaw("Mouse Y") * verticalSensitive;
-            verticalLookRotation = Mathf.Clamp(verticalLookRotation, minCameraClampVertical, maxCameraClampVertical);
+            movV += Input.GetAxisRaw("Mouse Y") * verticalSensitive;
+            movV = Mathf.Clamp(movV, minCameraClampVertical, maxCameraClampVertical);
 
-            camara.transform.localEulerAngles = Vector3.left * verticalLookRotation;
+            camara.transform.localEulerAngles = Vector3.left * movV;
 
             if (flying && useEnergyFly)
             {
