@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     public Action OnOpenConsole;
     public Action OnOpenQuestPanel;
     public Action<float, bool> onShoot;
-    [Space(10)]
 
+    [Space(10)]
     private Rigidbody rb;
     private Camera camara;
     private Entity entity;
@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     private bool flying;
     public bool jetpack;
     private bool walking;
+    private bool isRunning;
 
     private void Awake()
     {
@@ -62,8 +63,21 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         AvailableCursor(false);
-
         entity.OnEntityTakeDamage += PlayerTakeDamage;
+
+        if (DataPersistant.Get())
+        {
+            DataPersistant.Get().playerController = this;
+            Vector2 sensitive = new Vector2();
+            sensitive = DataPersistant.Get().gameSettings.controls.GetSensitives();
+            SetSensitive(sensitive);
+        }
+    }
+    public void SetSensitive(Vector2 sensitive)
+    {
+        horizontalSensitive = sensitive.x;
+        verticalSensitive = sensitive.y;
+        Debug.Log("Sensitive X: " + horizontalSensitive + "Sensitive Y: " + verticalSensitive);
     }
     void CanPause()
     {
@@ -104,11 +118,23 @@ public class PlayerController : MonoBehaviour
         {
             speedMovement = entity.entityStats.GetStat(StatType.Walk).GetCurrent() * entity.multiplyRun;
             useEnergyRun = true;
+            if (!isRunning && Sfx.Get().GetEnable(Sfx.ListSfx.PlayerJump))
+            {
+                isRunning = true;
+                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerRunOn), gameObject);
+                Debug.Log("Empieza a Correr.");
+            }
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             speedMovement = entity.entityStats.GetStat(StatType.Walk).GetCurrent();
             useEnergyRun = false;
+            if (isRunning && Sfx.Get().GetEnable(Sfx.ListSfx.PlayerJump))
+            {
+                isRunning = false;
+                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerRunOff), gameObject);
+                Debug.Log("Termina a Correr.");
+            }
         }
     }
     void CanJumpAndFly()
@@ -121,7 +147,9 @@ public class PlayerController : MonoBehaviour
                 grounded = false;
 
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerJump))
+                {
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerJump), gameObject);
+                }
             }
             else
             {
@@ -246,13 +274,16 @@ public class PlayerController : MonoBehaviour
 
             float velX = Mathf.Abs(Input.GetAxis("Horizontal"));
             float velY = Mathf.Abs(Input.GetAxis("Vertical"));
-
-            if (velX > 0)
+            //Debug.Log("VelX: " + velX + " VelY: " + velY);
+            if (velX > 0 || velY > 0)
             {
                 if (!walking)
                 {
                     if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerStepsOn))
+                    {
                         AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerStepsOn), gameObject);
+                        //Debug.Log("Empieza a Caminar.");
+                    }
                 }
                 walking = true;
             }
@@ -261,7 +292,10 @@ public class PlayerController : MonoBehaviour
                 if (walking)
                 {
                     if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerStepsOff))
+                    {
                         AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerStepsOff), gameObject);
+                        //Debug.Log("Deja a Caminar.");
+                    }
                 }
                 walking = false;
             }

@@ -18,6 +18,8 @@ public class Sfx : MonoBehaviourSingleton<Sfx>
 
         PlayerStepsOn,
         PlayerStepsOff,
+        PlayerRunOn,
+        PlayerRunOff,
         PlayerPickItem,
         PlayerDropItem,
         PlayerAttack,
@@ -55,6 +57,8 @@ public class Sfx : MonoBehaviourSingleton<Sfx>
 
         "PlayerStepsOn",
         "PlayerStepsOff",
+        "PlayerRunOn",
+        "PlayerRunOff",
         "PlayerPickItem",
         "PlayerDropItem",
         "PlayerAttack",
@@ -85,40 +89,42 @@ public class Sfx : MonoBehaviourSingleton<Sfx>
     };
     bool[] listOn =
     {
-        false,   // CompiAttack,                || 
-        false,   // RaptorAttack,               || 
-        false,   // TrikeAttack,                || 
-        false,   // DiloAttack,                 || 
-                                                
-        true,   // PlayerStepsOn,               || PlayerStepsOn
-        true,   // PlayerStepsOff,             || PlayerStepsOff
-        true,   // PlayerPickItem,             || PlayerPickItem
-        true,   // PlayerDropItem,             || PlayerDropItem
-        true,   // PlayerAttack,               || PlayerAttack
-        false,   // PlayerJetPack,              || 
-        true,   // PlayerJump,                 || PlayerJump
-        true,   // PlayerArmorDamage,          || PlayerArmorDamage
-        true,   // PlayerEnergyDamage,         || PlayerEnergyDamage
-        true,   // PlayerDie,                  || PlayerDie
-                                                
-        true,   // CompletedTask,              || CompletedTask
-        true,   // CompletedQuest,             || CompletedQuest
-        false,   // HelpPopUp,                  || 
-        false,   // AmbField,                   || 
-        false,   // AmbBeach,                   || 
-        false,   // AmbForest,                  || 
-        true,   // PauseOn,                    || PauseOn
-        true,   // PauseOff,                   || PauseOff
-                                                
-        true,   // UiClickButton,              || UiClickButton
-        true,   // UiButtonEnter,              || UiButtonEnter
-        true,   // UiButtonExit,               || UiButtonExit
-        true,   // UiOpenInventory,            || UiOpenInventory
-        true,   // UiCloseInventory,           || UiCloseInventory
-        true,   // UiSwapItem,                 || UiSwapItem
-        true,   // UiUseItem,                  || UiUseItem
-        true,   // UiCraftSuccessful,          || UiCraftSuccessful
-        true    // UiCraftFail                 || UiCraftFail
+        false,   // CompiAttack,           
+        false,   // RaptorAttack,          
+        false,   // TrikeAttack,           
+        false,   // DiloAttack,            
+                                           
+        true,   // PlayerStepsOn,          
+        true,   // PlayerStepsOff,         
+        true,   // PlayerRunOn,           
+        true,   // PlayerRunOff,           
+        true,   // PlayerPickItem,         
+        true,   // PlayerDropItem,         
+        true,   // PlayerAttack,           
+        false,   // PlayerJetPack,         
+        true,   // PlayerJump,             
+        true,   // PlayerArmorDamage,      
+        true,   // PlayerEnergyDamage,     
+        true,   // PlayerDie,              
+                                           
+        true,   // CompletedTask,          
+        true,   // CompletedQuest,         
+        false,   // HelpPopUp,             
+        false,   // AmbField,              
+        false,   // AmbBeach,              
+        false,   // AmbForest,             
+        true,   // PauseOn,                
+        true,   // PauseOff,               
+                                           
+        true,   // UiClickButton,          
+        true,   // UiButtonEnter,          
+        true,   // UiButtonExit,           
+        true,   // UiOpenInventory,        
+        true,   // UiCloseInventory,       
+        true,   // UiSwapItem,             
+        true,   // UiUseItem,              
+        true,   // UiCraftSuccessful,      
+        true    // UiCraftFail             
     };
 }
 /*
