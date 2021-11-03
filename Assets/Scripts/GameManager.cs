@@ -27,13 +27,13 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerDie))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerDie), gameObject);
 
-        player.ChangeStatus(PlayerController.PlayerStatus.EndLose);
+        player.ChangeControllerToNone();
         var gameOverText = UIGameOverScreen.GetGameOverText(info.origin);
         GameOver(gameOverText);
     }
     void CompletedGame() 
     {
-        player.ChangeStatus(PlayerController.PlayerStatus.EndWin);
+        player.ChangeControllerToNone();
         GameOver("You repaired the ship and got the timeline fixed.");
     }
     void GameOver(string gameOverText = "")

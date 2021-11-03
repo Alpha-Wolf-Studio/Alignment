@@ -21,7 +21,6 @@ public class UiManager : MonoBehaviour
     public enum CanvasGroupList { GamePlay, Pause, Options }
     public CanvasGroupList menuActual;
     public List<CanvasGroup> canvasGroup = new List<CanvasGroup>();
-    private bool fromInventory;
     [SerializeField] private GameObject console;
     [SerializeField] private GameObject panelQuest;
     [SerializeField] TextMeshProUGUI versionText;
@@ -33,13 +32,13 @@ public class UiManager : MonoBehaviour
     }
     void Start()
     {
-        player.ChangeStatus(PlayerController.PlayerStatus.None);
+        player.ChangeControllerToNone();
         entity.OnUpdateStats += TakeDamage;
         entity.OnDeath += Death;
-        player.onShoot+= Shoot;
-        player.OnPause+= Pause;
-        player.OnOpenConsole += OpenConsole;
-        player.OnOpenQuestPanel += OpenQuestPanel;
+        player.playerGame.onShoot += Shoot;
+        player.onPause += Pause;
+        console.GetComponent<Console>().onOpenConsole += OpenConsole;
+        player.playerGame.onOpenQuestPanel += OpenQuestPanel;
         Time.timeScale = 1;
 
         versionText.text = "Version: " + Application.version;
@@ -48,6 +47,10 @@ public class UiManager : MonoBehaviour
     {
         sightHud.Rotate(Vector3.forward * (speed * Time.deltaTime));
         filledImageStamina.fillAmount = player.GetCurrentStamina() / player.GetMaxStamina();
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            OpenConsole();
+        }
     }
     void TakeDamage()
     {
@@ -83,12 +86,10 @@ public class UiManager : MonoBehaviour
     {
         panelQuest.SetActive(!panelQuest.activeSelf);
     }
-    public void Pause()
+    public void Pause(bool isPause)
     {
-        bool isInGameplay = (player.GetStatus() == PlayerController.PlayerStatus.Game || player.GetStatus() == PlayerController.PlayerStatus.Inventory);
-        if (isInGameplay)
+        if (isPause)
         {
-            fromInventory = (player.GetStatus() == PlayerController.PlayerStatus.Inventory);
             StartCoroutine(PauseEnabling());
         }
         else
@@ -114,7 +115,7 @@ public class UiManager : MonoBehaviour
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PauseOn))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PauseOn), gameObject);
         Time.timeScale = 0;
-        player.ChangeStatus(PlayerController.PlayerStatus.None);
+        player.ChangeControllerToNone();
         onTimeFadePause = 0;
         canvasGroup[(int)CanvasGroupList.Pause].alpha = 0;
         canvasGroup[(int)CanvasGroupList.Options].alpha = 0;
@@ -136,13 +137,13 @@ public class UiManager : MonoBehaviour
         canvasGroup[(int) CanvasGroupList.Pause].blocksRaycasts = true;
 
         onTimeFadePause = 0;
-        player.ChangeStatus(PlayerController.PlayerStatus.Pause);
+        player.ChangeControllerToPause();
         player.AvailableCursor(true);
         menuActual = CanvasGroupList.Pause;
     }
     IEnumerator PauseDisabling()
     {
-        player.ChangeStatus(PlayerController.PlayerStatus.None);
+        player.ChangeControllerToNone();
         onTimeFadePause = 0;
 
         EnableCanvasGroup(canvasGroup[(int)CanvasGroupList.Pause], false);
@@ -162,9 +163,9 @@ public class UiManager : MonoBehaviour
         canvasGroup[(int)CanvasGroupList.Options].alpha = 0;
         EnableCanvasGroup(canvasGroup[(int) CanvasGroupList.GamePlay], true);
         onTimeFadePause = 0;
-        player.ChangeStatus(PlayerController.PlayerStatus.Game);
+        player.ChangeControllerToGame();
         Time.timeScale = 1;
-        player.AvailableCursor(fromInventory);
+        player.AvailableCursor(false);
         menuActual = CanvasGroupList.GamePlay;
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PauseOff))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PauseOff), gameObject);

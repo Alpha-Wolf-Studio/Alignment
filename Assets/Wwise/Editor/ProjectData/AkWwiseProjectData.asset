@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: b8dd45da69e9104c8fe61301ca7f2a0f
     GuidInternal: 
-    m_lastTime: -8585675191144413896
+    m_lastTime: -8585657888260274335
     List:
     - name: SoundBankTest
       guid: 382813bbc9f3d741bdbdd44cfa6e72e7
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: ef7188ef8b223d43803ff70594d394b5
     GuidInternal: 
-    m_lastTime: -8585675191147328054
+    m_lastTime: -8585657888262176090
     List:
     - name: CompletedQuest
       guid: caf69c6658c07a4f90f2ea9cfbf38d65
@@ -130,23 +130,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
-    - name: New_EventTest
-      guid: 613286e1ba73a1488924b56802ed885e
-      id: 2170705828
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: ef7188ef8b223d43803ff70594d394b5
-      - ElementName: New_EventTest
-        ObjectType: 3
-        guid: 613286e1ba73a1488924b56802ed885e
-      Path: Events\Default Work Unit\New_EventTest
-      maxAttenuation: 0
-      maxDuration: 0.696417
-      minDuration: 0.696417
     - name: PauseOff
       guid: 5e38def6daf74d4c80d40fe154c58baf
       id: 3921005316
@@ -213,8 +196,8 @@ MonoBehaviour:
         guid: 40725b6e70b3734185cd64eff355a941
       Path: Events\Default Work Unit\PlayerAttack
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.1049
+      minDuration: 0.876959
     - name: PlayerDie
       guid: 7ad928f034d06f4f9cc0eb5d59c7ab25
       id: 3966601280
@@ -247,8 +230,8 @@ MonoBehaviour:
         guid: 823e2b8c48ac61488d574a240314a69f
       Path: Events\Default Work Unit\PlayerDropItem
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.75
+      minDuration: 0.75
     - name: PlayerEnergyDamage
       guid: 2bbf336a5a60374c8b9a6394247cdaf0
       id: 890299361
@@ -281,8 +264,8 @@ MonoBehaviour:
         guid: a7e62040ab120f4abddecf3bf0a96084
       Path: Events\Default Work Unit\PlayerJump
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.364739
+      minDuration: 1.364739
     - name: PlayerPickItem
       guid: 2db7cec922f79c40a42c5f78c302db0f
       id: 3452482440
@@ -297,6 +280,40 @@ MonoBehaviour:
         ObjectType: 3
         guid: 2db7cec922f79c40a42c5f78c302db0f
       Path: Events\Default Work Unit\PlayerPickItem
+      maxAttenuation: 0
+      maxDuration: 0.234266
+      minDuration: 0.130584
+    - name: PlayerRunOff
+      guid: 9600dab70060754f82a0e1ab37c7288a
+      id: 829026572
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerRunOff
+        ObjectType: 3
+        guid: 9600dab70060754f82a0e1ab37c7288a
+      Path: Events\Default Work Unit\PlayerRunOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: PlayerRunOn
+      guid: f169cf9f34772344a2d9aa016f3438e2
+      id: 501044006
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayerRunOn
+        ObjectType: 3
+        guid: f169cf9f34772344a2d9aa016f3438e2
+      Path: Events\Default Work Unit\PlayerRunOn
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -332,8 +349,8 @@ MonoBehaviour:
         guid: 9e96e088031da44fb9e2c8e42fa22b16
       Path: Events\Default Work Unit\PlayerStepsOn
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: UiButtonEnter
       guid: 99e48611d2758945bc01be271403c040
       id: 3935862555
@@ -349,8 +366,8 @@ MonoBehaviour:
         guid: 99e48611d2758945bc01be271403c040
       Path: Events\Default Work Unit\UiButtonEnter
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.209819
+      minDuration: 0.209819
     - name: UiButtonExit
       guid: 836969ef8a006b4c9217732d8f3002f7
       id: 106216603
@@ -366,8 +383,8 @@ MonoBehaviour:
         guid: 836969ef8a006b4c9217732d8f3002f7
       Path: Events\Default Work Unit\UiButtonExit
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.209819
+      minDuration: 0.209819
     - name: UiClickButton
       guid: b21f2582e7c31445a2f4a7b8935e3407
       id: 878168405
@@ -383,8 +400,8 @@ MonoBehaviour:
         guid: b21f2582e7c31445a2f4a7b8935e3407
       Path: Events\Default Work Unit\UiClickButton
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.533333
+      minDuration: 0.533333
     - name: UiCloseInventory
       guid: 5b3b611747cd2947be038ed44935c33f
       id: 1968229471

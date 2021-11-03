@@ -11,7 +11,7 @@ public class UiInventory : MonoBehaviour
     public InventaryStatus inventaryStatus = InventaryStatus.Close;
     
     [HideInInspector] public Inventory inventory;
-    private PlayerController playerController;
+    private PlayerController player;
 
     // Agarrar un evento para agarrar cuando el Inventario esté totalmente cargado.
     public Action onRefreshAllButtonsEvent;
@@ -45,8 +45,8 @@ public class UiInventory : MonoBehaviour
     private bool loaded;
     private void Awake()
     {
-        playerController = GameManager.Get().player;
-        inventory = playerController.GetComponent<Inventory>();
+        player = GameManager.Get().player;
+        inventory = player.GetComponent<Inventory>();
         
         rtPanelInventory = rmPanelInventory.GetComponent<RectTransform>();
         rtPanelCrafting = rtPanelInventory.GetComponent<RectTransform>();
@@ -56,7 +56,7 @@ public class UiInventory : MonoBehaviour
     {
         Invoke(nameof(LoadInventoryUI), 0.1f);
 
-        playerController.OnInventory += OnInventory;
+        player.onInventory += OnInventory;
     }
     private void Update()
     {
@@ -154,7 +154,7 @@ public class UiInventory : MonoBehaviour
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.UiOpenInventory))
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiOpenInventory), gameObject);
 
-                playerController.ChangeStatus(PlayerController.PlayerStatus.Inventory);
+                player.ChangeControllerToInventory();
                 inventaryStatus = InventaryStatus.Opening;
                 StartCoroutine(OpeningInventory());
 
@@ -163,7 +163,7 @@ public class UiInventory : MonoBehaviour
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCloseInventory))
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCloseInventory), gameObject);
 
-                playerController.ChangeStatus(PlayerController.PlayerStatus.Game);
+                player.ChangeControllerToGame();
                 inventaryStatus = InventaryStatus.Closeing;
                 StartCoroutine(OpeningInventory());
 
@@ -265,10 +265,8 @@ public class UiInventory : MonoBehaviour
     {
         panelGral.interactable = status;
         panelGral.blocksRaycasts = status;
-        panelGral.alpha = status ? 1 : 0; 
-        //Cursor.lockState = status ? CursorLockMode.None : CursorLockMode.Locked;
-        //Cursor.visible = status;
-        playerController.AvailableCursor(status);
+        panelGral.alpha = status ? 1 : 0;
+        player.AvailableCursor(status);
     }
     public void RefreshAllButtons()
     {

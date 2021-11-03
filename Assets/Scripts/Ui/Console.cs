@@ -15,6 +15,7 @@ public class DataCmd
 }
 public class Console : MonoBehaviour, IPointerClickHandler
 {
+    public Action onOpenConsole;
     public delegate void Method();
 
     private PlayerController player;
@@ -26,7 +27,6 @@ public class Console : MonoBehaviour, IPointerClickHandler
     public TMP_InputField inputField;
 
     public Dictionary<string, DataCmd> consoleCommands = new Dictionary<string, DataCmd>();
-    private PlayerController.PlayerStatus lastPlayerStatus;
     private Vector2 startConsoleSize;
 
     private bool pause;
@@ -53,8 +53,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
     private void OnEnable()
     {
         PauseGame(true);
-        lastPlayerStatus = player.GetStatus();
-        player.ChangeStatus(PlayerController.PlayerStatus.Console);
+        player.ChangeControllerToNone();
         inputField.Select();
         EventSystem.current.SetSelectedGameObject(inputField.gameObject, null);
         inputField.OnPointerClick(new PointerEventData(EventSystem.current));
@@ -63,7 +62,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
     private void OnDisable()
     {
         PauseGame(false);
-        player.ChangeStatus(lastPlayerStatus);
+        player.ChangeControllerToGame();
         player.AvailableCursor(false);
     }
     private void Update()
@@ -185,7 +184,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
     }
     private void AddJetPack()
     {
-        player.jetpack = !player.jetpack;
+        player.IsJetpack = !player.IsJetpack;
     }
     void ClearInventory()
     {
