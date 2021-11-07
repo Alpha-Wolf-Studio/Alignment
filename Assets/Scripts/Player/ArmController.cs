@@ -40,12 +40,12 @@ public class ArmController : MonoBehaviour
         else if(currentArmTypeSelection == ArmTypeSelection.Melee)
         {
             meleeAttackComponent.Attack(dir, info);
-            anim.SetTrigger("Attack");
+            //anim.SetTrigger("Attack");
         }
         else //if (currentArmTypeSelection == ArmTypeSelection.Range)
         {
             rangeAttackComponent.Attack(dir, info);
-            anim.SetTrigger("Attack");
+            //anim.SetTrigger("Attack");
             if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerAttack))
                 AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerAttack), gameObject);
         }
