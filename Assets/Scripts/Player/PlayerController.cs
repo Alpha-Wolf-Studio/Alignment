@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public PlayerPause playerPause;
     [HideInInspector] public PlayerInventory playerInventory;
     private Entity entity;
-    public AttackComponent attackComponent;
 
     [Header("Movement")]
     [SerializeField] private float verticalSensitive = 2;
