@@ -10,7 +10,6 @@ public abstract class AttackComponent : MonoBehaviour
     public LayerMask attackLayer;
     [SerializeField] float maxCooldown = 5f;
     [SerializeField] protected attack_Type currentAttackType = attack_Type.Melee; // { get; set; }
-    [SerializeField] protected Animator anim = null;
     float currentCooldown = -1;
     protected bool canAttack = true;
 

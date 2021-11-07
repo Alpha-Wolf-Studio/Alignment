@@ -7,10 +7,10 @@ public class TriAttackAI : AIAttackModule
     [SerializeField] List<MeleeAttackCollider> meleeColliders = new List<MeleeAttackCollider>();
     [SerializeField] float chargePushStrenght = 600f;
     [SerializeField] float chargeSpeedMultiplier = 5f;
-    [SerializeField] float ChargeStoppingDistance = 2.0f;
+    [SerializeField] float DirectChargeStoppingDistance = 2.0f;
     [SerializeField] float chargeMinStart = 10.0f;
     [SerializeField] float chargeMinResolveTime = 2.0f;
-    [SerializeField] float chargeForwardOffset = 5.0f;
+    [SerializeField] float chargeForwardOffset = 7.0f;
     float multipliedSpeed = 0;
     float multipliedRotationSpeed = 0;
     IEnumerator ChargeCoroutine = null;
@@ -52,29 +52,34 @@ public class TriAttackAI : AIAttackModule
         {
             yield return null;
         }
-        agent.basicNavAgent.isStopped = false;
         agent.Speed = multipliedSpeed;
         agent.AngularSpeed = multipliedRotationSpeed;
-        if (Vector3.Distance(transform.position, dirTransform.position) < ChargeStoppingDistance + chargeMinStart)
+        if (Vector3.Distance(transform.position, dirTransform.position) < chargeMinStart)
         {   //En caso de tener al player demasiado cerca al empezar la carga
-            float t = 0;
             do
             {
                 agent.Move(transform.forward * Time.deltaTime * chargeForwardOffset);
-                t += Time.deltaTime;
+                agent.SetDestination(transform.position + transform.forward);
                 yield return new WaitForEndOfFrame();
-            } while (t < chargeMinResolveTime);
+            } while (Vector3.Distance(transform.position, dirTransform.position) < chargeMinStart);
         }
-        Vector3 dir = dirTransform.position;
+        Vector3 dir;
         do
         {
+            dir = dirTransform.position;
             dir.y = transform.position.y;
             agent.SetDestination(dir);
             agent.Move(transform.forward * Time.deltaTime * chargeForwardOffset); //Tengo un offset para naturalizar la direccion del enemigo
             yield return new WaitForEndOfFrame();
-        } while (Vector3.Distance(transform.position, dir) > ChargeStoppingDistance);
-        agent.SetDestination(transform.position);
-        agent.basicNavAgent.isStopped = true;
+        } while (Vector3.Distance(transform.position, dir) > DirectChargeStoppingDistance);
+        float p = 0;
+        do
+        {
+            agent.Move(transform.forward * Time.deltaTime * chargeForwardOffset); //Al estar cerca del objetivo continua derecho
+            agent.SetDestination(transform.position + transform.forward);
+            p += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        } while (p < chargeMinResolveTime);
         anim.SetBool("Melee Attack", true);
     }
 

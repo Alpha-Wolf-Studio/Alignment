@@ -721,14 +721,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2051308953191116961}
-  - component: {fileID: 1674325532805212703}
   - component: {fileID: 1674325532805212696}
-  - component: {fileID: 1674325532805212697}
-  - component: {fileID: 3262539795392515524}
+  - component: {fileID: 1674325532805212703}
   - component: {fileID: -323414408970278589}
-  - component: {fileID: 3262539795635730653}
-  - component: {fileID: 3262539795635730652}
+  - component: {fileID: 3262539795392515524}
   - component: {fileID: 7267851849150364270}
+  - component: {fileID: 3262539795635730653}
+  - component: {fileID: 1674325532805212697}
+  - component: {fileID: 3262539795635730652}
   - component: {fileID: 8570076786609529790}
   - component: {fileID: -752948145474423905}
   m_Layer: 11
@@ -754,6 +754,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1674325532805212696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674325532805212699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92384a211a8cb3c419caac49f80ecbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackComponent: {fileID: 7267851849150364270}
+  entityStats: {fileID: 0}
+  multiplyRun: 2
 --- !u!114 &1674325532805212703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,65 +798,6 @@ MonoBehaviour:
   pickUpMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &1674325532805212696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674325532805212699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92384a211a8cb3c419caac49f80ecbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackComponent: {fileID: 7267851849150364270}
-  entityStats: {fileID: 0}
-  multiplyRun: 2
---- !u!54 &1674325532805212697
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674325532805212699}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &3262539795392515524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674325532805212699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882f6310e0bc3ba41b8bd04ccff2a6da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxPlayerDistanceToUpdate: 150
-  attackDistance: 15
-  yPositionTolerance: -2
-  spotAngle: 50
-  chaseDistance: 50
-  chaseSpeedMultiplier: 1
-  maxTimeBetweenPatrols: 5
-  minTimeBetweenPatrols: 3
-  distanceToPatrol: 30
-  patrolStoppingTolerance: 10
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  anim: {fileID: 3247137947644890674}
-  dinoType: 2
-  origin: 3
 --- !u!114 &-323414408970278589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,6 +842,57 @@ MonoBehaviour:
     multiplySubtract: 1
     current: 0
     maxCurrent: 0
+--- !u!114 &3262539795392515524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674325532805212699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882f6310e0bc3ba41b8bd04ccff2a6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayerDistanceToUpdate: 150
+  attackDistance: 15
+  yPositionTolerance: -2
+  spotAngle: 50
+  chaseDistance: 50
+  chaseSpeedMultiplier: 1
+  maxTimeBetweenPatrols: 5
+  minTimeBetweenPatrols: 3
+  distanceToPatrol: 30
+  patrolStoppingTolerance: 10
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  anim: {fileID: 3247137947644890674}
+  dinoType: 2
+  origin: 3
+--- !u!114 &7267851849150364270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674325532805212699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36bc1334ca9d16141ac4da012a9f7b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  maxCooldown: 1.5
+  currentAttackType: 0
+  anim: {fileID: 3247137947644890674}
+  projectilePrefab: {fileID: 1529946139122123432, guid: e8eb34df166d24e489170a21026d381e,
+    type: 3}
+  projectileSpawn: {fileID: 8387710510737473164}
+  projectileSpeed: 7.5
+  aimOffset: -2
 --- !u!114 &3262539795635730653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,6 +927,22 @@ MonoBehaviour:
   m_TimeToStationary: 0.5
   m_CarveOnlyStationary: 1
   hiddenAgentGameObject: {fileID: 0}
+--- !u!54 &1674325532805212697
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674325532805212699}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!195 &3262539795635730652
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -942,28 +965,6 @@ NavMeshAgent:
   m_BaseOffset: -1.35
   m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
---- !u!114 &7267851849150364270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674325532805212699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36bc1334ca9d16141ac4da012a9f7b66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  maxCooldown: 1.5
-  currentAttackType: 0
-  anim: {fileID: 3247137947644890674}
-  projectilePrefab: {fileID: 1529946139122123432, guid: e8eb34df166d24e489170a21026d381e,
-    type: 3}
-  projectileSpawn: {fileID: 8387710510737473164}
-  projectileSpeed: 7.5
 --- !u!136 &8570076786609529790
 CapsuleCollider:
   m_ObjectHideFlags: 0

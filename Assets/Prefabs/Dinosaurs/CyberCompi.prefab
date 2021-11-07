@@ -1293,8 +1293,8 @@ GameObject:
   - component: {fileID: 5218187656231218211}
   - component: {fileID: 3695730682713451181}
   - component: {fileID: 126573022399881312}
-  - component: {fileID: 4241996279657674751}
   - component: {fileID: -4786035309269634425}
+  - component: {fileID: 4241996279657674751}
   - component: {fileID: 6282258693734719997}
   - component: {fileID: 4214432730633940242}
   - component: {fileID: 139200824685194340}
@@ -1368,34 +1368,6 @@ MonoBehaviour:
   pickUpMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &4241996279657674751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837264753926420121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882f6310e0bc3ba41b8bd04ccff2a6da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxPlayerDistanceToUpdate: 150
-  attackDistance: 2
-  yPositionTolerance: 1
-  spotAngle: 50
-  chaseDistance: 20
-  chaseSpeedMultiplier: 1
-  maxTimeBetweenPatrols: 10
-  minTimeBetweenPatrols: 8
-  distanceToPatrol: 10
-  patrolStoppingTolerance: 2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  anim: {fileID: 3360362208952099462}
-  dinoType: 3
-  origin: 4
 --- !u!114 &-4786035309269634425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,6 +1412,35 @@ MonoBehaviour:
     multiplySubtract: 1
     current: 0
     maxCurrent: 0
+--- !u!114 &4241996279657674751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837264753926420121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882f6310e0bc3ba41b8bd04ccff2a6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayerDistanceToUpdate: 150
+  attackDistance: 2
+  yPositionTolerance: 1
+  spotAngle: 50
+  chaseDistance: 20
+  chaseSpeedMultiplier: 1
+  hasFrenzy: 1
+  maxTimeBetweenPatrols: 10
+  minTimeBetweenPatrols: 8
+  distanceToPatrol: 10
+  patrolStoppingTolerance: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  anim: {fileID: 3360362208952099462}
+  dinoType: 3
+  origin: 4
 --- !u!114 &6282258693734719997
 MonoBehaviour:
   m_ObjectHideFlags: 0

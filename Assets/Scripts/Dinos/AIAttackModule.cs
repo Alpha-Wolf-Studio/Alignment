@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class AIAttackModule : AttackComponent
 {
     float t = 0;
+    [SerializeField] protected Animator anim = null;
     protected Rigidbody rb = null;
     protected CustomNavMeshAgent agent = null;
     protected DinoType dinoClass = DinoType.Compsognathus;

@@ -29,6 +29,8 @@ public class DinoSpawn : MonoBehaviour
     public int dinoAmount = 0;
     public Action<DinoType> OnDinoDied;
 
+    List<EnemyAI> enemiesIA = new List<EnemyAI>();
+
     private void Start()
     {
         SpawnAllDinos();
@@ -45,8 +47,9 @@ public class DinoSpawn : MonoBehaviour
         }
     }
 
-    void DinoDied(DinoType type, int spawnIndex)
+    void DinoDied(DinoType type, EnemyAI ia)
     {
+        enemiesIA.Remove(ia);
         OnDinoDied?.Invoke(type);
         StartCoroutine(DinoRespawn());
     }
@@ -91,9 +94,19 @@ public class DinoSpawn : MonoBehaviour
     {
         EnemyAI ai = dinoGO.GetComponent<EnemyAI>();
         ai.OnDied += DinoDied;
+        ai.OnDinoRecievedDamage += FrenzyDinosaurs;
+        ai.OnPlayerSpotted += FrenzyDinosaurs;
         ai.playerTransform = playerTransform;
+        enemiesIA.Add(ai);
     }
 
+    void FrenzyDinosaurs() 
+    {
+        foreach (var ia in enemiesIA)
+        {
+            ia.StartFrenzy();
+        }
+    }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()

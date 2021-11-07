@@ -19,6 +19,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float spotAngle = 30;
     [SerializeField] float chaseDistance = 50f;
     [SerializeField] float chaseSpeedMultiplier = 1.0f;
+    [SerializeField] bool hasFrenzy = false;
+    [SerializeField] float maxFrenzyTime = 10f;
     float baseSpeed;
     float baseChaseSpeed;
     [Header("Patrol Behaviour")]
@@ -44,10 +46,12 @@ public class EnemyAI : MonoBehaviour
     [Space(10)]
     public DinoType dinoType = DinoType.Raptor;
     [SerializeField] DamageOrigin origin = DamageOrigin.Raptor;
-    int spawnIndex = 0;
-    public Action<DinoType, int> OnDied;
+    public Action<DinoType, EnemyAI> OnDied;
+    public Action OnDinoRecievedDamage;
+    public Action OnPlayerSpotted;
 
     float idleTime = 0;
+    float frenzyTime = 0;
 
     private void Awake()
     {
@@ -55,6 +59,7 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<CustomNavMeshAgent>();
         attackModule = GetComponent<AIAttackModule>();
         entity.OnDeath += StopMoving;
+        entity.OnEntityTakeDamage += ReactToDamage;
         currentTimeBetweenPatrols = minTimeBetweenPatrols;
     }
 
@@ -79,7 +84,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         agent.basicNavAgent.isStopped = true;
-        OnDied?.Invoke(dinoType, spawnIndex);
+        OnDied?.Invoke(dinoType, this);
         attackModule.StopAttackEvent();
         anim.SetBool("Walking", false);
         playerTransform = null;
@@ -97,10 +102,6 @@ public class EnemyAI : MonoBehaviour
             anim.enabled = true;
             currentBehaviourUpdate?.Invoke(distanceToPlayer);
         }
-    }
-    public void SetSpawnIndex(int index) 
-    {
-        spawnIndex = index;
     }
 
     void IdleUpdate(float distanceToPlayer)
@@ -165,17 +166,37 @@ public class EnemyAI : MonoBehaviour
             StartChaseCheck(distanceToPlayer);
         }
     }
-
     void FrenzyUpdate(float distanceToPlayer) 
     {
-
+        agent.SetDestination(playerTransform.position);
+        if (distanceToPlayer < attackDistance)
+        {
+            anim.SetBool("Walking", false);
+            currentBehaviourUpdate = AttackUpdate;
+        }
+        if (frenzyTime < maxFrenzyTime) frenzyTime += Time.deltaTime;
+        else
+        {
+            ResetChaseCheck(distanceToPlayer);
+        }
     }
-
-    public void ChangeToFrenzy() 
+    public void StartFrenzy()
     {
-        currentBehaviourUpdate = FrenzyUpdate;
+        if (!hasFrenzy) return;
+        if (currentBehaviourUpdate != AttackUpdate && currentBehaviourUpdate != ChaseUpdate)
+        {
+            frenzyTime = 0;
+            anim.SetBool("Walking", true);
+            currentBehaviourUpdate = FrenzyUpdate;
+        }
     }
-
+    public void ReactToDamage(DamageInfo info) 
+    {
+        frenzyTime = 0;
+        anim.SetBool("Walking", true);
+        currentBehaviourUpdate = FrenzyUpdate;
+        OnDinoRecievedDamage?.Invoke();
+    }
     void StartChaseCheck(float distanceToPlayer) 
     {
         if (distanceToPlayer < chaseDistance)
@@ -190,6 +211,7 @@ public class EnemyAI : MonoBehaviour
                 agent.SetDestination(playerTransform.position);
                 agent.Speed = baseChaseSpeed;
                 currentBehaviourUpdate = ChaseUpdate;
+                OnPlayerSpotted?.Invoke();
             }
         }
     }
