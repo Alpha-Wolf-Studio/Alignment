@@ -4,7 +4,7 @@ public class PlayerGame : PlayerState
 {
     private PlayerController player;
     private Entity playerEntity;
-    private Camera camera;
+    private Camera cam;
     private Rigidbody rb;
 
     public Action onOpenQuestPanel;
@@ -24,10 +24,13 @@ public class PlayerGame : PlayerState
     public bool useEnergyFly;
     public bool useEnergyRun;
 
+    [Space(10)]
+    [SerializeField] private ArmController armController;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        camera = Camera.main;
+        cam = Camera.main;
         player = GetComponent<PlayerController>();
         playerEntity = GetComponent<Entity>();
     }
@@ -53,7 +56,7 @@ public class PlayerGame : PlayerState
         movV += Input.GetAxisRaw("Mouse Y") * player.GetSensitives().y;
         movV = Mathf.Clamp(movV, player.GetCameraClamp().x, player.GetCameraClamp().y);
 
-        camera.transform.localEulerAngles = Vector3.left * movV;
+        cam.transform.localEulerAngles = Vector3.left * movV;
 
         if (flying && useEnergyFly)
         {
@@ -151,7 +154,7 @@ public class PlayerGame : PlayerState
     {
         if (Input.GetButtonDown("Fire2"))
         {
-            Ray screenRay = camera.ScreenPointToRay(Input.mousePosition);
+            Ray screenRay = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(screenRay, out hit, maxDistInteract))
             {
@@ -165,8 +168,6 @@ public class PlayerGame : PlayerState
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerAttack))
-                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerAttack), gameObject);
             DamageInfo info = new DamageInfo(playerEntity.entityStats.GetStat(StatType.Damage).GetCurrent(), DamageOrigin.Player, DamageType.Energy, transform);
             if (player.DamageOnShoot())
             {
@@ -180,9 +181,9 @@ public class PlayerGame : PlayerState
                 onShoot?.Invoke(player.maxCoolDownShoot, true);
                 player.currentCoolDownShoot = 0;
             }
-            Ray screenRay = camera.ScreenPointToRay(Input.mousePosition);
+            Ray screenRay = cam.ScreenPointToRay(Input.mousePosition);
             playerEntity.RefreshAttackStats(ref info);
-            player.attackComponent.Attack(screenRay.direction, info);
+            armController.StartArmAction(screenRay.direction, info);
         }
     }
     private void TryOpenTask()
