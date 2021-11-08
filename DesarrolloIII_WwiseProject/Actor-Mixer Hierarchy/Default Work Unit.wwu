@@ -48,6 +48,10 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Pasos_1" ID="{F1C913B7-1C98-4B7D-8FBA-367204603694}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.70326510044683"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Pasos_1.wav</AudioFile>
 									<MediaIDList>
@@ -71,6 +75,10 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Pasos_2" ID="{1F03015D-C9C5-4E49-9121-516C8FA3538F}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Pasos_2.wav</AudioFile>
 									<MediaIDList>
@@ -94,6 +102,10 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Pasos_3" ID="{DD30DAB1-3673-483E-8444-09BAAA8101B8}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Pasos_3.wav</AudioFile>
 									<MediaIDList>
@@ -117,6 +129,10 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Pasos_4" ID="{50593A75-85F1-4795-A284-CBF1E7F5DE41}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Pasos_4.wav</AudioFile>
 									<MediaIDList>
@@ -428,6 +444,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Close_Craft_Menu" ID="{FB883105-EB5F-4F35-B3B6-F2AA641DCE39}" ShortID="326520252">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -455,6 +478,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Craft" ID="{B9AFDE7C-0919-423E-984B-3EE53C9FB271}" ShortID="955508777">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -501,6 +531,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Open_Craft_Menu" ID="{97B6A4DA-B665-4D37-8DFD-3AC78A9B2472}" ShortID="255263303">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -529,6 +566,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Player_Death" ID="{6B0D7A88-DC93-4452-AE4B-D617CFCD1C76}" ShortID="710172619">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -539,6 +583,11 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="Player_Death" ID="{4734F173-CD77-4AD6-9E0A-BBBFF8E99869}">
+							<PropertyList>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.780079904977865"/>
+								<Property Name="FadeOutDuration" Type="Real64" Value="1.08162339765838"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>Player_Death.wav</AudioFile>
 							<MediaIDList>
@@ -552,6 +601,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Swipe_Menu_Items" ID="{8AFAE947-3F24-4C44-B509-2822B61442BC}" ShortID="1041907644">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>49</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -574,6 +630,157 @@
 						<ActiveSource Name="Swipe_Menu_Items" ID="{E2E5DCE8-788B-422B-BA96-A2FE366AF714}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<RandomSequenceContainer Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" ShortID="683319215">
+					<PropertyList>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{A8CE547A-05C2-4853-9513-4A96E6EBC42E}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="200"/>
+											<Property Name="Min" Type="Real64" Value="-200"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+						<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Pasos_1" ID="{55500884-F561-436F-B682-460DB19402A0}" ShortID="480167054">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pasos_1" ID="{D9154107-B3A1-4DA7-99C7-5D1AE680636C}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.00520166494413336"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0104033298882668"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.130041623603334"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.70638609941331"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Pasos_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="35676818"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Pasos_1" ID="{D9154107-B3A1-4DA7-99C7-5D1AE680636C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pasos_2" ID="{133A0887-210E-4142-9D61-C052F8AD8B5F}" ShortID="161136045">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pasos_2" ID="{C2796CB3-2033-41CB-B7CF-EF3C4CEC4090}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.00883394778924418"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.602314621993922"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Pasos_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="196558198"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Pasos_2" ID="{C2796CB3-2033-41CB-B7CF-EF3C4CEC4090}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pasos_3" ID="{D7E77E4A-211A-47E9-A557-5B085428B176}" ShortID="110425105">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pasos_3" ID="{85C95940-08D9-4BC1-9ABB-86545C01A5B9}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0059583969642279"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.503815565530823"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Pasos_3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="94513311"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Pasos_3" ID="{85C95940-08D9-4BC1-9ABB-86545C01A5B9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Pasos_4" ID="{7A879C79-FAFE-4991-9DA6-FD84430434DC}" ShortID="964681693">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pasos_4" ID="{CF3B23F7-D309-48E8-864A-9A4C9378DA8C}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0151171579743009"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.607709750566893"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Pasos_4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="880174321"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Pasos_4" ID="{CF3B23F7-D309-48E8-864A-9A4C9378DA8C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

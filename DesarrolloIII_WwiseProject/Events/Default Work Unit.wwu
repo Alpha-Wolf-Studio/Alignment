@@ -94,6 +94,17 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{1F169A48-FC54-4028-B3A3-024633029120}" ShortID="521789147">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="CompletedTask" ID="{FC681339-491B-4198-9DD4-38C8452A27BD}"/>
@@ -151,6 +162,17 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{159887BE-3726-4629-BED6-5B70FD89211A}" ShortID="184435781">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="UiCloseInventory" ID="{17613B5B-CD47-4729-BE03-8ED44935C33F}">
@@ -201,11 +223,45 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{5F2FBE77-E4C8-4BE1-90DE-53C3654FADEC}" ShortID="824297444">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}"/>
-				<Event Name="PlayerRunOn" ID="{9FCF69F1-7734-4423-A2D9-AA016F3438E2}"/>
-				<Event Name="PlayerRunOff" ID="{B7DA0096-6000-4F75-82A0-E1AB37C7288A}"/>
+				<Event Name="PlayerRunOn" ID="{9FCF69F1-7734-4423-A2D9-AA016F3438E2}">
+					<ChildrenList>
+						<Action Name="" ID="{50DA827F-FB91-4B6D-80C6-98A5E64A8772}" ShortID="874762318">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerRunOff" ID="{B7DA0096-6000-4F75-82A0-E1AB37C7288A}">
+					<ChildrenList>
+						<Action Name="" ID="{78481A6E-C8D3-4449-9B3E-B2FA736F5274}" ShortID="1063855748">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="CompyStepsOn" ID="{052E226C-3BB4-4B64-A2D2-D267F29B4128}"/>
 				<Event Name="CompyStepsOff" ID="{D4CEA577-DE2E-481D-84F4-568020E0E849}"/>
 				<Event Name="CompyIdleOn" ID="{CD1CD11E-093B-47EF-8C6A-892B23A960C2}"/>
