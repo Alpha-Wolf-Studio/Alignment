@@ -427,7 +427,7 @@
 						<ActiveSource Name="Player_Jump_With Landing" ID="{D00D3717-45AF-4291-8658-5B5CC601ABAD}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<BlendContainer Name="Craft_Menu" ID="{61D9A0C3-2A19-432D-93D8-B59B888E5C59}" ShortID="598165706">
+				<Sound Name="Close_Craft_Menu" ID="{FB883105-EB5F-4F35-B3B6-F2AA641DCE39}" ShortID="326520252">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -437,32 +437,143 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Objects, Misc, Plastic, Art Folder, Pick Up From Table SND20226 1" ID="{6AD3D64F-B1B2-4FE8-8F3F-49EA69729469}" ShortID="94318071">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Objects, Misc, Plastic, Art Folder, Pick Up From Table SND20226 1" ID="{0C3B6E84-37A1-4718-8A1C-3A5D91AE0793}">
-									<Language>SFX</Language>
-									<AudioFile>Objects, Misc, Plastic, Art Folder, Pick Up From Table SND20226 1.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="940755817"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="Objects, Misc, Plastic, Art Folder, Pick Up From Table SND20226 1" ID="{0C3B6E84-37A1-4718-8A1C-3A5D91AE0793}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
+						<AudioFileSource Name="Close_Craft_Menu" ID="{DE18568C-0B9C-4F54-90BE-F4D3673BCDB4}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="0.281680215548048"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Close_Craft_Menu.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="816861029"/>
+							</MediaIDList>
+						</AudioFileSource>
 					</ChildrenList>
 					<ObjectLists/>
-				</BlendContainer>
+					<ActiveSourceList>
+						<ActiveSource Name="Close_Craft_Menu" ID="{DE18568C-0B9C-4F54-90BE-F4D3673BCDB4}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Craft" ID="{B9AFDE7C-0919-423E-984B-3EE53C9FB271}" ShortID="955508777">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Craft" ID="{73376089-9255-48F5-9B70-580D573CBD17}">
+							<Language>SFX</Language>
+							<AudioFile>Craft.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="995517507"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Craft" ID="{73376089-9255-48F5-9B70-580D573CBD17}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Craft_2" ID="{2683C6F6-53AE-4E7F-B6B5-3694B1FFE219}" ShortID="1016166155">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Craft_2" ID="{A163A128-F411-4713-8CBD-D07EBCDC02EE}">
+							<Language>SFX</Language>
+							<AudioFile>Craft_2.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="93498598"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Craft_2" ID="{A163A128-F411-4713-8CBD-D07EBCDC02EE}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Open_Craft_Menu" ID="{97B6A4DA-B665-4D37-8DFD-3AC78A9B2472}" ShortID="255263303">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Open_Craft_Menu" ID="{D13546FF-45A6-49DD-B0B6-53432A6CD876}">
+							<PropertyList>
+								<Property Name="LoopBegin" Type="Real64" Value="0.110059594510518"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="0.110059594510518"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Open_Craft_Menu.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="501376799"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Open_Craft_Menu" ID="{D13546FF-45A6-49DD-B0B6-53432A6CD876}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Player_Death" ID="{6B0D7A88-DC93-4452-AE4B-D617CFCD1C76}" ShortID="710172619">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Player_Death" ID="{4734F173-CD77-4AD6-9E0A-BBBFF8E99869}">
+							<Language>SFX</Language>
+							<AudioFile>Player_Death.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="907855225"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Player_Death" ID="{4734F173-CD77-4AD6-9E0A-BBBFF8E99869}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Swipe_Menu_Items" ID="{8AFAE947-3F24-4C44-B509-2822B61442BC}" ShortID="1041907644">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Swipe_Menu_Items" ID="{E2E5DCE8-788B-422B-BA96-A2FE366AF714}">
+							<Language>SFX</Language>
+							<AudioFile>Swipe_Menu_Items.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="473294982"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Swipe_Menu_Items" ID="{E2E5DCE8-788B-422B-BA96-A2FE366AF714}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

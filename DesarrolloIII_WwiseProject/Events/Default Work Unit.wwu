@@ -79,10 +79,18 @@
 						<Action Name="" ID="{B0F23D0B-88FA-4231-8F16-8C7EADFD2274}" ShortID="1459655">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D81B3659-446C-4007-8E29-8F1C4FCAF034}" ShortID="108537971">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Death" ID="{6B0D7A88-DC93-4452-AE4B-D617CFCD1C76}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -128,6 +136,7 @@
 						<Action Name="" ID="{F9350E9D-26D8-4D4F-841A-BCED0B1BDED5}" ShortID="378305632">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -135,18 +144,56 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{9860F663-61EA-4601-AED6-44CA8478A855}" ShortID="1038796070">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Open_Craft_Menu" ID="{97B6A4DA-B665-4D37-8DFD-3AC78A9B2472}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="UiCloseInventory" ID="{17613B5B-CD47-4729-BE03-8ED44935C33F}"/>
-				<Event Name="UiSwapItem" ID="{25ED25D9-4C53-4080-BF9C-77A6148234E3}"/>
+				<Event Name="UiCloseInventory" ID="{17613B5B-CD47-4729-BE03-8ED44935C33F}">
+					<ChildrenList>
+						<Action Name="" ID="{C586AB8D-CE1F-40AB-ABDD-4C6DD879807C}" ShortID="107758898">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Close_Craft_Menu" ID="{FB883105-EB5F-4F35-B3B6-F2AA641DCE39}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UiSwapItem" ID="{25ED25D9-4C53-4080-BF9C-77A6148234E3}">
+					<ChildrenList>
+						<Action Name="" ID="{9823DE57-2878-4E12-9894-D41909AD08A6}" ShortID="166145217">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Swipe_Menu_Items" ID="{8AFAE947-3F24-4C44-B509-2822B61442BC}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="UiUseItem" ID="{F4CED4CC-5379-4B54-89CF-38E1C0B7D08D}"/>
-				<Event Name="UiCraftSuccessful" ID="{2BD260A3-4513-4AAC-83EF-6D757EE054F7}"/>
+				<Event Name="UiCraftSuccessful" ID="{2BD260A3-4513-4AAC-83EF-6D757EE054F7}">
+					<ChildrenList>
+						<Action Name="" ID="{5895B551-F0FA-40B2-A8FB-3A974ADAC480}" ShortID="811039605">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Craft" ID="{B9AFDE7C-0919-423E-984B-3EE53C9FB271}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="UiCraftFail" ID="{4A3F4A19-BB78-4673-AF84-596478FC8A5D}"/>
 				<Event Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}">
 					<ChildrenList>
 						<Action Name="" ID="{9091A824-F176-44D9-9A6C-CEBE8155EF5F}" ShortID="1022259712">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">

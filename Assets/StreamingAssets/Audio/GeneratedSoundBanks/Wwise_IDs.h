@@ -13,8 +13,21 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID AMBBEACH = 224212648U;
+        static const AkUniqueID AMBFIELD = 740467757U;
+        static const AkUniqueID AMBFOREST = 2316306096U;
         static const AkUniqueID COMPLETEDQUEST = 4152337806U;
         static const AkUniqueID COMPLETEDTASK = 3758255951U;
+        static const AkUniqueID COMPYATTACK = 4253121485U;
+        static const AkUniqueID COMPYIDLEOFF = 3876492038U;
+        static const AkUniqueID COMPYIDLEON = 1937292072U;
+        static const AkUniqueID COMPYSTEPSOFF = 3783367533U;
+        static const AkUniqueID COMPYSTEPSON = 3093023649U;
+        static const AkUniqueID DILOATTACK = 1541757387U;
+        static const AkUniqueID DILOIDLEOFF = 2107737252U;
+        static const AkUniqueID DILOIDLEON = 138865022U;
+        static const AkUniqueID DILOSTEPSOFF = 85808327U;
+        static const AkUniqueID DILOSTEPSON = 3394830707U;
         static const AkUniqueID PAUSEOFF = 3921005316U;
         static const AkUniqueID PAUSEON = 80751710U;
         static const AkUniqueID PLAYERARMORDAMAGE = 2739055032U;
@@ -28,6 +41,16 @@ namespace AK
         static const AkUniqueID PLAYERRUNON = 501044006U;
         static const AkUniqueID PLAYERSTEPSOFF = 1607351782U;
         static const AkUniqueID PLAYERSTEPSON = 3291823240U;
+        static const AkUniqueID RAPTORATTACK = 3271318801U;
+        static const AkUniqueID RAPTORIDLEOFF = 2253672050U;
+        static const AkUniqueID RAPTORIDLEON = 1912116756U;
+        static const AkUniqueID RAPTORSTEPSOFF = 2979538297U;
+        static const AkUniqueID RAPTORSTEPSON = 4208899533U;
+        static const AkUniqueID TRIKEATTACK = 3472234744U;
+        static const AkUniqueID TRIKEIDLEOFF = 3417965569U;
+        static const AkUniqueID TRIKEIDLEON = 3297773141U;
+        static const AkUniqueID TRIKESTEPSOFF = 2824895564U;
+        static const AkUniqueID TRIKESTEPSON = 4009645414U;
         static const AkUniqueID UIBUTTONENTER = 3935862555U;
         static const AkUniqueID UIBUTTONEXIT = 106216603U;
         static const AkUniqueID UICLICKBUTTON = 878168405U;
