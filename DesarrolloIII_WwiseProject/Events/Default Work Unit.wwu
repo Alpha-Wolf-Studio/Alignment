@@ -74,7 +74,20 @@
 				</Event>
 				<Event Name="PlayerArmorDamage" ID="{9992A5C0-BAF6-4398-95AE-ECE24D840D20}"/>
 				<Event Name="PlayerEnergyDamage" ID="{6A33BF2B-605A-4C37-8B9A-6394247CDAF0}"/>
-				<Event Name="PlayerDie" ID="{F028D97A-D034-4F6F-9CC0-EB5D59C7AB25}"/>
+				<Event Name="PlayerDie" ID="{F028D97A-D034-4F6F-9CC0-EB5D59C7AB25}">
+					<ChildrenList>
+						<Action Name="" ID="{B0F23D0B-88FA-4231-8F16-8C7EADFD2274}" ShortID="1459655">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="CompletedTask" ID="{FC681339-491B-4198-9DD4-38C8452A27BD}"/>
 				<Event Name="CompletedQuest" ID="{669CF6CA-C058-4F7A-90F2-EA9CFBF38D65}"/>
 				<Event Name="UiClickButton" ID="{82251FB2-C3E7-4514-A2F4-A7B8935E3407}">
@@ -110,16 +123,65 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="UiOpenInventory" ID="{83B7DC77-4A81-43FC-A105-00F76BAFA01F}"/>
+				<Event Name="UiOpenInventory" ID="{83B7DC77-4A81-43FC-A105-00F76BAFA01F}">
+					<ChildrenList>
+						<Action Name="" ID="{F9350E9D-26D8-4D4F-841A-BCED0B1BDED5}" ShortID="378305632">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="UiCloseInventory" ID="{17613B5B-CD47-4729-BE03-8ED44935C33F}"/>
 				<Event Name="UiSwapItem" ID="{25ED25D9-4C53-4080-BF9C-77A6148234E3}"/>
 				<Event Name="UiUseItem" ID="{F4CED4CC-5379-4B54-89CF-38E1C0B7D08D}"/>
 				<Event Name="UiCraftSuccessful" ID="{2BD260A3-4513-4AAC-83EF-6D757EE054F7}"/>
 				<Event Name="UiCraftFail" ID="{4A3F4A19-BB78-4673-AF84-596478FC8A5D}"/>
-				<Event Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}"/>
+				<Event Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}">
+					<ChildrenList>
+						<Action Name="" ID="{9091A824-F176-44D9-9A6C-CEBE8155EF5F}" ShortID="1022259712">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}"/>
 				<Event Name="PlayerRunOn" ID="{9FCF69F1-7734-4423-A2D9-AA016F3438E2}"/>
 				<Event Name="PlayerRunOff" ID="{B7DA0096-6000-4F75-82A0-E1AB37C7288A}"/>
+				<Event Name="CompyStepsOn" ID="{052E226C-3BB4-4B64-A2D2-D267F29B4128}"/>
+				<Event Name="CompyStepsOff" ID="{D4CEA577-DE2E-481D-84F4-568020E0E849}"/>
+				<Event Name="CompyIdleOn" ID="{CD1CD11E-093B-47EF-8C6A-892B23A960C2}"/>
+				<Event Name="CompyIdleOff" ID="{83636872-15A4-4BDE-8EA7-6D5C4B68BEAC}"/>
+				<Event Name="CompyAttack" ID="{16CAFB67-C85E-4549-9807-55D8071D11DA}"/>
+				<Event Name="RaptorStepsOn" ID="{C1EB89E3-111C-4A93-A7C0-CB3EA179DD28}"/>
+				<Event Name="RaptorStepsOff" ID="{569C8BF9-22A7-414C-9C49-AA6B0ACE3872}"/>
+				<Event Name="RaptorIdleOn" ID="{A56E82BB-4C77-45B3-9AE2-908B9A6A40FA}"/>
+				<Event Name="RaptorIdleOff" ID="{EF3E54BD-8A62-4C49-A6DB-5832D39A6E5B}"/>
+				<Event Name="RaptorAttack" ID="{760FC923-E8AF-43EB-84FE-597E5DC1A946}"/>
+				<Event Name="TrikeStepsOn" ID="{2DF318ED-4AF0-47D7-9A6B-B9BFA589420D}"/>
+				<Event Name="TrikeStepsOff" ID="{8FB6E948-B959-4F8C-A24C-AC848CE317C8}"/>
+				<Event Name="TrikeIdleOn" ID="{2A039015-B94F-4A8C-9069-68A30DFD98A9}"/>
+				<Event Name="TrikeIdleOff" ID="{84900ACA-E95A-4D0B-B2A8-8632D0E8AD1B}"/>
+				<Event Name="TrikeAttack" ID="{DE6F6692-B023-4D2B-8534-58F8DB268D37}"/>
+				<Event Name="DiloStepsOn" ID="{E5611D77-126E-41E0-A65A-8EE9147F7ED0}"/>
+				<Event Name="DiloStepsOff" ID="{114BA416-F01C-4650-A59D-CAE62C4944BA}"/>
+				<Event Name="DiloIdleOn" ID="{910B531F-6A5F-4582-A905-A451023E7522}"/>
+				<Event Name="DiloIdleOff" ID="{9CCD051F-62FC-4BA8-AF6D-9F1C1D87E48F}"/>
+				<Event Name="DiloAttack" ID="{0075DF13-AF8F-4AA2-AFC1-5CD05F951679}"/>
+				<Event Name="AmbField" ID="{5DB14B4D-E3B3-4731-A79A-DE909201E2E8}"/>
+				<Event Name="AmbBeach" ID="{CA528DF9-D86F-48C5-A9D2-3060E567978F}"/>
+				<Event Name="AmbForest" ID="{1181B9C7-2EFF-4B80-95C2-FB50E0B22E0F}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
