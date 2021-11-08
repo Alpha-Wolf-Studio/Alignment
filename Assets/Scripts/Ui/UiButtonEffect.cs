@@ -1,8 +1,8 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
 public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Action onButtonEnter;
@@ -19,11 +19,18 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private bool increment = false;
     private Vector3 initialScale;
     private Vector3 scale;
+
     [Header("Effect Image:")]
     [SerializeField] private bool modifyImage;
     [SerializeField] private Sprite imageDefault;
     [SerializeField] private Sprite imageHighlighted;
     private Image currentImage;
+
+    [Header("Effect Color Text:")] 
+    [SerializeField] private bool textHighlight;
+    [SerializeField] private TextMeshProUGUI textToHighlight;
+    [SerializeField] private Color colorHighlight;
+    private Color colorNormal;
 
     [Header("Other:")]
     [SerializeField] private bool enableObject;
@@ -33,7 +40,7 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         increment = false;
         initialScale = transform.localScale;
-
+        
         if (modifyHitBox)
             GetComponent<Image>().alphaHitTestMinimumThreshold = alphaRayCast;
 
@@ -48,6 +55,14 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
                 enableObject = false;
             }
         }
+
+        if (!textToHighlight)
+        {
+            textHighlight = false;
+            Debug.Log("No tiene asignado un Text.", gameObject);
+        }
+        else
+            colorNormal = textToHighlight.color;
     }
 
     private void OnEnable()
@@ -71,6 +86,9 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         if (enableObject)
             objectToEnable.SetActive(true);
+
+        if (textHighlight)
+            textToHighlight.color = colorHighlight;
     }
     public void OnMouseExitButton()
     {
@@ -84,6 +102,9 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         if (enableObject)
             objectToEnable.SetActive(false);
+
+        if (textHighlight)
+            textToHighlight.color = colorNormal;
     }
     private void ChangeScale()
     {

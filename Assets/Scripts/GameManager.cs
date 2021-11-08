@@ -1,15 +1,13 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-
     public Entity playerEntity;
     public QuestManager questHandler;
     public PlayerController player;
 
     void Start()
     {
+        GameInPause(false);
         QuestManager.Get().OnRepairedShip += CompletedGame;
         LoadGameManager();  // Sacar esta linea cuando se instancie en el menu
     }
@@ -44,6 +42,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public void ChangeScene(string scene, string gameOverText)
     {
         SceneManager.Get().LoadSceneAsync(scene, gameOverText);
+    }
+    public void GameInPause(bool pause)
+    {
+        Time.timeScale = pause ? 0 : 1;
     }
 }
 

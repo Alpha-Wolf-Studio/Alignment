@@ -154,12 +154,12 @@ public class Console : MonoBehaviour, IPointerClickHandler
     private void PauseGame()
     {
         pause = !pause;
-        Time.timeScale = pause ? 0 : 1;
+        GameManager.Get().GameInPause(pause);
     }
     private void PauseGame(bool on)
     {
         pause = on;
-        Time.timeScale = on ? 0 : 1;
+        GameManager.Get().GameInPause(pause);
     }
     public void OnPointerClick(PointerEventData eventData)
     {

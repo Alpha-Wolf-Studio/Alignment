@@ -13,7 +13,7 @@ public class UIMenuManager : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 1;
+        GameManager.Get().GameInPause(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         versionText.text = "Version: " + Application.version;

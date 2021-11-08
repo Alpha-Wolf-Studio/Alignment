@@ -39,7 +39,6 @@ public class UiManager : MonoBehaviour
         player.onPause += Pause;
         console.GetComponent<Console>().onOpenConsole += OpenConsole;
         player.playerGame.onOpenQuestPanel += OpenQuestPanel;
-        Time.timeScale = 1;
 
         versionText.text = "Version: " + Application.version;
     }
@@ -114,7 +113,7 @@ public class UiManager : MonoBehaviour
     {
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PauseOn))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PauseOn), gameObject);
-        Time.timeScale = 0;
+        GameManager.Get().GameInPause(false);
         player.ChangeControllerToNone();
         onTimeFadePause = 0;
         canvasGroup[(int)CanvasGroupList.Pause].alpha = 0;
@@ -164,7 +163,7 @@ public class UiManager : MonoBehaviour
         EnableCanvasGroup(canvasGroup[(int) CanvasGroupList.GamePlay], true);
         onTimeFadePause = 0;
         player.ChangeControllerToGame();
-        Time.timeScale = 1;
+        GameManager.Get().GameInPause(true);
         player.AvailableCursor(false);
         menuActual = CanvasGroupList.GamePlay;
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PauseOff))
