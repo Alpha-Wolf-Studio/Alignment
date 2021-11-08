@@ -40,7 +40,7 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         increment = false;
         initialScale = transform.localScale;
-        
+
         if (modifyHitBox)
             GetComponent<Image>().alphaHitTestMinimumThreshold = alphaRayCast;
 
@@ -56,15 +56,17 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             }
         }
 
-        if (!textToHighlight)
+        if (textHighlight)
         {
-            textHighlight = false;
-            Debug.Log("No tiene asignado un Text.", gameObject);
+            if (!textToHighlight)
+            {
+                textHighlight = false;
+                Debug.Log("No tiene asignado un Text.", gameObject);
+            }
+            else
+                colorNormal = textToHighlight.color;
         }
-        else
-            colorNormal = textToHighlight.color;
     }
-
     private void OnEnable()
     {
         transform.localScale = initialScale;

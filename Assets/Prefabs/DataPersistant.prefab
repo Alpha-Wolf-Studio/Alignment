@@ -45,27 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
   uiOptions: {fileID: 0}
-  gameSettings:
-    controls:
-      sensitiveHor: 2
-      sensitiveVer: 2
-    general:
-      qualityLevelNames:
-      - Low
-      - Normal
-      - High
-      - Ultra
-      resolutions:
-      - {x: 1920, y: 1080}
-      - {x: 1280, y: 720}
-      - {x: 960, y: 540}
-      - {x: 640, y: 480}
-      currentResolution: 0
-      qualityLevel: 3
-      fullScreen: 1
-      vSync: 1
-    sounds:
-      general: 1
-      music: 1
-      effects: 1
   playerController: {fileID: 0}

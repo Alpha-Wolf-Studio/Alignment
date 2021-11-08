@@ -5,22 +5,22 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public QuestManager questHandler;
     public PlayerController player;
 
-    void Start()
+    private void Start()
     {
         GameInPause(false);
         QuestManager.Get().OnRepairedShip += CompletedGame;
         LoadGameManager();  // Sacar esta linea cuando se instancie en el menu
     }
-    void LoadGameManager()
+    private void LoadGameManager()
     {
         if (!playerEntity) playerEntity = FindObjectOfType<PlayerController>().GetComponent<Entity>();
         playerEntity.OnDeath += PlayerDeath;
     }
-    void UnloadGameManager()
+    private void UnloadGameManager()
     {
         if (playerEntity) playerEntity.OnDeath -= PlayerDeath;
     }
-    void PlayerDeath(DamageInfo info)
+    private void PlayerDeath(DamageInfo info)
     {
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerDie))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerDie), gameObject);
@@ -29,12 +29,12 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         var gameOverText = UIGameOverScreen.GetGameOverText(info.origin);
         GameOver(gameOverText);
     }
-    void CompletedGame() 
+    private void CompletedGame() 
     {
         player.ChangeControllerToNone();
         GameOver("You repaired the ship and got the timeline fixed.");
     }
-    void GameOver(string gameOverText = "")
+    private void GameOver(string gameOverText = "")
     {
         playerEntity.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         ChangeScene("Menu", gameOverText);

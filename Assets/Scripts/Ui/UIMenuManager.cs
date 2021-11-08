@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
-
 public class UIMenuManager : MonoBehaviour
 {
     [SerializeField] private CanvasGroup[] menues;
@@ -13,12 +10,10 @@ public class UIMenuManager : MonoBehaviour
 
     void Start()
     {
-        GameManager.Get().GameInPause(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         versionText.text = "Version: " + Application.version;
     }
-
     public enum Menues { Main, Play, Credits, Options, Exit }
     public Menues menuActual = Menues.Main;
     private float onTime;

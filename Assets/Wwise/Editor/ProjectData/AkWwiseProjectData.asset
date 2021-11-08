@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: b8dd45da69e9104c8fe61301ca7f2a0f
     GuidInternal: 
-    m_lastTime: -8585657888260274335
+    m_lastTime: -8585652653179447418
     List:
     - name: SoundBankTest
       guid: 382813bbc9f3d741bdbdd44cfa6e72e7
@@ -94,8 +94,59 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: ef7188ef8b223d43803ff70594d394b5
     GuidInternal: 
-    m_lastTime: -8585657888262176090
+    m_lastTime: -8585652653179866298
     List:
+    - name: AmbBeach
+      guid: f98d52ca6fd8c548a9d23060e567978f
+      id: 224212648
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: AmbBeach
+        ObjectType: 3
+        guid: f98d52ca6fd8c548a9d23060e567978f
+      Path: Events\Default Work Unit\AmbBeach
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: AmbField
+      guid: 4d4bb15db3e33147a79ade909201e2e8
+      id: 740467757
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: AmbField
+        ObjectType: 3
+        guid: 4d4bb15db3e33147a79ade909201e2e8
+      Path: Events\Default Work Unit\AmbField
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: AmbForest
+      guid: c7b98111ff2e804b95c2fb50e0b22e0f
+      id: 2316306096
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: AmbForest
+        ObjectType: 3
+        guid: c7b98111ff2e804b95c2fb50e0b22e0f
+      Path: Events\Default Work Unit\AmbForest
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: CompletedQuest
       guid: caf69c6658c07a4f90f2ea9cfbf38d65
       id: 4152337806
@@ -127,6 +178,176 @@ MonoBehaviour:
         ObjectType: 3
         guid: 391368fc1b4998419dd438c8452a27bd
       Path: Events\Default Work Unit\CompletedTask
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: CompyAttack
+      guid: 67fbca165ec84945980755d8071d11da
+      id: 4253121485
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: CompyAttack
+        ObjectType: 3
+        guid: 67fbca165ec84945980755d8071d11da
+      Path: Events\Default Work Unit\CompyAttack
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: CompyIdleOff
+      guid: 72686383a415de4b8ea76d5c4b68beac
+      id: 3876492038
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: CompyIdleOff
+        ObjectType: 3
+        guid: 72686383a415de4b8ea76d5c4b68beac
+      Path: Events\Default Work Unit\CompyIdleOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: CompyIdleOn
+      guid: 1ed11ccd3b09ef478c6a892b23a960c2
+      id: 1937292072
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: CompyIdleOn
+        ObjectType: 3
+        guid: 1ed11ccd3b09ef478c6a892b23a960c2
+      Path: Events\Default Work Unit\CompyIdleOn
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: CompyStepsOff
+      guid: 77a5ced42ede1d4884f4568020e0e849
+      id: 3783367533
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: CompyStepsOff
+        ObjectType: 3
+        guid: 77a5ced42ede1d4884f4568020e0e849
+      Path: Events\Default Work Unit\CompyStepsOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: CompyStepsOn
+      guid: 6c222e05b43b644ba2d2d267f29b4128
+      id: 3093023649
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: CompyStepsOn
+        ObjectType: 3
+        guid: 6c222e05b43b644ba2d2d267f29b4128
+      Path: Events\Default Work Unit\CompyStepsOn
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: DiloAttack
+      guid: 13df75008fafa24aafc15cd05f951679
+      id: 1541757387
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: DiloAttack
+        ObjectType: 3
+        guid: 13df75008fafa24aafc15cd05f951679
+      Path: Events\Default Work Unit\DiloAttack
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: DiloIdleOff
+      guid: 1f05cd9cfc62a84baf6d9f1c1d87e48f
+      id: 2107737252
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: DiloIdleOff
+        ObjectType: 3
+        guid: 1f05cd9cfc62a84baf6d9f1c1d87e48f
+      Path: Events\Default Work Unit\DiloIdleOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: DiloIdleOn
+      guid: 1f530b915f6a8245a905a451023e7522
+      id: 138865022
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: DiloIdleOn
+        ObjectType: 3
+        guid: 1f530b915f6a8245a905a451023e7522
+      Path: Events\Default Work Unit\DiloIdleOn
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: DiloStepsOff
+      guid: 16a44b111cf05046a59dcae62c4944ba
+      id: 85808327
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: DiloStepsOff
+        ObjectType: 3
+        guid: 16a44b111cf05046a59dcae62c4944ba
+      Path: Events\Default Work Unit\DiloStepsOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: DiloStepsOn
+      guid: 771d61e56e12e041a65a8ee9147f7ed0
+      id: 3394830707
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: DiloStepsOn
+        ObjectType: 3
+        guid: 771d61e56e12e041a65a8ee9147f7ed0
+      Path: Events\Default Work Unit\DiloStepsOn
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -213,8 +434,8 @@ MonoBehaviour:
         guid: 7ad928f034d06f4f9cc0eb5d59c7ab25
       Path: Events\Default Work Unit\PlayerDie
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 5.781769
+      minDuration: 5.781769
     - name: PlayerDropItem
       guid: 823e2b8c48ac61488d574a240314a69f
       id: 1394561708
@@ -315,8 +536,8 @@ MonoBehaviour:
         guid: f169cf9f34772344a2d9aa016f3438e2
       Path: Events\Default Work Unit\PlayerRunOn
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: PlayerStepsOff
       guid: 638446bc3de84245859e580f4624f4c6
       id: 1607351782
@@ -351,6 +572,176 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: RaptorAttack
+      guid: 23c90f76afe8eb4384fe597e5dc1a946
+      id: 3271318801
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: RaptorAttack
+        ObjectType: 3
+        guid: 23c90f76afe8eb4384fe597e5dc1a946
+      Path: Events\Default Work Unit\RaptorAttack
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: RaptorIdleOff
+      guid: bd543eef628a494ca6db5832d39a6e5b
+      id: 2253672050
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: RaptorIdleOff
+        ObjectType: 3
+        guid: bd543eef628a494ca6db5832d39a6e5b
+      Path: Events\Default Work Unit\RaptorIdleOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: RaptorIdleOn
+      guid: bb826ea5774cb3459ae2908b9a6a40fa
+      id: 1912116756
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: RaptorIdleOn
+        ObjectType: 3
+        guid: bb826ea5774cb3459ae2908b9a6a40fa
+      Path: Events\Default Work Unit\RaptorIdleOn
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: RaptorStepsOff
+      guid: f98b9c56a7224c419c49aa6b0ace3872
+      id: 2979538297
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: RaptorStepsOff
+        ObjectType: 3
+        guid: f98b9c56a7224c419c49aa6b0ace3872
+      Path: Events\Default Work Unit\RaptorStepsOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: RaptorStepsOn
+      guid: e389ebc11c11934aa7c0cb3ea179dd28
+      id: 4208899533
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: RaptorStepsOn
+        ObjectType: 3
+        guid: e389ebc11c11934aa7c0cb3ea179dd28
+      Path: Events\Default Work Unit\RaptorStepsOn
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: TrikeAttack
+      guid: 92666fde23b02b4d853458f8db268d37
+      id: 3472234744
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: TrikeAttack
+        ObjectType: 3
+        guid: 92666fde23b02b4d853458f8db268d37
+      Path: Events\Default Work Unit\TrikeAttack
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: TrikeIdleOff
+      guid: ca0a90845ae90b4db2a88632d0e8ad1b
+      id: 3417965569
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: TrikeIdleOff
+        ObjectType: 3
+        guid: ca0a90845ae90b4db2a88632d0e8ad1b
+      Path: Events\Default Work Unit\TrikeIdleOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: TrikeIdleOn
+      guid: 1590032a4fb98c4a906968a30dfd98a9
+      id: 3297773141
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: TrikeIdleOn
+        ObjectType: 3
+        guid: 1590032a4fb98c4a906968a30dfd98a9
+      Path: Events\Default Work Unit\TrikeIdleOn
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: TrikeStepsOff
+      guid: 48e9b68f59b98c4fa24cac848ce317c8
+      id: 2824895564
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: TrikeStepsOff
+        ObjectType: 3
+        guid: 48e9b68f59b98c4fa24cac848ce317c8
+      Path: Events\Default Work Unit\TrikeStepsOff
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: TrikeStepsOn
+      guid: ed18f32df04ad7479a6bb9bfa589420d
+      id: 4009645414
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: TrikeStepsOn
+        ObjectType: 3
+        guid: ed18f32df04ad7479a6bb9bfa589420d
+      Path: Events\Default Work Unit\TrikeStepsOn
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: UiButtonEnter
       guid: 99e48611d2758945bc01be271403c040
       id: 3935862555
@@ -417,8 +808,8 @@ MonoBehaviour:
         guid: 5b3b611747cd2947be038ed44935c33f
       Path: Events\Default Work Unit\UiCloseInventory
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.696438
+      minDuration: 0.696438
     - name: UiCraftFail
       guid: 194a3f4a78bb7346af84596478fc8a5d
       id: 538913891
@@ -451,8 +842,8 @@ MonoBehaviour:
         guid: a360d22b1345ac4a83ef6d757ee054f7
       Path: Events\Default Work Unit\UiCraftSuccessful
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.783673
+      minDuration: 0.783673
     - name: UiOpenInventory
       guid: 77dcb783814afc43a10500f76bafa01f
       id: 863504537
@@ -468,8 +859,8 @@ MonoBehaviour:
         guid: 77dcb783814afc43a10500f76bafa01f
       Path: Events\Default Work Unit\UiOpenInventory
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.860666
+      minDuration: 0.860666
     - name: UiSwapItem
       guid: d925ed25534c8040bf9c77a6148234e3
       id: 3210062703
@@ -485,8 +876,8 @@ MonoBehaviour:
         guid: d925ed25534c8040bf9c77a6148234e3
       Path: Events\Default Work Unit\UiSwapItem
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.261224
+      minDuration: 0.261224
     - name: UiUseItem
       guid: ccd4cef47953544b89cf38e1c0b7d08d
       id: 2685053305

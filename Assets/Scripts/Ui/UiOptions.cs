@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class UiOptions : MonoBehaviour
 {
     public bool isGamePlay;
-    public Action<Controls> onChangeControl;
-    public Action<General> onChangeGeneral;
-    public Action<Sounds> onChangeSound;
+    public Action<SettingsControls> onChangeControl;
+    public Action<SettingsGeneral> onChangeGeneral;
+    public Action<SettingsSounds> onChangeSound;
 
     [Header("Components")] 
     [SerializeField] private Image[] buttons;
@@ -40,9 +40,9 @@ public class UiOptions : MonoBehaviour
     }
     public void UpdateAllValues()
     {
-        Controls controls = DataPersistant.Get().gameSettings.controls;
-        General general = DataPersistant.Get().gameSettings.general;
-        Sounds sounds = DataPersistant.Get().gameSettings.sounds;
+        SettingsControls controls = DataPersistant.Get().gameSettings.controls;
+        SettingsGeneral general = DataPersistant.Get().gameSettings.general;
+        SettingsSounds sounds = DataPersistant.Get().gameSettings.sounds;
 
         // Controls:
         sliderSensitiveHorizontal.value = controls.GetSensitiveHorizontal();

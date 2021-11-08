@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Numerics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Vector2 = UnityEngine.Vector2;
-
 public class DataCmd
 {
     public string name;
@@ -107,6 +104,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
         AddCommand("kill enemy", KillEnemies, "kill all enemies.");
         AddCommand("inv clear", ClearInventory, "Clear your Inventory.");
         AddCommand("inv add", AddFiveSlotsInventory, "Add 5 slots in Inventory.");
+        AddCommand("fog", FogOnOff, "Enable/Disable Fog.");
 
         AddCommand("cheat armor", InfinityArmor, "Infinity Armor.");
         AddCommand("cheat energy", InfinityEnergy, "Infinity Energy.");
@@ -200,7 +198,6 @@ public class Console : MonoBehaviour, IPointerClickHandler
         InfinityEnergy();
         InfinityStamina();
         AddJetPack();
-        RenderSettings.fog = false;
     }
     private void KillEnemies()
     {
@@ -216,6 +213,12 @@ public class Console : MonoBehaviour, IPointerClickHandler
             }
         }
     }
+    void FogOnOff()
+    {
+        RenderSettings.fog = !RenderSettings.fog;
+    }
+
+    // ------------------------------------------------------------------------------------
     public void ExpandContent(bool resetSize)
     {
         Vector2 size = content.sizeDelta;
