@@ -6,8 +6,8 @@ public class ArmController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public enum ArmTypeSelection { Free, Melee, Range};
-    ArmTypeSelection currentArmTypeSelection = ArmTypeSelection.Range;
+    public enum ArmTypeSelection { Free = 1, Melee, Range, Size};
+    ArmTypeSelection currentArmTypeSelection = ArmTypeSelection.Free;
     [SerializeField] AttackComponent meleeAttackComponent;
     [SerializeField] AttackComponent rangeAttackComponent;
     bool armLocked = false;
@@ -40,12 +40,12 @@ public class ArmController : MonoBehaviour
         else if(currentArmTypeSelection == ArmTypeSelection.Melee)
         {
             meleeAttackComponent.Attack(dir, info);
-            //anim.SetTrigger("Attack");
+            anim.SetTrigger("Attack");
         }
         else //if (currentArmTypeSelection == ArmTypeSelection.Range)
         {
             rangeAttackComponent.Attack(dir, info);
-            //anim.SetTrigger("Attack");
+            anim.SetTrigger("Attack");
             if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerAttack))
                 AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerAttack), gameObject);
         }

@@ -1,4 +1,5 @@
 ----------------------------------
-v0.13.2
-~ 
+v0.14
+~ Changed player bullet to reflect robot color.
+~ Added robot arm different animations/types (Free, Gun, Sword).
 ----------------------------------
