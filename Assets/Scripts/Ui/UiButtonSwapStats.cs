@@ -28,7 +28,7 @@ public class UiButtonSwapStats : MonoBehaviour, IPointerDownHandler
         colorOn = Color.white;
         colorOff = Color.white;
         colorOff.a = 0;
-        posEnd.x = -2780;
+        //posEnd.x = -2780;
         Initial();
     }
     public void Initial()

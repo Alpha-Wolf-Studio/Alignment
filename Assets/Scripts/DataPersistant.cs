@@ -35,7 +35,7 @@ public class DataPersistant : MonoBehaviourSingleton<DataPersistant>
         gameSettings.controls.SetSensitiveHorizontal(control.GetSensitiveHorizontal());
         gameSettings.controls.SetSensitiveVertical(control.GetSensitiveVertical());
     }
-    public void ChangeGenerals(SettingsGeneral general) // Todo: FALTA CARGAR DEMAS VARIABLES
+    public void ChangeGenerals(SettingsGeneral general)
     {
         //gameSettings.general.SetQualityText(general.GetQualityLevel());
         gameSettings.general.SetFullScreenMode(general.GetFullScreenMode());

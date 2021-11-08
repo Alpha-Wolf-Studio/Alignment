@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 public class SettingsSounds
 {
-    [SerializeField] private float general;
-    [SerializeField] private float music;
-    [SerializeField] private float effects;
+    private float general = 1;
+    private float music = 1;
+    private float effects = 1;
 
     public float GetVolumeGeneral() => general;
     public float GetVolumeMusic() => music;

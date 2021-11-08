@@ -2,8 +2,15 @@
 public class SettingsGeneral
 {
     [SerializeField] private string[] qualityLevelNames = new string[] { "Low", "Normal", "High", "Ultra" };
-    [SerializeField] private Vector2Int[] resolutions;
-    [SerializeField] private int currentResolution;
+    [SerializeField] private Vector2Int[] resolutions = new Vector2Int[]
+    {
+        new Vector2Int(2560, 1080),
+        new Vector2Int(1920, 1080),
+        new Vector2Int(1280, 720),
+        new Vector2Int(960, 540),
+        new Vector2Int(640, 480)
+    };
+    [SerializeField] private int currentResolution = 1;
 
     [SerializeField] private int qualityLevel = 3;
     [SerializeField] private bool fullScreen = true;
@@ -12,6 +19,7 @@ public class SettingsGeneral
     public bool GetFullScreenMode() => fullScreen;
     public bool GetVsyncMode() => vSync;
     public int GetCurrentResolution() => currentResolution;
+    public Vector2 GetCurrentResolutionVector2() => resolutions[currentResolution];
     public int GetMaxQuality() => qualityLevelNames.Length;
     public string GetNameQuality(int index) => qualityLevelNames[index];
     public string GetNameCurrentQuality() => qualityLevelNames[qualityLevel];

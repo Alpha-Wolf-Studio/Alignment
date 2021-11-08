@@ -3,8 +3,8 @@ using UnityEngine;
 public class SettingsControls
 {
     public Action changeSensitivePlayer;
-    [SerializeField] private float sensitiveHor;
-    [SerializeField] private float sensitiveVer;
+    [SerializeField] private float sensitiveHor = 2;
+    [SerializeField] private float sensitiveVer = 2;
 
     public Vector2 GetSensitives() => new Vector2(sensitiveHor, sensitiveVer);
     public float GetSensitiveHorizontal() => sensitiveHor;

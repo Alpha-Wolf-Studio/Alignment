@@ -145,6 +145,12 @@ public class UiInventory : MonoBehaviour
     }
     void OnInventory()
     {
+        //float width = DataPersistant.Get().gameSettings.general.GetCurrentResolutionVector2().x;
+        //panelGral.GetComponent<RectTransform>().sizeDelta = new Vector2(-width, 0);
+        //Debug.Log("sizeDelta: " + panelGral.GetComponent<RectTransform>().sizeDelta);
+        //Debug.Log("AnchoredPosition: " + panelGral.GetComponent<RectTransform>().anchoredPosition);
+        //Debug.Log("pivot: " + panelGral.GetComponent<RectTransform>().pivot);
+
         if (CheckForNewItemsSlots())
             Debug.Log("Nuevos Items Agregados.");
         RefreshAllButtons();
