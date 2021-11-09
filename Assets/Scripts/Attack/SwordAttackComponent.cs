@@ -4,33 +4,27 @@ using UnityEngine;
 
 public class SwordAttackComponent : AttackComponent
 {
-    [SerializeField] List<MeleeAttackCollider> meleeColliders = new List<MeleeAttackCollider>();
+    [SerializeField] List<MeleeAttackCheck> meleeChecks = new List<MeleeAttackCheck>();
+    [SerializeField] float range;
     public override void Attack(Vector3 dir, DamageInfo info)
     {
-        foreach (var collider in meleeColliders)
+        foreach (var meleeAttacks in meleeChecks)
         {
-            collider.SetColliders(info.amount, info.origin);
+            meleeAttacks.SetDamage(info.amount, range, info.origin, attackLayer);
         }
     }
     public override void Attack(Transform dirTransform, DamageInfo info)
     {
-        foreach (var collider in meleeColliders)
+        foreach (var meleeAttacks in meleeChecks)
         {
-            collider.SetColliders(info.amount, info.origin);
+            meleeAttacks.SetDamage(info.amount, range, info.origin, attackLayer);
         }
     }
-    public void StartAttackEvent()
+    public void StartDamageEvent()
     {
-        foreach (var collider in meleeColliders)
+        foreach (var meleeAttacks in meleeChecks)
         {
-            collider.StartCollider();
-        }
-    }
-    public void StopAttackEvent()
-    {
-        foreach (var collider in meleeColliders)
-        {
-            collider.StopCollider();
+            meleeAttacks.StartDamage();
         }
     }
 }

@@ -8,7 +8,7 @@ public class MeleeAttackCollider : MonoBehaviour
 
     private void Awake()
     {
-        col = GetComponent<Collider>();
+        col =  GetComponent<Collider>();
     }
 
     public void StartCollider() 
@@ -25,9 +25,9 @@ public class MeleeAttackCollider : MonoBehaviour
         origin = damageOrigin;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        IDamageable damageComponent = collision.collider.GetComponent<IDamageable>();
+        IDamageable damageComponent = other.gameObject.GetComponent<IDamageable>();
         if (damageComponent != null)
         {
             damageComponent.TakeDamage(new DamageInfo(damage, origin, DamageType.Armor, transform));
