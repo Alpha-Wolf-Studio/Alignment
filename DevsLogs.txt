@@ -1,5 +1,13 @@
 ----------------------------------
 v0.14
+
+~~ FEATURES ~~
+
 ~ Changed player bullet to reflect robot color.
-~ Added robot arm different animations/types (Free, Gun, Sword).
+~ Added robot arm different possible types (Free, Gun, Sword).
+
+~~ BUGFIXES ~~
+
+~ Hotfix Dilophosaurus dead animations glitching (Needs art revision).
+
 ----------------------------------
