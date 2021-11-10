@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IProjectile
 {
     [SerializeField] LayerMask areaMask;
+    [SerializeField] float onTimeDestroy = .5f;
+    [SerializeField] float pushForce = 0;
     float hitDamage = 0;
     DamageOrigin origin;
-    private float onTimeDestroy = 5.0f;
+    Rigidbody rb;
 
     private void Start()
     {
@@ -19,7 +21,8 @@ public class Projectile : MonoBehaviour
     {
         hitDamage = damage;
         origin = damageOrigin;
-        GetComponent<Rigidbody>().AddForce(dir * speed);
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(dir * speed);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,6 +34,5 @@ public class Projectile : MonoBehaviour
         {
             damageComponent.TakeDamage(new DamageInfo(hitDamage, origin, DamageType.Armor, transform));
         }
-        Destroy(gameObject);
     }
 }
