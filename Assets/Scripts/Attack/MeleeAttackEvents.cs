@@ -6,11 +6,11 @@ public class MeleeAttackEvents: MonoBehaviour
 {
     [SerializeField] AIAttackModule aiAttackModule = null;
 
-    void StartCollidersDamage()
+    void StartAttackEvent()
     {
         aiAttackModule.StartAttackEvent();
     }
-    void StopCollidersDamage()
+    void StopAttackEvent()
     {
         aiAttackModule.StopAttackEvent();
     }

@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class CompiAttackAI : AIAttackModule
 {
-    [SerializeField] List<MeleeAttackCollider> meleeColliders = new List<MeleeAttackCollider>();
+    [SerializeField] List<MeleeAttackCheck> meleeAttackCheck = new List<MeleeAttackCheck>();
+    [SerializeField] float attackRange = 1f;
     public override void Attack(Transform dirTransfom, DamageInfo info)
     {
         Vector3 frontDir = dirTransfom.position - transform.position;
         agent.SetDestination(transform.position);
         AIAimToAttack(frontDir);
-        foreach (var collider in meleeColliders)
+        foreach (var check in meleeAttackCheck)
         {
-            collider.SetColliders(attackStrenght, info.origin);
+            check.SetDamage(attackStrenght, attackRange, info.origin, attackLayer);
         }
     }
     public override void StartAttackEvent()
     {
         AIAttacked();
-        foreach (var collider in meleeColliders)
+        foreach (var check in meleeAttackCheck)
         {
-            collider.StartCollider();
+            check.StartDamage();
         }
     }
+
+
     public override void StopAttackEvent()
     {
-        foreach (var collider in meleeColliders)
-        {
-            collider.StopCollider();
-        }
+        //throw new System.NotImplementedException();
     }
 }

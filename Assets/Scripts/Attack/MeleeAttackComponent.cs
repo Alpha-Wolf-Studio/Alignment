@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordAttackComponent : AttackComponent
+public class MeleeAttackComponent : AttackComponent
 {
     [SerializeField] List<MeleeAttackCheck> meleeChecks = new List<MeleeAttackCheck>();
     [SerializeField] float range;

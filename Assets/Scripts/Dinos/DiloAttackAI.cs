@@ -22,12 +22,14 @@ public class DiloAttackAI : AIAttackModule
             AIAttacked();
         }
     }
+
     public override void StartAttackEvent()
     {
-
+        //throw new System.NotImplementedException();
     }
+
     public override void StopAttackEvent()
     {
-
+        //throw new System.NotImplementedException();
     }
 }
