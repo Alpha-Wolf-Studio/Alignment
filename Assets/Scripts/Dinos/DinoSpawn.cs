@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class DinoSpawn : MonoBehaviour
 {
-    public void SetSpawn(GameObject dinoPrefab, LayerMask groundLayer, LayerMask blockLayer, float spawnTime, float minSpawnDistanceFromPlayer, Transform playerTransform) 
+    public void SetSpawn(GameObject dinoPrefab, LayerMask groundLayer, LayerMask blockLayer, float spawnTime, float minSpawnDistanceFromPlayer, Transform playerTransform, Transform dinoWorldParent) 
     {
         this.dinoPrefab = dinoPrefab;
         this.playerTransform = playerTransform;
@@ -16,8 +16,10 @@ public class DinoSpawn : MonoBehaviour
         this.minSpawnDistanceFromPlayer = minSpawnDistanceFromPlayer;
         this.groundLayer = groundLayer;
         this.blockLayer = blockLayer;
+        this.dinoWorldParent = dinoWorldParent;
     }
 
+    Transform dinoWorldParent = null;
     Transform playerTransform = null;
     GameObject dinoPrefab = null;
     float spawnTime = 5f;
@@ -56,7 +58,7 @@ public class DinoSpawn : MonoBehaviour
 
     GameObject SpawnDino(GameObject prefab, Vector3 pos)
     {
-        return Instantiate(prefab, pos, Quaternion.identity, gameObject.transform);
+        return Instantiate(prefab, pos, Quaternion.identity, dinoWorldParent);
     }
 
     Vector3 GetNewGroundRandomPosition()

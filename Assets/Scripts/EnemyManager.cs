@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [Header("General")]
+    [SerializeField] Transform dinosaurWorldParent = null;
     [SerializeField] Transform playerTransform = null;
     [SerializeField] float spawnTime = 5f;
     [SerializeField] float minSpawnDistanceFromPlayer = 50f;
@@ -39,7 +40,7 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < spawns.Count; i++)
         {
-            spawns[i].SetSpawn(prefab, groundLayer, blockLayer, spawnTime, minSpawnDistanceFromPlayer, playerTransform);
+            spawns[i].SetSpawn(prefab, groundLayer, blockLayer, spawnTime, minSpawnDistanceFromPlayer, playerTransform, dinosaurWorldParent);
             spawns[i].OnDinoDied += DinoDied;
         }
     }
