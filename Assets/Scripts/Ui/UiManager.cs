@@ -12,6 +12,7 @@ public class UiManager : MonoBehaviour
     public Color CoolDownReloading = Color.red;
     [HideInInspector] public Entity entity;
     [HideInInspector] public PlayerController player;
+    [SerializeField] ArmRange rangeWeapon = null;
     public RectTransform sightHud;
     private float speed = 10f;
     private float onTimeCD;
@@ -35,7 +36,7 @@ public class UiManager : MonoBehaviour
         player.ChangeControllerToNone();
         entity.OnUpdateStats += TakeDamage;
         entity.OnDeath += Death;
-        player.playerGame.onShoot += Shoot;
+        rangeWeapon.onShoot += Shoot;
         player.onPause += Pause;
         console.GetComponent<Console>().onOpenConsole += OpenConsole;
         player.playerGame.onOpenQuestPanel += OpenQuestPanel;

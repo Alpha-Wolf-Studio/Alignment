@@ -20,10 +20,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxCameraClampVertical = 50;
     [SerializeField] private float forceJump;
     [SerializeField] private float forceFly;
-    
-    [Space (10)]
-    public float maxCoolDownShoot;
-    public float currentCoolDownShoot = 10;
 
     private float energySpendRun = 0.2f;
     private float energyRegenerate = 0.05f;
@@ -54,13 +50,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        UpdateCoolDown();
         UpdateStamina();
-    }
-    void UpdateCoolDown()
-    {
-        if (currentCoolDownShoot < maxCoolDownShoot)
-            currentCoolDownShoot += Time.deltaTime;
     }
     void UpdateStamina()
     {
@@ -108,7 +98,6 @@ public class PlayerController : MonoBehaviour
             Cursor.visible = false;
         }
     }
-    public bool DamageOnShoot() => currentCoolDownShoot < maxCoolDownShoot;
     public void ChangeControllerToGame() => ChangeController(playerGame);
     public void ChangeControllerToPause() => ChangeController(playerPause);
     public void ChangeControllerToInventory()=> ChangeController(playerInventory);

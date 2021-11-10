@@ -42,4 +42,5 @@ public class PushProjectile : MonoBehaviour, IProjectile
             if (customNavMeshAgent) customNavMeshAgent.Move(rb.velocity * pushForce);
         }
     }
+
 }

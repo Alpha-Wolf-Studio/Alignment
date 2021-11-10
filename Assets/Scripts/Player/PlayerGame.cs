@@ -169,22 +169,16 @@ public class PlayerGame : PlayerState
         if (Input.GetButtonDown("Fire1"))
         {
             DamageInfo info = new DamageInfo(playerEntity.entityStats.GetStat(StatType.Damage).GetCurrent(), DamageOrigin.Player, DamageType.Energy, transform);
-            /*
-            if (player.DamageOnShoot())
-            {
-                //Debug.Log("Dispara y se Daña");
-                onShoot?.Invoke(player.maxCoolDownShoot, false);
-                playerEntity.TakeDamage(info);
-            }
-            else
-            {
-                //Debug.Log("Dispara");
-                onShoot?.Invoke(player.maxCoolDownShoot, true);
-                player.currentCoolDownShoot = 0;
-            }*/
             Ray screenRay = cam.ScreenPointToRay(Input.mousePosition);
             playerEntity.RefreshAttackStats(ref info);
-            armController.StartArmAction(screenRay.direction, info);
+            armController.StartArmOneShootAction(screenRay.direction, info);
+        }
+        else if (Input.GetButton("Fire1")) 
+        {
+            DamageInfo info = new DamageInfo(playerEntity.entityStats.GetStat(StatType.Damage).GetCurrent(), DamageOrigin.Player, DamageType.Energy, transform);
+            Ray screenRay = cam.ScreenPointToRay(Input.mousePosition);
+            playerEntity.RefreshAttackStats(ref info);
+            armController.StartArmContinuosAction(screenRay.direction, info);
         }
         for (int i = 1; i < (int)ArmController.ArmTypeSelection.Size; i++)
         {

@@ -6,8 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour, IProjectile
 {
     [SerializeField] LayerMask areaMask;
-    [SerializeField] float onTimeDestroy = .5f;
-    [SerializeField] float pushForce = 0;
+    [SerializeField] float onTimeDestroy = 5f;
     float hitDamage = 0;
     DamageOrigin origin;
     Rigidbody rb;
