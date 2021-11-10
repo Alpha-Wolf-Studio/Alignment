@@ -9,7 +9,7 @@ public class ArmRange : ArmType
     public float maxCoolDownShoot;
     float currentCoolDownShoot;
 
-    public Action<float, bool> onShoot;
+    public static Action<float, bool> onShoot;
 
     private void Awake()
     {
