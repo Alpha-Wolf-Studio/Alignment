@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 public class SettingsSounds
 {
+    public bool soundGeneralOn = true;
+    public bool soundMusicOn = true;
+    public bool soundEffectOn = true;
+
     private float general = 1;
     private float music = 1;
     private float effects = 1;
@@ -18,16 +22,13 @@ public class SettingsSounds
     public void SetVolumeGeneral(float value)
     {
         general = value;
-        // Evento a Wwise
     }
     public void SetVolumeMusic(float value)
     {
         music = value;
-        // Evento a Wwise
     }
     public void SetVolumeEffects(float value)
     {
         effects = value;
-        // Evento a Wwise
     }
 }

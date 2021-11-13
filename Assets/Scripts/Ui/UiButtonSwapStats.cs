@@ -43,7 +43,19 @@ public class UiButtonSwapStats : MonoBehaviour, IPointerDownHandler
     {
         if (!inProgress)
         {
+            FixPosEnd();
             StartCoroutine(SwapPanels());
+        }
+    }
+    void FixPosEnd()
+    {
+        if (DataPersistant.Get().gameSettings.general.GetCurrentResolution() == 0)
+        {
+            posEnd.x = -1280;
+        }
+        else
+        {
+            posEnd.x = -960;
         }
     }
     IEnumerator SwapPanels()

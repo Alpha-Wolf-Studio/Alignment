@@ -2962,6 +2962,10 @@ MonoBehaviour:
   sliderVolumeGeneral: {fileID: 7800920424996478427}
   sliderVolumeMusic: {fileID: 1646663083350036997}
   sliderVolumeEffects: {fileID: 1646663083795563699}
+  imgGeneral: {fileID: 8687304441845623823}
+  imgMusic: {fileID: 1646663083333208738}
+  imgEffect: {fileID: 1646663084666140359}
+  colorOffSound: {r: 0.6792453, g: 0.20825918, b: 0.20825918, a: 1}
 --- !u!1 &1646663085107028842
 GameObject:
   m_ObjectHideFlags: 0
@@ -7442,7 +7446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.2532065, y: 1}
-  m_AnchoredPosition: {x: 86.19995, y: -13.000488}
+  m_AnchoredPosition: {x: 86.19971, y: -13.000488}
   m_SizeDelta: {x: -171.25708, y: -323.4843}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4855712029175742913

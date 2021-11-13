@@ -32,17 +32,39 @@ public class UiOptions : MonoBehaviour
     [SerializeField] private Slider sliderVolumeGeneral;
     [SerializeField] private Slider sliderVolumeMusic;
     [SerializeField] private Slider sliderVolumeEffects;
-    
+    [SerializeField] private Image imgGeneral;
+    [SerializeField] private Image imgMusic;
+    [SerializeField] private Image imgEffect;
+    [SerializeField] private Color colorOffSound;
+
     private void Start()
     {
         DataPersistant.Get().InitialSettingsGame(this);
         UpdateAllValues();
     }
+
+    private SettingsControls controls;
+    private SettingsGeneral general;
+    private SettingsSounds sounds;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            controls = DataPersistant.Get().gameSettings.controls;
+            general = DataPersistant.Get().gameSettings.general;
+            sounds = DataPersistant.Get().gameSettings.sounds;
+
+            Debug.Log("General: " + sounds.soundGeneralOn + " " + sounds.GetVolumeGeneral());
+            Debug.Log("Music: " + sounds.soundMusicOn + " " + sounds.GetVolumeMusic());
+            Debug.Log("Effect: " + sounds.soundEffectOn + " " + sounds.GetVolumeEffect());
+        }
+    }
+
     public void UpdateAllValues()
     {
-        SettingsControls controls = DataPersistant.Get().gameSettings.controls;
-        SettingsGeneral general = DataPersistant.Get().gameSettings.general;
-        SettingsSounds sounds = DataPersistant.Get().gameSettings.sounds;
+        controls = DataPersistant.Get().gameSettings.controls;
+        general = DataPersistant.Get().gameSettings.general;
+        sounds = DataPersistant.Get().gameSettings.sounds;
 
         // Controls:
         sliderSensitiveHorizontal.value = controls.GetSensitiveHorizontal();
@@ -59,18 +81,25 @@ public class UiOptions : MonoBehaviour
         sliderVolumeMusic.value = sounds.GetVolumeMusic();
         sliderVolumeEffects.value = sounds.GetVolumeEffect();
 
+        Debug.Log("General: " + sounds.soundGeneralOn + " " + sounds.GetVolumeGeneral());
+        Debug.Log("Music: " + sounds.soundMusicOn + " " + sounds.GetVolumeMusic());
+        Debug.Log("Effect: " + sounds.soundEffectOn + " " + sounds.GetVolumeEffect());
+
         if (isGamePlay)
         {
             PlayerController playerController = FindObjectOfType<PlayerController>();
             DataPersistant.Get().LoadScene(playerController);
         }
+        
+        ChangeColorButton(imgGeneral, DataPersistant.Get().gameSettings.sounds.soundGeneralOn ? Color.white : colorOffSound);
+        ChangeColorButton(imgMusic, DataPersistant.Get().gameSettings.sounds.soundMusicOn ? Color.white : colorOffSound);
+        ChangeColorButton(imgEffect, DataPersistant.Get().gameSettings.sounds.soundEffectOn ? Color.white : colorOffSound);
     }
     public void SetAllValues()
     {
         // Controls:
         Vector2 sensitives = new Vector2(sliderSensitiveHorizontal.value, sliderSensitiveVertical.value);
         DataPersistant.Get().gameSettings.controls.SetSensitives(sensitives);
-
         // General:
         int quality = QualitySettings.GetQualityLevel();
         bool fullScreen = Screen.fullScreen;
@@ -78,7 +107,6 @@ public class UiOptions : MonoBehaviour
         Vector2Int resolution = new Vector2Int(Screen.currentResolution.width, Screen.currentResolution.height);
         int vSync = QualitySettings.vSyncCount;
         DataPersistant.Get().gameSettings.general.SetAllConfigurations(quality, fullScreen, currentResolution, resolution, vSync);
-
         // Sounds:
         DataPersistant.Get().gameSettings.sounds.SetAllVolumes(sliderVolumeGeneral.value, sliderVolumeMusic.value, sliderVolumeEffects.value);
     }
@@ -155,32 +183,54 @@ public class UiOptions : MonoBehaviour
     //---------- Sounds ------------
     public void SoundToggleGeneral()
     {
-        DataPersistant.Get().gameSettings.sounds.SetVolumeGeneral(0);
-        sliderVolumeGeneral.value = 0;
+        DataPersistant.Get().gameSettings.sounds.soundGeneralOn = !DataPersistant.Get().gameSettings.sounds.soundGeneralOn;
+        float volume = DataPersistant.Get().gameSettings.sounds.soundGeneralOn ? DataPersistant.Get().gameSettings.sounds.GetVolumeGeneral() : 0;
+        
+        AkSoundEngine.SetRTPCValue("VolGeneralValue", volume);
+        ChangeColorButton(imgGeneral, DataPersistant.Get().gameSettings.sounds.soundGeneralOn ? Color.white : colorOffSound);
     }
     public void SoundToggleMusic()
     {
-        DataPersistant.Get().gameSettings.sounds.SetVolumeMusic(0);
-        sliderVolumeMusic.value = 0;
+        DataPersistant.Get().gameSettings.sounds.soundMusicOn = !DataPersistant.Get().gameSettings.sounds.soundMusicOn;
+        float volume = DataPersistant.Get().gameSettings.sounds.soundGeneralOn ? DataPersistant.Get().gameSettings.sounds.GetVolumeGeneral() : 0;
+        
+        AkSoundEngine.SetRTPCValue("VolMusicValue", volume);
+        ChangeColorButton(imgMusic, DataPersistant.Get().gameSettings.sounds.soundMusicOn ? Color.white : colorOffSound);
     }
     public void SoundToggleEffect()
     {
-        DataPersistant.Get().gameSettings.sounds.SetVolumeEffects(0);
-        sliderVolumeEffects.value = 0;
+        DataPersistant.Get().gameSettings.sounds.soundEffectOn = !DataPersistant.Get().gameSettings.sounds.soundEffectOn;
+        float volume = DataPersistant.Get().gameSettings.sounds.soundGeneralOn ? DataPersistant.Get().gameSettings.sounds.GetVolumeGeneral() : 0;
+        
+        AkSoundEngine.SetRTPCValue("VolEffectValue", volume);
+        ChangeColorButton(imgEffect, DataPersistant.Get().gameSettings.sounds.soundEffectOn ? Color.white : colorOffSound);
     }
     public void SoundChangeGeneral(float value)
     {
         DataPersistant.Get().gameSettings.sounds.SetVolumeGeneral(value);
-        Debug.Log("General Cambiado a: " + value);
+        AkSoundEngine.SetRTPCValue("VolGeneralValue", value);
+        Debug.Log("VolGeneralValue Cambiado a: " + value);
+        ChangeColorButton(imgGeneral, Color.white);
+        DataPersistant.Get().gameSettings.sounds.soundGeneralOn = true;
     }
     public void SoundChangeMusic(float value)
     {
         DataPersistant.Get().gameSettings.sounds.SetVolumeMusic(value);
-        Debug.Log("Musicas Cambiada a: " + value);
+        AkSoundEngine.SetRTPCValue("VolMusicValue", value);
+        Debug.Log("VolMusicValue Cambiada a: " + value);
+        ChangeColorButton(imgMusic, Color.white);
+        DataPersistant.Get().gameSettings.sounds.soundMusicOn = true;
     }
     public void SoundChangeEffect(float value)
     {
         DataPersistant.Get().gameSettings.sounds.SetVolumeEffects(value);
-        Debug.Log("Efectos Cambiado a: " + value);
+        AkSoundEngine.SetRTPCValue("VolEffectValue", value);
+        Debug.Log("VolEffectValue Cambiado a: " + value);
+        ChangeColorButton(imgEffect, Color.white);
+        DataPersistant.Get().gameSettings.sounds.soundEffectOn = true;
+    }
+    void ChangeColorButton(Image btn, Color color)
+    {
+        btn.color = color;
     }
 }

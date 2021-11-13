@@ -163,7 +163,7 @@ public class UiManager : MonoBehaviour
         EnableCanvasGroup(canvasGroup[(int) CanvasGroupList.GamePlay], true);
         onTimeFadePause = 0;
         player.ChangeControllerToGame();
-        GameManager.Get().GameInPause(true);
+        GameManager.Get().GameInPause(false);
         player.AvailableCursor(false);
         menuActual = CanvasGroupList.GamePlay;
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PauseOff))

@@ -32,6 +32,7 @@ public class UiInventory : MonoBehaviour
     private RectTransform rtPanelInventory;
     private RectTransform rtPanelCrafting;
     private RectTransform rtPanelCharacter;
+    private RectTransform rtPanelGral;
     Vector4[] open = new Vector4[3];
     Vector4[] close = new Vector4[3];
 
@@ -43,6 +44,7 @@ public class UiInventory : MonoBehaviour
     private List<UiItemInventory> listUItemInventory = new List<UiItemInventory>();
 
     private bool loaded;
+    private Vector2 refResolution;
     private void Awake()
     {
         player = GameManager.Get().player;
@@ -51,9 +53,11 @@ public class UiInventory : MonoBehaviour
         rtPanelInventory = rmPanelInventory.GetComponent<RectTransform>();
         rtPanelCrafting = rtPanelInventory.GetComponent<RectTransform>();
         rtPanelCharacter = rtPanelInventory.GetComponent<RectTransform>();
+        rtPanelGral = panelGral.GetComponent<RectTransform>();
     }
     void Start()
     {
+        refResolution = DataPersistant.Get().gameSettings.general.GetCurrentResolutionVector2();
         Invoke(nameof(LoadInventoryUI), 0.1f);
 
         player.onInventory += OnInventory;
@@ -179,7 +183,20 @@ public class UiInventory : MonoBehaviour
             default:
                 break;
         }
+
+        ResizeWithResolution();
     }
+
+    void ResizeWithResolution() // Todo: Hacer que el UI del inventario/Stats se escale respecto a la resolucion de la pantalla.
+    {
+        Vector2 currentResolution = DataPersistant.Get().gameSettings.general.GetCurrentResolutionVector2();
+        Debug.Log("Resolucion Anterior: " + refResolution + "Resolucion Actual: " + currentResolution);
+        bool sameResolution = (refResolution == currentResolution);
+        if (sameResolution) return;
+        refResolution = currentResolution;
+        rtPanelGral.sizeDelta = currentResolution;
+    }
+
     // Padding:     || x = Left || z = Right || w = Top || y = Bottom ||
     IEnumerator OpeningInventory()
     {

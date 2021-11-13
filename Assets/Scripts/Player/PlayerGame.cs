@@ -86,6 +86,7 @@ public class PlayerGame : PlayerState
         {
             if (walking)
             {
+                //AkSoundEngine.PostEvent(AK.EVENTS.AMBBEACH, gameObject);
                 if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerStepsOff))
                 {
                     AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerStepsOff), gameObject);
