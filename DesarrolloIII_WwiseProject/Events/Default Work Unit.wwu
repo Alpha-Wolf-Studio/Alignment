@@ -276,7 +276,17 @@
 				<Event Name="TrikeStepsOff" ID="{8FB6E948-B959-4F8C-A24C-AC848CE317C8}"/>
 				<Event Name="TrikeIdleOn" ID="{2A039015-B94F-4A8C-9069-68A30DFD98A9}"/>
 				<Event Name="TrikeIdleOff" ID="{84900ACA-E95A-4D0B-B2A8-8632D0E8AD1B}"/>
-				<Event Name="TrikeAttack" ID="{DE6F6692-B023-4D2B-8534-58F8DB268D37}"/>
+				<Event Name="TrikeAttack" ID="{DE6F6692-B023-4D2B-8534-58F8DB268D37}">
+					<ChildrenList>
+						<Action Name="" ID="{0D8DDA81-8B4E-42EF-B869-48205A96A13E}" ShortID="440705589">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DTCK METAL CRASH Car Small" ID="{A81A6C08-8427-4A4E-9C49-7569F82E233D}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="DiloStepsOn" ID="{E5611D77-126E-41E0-A65A-8EE9147F7ED0}"/>
 				<Event Name="DiloStepsOff" ID="{114BA416-F01C-4650-A59D-CAE62C4944BA}"/>
 				<Event Name="DiloIdleOn" ID="{910B531F-6A5F-4582-A905-A451023E7522}"/>

@@ -11,12 +11,12 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3690994985">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2598589560">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="1946707388" Language="SFX" Hash="3712652935">
+		<SoundBank Id="1946707388" Language="SFX" Hash="725025874">
 			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankTest</ObjectPath>
 			<ShortName>SoundBankTest</ShortName>
 			<Path>SoundBankTest.bnk</Path>
@@ -51,7 +51,7 @@
 					<IncludedMemoryFiles>
 						<File Id="907855225" Language="SFX">
 							<ShortName>Player_Death.wav</ShortName>
-							<Path>SFX\Player_Death_10C4C929.wem</Path>
+							<Path>SFX\Player_Death_DF2BFD1C.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -93,19 +93,19 @@
 					<IncludedMemoryFiles>
 						<File Id="35676818" Language="SFX">
 							<ShortName>Pasos_1.wav</ShortName>
-							<Path>SFX\Pasos_1_56D32EDD.wem</Path>
+							<Path>SFX\Pasos_1_115548A3.wem</Path>
 						</File>
 						<File Id="94513311" Language="SFX">
 							<ShortName>Pasos_3.wav</ShortName>
-							<Path>SFX\Pasos_3_949219F4.wem</Path>
+							<Path>SFX\Pasos_3_9789A29B.wem</Path>
 						</File>
 						<File Id="196558198" Language="SFX">
 							<ShortName>Pasos_2.wav</ShortName>
-							<Path>SFX\Pasos_2_38647620.wem</Path>
+							<Path>SFX\Pasos_2_7691A653.wem</Path>
 						</File>
 						<File Id="880174321" Language="SFX">
 							<ShortName>Pasos_4.wav</ShortName>
-							<Path>SFX\Pasos_4_47376209.wem</Path>
+							<Path>SFX\Pasos_4_F867D3CF.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -126,7 +126,7 @@
 						</File>
 						<File Id="477441384" Language="SFX">
 							<ShortName>Pasos_1.wav</ShortName>
-							<Path>SFX\Pasos_1_B8130E40.wem</Path>
+							<Path>SFX\Pasos_1_01E6F46E.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -135,7 +135,14 @@
 				<Event Id="1912116756" Name="RaptorIdleOn" ObjectPath="\Events\Default Work Unit\RaptorIdleOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2979538297" Name="RaptorStepsOff" ObjectPath="\Events\Default Work Unit\RaptorStepsOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4208899533" Name="RaptorStepsOn" ObjectPath="\Events\Default Work Unit\RaptorStepsOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3472234744" Name="TrikeAttack" ObjectPath="\Events\Default Work Unit\TrikeAttack" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3472234744" Name="TrikeAttack" ObjectPath="\Events\Default Work Unit\TrikeAttack" DurationType="OneShot" DurationMin="1.094059" DurationMax="1.094059">
+					<IncludedMemoryFiles>
+						<File Id="695147693" Language="SFX">
+							<ShortName>DTCK METAL CRASH Car Small.wav</ShortName>
+							<Path>SFX\DTCK METAL CRASH Car Small_B3A2A3FE.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3417965569" Name="TrikeIdleOff" ObjectPath="\Events\Default Work Unit\TrikeIdleOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3297773141" Name="TrikeIdleOn" ObjectPath="\Events\Default Work Unit\TrikeIdleOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2824895564" Name="TrikeStepsOff" ObjectPath="\Events\Default Work Unit\TrikeStepsOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -168,7 +175,7 @@
 					<IncludedMemoryFiles>
 						<File Id="816861029" Language="SFX">
 							<ShortName>Close_Craft_Menu.wav</ShortName>
-							<Path>SFX\Close_Craft_Menu_BDB1208F.wem</Path>
+							<Path>SFX\Close_Craft_Menu_7881A363.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -185,7 +192,7 @@
 					<IncludedMemoryFiles>
 						<File Id="501376799" Language="SFX">
 							<ShortName>Open_Craft_Menu.wav</ShortName>
-							<Path>SFX\Open_Craft_Menu_2B37265A.wem</Path>
+							<Path>SFX\Open_Craft_Menu_F73A2624.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

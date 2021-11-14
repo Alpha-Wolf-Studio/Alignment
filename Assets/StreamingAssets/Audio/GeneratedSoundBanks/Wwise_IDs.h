@@ -62,6 +62,13 @@ namespace AK
         static const AkUniqueID UIUSEITEM = 2685053305U;
     } // namespace EVENTS
 
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID VOLEFFECT = 714118027U;
+        static const AkUniqueID VOLGENERAL = 2360153336U;
+        static const AkUniqueID VOLMUSIC = 1770950993U;
+    } // namespace GAME_PARAMETERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;

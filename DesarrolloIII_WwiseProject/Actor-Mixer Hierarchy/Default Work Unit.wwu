@@ -781,6 +781,35 @@
 					</ChildrenList>
 					<ObjectLists/>
 				</RandomSequenceContainer>
+				<Sound Name="DTCK METAL CRASH Car Small" ID="{A81A6C08-8427-4A4E-9C49-7569F82E233D}" ShortID="777101707">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="DTCK METAL CRASH Car Small" ID="{76DC3553-75EB-4054-9061-31DAC687A054}">
+							<PropertyList>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.755842002078608"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="0.123522817460317"/>
+								<Property Name="TrimEnd" Type="Real64" Value="1.21758205782313"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>DTCK METAL CRASH Car Small.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="695147693"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="DTCK METAL CRASH Car Small" ID="{76DC3553-75EB-4054-9061-31DAC687A054}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
