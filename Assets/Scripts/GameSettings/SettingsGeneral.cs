@@ -1,21 +1,25 @@
 ﻿using UnityEngine;
 public class SettingsGeneral
 {
-    [SerializeField] private string[] qualityLevelNames = new string[] { "Low", "Normal", "High", "Ultra" };
-    [SerializeField] private Vector2Int[] resolutions = new Vector2Int[]
+    private string[] qualityLevelNames = new string[] { "Low", "Normal", "High", "Ultra" };
+    private Vector2Int[] resolutions = new Vector2Int[]
     {
         new Vector2Int(2560, 1080),
         new Vector2Int(1920, 1080),
         new Vector2Int(1280, 720),
         new Vector2Int(960, 540),
-        new Vector2Int(640, 480)
+        new Vector2Int(640, 360)
     };
-    [SerializeField] private int currentResolution = 1;
+    private int currentResolution = 1;
 
-    [SerializeField] private int qualityLevel = 3;
-    [SerializeField] private bool fullScreen = true;
-    [SerializeField] private bool vSync = true;
+    private int qualityLevel = 3;
+    private bool fullScreen = true;
+    private bool vSync = true;
 
+    public void SetInitialValues()
+    {
+        SetResolution(1);
+    }
     public bool GetFullScreenMode() => fullScreen;
     public bool GetVsyncMode() => vSync;
     public int GetCurrentResolution() => currentResolution;

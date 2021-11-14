@@ -58,6 +58,14 @@ public class UiOptions : MonoBehaviour
             Debug.Log("Music: " + sounds.soundMusicOn + " " + sounds.GetVolumeMusic());
             Debug.Log("Effect: " + sounds.soundEffectOn + " " + sounds.GetVolumeEffect());
         }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Debug.Log("QualityLevel: " + general.GetQualityLevel());
+            Debug.Log("Resolution: " + general.GetCurrentResolution());
+            Debug.Log("ResolutionVector2: " + general.GetCurrentResolutionVector2());
+            Debug.Log("Vsync: " + general.GetVsyncMode());
+        }
     }
 
     public void UpdateAllValues()
@@ -71,6 +79,7 @@ public class UiOptions : MonoBehaviour
         sliderSensitiveVertical.value = controls.GetSensitiveVertical();
 
         // General:
+        general.SetInitialValues();
         UpdateTextQuality();
         windowed.isOn = general.GetFullScreenMode();
         dropdownResolutions.value = general.GetCurrentResolution();
@@ -81,9 +90,9 @@ public class UiOptions : MonoBehaviour
         sliderVolumeMusic.value = sounds.GetVolumeMusic();
         sliderVolumeEffects.value = sounds.GetVolumeEffect();
 
-        Debug.Log("General: " + sounds.soundGeneralOn + " " + sounds.GetVolumeGeneral());
-        Debug.Log("Music: " + sounds.soundMusicOn + " " + sounds.GetVolumeMusic());
-        Debug.Log("Effect: " + sounds.soundEffectOn + " " + sounds.GetVolumeEffect());
+        //Debug.Log("General: " + sounds.soundGeneralOn + " " + sounds.GetVolumeGeneral());
+        //Debug.Log("Music: " + sounds.soundMusicOn + " " + sounds.GetVolumeMusic());
+        //Debug.Log("Effect: " + sounds.soundEffectOn + " " + sounds.GetVolumeEffect());
 
         if (isGamePlay)
         {
@@ -101,6 +110,7 @@ public class UiOptions : MonoBehaviour
         Vector2 sensitives = new Vector2(sliderSensitiveHorizontal.value, sliderSensitiveVertical.value);
         DataPersistant.Get().gameSettings.controls.SetSensitives(sensitives);
         // General:
+        QualitySettings.SetQualityLevel(DataPersistant.Get().gameSettings.general.GetQualityLevel());
         int quality = QualitySettings.GetQualityLevel();
         bool fullScreen = Screen.fullScreen;
         int currentResolution = 0;

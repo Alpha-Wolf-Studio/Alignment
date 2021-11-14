@@ -5141,7 +5141,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: 960 x 540
       m_Image: {fileID: 0}
-    - m_Text: 640 x 480
+    - m_Text: 640 x 360
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

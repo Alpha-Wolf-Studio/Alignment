@@ -111,9 +111,9 @@ public class UiManager : MonoBehaviour
     }
     IEnumerator PauseEnabling()
     {
+        GameManager.Get().GameInPause(true);
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PauseOn))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PauseOn), gameObject);
-        GameManager.Get().GameInPause(false);
         player.ChangeControllerToNone();
         onTimeFadePause = 0;
         canvasGroup[(int)CanvasGroupList.Pause].alpha = 0;
@@ -163,11 +163,11 @@ public class UiManager : MonoBehaviour
         EnableCanvasGroup(canvasGroup[(int) CanvasGroupList.GamePlay], true);
         onTimeFadePause = 0;
         player.ChangeControllerToGame();
-        GameManager.Get().GameInPause(false);
         player.AvailableCursor(false);
         menuActual = CanvasGroupList.GamePlay;
         if (Sfx.Get().GetEnable(Sfx.ListSfx.PauseOff))
             AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PauseOff), gameObject);
+        GameManager.Get().GameInPause(false);
     }
     public void SwitchPanel(int otherMenu)
     {
