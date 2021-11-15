@@ -9,6 +9,7 @@ public class DataPersistant : MonoBehaviourSingleton<DataPersistant>
     {
         gameSettings = new GameSettings {controls = new SettingsControls(), general = new SettingsGeneral(), sounds = new SettingsSounds()};
         uiOptions.SetAllValues();
+        gameSettings.general.SetInitialValues();
     }
     private void OnDestroy()
     {

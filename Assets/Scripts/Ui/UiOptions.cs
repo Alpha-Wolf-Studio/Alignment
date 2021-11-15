@@ -79,7 +79,6 @@ public class UiOptions : MonoBehaviour
         sliderSensitiveVertical.value = controls.GetSensitiveVertical();
 
         // General:
-        general.SetInitialValues();
         UpdateTextQuality();
         windowed.isOn = general.GetFullScreenMode();
         dropdownResolutions.value = general.GetCurrentResolution();
