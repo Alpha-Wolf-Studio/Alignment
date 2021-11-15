@@ -79,6 +79,8 @@ public class UiManager : MonoBehaviour
     }
     void OpenConsole()
     {
+        if (menuActual != CanvasGroupList.GamePlay)
+            return;
         console.SetActive(!console.activeSelf);
     }
     void OpenQuestPanel()
@@ -203,7 +205,6 @@ public class UiManager : MonoBehaviour
     {
         SceneManager.Get().LoadSceneAsync(scene);
     }
-
     private void OnDestroy()
     {
         ArmRange.onShoot -= Shoot;

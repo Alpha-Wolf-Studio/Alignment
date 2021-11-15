@@ -1,9 +1,7 @@
 ﻿using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
 public class UiButtonSwapStats : MonoBehaviour, IPointerDownHandler
 {
     public Transform panelToMove;
@@ -28,7 +26,6 @@ public class UiButtonSwapStats : MonoBehaviour, IPointerDownHandler
         colorOn = Color.white;
         colorOff = Color.white;
         colorOff.a = 0;
-        //posEnd.x = -2780;
         Initial();
     }
     public void Initial()
@@ -43,19 +40,7 @@ public class UiButtonSwapStats : MonoBehaviour, IPointerDownHandler
     {
         if (!inProgress)
         {
-            FixPosEnd();
             StartCoroutine(SwapPanels());
-        }
-    }
-    void FixPosEnd()
-    {
-        if (DataPersistant.Get().gameSettings.general.GetCurrentResolution() == 0)
-        {
-            posEnd.x = -1280;
-        }
-        else
-        {
-            posEnd.x = -960;
         }
     }
     IEnumerator SwapPanels()
@@ -82,8 +67,6 @@ public class UiButtonSwapStats : MonoBehaviour, IPointerDownHandler
 
             yield return null;
         }
-
-
         open = !open;
         inProgress = false;
         onTime = 0;

@@ -10,20 +10,18 @@ public class SettingsGeneral
         new Vector2Int(960, 540),
         new Vector2Int(640, 360)
     };
-    private int currentResolution = 1;
+    private int currentResolution = 0;
 
     private int qualityLevel = 3;
     private bool fullScreen = true;
     private bool vSync = true;
 
-    public void SetInitialValues()
-    {
-        SetResolution(1);
-    }
+    public void SetInitialValues() => SetResolution(0);
     public bool GetFullScreenMode() => fullScreen;
     public bool GetVsyncMode() => vSync;
     public int GetCurrentResolution() => currentResolution;
     public Vector2 GetCurrentResolutionVector2() => resolutions[currentResolution];
+    public Vector2 GetVectorResolution(int resolution) => resolutions[resolution];
     public int GetMaxQuality() => qualityLevelNames.Length;
     public string GetNameQuality(int index) => qualityLevelNames[index];
     public string GetNameCurrentQuality() => qualityLevelNames[qualityLevel];
@@ -32,7 +30,6 @@ public class SettingsGeneral
         qualityLevel = QualitySettings.GetQualityLevel();
         return qualityLevel;
     }
-
     public void IncreaseLevel()
     {
         qualityLevel++;
