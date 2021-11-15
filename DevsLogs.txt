@@ -8,6 +8,8 @@ v0.14
 
 ~~ BUGFIXES ~~
 
+~ Hotfix dinosaurs damage collision check.
 ~ Hotfix Dilophosaurus dead animations glitching (Needs art revision).
+~ Hotfix Range cooldown not reseting after death.
 
 ----------------------------------
