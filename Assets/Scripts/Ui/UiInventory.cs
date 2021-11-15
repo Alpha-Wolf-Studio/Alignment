@@ -42,6 +42,7 @@ public class UiInventory : MonoBehaviour
     public Vector2 mousePos;
     public RectTransform contentInventory;
     private List<UiItemInventory> listUItemInventory = new List<UiItemInventory>();
+    [SerializeField] private UiButtonSwapStats uiButtonSwap;
 
     private bool loaded;
     private Vector2 refResolution;
@@ -187,14 +188,22 @@ public class UiInventory : MonoBehaviour
         ResizeWithResolution();
     }
 
-    void ResizeWithResolution() // Todo: Hacer que el UI del inventario/Stats se escale respecto a la resolucion de la pantalla.
+    void ResizeWithResolution()
     {
         Vector2 currentResolution = DataPersistant.Get().gameSettings.general.GetCurrentResolutionVector2();
         Debug.Log("Resolucion Anterior: " + refResolution + "Resolucion Actual: " + currentResolution);
         bool sameResolution = (refResolution == currentResolution);
         if (sameResolution) return;
         refResolution = currentResolution;
-        rtPanelGral.sizeDelta = currentResolution;
+
+        int res = DataPersistant.Get().gameSettings.general.GetCurrentResolution();
+        if (res == 0)
+            rtPanelGral.sizeDelta = currentResolution;
+        else
+        {
+            Vector2 resolutionReference = DataPersistant.Get().gameSettings.general.GetVectorResolution(1);
+            rtPanelGral.sizeDelta = resolutionReference;
+        }
     }
 
     // Padding:     || x = Left || z = Right || w = Top || y = Bottom ||
