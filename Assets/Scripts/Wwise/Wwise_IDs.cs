@@ -51,6 +51,13 @@ namespace AK
         public static uint UIUSEITEM = 2685053305U;
     } // public class EVENTS
 
+    public class GAME_PARAMETERS
+    {
+        public static uint VOLEFFECT = 714118027U;
+        public static uint VOLGENERAL = 2360153336U;
+        public static uint VOLMUSIC = 1770950993U;
+    } // public class GAME_PARAMETERS
+
     public class BANKS
     {
         public static uint INIT = 1355168291U;
