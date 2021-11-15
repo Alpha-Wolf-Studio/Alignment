@@ -203,4 +203,9 @@ public class UiManager : MonoBehaviour
     {
         SceneManager.Get().LoadSceneAsync(scene);
     }
+
+    private void OnDestroy()
+    {
+        ArmRange.onShoot -= Shoot;
+    }
 }
