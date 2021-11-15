@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Entity))]
 public class PlayerController : MonoBehaviour
