@@ -103,11 +103,11 @@ public class PlayerGame : PlayerState
             rb.MovePosition(transform.position + movementVector);
             if (useEnergyRun)
             {
-                playerEntity.entityStats.GetStat(StatType.Stamina).AddCurrent(-player.GetEnergySpendRun());
+                playerEntity.entityStats.GetStat(StatType.Stamina).AddCurrent(-player.GetEnergySpendRun() * Time.fixedDeltaTime);
             }
         }
 
-        if (playerEntity.entityStats.GetStat(StatType.Stamina).GetCurrent() < 0)
+        if (playerEntity.entityStats.GetStat(StatType.Stamina).GetCurrent() < Mathf.Epsilon)
         {
             speedMovement = playerEntity.entityStats.GetStat(StatType.Walk).GetCurrent();
             useEnergyRun = false;

@@ -20,8 +20,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float forceJump;
     [SerializeField] private float forceFly;
 
-    private float energySpendRun = 0.2f;
-    private float energyRegenerate = 0.05f;
+    private float energySpendRun = 20f;
+    private float energyRegenerate = 5f;
     
     public bool IsJetpack { get; set; }
     public bool IsGrounded{ get; set; }
@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
                 if (IsGrounded)
                 {
                     entity.entityStats.GetStat(StatType.Stamina).AddCurrent(energyRegenerate * Time.deltaTime);
+                    Debug.Log("Current Stamina: " + entity.entityStats.GetStat(StatType.Stamina).GetCurrent());
                 }
             }
         }
