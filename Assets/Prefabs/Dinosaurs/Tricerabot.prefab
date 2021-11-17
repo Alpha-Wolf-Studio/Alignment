@@ -756,8 +756,10 @@ MonoBehaviour:
   spotAngle: 50
   chaseDistance: 60
   chaseSpeedMultiplier: 1
-  maxTimeBetweenPatrols: 5
-  minTimeBetweenPatrols: 3
+  hasFrenzy: 0
+  maxFrenzyTime: 10
+  maxTimeBetweenPatrols: 12.5
+  minTimeBetweenPatrols: 10
   distanceToPatrol: 25
   patrolStoppingTolerance: 5
   groundLayer:
@@ -810,7 +812,7 @@ MonoBehaviour:
   - {fileID: 4204586854832778168}
   chargePushStrenght: 600
   chargeSpeedMultiplier: 5
-  ChargeStoppingDistance: 10
+  DirectChargeStoppingDistance: 2
   chargeMinStart: 30
   chargeMinResolveTime: 2
   chargeForwardOffset: 20

@@ -860,8 +860,10 @@ MonoBehaviour:
   spotAngle: 50
   chaseDistance: 50
   chaseSpeedMultiplier: 1
-  maxTimeBetweenPatrols: 5
-  minTimeBetweenPatrols: 3
+  hasFrenzy: 0
+  maxFrenzyTime: 10
+  maxTimeBetweenPatrols: 15
+  minTimeBetweenPatrols: 10
   distanceToPatrol: 30
   patrolStoppingTolerance: 10
   groundLayer:

@@ -1027,8 +1027,8 @@ MonoBehaviour:
   chaseSpeedMultiplier: 2
   hasFrenzy: 0
   maxFrenzyTime: 10
-  maxTimeBetweenPatrols: 15
-  minTimeBetweenPatrols: 20
+  maxTimeBetweenPatrols: 20
+  minTimeBetweenPatrols: 25
   distanceToPatrol: 30
   patrolStoppingTolerance: 5
   groundLayer:

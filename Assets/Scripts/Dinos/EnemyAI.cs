@@ -106,7 +106,6 @@ public class EnemyAI : MonoBehaviour
 
     void IdleUpdate(float distanceToPlayer)
     {
-        idleTime += Time.deltaTime;
         if (idleTime > currentTimeBetweenPatrols)
         {
             currentBehaviourUpdate = PatrolUpdate;
@@ -127,9 +126,7 @@ public class EnemyAI : MonoBehaviour
         }
         else 
         {
-            agent.basicNavAgent.isStopped = true;
-            agent.Speed = baseSpeed;
-            anim.SetBool("Walking", false);
+            idleTime += Time.deltaTime;
         }
         StartChaseCheck(distanceToPlayer);
     }
@@ -140,6 +137,10 @@ public class EnemyAI : MonoBehaviour
         float distance = Vector3.Distance(targetPos, transform.position);
         if (distance < patrolStoppingTolerance)
         {
+            agent.SetDestination(transform.position);
+            agent.Speed = baseSpeed;
+            anim.SetBool("Walking", false);
+            agent.basicNavAgent.isStopped = true;
             currentBehaviourUpdate = IdleUpdate;
         }
         StartChaseCheck(distanceToPlayer);
