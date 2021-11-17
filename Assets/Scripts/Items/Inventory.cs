@@ -215,6 +215,7 @@ public class Inventory : MonoBehaviour
     }
     public bool CheckForItem(Item item, int amount)
     {
+        if (amount == 0) return true;
         int itemID = item.id;
         int currentItemAmount = 0;
         foreach (var slot in currentSlots)

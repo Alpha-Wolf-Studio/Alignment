@@ -84,35 +84,30 @@ public class Crafting : MonoBehaviour
     {
         int posibleCrafts = 0;
         bool nextCraftPosible;
-
         do
         {
             nextCraftPosible = false;
             int itemsAmount = 0;
-            if (item.recipe.Count > 0)
+            foreach (var ingredient in item.recipe)
             {
-                foreach (var ingredient in item.recipe)
+                if (ingredient.item)
                 {
-                    if (ingredient.item)
+                    if (inventory.CheckForItem(ingredient.item, ingredient.amount * (posibleCrafts + 1)))
                     {
-                        if (inventory.CheckForItem(ingredient.item, ingredient.amount * posibleCrafts))
-                        {
-                            itemsAmount++;
-                        }
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Se jodió: " + item.itemName);
+                        itemsAmount++;
                     }
                 }
-                if(itemsAmount == item.recipe.Count) 
+                else
                 {
-                    nextCraftPosible = true;
-                    posibleCrafts++;
+                    Debug.LogWarning("Se jodió: " + item.itemName);
                 }
             }
+            if (itemsAmount == item.recipe.Count)
+            {
+                nextCraftPosible = true;
+                posibleCrafts++;
+            }
         } while (nextCraftPosible);
-
         return posibleCrafts;
     }
 
