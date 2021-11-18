@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1130191663244026340}
   - component: {fileID: -5917872292035721554}
   m_Layer: 8
-  m_Name: piedra 9
+  m_Name: Rock09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,6 +91,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 187557615884083006, guid: 0296cf5638a27c64c8f0228627702436, type: 3}
+  m_Mesh: {fileID: -1196997543532498129, guid: 48c2c922297fe1e48be9ea077a91ed97, type: 3}

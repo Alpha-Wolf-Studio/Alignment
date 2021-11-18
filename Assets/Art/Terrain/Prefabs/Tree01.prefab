@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1031197313663599647}
   - component: {fileID: 4170429921779157946}
   - component: {fileID: 2163030342621888368}
-  - component: {fileID: 7395006323699191959}
   - component: {fileID: 7302711520725515527}
   - component: {fileID: 6915178879548252794}
+  - component: {fileID: 4120611411134452863}
   m_Layer: 8
   m_Name: Tree01
   m_TagString: Untagged
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &7395006323699191959
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 361515930816208549}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6192452393166497923, guid: 2fdcc886153cfa249a949848ccdd306a, type: 3}
 --- !u!114 &7302711520725515527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,12 +112,26 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 5.4150004, y: 12.892, z: 5.2500005}
+  m_Extents: {x: 2.5, y: 12.5, z: 2.5}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.521, y: 12.253, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!136 &4120611411134452863
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361515930816208549}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.5
+  m_Height: 25
+  m_Direction: 1
+  m_Center: {x: 0, y: 11, z: 0}
 --- !u!1 &2860955798766567120
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 2.5, y: 12.5, z: 2.5}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1

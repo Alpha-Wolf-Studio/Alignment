@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7073900851269531102}
   - component: {fileID: -3967168341919393662}
   m_Layer: 8
-  m_Name: piedrah 12
+  m_Name: Rock12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,6 +91,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5684041857793506721, guid: 45eb0e718b3e40d448c5ada5e17c234b, type: 3}
