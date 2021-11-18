@@ -295,6 +295,10 @@
 				<Event Name="AmbField" ID="{5DB14B4D-E3B3-4731-A79A-DE909201E2E8}"/>
 				<Event Name="AmbBeach" ID="{CA528DF9-D86F-48C5-A9D2-3060E567978F}"/>
 				<Event Name="AmbForest" ID="{1181B9C7-2EFF-4B80-95C2-FB50E0B22E0F}"/>
+				<Event Name="PlayerAttackHit" ID="{CB362124-8463-4249-A58E-C19EC56DA609}"/>
+				<Event Name="PlayerSwordOn" ID="{5B4DC011-AB24-454D-9DA2-116C843768AE}"/>
+				<Event Name="PlayerSwordOff" ID="{BA3BBC21-78C8-493F-9F9F-1A8D8282E3AE}"/>
+				<Event Name="PlayerAttackSword" ID="{2799779F-C9FA-4F5E-B48A-A2657BE56549}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -11,6 +11,7 @@
 						<ObjectRef Name="PlayerAttack" ID="{6E5B7240-B370-4173-85CD-64EFF355A941}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="CompletedTask" ID="{FC681339-491B-4198-9DD4-38C8452A27BD}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DiloStepsOn" ID="{E5611D77-126E-41E0-A65A-8EE9147F7ED0}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerAttackHit" ID="{CB362124-8463-4249-A58E-C19EC56DA609}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerArmorDamage" ID="{9992A5C0-BAF6-4398-95AE-ECE24D840D20}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="RaptorAttack" ID="{760FC923-E8AF-43EB-84FE-597E5DC1A946}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
@@ -19,6 +20,7 @@
 						<ObjectRef Name="UiClickButton" ID="{82251FB2-C3E7-4514-A2F4-A7B8935E3407}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerStepsOff" ID="{BC468463-E83D-4542-859E-580F4624F4C6}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="CompyAttack" ID="{16CAFB67-C85E-4549-9807-55D8071D11DA}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerSwordOn" ID="{5B4DC011-AB24-454D-9DA2-116C843768AE}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DiloIdleOn" ID="{910B531F-6A5F-4582-A905-A451023E7522}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UiButtonEnter" ID="{1186E499-75D2-4589-BC01-BE271403C040}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="RaptorIdleOn" ID="{A56E82BB-4C77-45B3-9AE2-908B9A6A40FA}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
@@ -31,6 +33,7 @@
 						<ObjectRef Name="CompyStepsOff" ID="{D4CEA577-DE2E-481D-84F4-568020E0E849}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerDropItem" ID="{8C2B3E82-AC48-4861-8D57-4A240314A69F}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="AmbBeach" ID="{CA528DF9-D86F-48C5-A9D2-3060E567978F}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerSwordOff" ID="{BA3BBC21-78C8-493F-9F9F-1A8D8282E3AE}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerJump" ID="{4020E6A7-12AB-4A0F-BDDE-CF3BF0A96084}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="TrikeIdleOn" ID="{2A039015-B94F-4A8C-9069-68A30DFD98A9}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="RaptorStepsOn" ID="{C1EB89E3-111C-4A93-A7C0-CB3EA179DD28}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
@@ -47,6 +50,7 @@
 						<ObjectRef Name="UiButtonExit" ID="{EF696983-008A-4C6B-9217-732D8F3002F7}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="TrikeIdleOff" ID="{84900ACA-E95A-4D0B-B2A8-8632D0E8AD1B}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="TrikeAttack" ID="{DE6F6692-B023-4D2B-8534-58F8DB268D37}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayerAttackSword" ID="{2799779F-C9FA-4F5E-B48A-A2657BE56549}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerDie" ID="{F028D97A-D034-4F6F-9CC0-EB5D59C7AB25}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerRunOff" ID="{B7DA0096-6000-4F75-82A0-E1AB37C7288A}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="CompletedQuest" ID="{669CF6CA-C058-4F7A-90F2-EA9CFBF38D65}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
