@@ -64,8 +64,7 @@ public class QuestManager : MonoBehaviourSingleton<QuestManager>
             {
                 task.Complete();
                 OnTaskProgress?.Invoke();
-                if (Sfx.Get().GetEnable(Sfx.ListSfx.CompletedTask))
-                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.CompletedTask), gameObject);
+                AkSoundEngine.PostEvent(AK.EVENTS.COMPLETEDTASK, gameObject);
                 objectsRepaired++;
             }
         }
@@ -73,8 +72,7 @@ public class QuestManager : MonoBehaviourSingleton<QuestManager>
         {
             StartNewQuest();
             OnQuestCompleted?.Invoke();
-            if (Sfx.Get().GetEnable(Sfx.ListSfx.CompletedQuest))
-                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.CompletedQuest), gameObject);
+            AkSoundEngine.PostEvent(AK.EVENTS.COMPLETEDQUEST, gameObject);
         }
         if(objectsRepaired == objectsToRepair.Length) 
         {

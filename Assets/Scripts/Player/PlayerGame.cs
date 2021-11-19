@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 public class PlayerGame : PlayerState
 {
@@ -15,14 +16,21 @@ public class PlayerGame : PlayerState
     private float movV;
 
     [SerializeField] private float maxTimePressToFly;
-    private float speedMovement;
+    [HideInInspector] public float speedMovement;
     private float onTimePressFly;
-    private bool flying;
-    private bool walking;
-    private bool isRunning;
 
-    public bool useEnergyFly;
-    public bool useEnergyRun;
+    private float velX;
+    private float velZ;
+    private float refTime = 1f;
+    private float onTimeMove;
+    public enum Moving
+    {
+        None,
+        Moving,
+        Flying
+    }
+    public Moving movement = Moving.None;
+    public bool isRunning;
 
     [Space(10)]
     [SerializeField] private ArmController armController;
@@ -52,103 +60,93 @@ public class PlayerGame : PlayerState
     {
         movH = Input.GetAxis("Mouse X") * player.GetSensitives().x;
         transform.Rotate(0, movH, 0);
-
+        
         movV += Input.GetAxisRaw("Mouse Y") * player.GetSensitives().y;
         movV = Mathf.Clamp(movV, player.GetCameraClamp().x, player.GetCameraClamp().y);
-
+        
         cam.transform.localEulerAngles = Vector3.left * movV;
-
-        if (flying && useEnergyFly)
+        
+        if (movement == Moving.Flying)
         {
             if (player.IsJetpack)
             {
                 rb.AddForce(transform.up * player.GetForceFly(), ForceMode.Impulse);
             }
         }
+        
+        velX = Input.GetAxis("Horizontal");
+        velZ = Input.GetAxis("Vertical");
 
-        float velX = Mathf.Abs(Input.GetAxis("Horizontal"));
-        float velY = Mathf.Abs(Input.GetAxis("Vertical"));
-
-        if (velX > 0 || velY > 0)
+        switch (movement)
         {
-            if (!walking)
-            {
-                if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerStepsOn))
+            case Moving.None:
+                //Debug.Log("ESTADO: IDLE.");
+                if (IsMoving())
                 {
-                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerStepsOn), gameObject);
-                    //Debug.Log("Empieza a Caminar.");
+                    movement = Moving.Moving;
+                    //Debug.Log("ESTADO: Empieza a Caminar.");
+                    AkSoundEngine.PostEvent(AK.EVENTS.PLAYERSTEP, gameObject);
                 }
-            }
-
-            walking = true;
-        }
-        else
-        {
-            if (walking)
-            {
-                //AkSoundEngine.PostEvent(AK.EVENTS.AMBBEACH, gameObject);
-                if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerStepsOff))
+                break;
+            case Moving.Moving:
+                onTimeMove += Time.deltaTime;
+                if (IsMoving())
                 {
-                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerStepsOff), gameObject);
-                    //Debug.Log("Deja a Caminar.");
+                    Vector3 movementVectorWalk = (transform.forward * velZ + transform.right * velX) * speedMovement;
+                    rb.MovePosition(transform.position + movementVectorWalk);
+                    if (isRunning)
+                    {
+                        playerEntity.entityStats.GetStat(StatType.Stamina).AddCurrent(-player.GetEnergySpendRun() * Time.fixedDeltaTime);
+                        //Debug.Log("ESTADO: Corriendo.");
+                    }
+                    else
+                    {
+                        //Debug.Log("ESTADO: Caminando.");
+                    }
+
+                    if (playerEntity.entityStats.GetStat(StatType.Stamina).GetCurrent() < Mathf.Epsilon)
+                    {
+                        speedMovement = playerEntity.entityStats.GetStat(StatType.Walk).GetCurrent();
+                        isRunning = false;
+                        //Debug.Log("ESTADO: Deja de Correr (Por Stamina).");
+                        //Debug.Log("ESTADO: Empieza a Caminar.");
+                    }
+                    if (onTimeMove > refTime - speedMovement)
+                    {
+                        Debug.Log("Evento Camina.");
+                        onTimeMove = 0;
+                        AkSoundEngine.PostEvent(AK.EVENTS.PLAYERSTEP, gameObject);
+                    }
                 }
-            }
-
-            walking = false;
-        }
-
-        if (velY > 0 || velX > 0)
-        {
-            Vector3 movementVector = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")) * speedMovement;
-            rb.MovePosition(transform.position + movementVector);
-            if (useEnergyRun)
-            {
-                playerEntity.entityStats.GetStat(StatType.Stamina).AddCurrent(-player.GetEnergySpendRun() * Time.fixedDeltaTime);
-            }
-        }
-
-        if (playerEntity.entityStats.GetStat(StatType.Stamina).GetCurrent() < Mathf.Epsilon)
-        {
-            speedMovement = playerEntity.entityStats.GetStat(StatType.Walk).GetCurrent();
-            useEnergyRun = false;
-            flying = false;
+                else
+                {
+                    movement = Moving.None;
+                }
+                break;
+            case Moving.Flying:
+                //Debug.Log("ESTADO: Volando.");
+                Vector3 movementVectorFly = (transform.forward * velZ + transform.right * velX) * speedMovement;
+                rb.MovePosition(transform.position + movementVectorFly);
+                break;
         }
     }
-    private void OnDisable()
+    bool IsMoving()
     {
-        //if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerStepsOff))
-        //{
-        //    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerStepsOff), gameObject);
-        //}
-        //
-        //if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerRunOff))
-        //{
-        //    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerRunOff), gameObject);
-        //}
+        return (Mathf.Abs(velX) > Mathf.Epsilon || Mathf.Abs(velZ) > Mathf.Epsilon);
     }
     private void TryRun()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             speedMovement = playerEntity.entityStats.GetStat(StatType.Walk).GetCurrent() * playerEntity.multiplyRun;
-            useEnergyRun = true;
-            if (!isRunning && Sfx.Get().GetEnable(Sfx.ListSfx.PlayerJump))
-            {
-                isRunning = true;
-                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerRunOn), gameObject);
-                Debug.Log("Empieza a Correr.");
-            }
+            isRunning = true;
+            //Debug.Log("ESTADO: Empieza a Correr.");
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             speedMovement = playerEntity.entityStats.GetStat(StatType.Walk).GetCurrent();
-            useEnergyRun = false;
-            if (isRunning && Sfx.Get().GetEnable(Sfx.ListSfx.PlayerJump))
-            {
-                isRunning = false;
-                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerRunOff), gameObject);
-                Debug.Log("Termina a Correr.");
-            }
+            isRunning = false;
+            //Debug.Log("ESTADO: Deja de Correr.");
         }
     }
     private void TryDeposite()
@@ -205,29 +203,39 @@ public class PlayerGame : PlayerState
                 rb.AddForce(transform.up * player.GetForceJump(), ForceMode.Impulse);
                 player.IsGrounded = false;
 
-                if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerJump))
-                {
-                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerJump), gameObject);
-                }
+                AkSoundEngine.PostEvent(AK.EVENTS.PLAYERJUMP, gameObject);
             }
             else
             {
-                flying = true;
-                useEnergyFly = true;
+                if (player.IsJetpack)
+                {
+                    movement = Moving.Flying;
+                    AkSoundEngine.PostEvent(AK.EVENTS.PLAYERJETPACKON, gameObject);
+                    Debug.Log("Inicia a Volar 01");
+                }
             }
         }
+
         if (Input.GetButton("Jump"))
         {
             onTimePressFly += Time.deltaTime;
-            if (onTimePressFly > maxTimePressToFly && !useEnergyFly)
+            if (onTimePressFly > maxTimePressToFly)
             {
-                useEnergyFly = true;
-                flying = true;
+                if (player.IsJetpack)
+                {
+                    if (movement != Moving.Flying)
+                    {
+                        AkSoundEngine.PostEvent(AK.EVENTS.PLAYERJETPACKON, gameObject);
+                        Debug.Log("Inicia a Volar 02");
+                    }
+                    movement = Moving.Flying;
+                }
             }
         }
         if (Input.GetButtonUp("Jump"))
         {
-            useEnergyFly = false;
+            AkSoundEngine.PostEvent(AK.EVENTS.PLAYERJETPACKOFF, gameObject);
+            movement = Moving.None;
             onTimePressFly = 0;
         }
     }

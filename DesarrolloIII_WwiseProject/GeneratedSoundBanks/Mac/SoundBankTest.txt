@@ -1,6 +1,72 @@
 Event	ID	Name			Wwise Object Path	Notes
-	2170705828	New_EventTest			\Default Work Unit\New_EventTest	
+	80751710	PauseOn			\Default Work Unit\PauseOn	
+	106216603	UiButtonExit			\Default Work Unit\UiButtonExit	
+	126850157	PlayerAttackSword			\Default Work Unit\PlayerAttackSword	
+	224212648	AmbBeach			\Default Work Unit\AmbBeach	
+	255002937	CompyRoar			\Default Work Unit\CompyRoar	
+	412471812	PlayerStep			\Default Work Unit\PlayerStep	
+	538913891	UiCraftFail			\Default Work Unit\UiCraftFail	
+	740467757	AmbField			\Default Work Unit\AmbField	
+	863504537	UiOpenInventory			\Default Work Unit\UiOpenInventory	
+	878168405	UiClickButton			\Default Work Unit\UiClickButton	
+	890299361	PlayerEnergyDamage			\Default Work Unit\PlayerEnergyDamage	
+	1012813505	DinoRecibeDamageSword			\Default Work Unit\DinoRecibeDamageSword	
+	1247094977	DiloStep			\Default Work Unit\DiloStep	
+	1321486280	MusicBossOff			\Default Work Unit\MusicBossOff	
+	1394561708	PlayerDropItem			\Default Work Unit\PlayerDropItem	
+	1470014341	DinoRecibeDamageCannon			\Default Work Unit\DinoRecibeDamageCannon	
+	1477343779	RaptorStep			\Default Work Unit\RaptorStep	
+	1541757387	DiloAttack			\Default Work Unit\DiloAttack	
+	1603401268	PlayerArmEmptyOn			\Default Work Unit\PlayerArmEmptyOn	
+	1660443884	PlayerArmSwordOn			\Default Work Unit\PlayerArmSwordOn	
+	1968229471	UiCloseInventory			\Default Work Unit\UiCloseInventory	
+	2077580298	TrikeStep			\Default Work Unit\TrikeStep	
+	2169369406	PlayerAttack			\Default Work Unit\PlayerAttack	
+	2265561867	PlayerJetPackOn			\Default Work Unit\PlayerJetPackOn	
+	2280234578	MusicBossOn			\Default Work Unit\MusicBossOn	
+	2316306096	AmbForest			\Default Work Unit\AmbForest	
+	2538694111	PlayerJetPackOff			\Default Work Unit\PlayerJetPackOff	
+	2631962614	PlayerArmCannonOff			\Default Work Unit\PlayerArmCannonOff	
+	2685053305	UiUseItem			\Default Work Unit\UiUseItem	
+	2739055032	PlayerArmorDamage			\Default Work Unit\PlayerArmorDamage	
+	2932252690	PlayerArmEmptyOff			\Default Work Unit\PlayerArmEmptyOff	
+	2969189002	PlayerArmSwordOff			\Default Work Unit\PlayerArmSwordOff	
+	2996865923	DiloRoar			\Default Work Unit\DiloRoar	
+	3041684469	UiCraftSuccessful			\Default Work Unit\UiCraftSuccessful	
+	3060166911	CompyStep			\Default Work Unit\CompyStep	
+	3210062703	UiSwapItem			\Default Work Unit\UiSwapItem	
+	3271318801	RaptorAttack			\Default Work Unit\RaptorAttack	
+	3452482440	PlayerPickItem			\Default Work Unit\PlayerPickItem	
+	3472234744	TrikeAttack			\Default Work Unit\TrikeAttack	
+	3630366149	RaptorRoar			\Default Work Unit\RaptorRoar	
+	3758255951	CompletedTask			\Default Work Unit\CompletedTask	
+	3921005316	PauseOff			\Default Work Unit\PauseOff	
+	3935862555	UiButtonEnter			\Default Work Unit\UiButtonEnter	
+	3966601280	PlayerDie			\Default Work Unit\PlayerDie	
+	3990432824	PlayerArmCannonOn			\Default Work Unit\PlayerArmCannonOn	
+	4008126242	PlayerJump			\Default Work Unit\PlayerJump	
+	4083332888	TrikeRoar			\Default Work Unit\TrikeRoar	
+	4152337806	CompletedQuest			\Default Work Unit\CompletedQuest	
+	4253121485	CompyAttack			\Default Work Unit\CompyAttack	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	998479197	Salto 1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Salto 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Salto 1		123040
+	5998164	Player_Pick Item_3	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Player_Pick Item_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Pick_Item\Player_Pick Item_3		18472
+	24436010	Player_Drop Item	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Player_Drop Item_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Drop Item		66214
+	79051648	Player_Jump_With Landing	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Player_Jump_With Landing_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Jump_With Landing		120434
+	88209200	Menu_Out	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Menu_Out_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu_Out		37076
+	290825574	Pasos_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Pasos_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_2		125012
+	337994893	Player_Shoot	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Player_Shoot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Shoot		86884
+	413870853	Pasos_3	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Pasos_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_3		103068
+	428508052	Pasos_4	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Pasos_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_4		117664
+	473294982	Swipe_Menu_Items	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Swipe_Menu_Items_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Swipe_Menu_Items		23104
+	477441384	Pasos_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Pasos_1_01E6F46E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_1		124120
+	501376799	Open_Craft_Menu	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Open_Craft_Menu_F73A2624.wem		\Actor-Mixer Hierarchy\Default Work Unit\Open_Craft_Menu		75974
+	695147693	DTCK METAL CRASH Car Small	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\DTCK METAL CRASH Car Small_39F7E36F.wem		\Actor-Mixer Hierarchy\Default Work Unit\DTCK METAL CRASH Car Small		105094
+	727224815	Player_Pick Item_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Player_Pick Item_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Pick_Item\Player_Pick Item_2		12992
+	816861029	Close_Craft_Menu	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Close_Craft_Menu_7881A363.wem		\Actor-Mixer Hierarchy\Default Work Unit\Close_Craft_Menu		61490
+	907855225	Player_Death	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Player_Death_DF2BFD1C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Death		510016
+	929226526	Menu_In	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Menu_In_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu_In		37076
+	985901743	Player_Pick Item_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Player_Pick Item_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Pick_Item\Player_Pick Item_1		17704
+	995517507	Craft	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Craft_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Craft		69184
+	1023765488	Menu_Click_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Mac\SFX\Menu_Click_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu_Click_1		94144
 

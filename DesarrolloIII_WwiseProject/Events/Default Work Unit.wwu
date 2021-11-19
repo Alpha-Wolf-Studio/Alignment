@@ -3,23 +3,9 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{EF8871EF-228B-433D-803F-F70594D394B5}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="PlayerStepsOn" ID="{88E0969E-1D03-4FA4-B9E2-C8E42FA22B16}">
+				<Event Name="PlayerStep" ID="{88E0969E-1D03-4FA4-B9E2-C8E42FA22B16}">
 					<ChildrenList>
 						<Action Name="" ID="{72F10282-2EB7-469A-AC44-68E46456C672}" ShortID="366129486">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="PlayerStepsOff" ID="{BC468463-E83D-4542-859E-580F4624F4C6}">
-					<ChildrenList>
-						<Action Name="" ID="{E788BAD3-49A2-4FCD-9C02-6A8CD5AF6514}" ShortID="941761913">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
@@ -237,45 +223,11 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}"/>
-				<Event Name="PlayerRunOn" ID="{9FCF69F1-7734-4423-A2D9-AA016F3438E2}">
-					<ChildrenList>
-						<Action Name="" ID="{50DA827F-FB91-4B6D-80C6-98A5E64A8772}" ShortID="874762318">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="PlayerRunOff" ID="{B7DA0096-6000-4F75-82A0-E1AB37C7288A}">
-					<ChildrenList>
-						<Action Name="" ID="{78481A6E-C8D3-4449-9B3E-B2FA736F5274}" ShortID="1063855748">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="CompyStepsOn" ID="{052E226C-3BB4-4B64-A2D2-D267F29B4128}"/>
-				<Event Name="CompyStepsOff" ID="{D4CEA577-DE2E-481D-84F4-568020E0E849}"/>
-				<Event Name="CompyIdleOn" ID="{CD1CD11E-093B-47EF-8C6A-892B23A960C2}"/>
-				<Event Name="CompyIdleOff" ID="{83636872-15A4-4BDE-8EA7-6D5C4B68BEAC}"/>
+				<Event Name="CompyStep" ID="{052E226C-3BB4-4B64-A2D2-D267F29B4128}"/>
 				<Event Name="CompyAttack" ID="{16CAFB67-C85E-4549-9807-55D8071D11DA}"/>
-				<Event Name="RaptorStepsOn" ID="{C1EB89E3-111C-4A93-A7C0-CB3EA179DD28}"/>
-				<Event Name="RaptorStepsOff" ID="{569C8BF9-22A7-414C-9C49-AA6B0ACE3872}"/>
-				<Event Name="RaptorIdleOn" ID="{A56E82BB-4C77-45B3-9AE2-908B9A6A40FA}"/>
-				<Event Name="RaptorIdleOff" ID="{EF3E54BD-8A62-4C49-A6DB-5832D39A6E5B}"/>
+				<Event Name="RaptorStep" ID="{C1EB89E3-111C-4A93-A7C0-CB3EA179DD28}"/>
 				<Event Name="RaptorAttack" ID="{760FC923-E8AF-43EB-84FE-597E5DC1A946}"/>
-				<Event Name="TrikeStepsOn" ID="{2DF318ED-4AF0-47D7-9A6B-B9BFA589420D}"/>
-				<Event Name="TrikeStepsOff" ID="{8FB6E948-B959-4F8C-A24C-AC848CE317C8}"/>
-				<Event Name="TrikeIdleOn" ID="{2A039015-B94F-4A8C-9069-68A30DFD98A9}"/>
-				<Event Name="TrikeIdleOff" ID="{84900ACA-E95A-4D0B-B2A8-8632D0E8AD1B}"/>
+				<Event Name="TrikeStep" ID="{2DF318ED-4AF0-47D7-9A6B-B9BFA589420D}"/>
 				<Event Name="TrikeAttack" ID="{DE6F6692-B023-4D2B-8534-58F8DB268D37}">
 					<ChildrenList>
 						<Action Name="" ID="{0D8DDA81-8B4E-42EF-B869-48205A96A13E}" ShortID="440705589">
@@ -287,18 +239,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="DiloStepsOn" ID="{E5611D77-126E-41E0-A65A-8EE9147F7ED0}"/>
-				<Event Name="DiloStepsOff" ID="{114BA416-F01C-4650-A59D-CAE62C4944BA}"/>
-				<Event Name="DiloIdleOn" ID="{910B531F-6A5F-4582-A905-A451023E7522}"/>
-				<Event Name="DiloIdleOff" ID="{9CCD051F-62FC-4BA8-AF6D-9F1C1D87E48F}"/>
+				<Event Name="DiloStep" ID="{E5611D77-126E-41E0-A65A-8EE9147F7ED0}"/>
 				<Event Name="DiloAttack" ID="{0075DF13-AF8F-4AA2-AFC1-5CD05F951679}"/>
 				<Event Name="AmbField" ID="{5DB14B4D-E3B3-4731-A79A-DE909201E2E8}"/>
 				<Event Name="AmbBeach" ID="{CA528DF9-D86F-48C5-A9D2-3060E567978F}"/>
 				<Event Name="AmbForest" ID="{1181B9C7-2EFF-4B80-95C2-FB50E0B22E0F}"/>
-				<Event Name="PlayerAttackHit" ID="{CB362124-8463-4249-A58E-C19EC56DA609}"/>
-				<Event Name="PlayerSwordOn" ID="{5B4DC011-AB24-454D-9DA2-116C843768AE}"/>
-				<Event Name="PlayerSwordOff" ID="{BA3BBC21-78C8-493F-9F9F-1A8D8282E3AE}"/>
+				<Event Name="DinoRecibeDamageSword" ID="{CB362124-8463-4249-A58E-C19EC56DA609}"/>
+				<Event Name="PlayerArmEmptyOn" ID="{5B4DC011-AB24-454D-9DA2-116C843768AE}"/>
 				<Event Name="PlayerAttackSword" ID="{2799779F-C9FA-4F5E-B48A-A2657BE56549}"/>
+				<Event Name="PlayerArmEmptyOff" ID="{44D6124F-BD15-47D3-86F9-22317B53429B}"/>
+				<Event Name="PlayerArmSwordOn" ID="{61FB441F-320D-47AD-9779-586B631C3EFC}"/>
+				<Event Name="PlayerArmSwordOff" ID="{D6FD0FDD-6BD6-4447-9F7F-CCC4BEBE951B}"/>
+				<Event Name="PlayerArmCannonOn" ID="{627B73A8-9EBA-4CB1-B5E1-CB6BD3AD06C9}"/>
+				<Event Name="PlayerArmCannonOff" ID="{2971C6DF-C298-4722-83C4-50E251A30331}"/>
+				<Event Name="DinoRecibeDamageCannon" ID="{0C277B87-BDA6-4E86-A39B-714CDFFD9E7A}"/>
+				<Event Name="CompyRoar" ID="{8EF1E407-9940-4B32-9A7F-034DDEBA19BE}"/>
+				<Event Name="RaptorRoar" ID="{79A9522C-6F07-4024-94BA-8202007D87E8}"/>
+				<Event Name="TrikeRoar" ID="{491389ED-1C70-4D07-BB4E-F37E80B4054C}"/>
+				<Event Name="DiloRoar" ID="{011DABF5-2D97-41B0-8417-5882AF37BD53}"/>
+				<Event Name="MusicBossOn" ID="{482ADBDE-AE21-4665-8EC0-422C4F04B959}"/>
+				<Event Name="MusicBossOff" ID="{DC5C83BD-F52A-4656-B010-D32F1EF19906}"/>
+				<Event Name="PlayerJetPackOn" ID="{922F4267-85AE-4837-8A03-800C2104BA12}"/>
+				<Event Name="PlayerJetPackOff" ID="{FE5714A9-7F51-41BE-A749-ABA21D2C741B}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

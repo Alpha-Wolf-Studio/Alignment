@@ -42,8 +42,7 @@ public class ArmRange : ArmType
             onShoot?.Invoke(maxCoolDownShoot, true);
             currentCoolDownShoot = 0;
         }
-        if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerAttack))
-            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerAttack), gameObject);
+        AkSoundEngine.PostEvent(AK.EVENTS.PLAYERATTACK, gameObject);
     }
 
 }

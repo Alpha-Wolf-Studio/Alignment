@@ -11,24 +11,183 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2754342975">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1263598146">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="1946707388" Language="SFX" Hash="4191233514">
+		<SoundBank Id="1946707388" Language="SFX" Hash="2313996548">
 			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankTest</ObjectPath>
 			<ShortName>SoundBankTest</ShortName>
 			<Path>SoundBankTest.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2170705828" Name="New_EventTest" ObjectPath="\Events\Default Work Unit\New_EventTest" DurationType="OneShot" DurationMin="0.696417" DurationMax="0.696417">
+				<Event Id="224212648" Name="AmbBeach" ObjectPath="\Events\Default Work Unit\AmbBeach" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="740467757" Name="AmbField" ObjectPath="\Events\Default Work Unit\AmbField" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2316306096" Name="AmbForest" ObjectPath="\Events\Default Work Unit\AmbForest" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4152337806" Name="CompletedQuest" ObjectPath="\Events\Default Work Unit\CompletedQuest" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3758255951" Name="CompletedTask" ObjectPath="\Events\Default Work Unit\CompletedTask" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4253121485" Name="CompyAttack" ObjectPath="\Events\Default Work Unit\CompyAttack" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="255002937" Name="CompyRoar" ObjectPath="\Events\Default Work Unit\CompyRoar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3060166911" Name="CompyStep" ObjectPath="\Events\Default Work Unit\CompyStep" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1541757387" Name="DiloAttack" ObjectPath="\Events\Default Work Unit\DiloAttack" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2996865923" Name="DiloRoar" ObjectPath="\Events\Default Work Unit\DiloRoar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1247094977" Name="DiloStep" ObjectPath="\Events\Default Work Unit\DiloStep" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1470014341" Name="DinoRecibeDamageCannon" ObjectPath="\Events\Default Work Unit\DinoRecibeDamageCannon" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1012813505" Name="DinoRecibeDamageSword" ObjectPath="\Events\Default Work Unit\DinoRecibeDamageSword" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1321486280" Name="MusicBossOff" ObjectPath="\Events\Default Work Unit\MusicBossOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2280234578" Name="MusicBossOn" ObjectPath="\Events\Default Work Unit\MusicBossOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3921005316" Name="PauseOff" ObjectPath="\Events\Default Work Unit\PauseOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="80751710" Name="PauseOn" ObjectPath="\Events\Default Work Unit\PauseOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2631962614" Name="PlayerArmCannonOff" ObjectPath="\Events\Default Work Unit\PlayerArmCannonOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3990432824" Name="PlayerArmCannonOn" ObjectPath="\Events\Default Work Unit\PlayerArmCannonOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2932252690" Name="PlayerArmEmptyOff" ObjectPath="\Events\Default Work Unit\PlayerArmEmptyOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1603401268" Name="PlayerArmEmptyOn" ObjectPath="\Events\Default Work Unit\PlayerArmEmptyOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2739055032" Name="PlayerArmorDamage" ObjectPath="\Events\Default Work Unit\PlayerArmorDamage" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2969189002" Name="PlayerArmSwordOff" ObjectPath="\Events\Default Work Unit\PlayerArmSwordOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1660443884" Name="PlayerArmSwordOn" ObjectPath="\Events\Default Work Unit\PlayerArmSwordOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2169369406" Name="PlayerAttack" ObjectPath="\Events\Default Work Unit\PlayerAttack" DurationType="OneShot" DurationMin="0.929106" DurationMax="1.042886">
 					<IncludedMemoryFiles>
-						<File Id="998479197" Language="SFX">
-							<ShortName>Salto 1.wav</ShortName>
-							<Path>SFX\Salto 1_10C4C929.wem</Path>
+						<File Id="337994893" Language="SFX">
+							<ShortName>Player_Shoot.wav</ShortName>
+							<Path>SFX\Player_Shoot_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="126850157" Name="PlayerAttackSword" ObjectPath="\Events\Default Work Unit\PlayerAttackSword" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3966601280" Name="PlayerDie" ObjectPath="\Events\Default Work Unit\PlayerDie" DurationType="OneShot" DurationMin="5.781769" DurationMax="5.781769">
+					<IncludedMemoryFiles>
+						<File Id="907855225" Language="SFX">
+							<ShortName>Player_Death.wav</ShortName>
+							<Path>SFX\Player_Death_DF2BFD1C.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1394561708" Name="PlayerDropItem" ObjectPath="\Events\Default Work Unit\PlayerDropItem" DurationType="OneShot" DurationMin="0.750000" DurationMax="0.750000">
+					<IncludedMemoryFiles>
+						<File Id="24436010" Language="SFX">
+							<ShortName>Player_Drop Item.wav</ShortName>
+							<Path>SFX\Player_Drop Item_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="890299361" Name="PlayerEnergyDamage" ObjectPath="\Events\Default Work Unit\PlayerEnergyDamage" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2538694111" Name="PlayerJetPackOff" ObjectPath="\Events\Default Work Unit\PlayerJetPackOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2265561867" Name="PlayerJetPackOn" ObjectPath="\Events\Default Work Unit\PlayerJetPackOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4008126242" Name="PlayerJump" ObjectPath="\Events\Default Work Unit\PlayerJump" DurationType="OneShot" DurationMin="1.364739" DurationMax="1.364739">
+					<IncludedMemoryFiles>
+						<File Id="79051648" Language="SFX">
+							<ShortName>Player_Jump_With Landing.wav</ShortName>
+							<Path>SFX\Player_Jump_With Landing_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3452482440" Name="PlayerPickItem" ObjectPath="\Events\Default Work Unit\PlayerPickItem" DurationType="OneShot" DurationMin="0.123255" DurationMax="0.248196">
+					<IncludedMemoryFiles>
+						<File Id="5998164" Language="SFX">
+							<ShortName>Player_Pick Item_3.wav</ShortName>
+							<Path>SFX\Player_Pick Item_3_10C4C929.wem</Path>
+						</File>
+						<File Id="727224815" Language="SFX">
+							<ShortName>Player_Pick Item_2.wav</ShortName>
+							<Path>SFX\Player_Pick Item_2_10C4C929.wem</Path>
+						</File>
+						<File Id="985901743" Language="SFX">
+							<ShortName>Player_Pick Item_1.wav</ShortName>
+							<Path>SFX\Player_Pick Item_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="412471812" Name="PlayerStep" ObjectPath="\Events\Default Work Unit\PlayerStep" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="290825574" Language="SFX">
+							<ShortName>Pasos_2.wav</ShortName>
+							<Path>SFX\Pasos_2_10C4C929.wem</Path>
+						</File>
+						<File Id="413870853" Language="SFX">
+							<ShortName>Pasos_3.wav</ShortName>
+							<Path>SFX\Pasos_3_10C4C929.wem</Path>
+						</File>
+						<File Id="428508052" Language="SFX">
+							<ShortName>Pasos_4.wav</ShortName>
+							<Path>SFX\Pasos_4_10C4C929.wem</Path>
+						</File>
+						<File Id="477441384" Language="SFX">
+							<ShortName>Pasos_1.wav</ShortName>
+							<Path>SFX\Pasos_1_01E6F46E.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3271318801" Name="RaptorAttack" ObjectPath="\Events\Default Work Unit\RaptorAttack" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3630366149" Name="RaptorRoar" ObjectPath="\Events\Default Work Unit\RaptorRoar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1477343779" Name="RaptorStep" ObjectPath="\Events\Default Work Unit\RaptorStep" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3472234744" Name="TrikeAttack" ObjectPath="\Events\Default Work Unit\TrikeAttack" DurationType="OneShot" DurationMin="1.094059" DurationMax="1.094059">
+					<IncludedMemoryFiles>
+						<File Id="695147693" Language="SFX">
+							<ShortName>DTCK METAL CRASH Car Small.wav</ShortName>
+							<Path>SFX\DTCK METAL CRASH Car Small_39F7E36F.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4083332888" Name="TrikeRoar" ObjectPath="\Events\Default Work Unit\TrikeRoar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2077580298" Name="TrikeStep" ObjectPath="\Events\Default Work Unit\TrikeStep" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3935862555" Name="UiButtonEnter" ObjectPath="\Events\Default Work Unit\UiButtonEnter" DurationType="OneShot" DurationMin="0.209819" DurationMax="0.209819">
+					<IncludedMemoryFiles>
+						<File Id="929226526" Language="SFX">
+							<ShortName>Menu_In.wav</ShortName>
+							<Path>SFX\Menu_In_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="106216603" Name="UiButtonExit" ObjectPath="\Events\Default Work Unit\UiButtonExit" DurationType="OneShot" DurationMin="0.209819" DurationMax="0.209819">
+					<IncludedMemoryFiles>
+						<File Id="88209200" Language="SFX">
+							<ShortName>Menu_Out.wav</ShortName>
+							<Path>SFX\Menu_Out_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="878168405" Name="UiClickButton" ObjectPath="\Events\Default Work Unit\UiClickButton" DurationType="OneShot" DurationMin="0.533333" DurationMax="0.533333">
+					<IncludedMemoryFiles>
+						<File Id="1023765488" Language="SFX">
+							<ShortName>Menu_Click_1.wav</ShortName>
+							<Path>SFX\Menu_Click_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1968229471" Name="UiCloseInventory" ObjectPath="\Events\Default Work Unit\UiCloseInventory" DurationType="OneShot" DurationMin="0.696438" DurationMax="0.696438">
+					<IncludedMemoryFiles>
+						<File Id="816861029" Language="SFX">
+							<ShortName>Close_Craft_Menu.wav</ShortName>
+							<Path>SFX\Close_Craft_Menu_7881A363.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="538913891" Name="UiCraftFail" ObjectPath="\Events\Default Work Unit\UiCraftFail" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3041684469" Name="UiCraftSuccessful" ObjectPath="\Events\Default Work Unit\UiCraftSuccessful" DurationType="OneShot" DurationMin="0.783673" DurationMax="0.783673">
+					<IncludedMemoryFiles>
+						<File Id="995517507" Language="SFX">
+							<ShortName>Craft.wav</ShortName>
+							<Path>SFX\Craft_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="863504537" Name="UiOpenInventory" ObjectPath="\Events\Default Work Unit\UiOpenInventory" DurationType="OneShot" DurationMin="0.860666" DurationMax="0.860666">
+					<IncludedMemoryFiles>
+						<File Id="501376799" Language="SFX">
+							<ShortName>Open_Craft_Menu.wav</ShortName>
+							<Path>SFX\Open_Craft_Menu_F73A2624.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3210062703" Name="UiSwapItem" ObjectPath="\Events\Default Work Unit\UiSwapItem" DurationType="OneShot" DurationMin="0.261224" DurationMax="0.261224">
+					<IncludedMemoryFiles>
+						<File Id="473294982" Language="SFX">
+							<ShortName>Swipe_Menu_Items.wav</ShortName>
+							<Path>SFX\Swipe_Menu_Items_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2685053305" Name="UiUseItem" ObjectPath="\Events\Default Work Unit\UiUseItem" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 		</SoundBank>
 	</SoundBanks>

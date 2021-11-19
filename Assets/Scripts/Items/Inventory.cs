@@ -158,8 +158,7 @@ public class Inventory : MonoBehaviour
         Item item = ItemManager.Get().GetItemFromID(currentSlots[slotPos].ID);
         if (item.GetType() == typeof(Consumible))
         {
-            if (Sfx.Get().GetEnable(Sfx.ListSfx.UiUseItem))
-                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiUseItem), gameObject);
+            AkSoundEngine.PostEvent(AK.EVENTS.UIUSEITEM, gameObject);
 
             character.entityStats.GetStat(StatType.Damage).AddMax(((Consumible) item).attackUpgrade);
             character.entityStats.GetStat(StatType.Defense).AddCurrent(((Consumible) item).defenseUpgrade);
@@ -287,8 +286,7 @@ public class Inventory : MonoBehaviour
             itemComponent.SetItem(currentSlots[index].ID, currentSlots[index].amount);
             currentSlots[index].EmptySlot();
 
-            if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerDropItem))
-                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerDropItem), gameObject);
+            AkSoundEngine.PostEvent(AK.EVENTS.PLAYERDROPITEM, gameObject);
 
             return true;
         }
@@ -310,8 +308,7 @@ public class Inventory : MonoBehaviour
                     {
                         OnPickUp?.Invoke(ItemManager.Get().GetItemFromID(itemComponent.GetID()), itemComponent.GetAmount());
                         itemComponent.AttractorItemToPlayer();
-                        if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerPickItem))
-                            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerPickItem), gameObject);
+                        AkSoundEngine.PostEvent(AK.EVENTS.PLAYERPICKITEM, gameObject);
                     }
 
                 }

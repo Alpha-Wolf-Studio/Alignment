@@ -162,8 +162,7 @@ public class UiInventory : MonoBehaviour
         switch (inventaryStatus)
         {
             case InventaryStatus.Close:
-                if (Sfx.Get().GetEnable(Sfx.ListSfx.UiOpenInventory))
-                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiOpenInventory), gameObject);
+                AkSoundEngine.PostEvent(AK.EVENTS.UIOPENINVENTORY, gameObject);
 
                 player.ChangeControllerToInventory();
                 inventaryStatus = InventaryStatus.Opening;
@@ -171,8 +170,7 @@ public class UiInventory : MonoBehaviour
 
                 break;
             case InventaryStatus.Open:
-                if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCloseInventory))
-                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCloseInventory), gameObject);
+                AkSoundEngine.PostEvent(AK.EVENTS.UICLOSEINVENTORY, gameObject);
 
                 player.ChangeControllerToGame();
                 inventaryStatus = InventaryStatus.Closeing;
@@ -322,8 +320,7 @@ public class UiInventory : MonoBehaviour
 
         slotPick.Refresh();
         slotDrop.Refresh();
-        if (Sfx.Get().GetEnable(Sfx.ListSfx.UiSwapItem))
-            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiSwapItem), gameObject);
+        AkSoundEngine.PostEvent(AK.EVENTS.UISWAPITEM, gameObject);
     }
     public void MouseEnterOver(RectTransform btn)
     {

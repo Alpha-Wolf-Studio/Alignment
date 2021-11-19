@@ -25,9 +25,12 @@ public class ArmController : MonoBehaviour
     public void ChangeArmType(ArmTypeSelection armType)
     {
         if (armLocked) return;
+        AudioChangeArmor(false, currentArmTypeSelection);
         currentArmTypeSelection = armType;
         anim.SetInteger("Arm Type", (int)armType);
+        Invoke(nameof(EnableAudioChangeWeapon), 0.5f);
     }
+
 
     public void StartArmOneShootAction(Vector3 dir, DamageInfo info) 
     {
@@ -39,5 +42,24 @@ public class ArmController : MonoBehaviour
     {
         if (armLocked) return;
         allArmTypes[(int)currentArmTypeSelection - 1].ContinuosAction(dir, info);
+    }
+    void AudioChangeArmor(bool on, ArmTypeSelection armToAudio)
+    {
+        switch (armToAudio)
+        {
+            case ArmTypeSelection.Free:
+                AkSoundEngine.PostEvent(on ? AK.EVENTS.PLAYERARMEMPTYON : AK.EVENTS.PLAYERARMEMPTYOFF, gameObject);
+                break;
+            case ArmTypeSelection.Melee:
+                AkSoundEngine.PostEvent(on ? AK.EVENTS.PLAYERARMSWORDON : AK.EVENTS.PLAYERARMSWORDOFF, gameObject);
+                break;
+            case ArmTypeSelection.Range:
+                AkSoundEngine.PostEvent(on ? AK.EVENTS.PLAYERARMCANNONON : AK.EVENTS.PLAYERARMCANNONOFF, gameObject);
+                break;
+        }
+    }
+    private void EnableAudioChangeWeapon()
+    {
+        AudioChangeArmor(true, currentArmTypeSelection);
     }
 }

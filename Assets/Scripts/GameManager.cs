@@ -22,8 +22,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     }
     private void PlayerDeath(DamageInfo info)
     {
-        if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerDie))
-            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerDie), gameObject);
+        AkSoundEngine.PostEvent(AK.EVENTS.PLAYERDIE, gameObject);
 
         player.ChangeControllerToNone();
         var gameOverText = UIGameOverScreen.GetGameOverText(info.origin);

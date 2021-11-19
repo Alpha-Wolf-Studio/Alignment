@@ -25,20 +25,16 @@ public abstract class AIAttackModule : AttackComponent
         switch (dinoClass)
         {
             case DinoType.Compsognathus:
-                if (Sfx.Get().GetEnable(Sfx.ListSfx.CompiAttack))
-                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.CompiAttack), gameObject);
+                AkSoundEngine.PostEvent(AK.EVENTS.COMPYATTACK, gameObject);
                 break;
             case DinoType.Dilophosaurus:
-                if (Sfx.Get().GetEnable(Sfx.ListSfx.DiloAttack))
-                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.DiloAttack), gameObject);
+                AkSoundEngine.PostEvent(AK.EVENTS.DILOATTACK, gameObject);
                 break;
             case DinoType.Raptor:
-                if (Sfx.Get().GetEnable(Sfx.ListSfx.RaptorAttack))
-                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.RaptorAttack), gameObject);
+                AkSoundEngine.PostEvent(AK.EVENTS.RAPTORATTACK, gameObject);
                 break;
             case DinoType.Triceratops:
-                if (Sfx.Get().GetEnable(Sfx.ListSfx.TrikeAttack))
-                    AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.TrikeAttack), gameObject);
+                AkSoundEngine.PostEvent(AK.EVENTS.TRIKEATTACK, gameObject);
                 break;
             default:
                 Debug.LogWarning("No está seteado dinoClass: ", gameObject);

@@ -41,16 +41,14 @@ public class Crafting : MonoBehaviour
         {
             craftFailed = true;
         }
-        if (craftFailed) 
+        if (craftFailed)
         {
-            if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCraftFail))
-                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCraftFail), gameObject);
+            AkSoundEngine.PostEvent(AK.EVENTS.UICRAFTFAIL, gameObject);
         }
         else 
         {
             OnCraft?.Invoke(item);
-            if (Sfx.Get().GetEnable(Sfx.ListSfx.UiCraftSuccessful))
-                AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiCraftSuccessful), gameObject);
+            AkSoundEngine.PostEvent(AK.EVENTS.UICRAFTSUCCESSFUL, gameObject);
         }
     }
     public bool IsCraftPosible(Item item)

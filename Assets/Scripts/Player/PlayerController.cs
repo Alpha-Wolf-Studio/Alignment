@@ -53,15 +53,11 @@ public class PlayerController : MonoBehaviour
     }
     void UpdateStamina()
     {
-        if (!playerGame.useEnergyRun)
+        if (playerGame.movement != PlayerGame.Moving.Flying)
         {
             if (GetCurrentStamina() < GetMaxStamina())
             {
-                if (IsGrounded)
-                {
-                    entity.entityStats.GetStat(StatType.Stamina).AddCurrent(energyRegenerate * Time.deltaTime);
-                    Debug.Log("Current Stamina: " + entity.entityStats.GetStat(StatType.Stamina).GetCurrent());
-                }
+                entity.entityStats.GetStat(StatType.Stamina).AddCurrent(energyRegenerate * Time.deltaTime);
             }
         }
     }
@@ -118,6 +114,7 @@ public class PlayerController : MonoBehaviour
         if(Global.LayerEquals(LayerMask.GetMask("Ground"), other.gameObject.layer))
         {
             IsGrounded = true;
+            playerGame.movement = PlayerGame.Moving.None;
         }
     }
     public float GetCurrentStamina() => entity.entityStats.GetStat(StatType.Stamina).GetCurrent();
@@ -128,10 +125,8 @@ public class PlayerController : MonoBehaviour
     }
     void PlayerTakeDamage(DamageInfo info)
     {
-        if (Sfx.Get().GetEnable(Sfx.ListSfx.PlayerEnergyDamage))
-            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.PlayerEnergyDamage), gameObject);
+        AkSoundEngine.PostEvent(info.type == DamageType.Energy ? AK.EVENTS.PLAYERENERGYDAMAGE : AK.EVENTS.PLAYERARMORDAMAGE, gameObject);
     }
-
     public Vector2 GetSensitives() => new Vector2(horizontalSensitive, verticalSensitive);
     public Vector2 GetCameraClamp() => new Vector2(minCameraClampVertical, maxCameraClampVertical);
     public float GetForceFly() => forceFly;

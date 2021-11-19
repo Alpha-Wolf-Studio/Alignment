@@ -80,8 +80,7 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         onButtonEnter?.Invoke();
         increment = true;
-        if (Sfx.Get().GetEnable(Sfx.ListSfx.UiButtonEnter))
-            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiButtonEnter), gameObject);
+        AkSoundEngine.PostEvent(AK.EVENTS.UIBUTTONENTER, gameObject);
 
         if (modifyImage)
             currentImage.sprite = imageHighlighted;
@@ -96,8 +95,7 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         onButtonExit?.Invoke();
         increment = false;
-        if (Sfx.Get().GetEnable(Sfx.ListSfx.UiButtonExit))
-            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiButtonExit), gameObject);
+        AkSoundEngine.PostEvent(AK.EVENTS.UIBUTTONEXIT, gameObject);
 
         if (modifyImage)
             currentImage.sprite = imageDefault;
@@ -147,7 +145,6 @@ public class UiButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (Sfx.Get().GetEnable(Sfx.ListSfx.UiClickButton))
-            AkSoundEngine.PostEvent(Sfx.Get().GetList(Sfx.ListSfx.UiClickButton), gameObject);
+        AkSoundEngine.PostEvent(AK.EVENTS.UICLICKBUTTON, gameObject);
     }
 }
