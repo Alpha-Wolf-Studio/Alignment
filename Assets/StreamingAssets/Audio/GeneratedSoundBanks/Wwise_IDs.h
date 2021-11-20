@@ -64,8 +64,39 @@ namespace AK
         static const AkUniqueID UIUSEITEM = 2685053305U;
     } // namespace EVENTS
 
+    namespace STATES
+    {
+        namespace AMBIENCES
+        {
+            static const AkUniqueID GROUP = 1017660616U;
+
+            namespace STATE
+            {
+                static const AkUniqueID FIELD = 514358619U;
+                static const AkUniqueID FOREST = 491961918U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace AMBIENCES
+
+        namespace MUSIC
+        {
+            static const AkUniqueID GROUP = 3991942870U;
+
+            namespace STATE
+            {
+                static const AkUniqueID BEACH_MUSIC = 3783252810U;
+                static const AkUniqueID BOSS_MUSIC = 2985113282U;
+                static const AkUniqueID FILED_MUSIC = 3712224257U;
+                static const AkUniqueID FOREST_MUSIC = 1201098966U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace MUSIC
+
+    } // namespace STATES
+
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID BEACH_DISTANCE = 1463885556U;
         static const AkUniqueID VOLEFFECT = 714118027U;
         static const AkUniqueID VOLGENERAL = 2360153336U;
         static const AkUniqueID VOLMUSIC = 1770950993U;
@@ -80,6 +111,8 @@ namespace AK
     namespace BUSSES
     {
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MUSIC = 3991942870U;
+        static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES

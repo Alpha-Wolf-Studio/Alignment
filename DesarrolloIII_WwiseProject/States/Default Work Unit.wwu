@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}" SchemaVersion="103">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Music" ID="{F2EA1780-94B2-4B11-B961-C619CF0A8036}">
+					<ChildrenList>
+						<State Name="None" ID="{5D933249-4643-4BF8-B5CE-1D0250A665ED}"/>
+						<State Name="Filed_Music" ID="{425FA3A6-01A4-4B1B-8630-2ECE9AD71315}"/>
+						<State Name="Forest_Music" ID="{057BCFE4-D20C-49CD-9192-9DF37B8602A8}"/>
+						<State Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+						<State Name="Boss_Music" ID="{2CD17888-3406-49BC-86F5-C764DCBEE8F3}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Ambiences" ID="{6E72D1DA-FD21-49B1-8FA4-9339AD743A08}">
+					<ChildrenList>
+						<State Name="None" ID="{5D07FEF8-C0D8-4E1E-9E81-B0F362906BFE}"/>
+						<State Name="Field" ID="{BE59AA1C-A28E-48B4-AF0F-E2618AA13063}"/>
+						<State Name="Forest" ID="{1B3D4F30-F1AA-486B-81D7-07D6B1EECE08}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>

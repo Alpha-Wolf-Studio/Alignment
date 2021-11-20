@@ -58,36 +58,34 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="PlayerArmorDamage" ID="{9992A5C0-BAF6-4398-95AE-ECE24D840D20}"/>
-				<Event Name="PlayerEnergyDamage" ID="{6A33BF2B-605A-4C37-8B9A-6394247CDAF0}"/>
-				<Event Name="PlayerDie" ID="{F028D97A-D034-4F6F-9CC0-EB5D59C7AB25}">
+				<Event Name="PlayerArmorDamage" ID="{9992A5C0-BAF6-4398-95AE-ECE24D840D20}">
 					<ChildrenList>
-						<Action Name="" ID="{B0F23D0B-88FA-4231-8F16-8C7EADFD2274}" ShortID="1459655">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="Scope" Type="int16" Value="1"/>
-							</PropertyList>
+						<Action Name="" ID="{CDD1F89E-3FB1-4126-B1EA-1EB60DC6D756}" ShortID="109076746">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+									<ObjectRef Name="Armor Damage" ID="{635F18D2-5126-4A04-9156-F40BBB691D20}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerEnergyDamage" ID="{6A33BF2B-605A-4C37-8B9A-6394247CDAF0}">
+					<ChildrenList>
+						<Action Name="" ID="{18CE6628-7EA3-40D2-BF5E-6B6EF1AD39DC}" ShortID="981299683">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Energy damage" ID="{F5072C6B-937F-4647-B590-91CF81F6E3E4}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerDie" ID="{F028D97A-D034-4F6F-9CC0-EB5D59C7AB25}">
+					<ChildrenList>
 						<Action Name="" ID="{D81B3659-446C-4007-8E29-8F1C4FCAF034}" ShortID="108537971">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Player_Death" ID="{6B0D7A88-DC93-4452-AE4B-D617CFCD1C76}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{1F169A48-FC54-4028-B3A3-024633029120}" ShortID="521789147">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="Scope" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -130,32 +128,10 @@
 				</Event>
 				<Event Name="UiOpenInventory" ID="{83B7DC77-4A81-43FC-A105-00F76BAFA01F}">
 					<ChildrenList>
-						<Action Name="" ID="{F9350E9D-26D8-4D4F-841A-BCED0B1BDED5}" ShortID="378305632">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="Scope" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
 						<Action Name="" ID="{9860F663-61EA-4601-AED6-44CA8478A855}" ShortID="1038796070">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Open_Craft_Menu" ID="{97B6A4DA-B665-4D37-8DFD-3AC78A9B2472}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{159887BE-3726-4629-BED6-5B70FD89211A}" ShortID="184435781">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="Scope" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -195,63 +171,178 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="UiCraftFail" ID="{4A3F4A19-BB78-4673-AF84-596478FC8A5D}"/>
-				<Event Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}">
+				<Event Name="UiCraftFail" ID="{4A3F4A19-BB78-4673-AF84-596478FC8A5D}">
 					<ChildrenList>
-						<Action Name="" ID="{9091A824-F176-44D9-9A6C-CEBE8155EF5F}" ShortID="1022259712">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="Scope" Type="int16" Value="1"/>
-							</PropertyList>
+						<Action Name="" ID="{66BD170E-4CAA-43DA-8C3F-ADA444888E6B}" ShortID="927488266">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Steps" ID="{83F83B2B-22BD-4F3D-A6C7-EA1AD4000839}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{5F2FBE77-E4C8-4BE1-90DE-53C3654FADEC}" ShortID="824297444">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="Scope" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Steps_Run" ID="{F2D80C18-B801-4F29-A75A-0E042370F5E2}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+									<ObjectRef Name="Craft_2" ID="{2683C6F6-53AE-4E7F-B6B5-3694B1FFE219}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}"/>
 				<Event Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}"/>
-				<Event Name="CompyStep" ID="{052E226C-3BB4-4B64-A2D2-D267F29B4128}"/>
-				<Event Name="CompyAttack" ID="{16CAFB67-C85E-4549-9807-55D8071D11DA}"/>
-				<Event Name="RaptorStep" ID="{C1EB89E3-111C-4A93-A7C0-CB3EA179DD28}"/>
-				<Event Name="RaptorAttack" ID="{760FC923-E8AF-43EB-84FE-597E5DC1A946}"/>
-				<Event Name="TrikeStep" ID="{2DF318ED-4AF0-47D7-9A6B-B9BFA589420D}"/>
+				<Event Name="CompyStep" ID="{052E226C-3BB4-4B64-A2D2-D267F29B4128}">
+					<ChildrenList>
+						<Action Name="" ID="{F3DC1167-1000-4AE4-B9C0-6EF078D8BC06}" ShortID="919647141">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Compy Steps" ID="{7FA5234A-4C2D-4426-9C3A-753478721F33}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="CompyAttack" ID="{16CAFB67-C85E-4549-9807-55D8071D11DA}">
+					<ChildrenList>
+						<Action Name="" ID="{5B3FE90C-96BE-474E-A8F9-B2E7DCBE6BE3}" ShortID="484732349">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Compy Attack" ID="{943AD18D-8E86-4D5F-99A2-C2EB8C959A6C}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="RaptorStep" ID="{C1EB89E3-111C-4A93-A7C0-CB3EA179DD28}">
+					<ChildrenList>
+						<Action Name="" ID="{30870A86-7D27-436A-9870-3964739AEC43}" ShortID="393357395">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Raptor Steps" ID="{A71F35B4-3850-45CD-BA66-9B3B72B7374C}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="RaptorAttack" ID="{760FC923-E8AF-43EB-84FE-597E5DC1A946}">
+					<ChildrenList>
+						<Action Name="" ID="{A99683B1-D62C-4ACF-A401-B0E088D591BD}" ShortID="874813212">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Raptor Attack" ID="{5251FB39-A6BD-42F3-8F4D-E250E0C1BB59}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="TrikeStep" ID="{2DF318ED-4AF0-47D7-9A6B-B9BFA589420D}">
+					<ChildrenList>
+						<Action Name="" ID="{D7F09CA4-6748-4DD0-B86A-96BB88970CFC}" ShortID="605366125">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Trike Steps" ID="{A5DA8746-2055-478C-AA7B-D336866FCAE0}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="TrikeAttack" ID="{DE6F6692-B023-4D2B-8534-58F8DB268D37}">
 					<ChildrenList>
-						<Action Name="" ID="{0D8DDA81-8B4E-42EF-B869-48205A96A13E}" ShortID="440705589">
+						<Action Name="" ID="{101E0205-DE20-416E-9B28-1F38EDDA05DF}" ShortID="1029249662">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="DTCK METAL CRASH Car Small" ID="{A81A6C08-8427-4A4E-9C49-7569F82E233D}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+									<ObjectRef Name="Trike Attack" ID="{CE98C40D-AE48-4E47-B7AA-B2B60CA1BC31}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="DiloStep" ID="{E5611D77-126E-41E0-A65A-8EE9147F7ED0}"/>
-				<Event Name="DiloAttack" ID="{0075DF13-AF8F-4AA2-AFC1-5CD05F951679}"/>
+				<Event Name="DiloStep" ID="{E5611D77-126E-41E0-A65A-8EE9147F7ED0}">
+					<ChildrenList>
+						<Action Name="" ID="{52602D3D-A2B8-4736-8727-91765BD9977B}" ShortID="566372284">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dilo Steps" ID="{6945EFA7-62F4-4299-B7BD-893644CAF1C7}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DiloAttack" ID="{0075DF13-AF8F-4AA2-AFC1-5CD05F951679}">
+					<ChildrenList>
+						<Action Name="" ID="{DC182127-01E1-42FA-B2AD-EE75B05D3A7F}" ShortID="935332847">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dilo Fire" ID="{018FB11D-8996-4B10-8F96-8A7AFD86B19F}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="AmbField" ID="{5DB14B4D-E3B3-4731-A79A-DE909201E2E8}"/>
-				<Event Name="AmbBeach" ID="{CA528DF9-D86F-48C5-A9D2-3060E567978F}"/>
+				<Event Name="AmbBeach" ID="{CA528DF9-D86F-48C5-A9D2-3060E567978F}">
+					<ChildrenList>
+						<Action Name="" ID="{CD931168-BEEC-429D-B0B4-3BAECB7C0D7F}" ShortID="69424207">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Beach" ID="{F0B48B41-D633-4B40-B743-E3668013492A}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="AmbForest" ID="{1181B9C7-2EFF-4B80-95C2-FB50E0B22E0F}"/>
 				<Event Name="DinoRecibeDamageSword" ID="{CB362124-8463-4249-A58E-C19EC56DA609}"/>
 				<Event Name="PlayerArmEmptyOn" ID="{5B4DC011-AB24-454D-9DA2-116C843768AE}"/>
-				<Event Name="PlayerAttackSword" ID="{2799779F-C9FA-4F5E-B48A-A2657BE56549}"/>
+				<Event Name="PlayerAttackSword" ID="{2799779F-C9FA-4F5E-B48A-A2657BE56549}">
+					<ChildrenList>
+						<Action Name="" ID="{7C6C9382-5AD4-4C63-9117-3FCBDC6BF727}" ShortID="421803846">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sword Attack" ID="{76E45ACF-4007-4843-A070-1C9C3BB63D7F}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="PlayerArmEmptyOff" ID="{44D6124F-BD15-47D3-86F9-22317B53429B}"/>
-				<Event Name="PlayerArmSwordOn" ID="{61FB441F-320D-47AD-9779-586B631C3EFC}"/>
-				<Event Name="PlayerArmSwordOff" ID="{D6FD0FDD-6BD6-4447-9F7F-CCC4BEBE951B}"/>
-				<Event Name="PlayerArmCannonOn" ID="{627B73A8-9EBA-4CB1-B5E1-CB6BD3AD06C9}"/>
-				<Event Name="PlayerArmCannonOff" ID="{2971C6DF-C298-4722-83C4-50E251A30331}"/>
+				<Event Name="PlayerArmSwordOn" ID="{61FB441F-320D-47AD-9779-586B631C3EFC}">
+					<ChildrenList>
+						<Action Name="" ID="{9AC18EE3-0D4E-4F37-A098-1E82F9850BA2}" ShortID="897597214">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Activate Sword" ID="{ABC494A3-5998-4696-86E9-17F141256D2A}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerArmSwordOff" ID="{D6FD0FDD-6BD6-4447-9F7F-CCC4BEBE951B}">
+					<ChildrenList>
+						<Action Name="" ID="{EA00B73E-7D0E-4013-8FE0-75D5BE206D30}" ShortID="708387606">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Deactivate Sword" ID="{3065E214-5BDA-408C-9F46-60095E1BD86F}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerArmCannonOn" ID="{627B73A8-9EBA-4CB1-B5E1-CB6BD3AD06C9}">
+					<ChildrenList>
+						<Action Name="" ID="{BE4D3CDB-8081-4E6E-9CE0-B7886D5EE982}" ShortID="20906488">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Activate Cannon" ID="{69416499-480C-4DB4-9AB8-EA88538CD777}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerArmCannonOff" ID="{2971C6DF-C298-4722-83C4-50E251A30331}">
+					<ChildrenList>
+						<Action Name="" ID="{6C723716-C9AE-4941-A5DB-050ABCB5BEF5}" ShortID="128448472">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Deactivate Cannon" ID="{31F07475-44EB-4C2D-9F82-E542616C4A60}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="DinoRecibeDamageCannon" ID="{0C277B87-BDA6-4E86-A39B-714CDFFD9E7A}"/>
 				<Event Name="CompyRoar" ID="{8EF1E407-9940-4B32-9A7F-034DDEBA19BE}"/>
 				<Event Name="RaptorRoar" ID="{79A9522C-6F07-4024-94BA-8202007D87E8}"/>
@@ -261,6 +352,17 @@
 				<Event Name="MusicBossOff" ID="{DC5C83BD-F52A-4656-B010-D32F1EF19906}"/>
 				<Event Name="PlayerJetPackOn" ID="{922F4267-85AE-4837-8A03-800C2104BA12}"/>
 				<Event Name="PlayerJetPackOff" ID="{FE5714A9-7F51-41BE-A749-ABA21D2C741B}"/>
+				<Event Name="PlayAmbMusic" ID="{A2CB2748-7548-429D-9551-069943CC255E}">
+					<ChildrenList>
+						<Action Name="" ID="{27E34300-5959-4EB2-952C-28D032CC7C6C}" ShortID="163172311">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Complete ambience" ID="{BC9587C7-5B74-462B-9636-5D97C65132A6}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

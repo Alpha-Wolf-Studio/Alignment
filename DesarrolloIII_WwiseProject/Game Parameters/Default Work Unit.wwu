@@ -6,6 +6,7 @@
 				<GameParameter Name="VolGeneral" ID="{CD290504-7DA6-4064-AEBC-C1F60821D8AE}"/>
 				<GameParameter Name="VolMusic" ID="{0F3E3205-AD91-4A9F-BDEB-FAE9CB2B1418}"/>
 				<GameParameter Name="VolEffect" ID="{71C4B8C1-BBA8-466B-8B20-420E5436C35F}"/>
+				<GameParameter Name="Beach_distance" ID="{8E2D978F-07E8-4807-9820-8A2888DF68CD}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

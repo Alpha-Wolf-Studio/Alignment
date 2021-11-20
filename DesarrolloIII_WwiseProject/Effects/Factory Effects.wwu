@@ -129,7 +129,12 @@
 							</PropertyList>
 						</Effect>
 						<Effect Name="Echoes_Linear" ID="{D20F3717-EBA2-4E3A-84F8-C8BD431563FB}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3"/>
-						<Effect Name="One_Tap_Half_Second" ID="{B8FE0D3B-7AAB-4344-89FE-177602B7BF19}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3"/>
+						<Effect Name="One_Tap_Half_Second" ID="{B8FE0D3B-7AAB-4344-89FE-177602B7BF19}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+							<PropertyList>
+								<Property Name="FeedbackEnabled" Type="bool" Value="False"/>
+								<Property Name="ProcessLFE" Type="bool" Value="False"/>
+							</PropertyList>
+						</Effect>
 						<Effect Name="One_Tap_Quarter_Second" ID="{6BD2D67D-601A-45A6-AD4C-2C089078EBED}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
 							<PropertyList>
 								<Property Name="DelayTime" Type="Real32" Value="0.25"/>
@@ -621,7 +626,7 @@
 									<PropertyList>
 										<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
 										<Property Name="FilterTypeBand3" Type="int32" Value="0"/>
-										<Property Name="FrequencyBand3" Type="Real32" Value="20000"/>
+										<Property Name="FrequencyBand3" Type="Real32" Value="691"/>
 										<Property Name="OnOffBand1" Type="bool" Value="False"/>
 										<Property Name="OnOffBand2" Type="bool" Value="False"/>
 									</PropertyList>
@@ -1575,10 +1580,16 @@
 								<Effect Name="Heavy_Metal" ID="{9104321C-9E54-4879-A29A-EF8D46BE9035}" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
 									<PropertyList>
 										<Property Name="DelayTime" Type="Real32" Value="7"/>
-										<Property Name="FeedBackLevel" Type="Real32" Value="0.95"/>
-										<Property Name="ModDepth" Type="Real32" Value="2"/>
-										<Property Name="ModFrequency" Type="Real32" Value="0.25"/>
+										<Property Name="DryLevel" Type="Real32" Value="0.59"/>
+										<Property Name="FeedBackLevel" Type="Real32" Value="0.15"/>
+										<Property Name="FeedForwardLevel" Type="Real32" Value="0.4"/>
+										<Property Name="ModDepth" Type="Real32" Value="28.4"/>
+										<Property Name="ModFrequency" Type="Real32" Value="0.91"/>
 										<Property Name="ModPWM" Type="Real32" Value="0"/>
+										<Property Name="ModSmoothing" Type="Real32" Value="57"/>
+										<Property Name="ModWaveform" Type="int32" Value="1"/>
+										<Property Name="OutputLevel" Type="Real32" Value="-2"/>
+										<Property Name="WetDryMix" Type="Real32" Value="46"/>
 									</PropertyList>
 								</Effect>
 							</ChildrenList>
@@ -1686,14 +1697,16 @@
 						</Effect>
 						<Effect Name="Secret_message" ID="{2F5DE612-1AAD-4A84-8FB4-3E66521C920E}" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
 							<PropertyList>
-								<Property Name="Voice1FilterFrequency" Type="Real32" Value="3656"/>
+								<Property Name="DryLevel" Type="Real32" Value="-10"/>
+								<Property Name="Voice1FilterFrequency" Type="Real32" Value="749"/>
 								<Property Name="Voice1FilterType" Type="int32" Value="4"/>
-								<Property Name="Voice1Pitch" Type="Real32" Value="-1200"/>
-								<Property Name="Voice2Enable" Type="bool" Value="True"/>
-								<Property Name="Voice2FilterFrequency" Type="Real32" Value="361"/>
-								<Property Name="Voice2FilterType" Type="int32" Value="4"/>
+								<Property Name="Voice1Pitch" Type="Real32" Value="-900"/>
+								<Property Name="Voice2FilterFrequency" Type="Real32" Value="1646"/>
+								<Property Name="Voice2FilterGain" Type="Real32" Value="7"/>
+								<Property Name="Voice2FilterType" Type="int32" Value="1"/>
 								<Property Name="Voice2Gain" Type="Real32" Value="-4"/>
-								<Property Name="Voice2Pitch" Type="Real32" Value="-1200"/>
+								<Property Name="Voice2Pitch" Type="Real32" Value="-600"/>
+								<Property Name="WetLevel" Type="Real32" Value="7"/>
 								<Property Name="WindowSize" Type="int32" Value="256"/>
 							</PropertyList>
 						</Effect>
