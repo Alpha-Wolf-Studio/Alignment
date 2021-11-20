@@ -14,6 +14,7 @@
 						<ObjectRef Name="PlayerJetPackOff" ID="{FE5714A9-7F51-41BE-A749-ABA21D2C741B}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DiloStep" ID="{E5611D77-126E-41E0-A65A-8EE9147F7ED0}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DinoRecibeDamageSword" ID="{CB362124-8463-4249-A58E-C19EC56DA609}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayAmbMusic" ID="{A2CB2748-7548-429D-9551-069943CC255E}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerArmorDamage" ID="{9992A5C0-BAF6-4398-95AE-ECE24D840D20}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="RaptorAttack" ID="{760FC923-E8AF-43EB-84FE-597E5DC1A946}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
