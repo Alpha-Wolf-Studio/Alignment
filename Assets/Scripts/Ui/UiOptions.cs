@@ -201,7 +201,7 @@ public class UiOptions : MonoBehaviour
     public void SoundToggleMusic()
     {
         DataPersistant.Get().gameSettings.sounds.soundMusicOn = !DataPersistant.Get().gameSettings.sounds.soundMusicOn;
-        float volume = DataPersistant.Get().gameSettings.sounds.soundGeneralOn ? DataPersistant.Get().gameSettings.sounds.GetVolumeGeneral() : 0;
+        float volume = DataPersistant.Get().gameSettings.sounds.soundMusicOn ? DataPersistant.Get().gameSettings.sounds.GetVolumeGeneral() : 0;
         
         AkSoundEngine.SetRTPCValue(AK.GAME_PARAMETERS.VOLMUSIC, volume);
         ChangeColorButton(imgMusic, DataPersistant.Get().gameSettings.sounds.soundMusicOn ? Color.white : colorOffSound);
@@ -209,7 +209,7 @@ public class UiOptions : MonoBehaviour
     public void SoundToggleEffect()
     {
         DataPersistant.Get().gameSettings.sounds.soundEffectOn = !DataPersistant.Get().gameSettings.sounds.soundEffectOn;
-        float volume = DataPersistant.Get().gameSettings.sounds.soundGeneralOn ? DataPersistant.Get().gameSettings.sounds.GetVolumeGeneral() : 0;
+        float volume = DataPersistant.Get().gameSettings.sounds.soundEffectOn ? DataPersistant.Get().gameSettings.sounds.GetVolumeGeneral() : 0;
 
         AkSoundEngine.SetRTPCValue(AK.GAME_PARAMETERS.VOLEFFECT, volume);
         ChangeColorButton(imgEffect, DataPersistant.Get().gameSettings.sounds.soundEffectOn ? Color.white : colorOffSound);
