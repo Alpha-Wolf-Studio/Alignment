@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 231e46affbaaa24a97d8d5374ad77c78
     GuidInternal: 
-    m_lastTime: -8585681289193649456
+    m_lastTime: -8585640512347581223
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -54,6 +54,40 @@ MonoBehaviour:
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+    - name: Music
+      guid: 7c314f3034962749aaec86230808235f
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 231e46affbaaa24a97d8d5374ad77c78
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Music
+        ObjectType: 2
+        guid: 7c314f3034962749aaec86230808235f
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Music
+    - name: SFX
+      guid: 50e1c2d1ca97e04c8f4bfb7f323f21cf
+      id: 393239870
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 231e46affbaaa24a97d8d5374ad77c78
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: 50e1c2d1ca97e04c8f4bfb7f323f21cf
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -66,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: b8dd45da69e9104c8fe61301ca7f2a0f
     GuidInternal: 
-    m_lastTime: -8585643138691353591
+    m_lastTime: -8585640512333141956
     List:
     - name: SoundBankTest
       guid: 382813bbc9f3d741bdbdd44cfa6e72e7
@@ -94,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: ef7188ef8b223d43803ff70594d394b5
     GuidInternal: 
-    m_lastTime: -8585643140135420494
+    m_lastTime: -8585640512349723735
     List:
     - name: AmbBeach
       guid: f98d52ca6fd8c548a9d23060e567978f
@@ -110,9 +144,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: f98d52ca6fd8c548a9d23060e567978f
       Path: Events\Default Work Unit\AmbBeach
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 40
+      maxDuration: 90.17346
+      minDuration: 90.17346
     - name: AmbField
       guid: 4d4bb15db3e33147a79ade909201e2e8
       id: 740467757
@@ -196,8 +230,8 @@ MonoBehaviour:
         guid: 67fbca165ec84945980755d8071d11da
       Path: Events\Default Work Unit\CompyAttack
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.702404
+      minDuration: 0.702404
     - name: CompyRoar
       guid: 07e4f18e4099324b9a7f034ddeba19be
       id: 255002937
@@ -229,9 +263,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: 6c222e05b43b644ba2d2d267f29b4128
       Path: Events\Default Work Unit\CompyStep
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 40
+      maxDuration: 0.158367
+      minDuration: 0.116433
     - name: DiloAttack
       guid: 13df75008fafa24aafc15cd05f951679
       id: 1541757387
@@ -246,9 +280,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: 13df75008fafa24aafc15cd05f951679
       Path: Events\Default Work Unit\DiloAttack
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 40
+      maxDuration: 0.959595
+      minDuration: 0.854902
     - name: DiloRoar
       guid: f5ab1d01972db04184175882af37bd53
       id: 2996865923
@@ -280,9 +314,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: 771d61e56e12e041a65a8ee9147f7ed0
       Path: Events\Default Work Unit\DiloStep
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 40
+      maxDuration: 0.336689
+      minDuration: 0.264127
     - name: DinoRecibeDamageCannon
       guid: 877b270ca6bd864ea39b714cdffd9e7a
       id: 1470014341
@@ -385,6 +419,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: PlayAmbMusic
+      guid: 4827cba248759d429551069943cc255e
+      id: 1067794578
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef7188ef8b223d43803ff70594d394b5
+      - ElementName: PlayAmbMusic
+        ObjectType: 3
+        guid: 4827cba248759d429551069943cc255e
+      Path: Events\Default Work Unit\PlayAmbMusic
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: PlayerArmCannonOff
       guid: dfc6712998c2224783c450e251a30331
       id: 2631962614
@@ -400,8 +451,8 @@ MonoBehaviour:
         guid: dfc6712998c2224783c450e251a30331
       Path: Events\Default Work Unit\PlayerArmCannonOff
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.975238
+      minDuration: 0.975238
     - name: PlayerArmCannonOn
       guid: a8737b62ba9eb14cb5e1cb6bd3ad06c9
       id: 3990432824
@@ -417,8 +468,8 @@ MonoBehaviour:
         guid: a8737b62ba9eb14cb5e1cb6bd3ad06c9
       Path: Events\Default Work Unit\PlayerArmCannonOn
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.155193
+      minDuration: 1.155193
     - name: PlayerArmEmptyOff
       guid: 4f12d64415bdd34786f922317b53429b
       id: 2932252690
@@ -468,8 +519,8 @@ MonoBehaviour:
         guid: c0a59299f6ba984395aeece24d840d20
       Path: Events\Default Work Unit\PlayerArmorDamage
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.066667
+      minDuration: 1.066667
     - name: PlayerArmSwordOff
       guid: dd0ffdd6d66b47449f7fccc4bebe951b
       id: 2969189002
@@ -485,8 +536,8 @@ MonoBehaviour:
         guid: dd0ffdd6d66b47449f7fccc4bebe951b
       Path: Events\Default Work Unit\PlayerArmSwordOff
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.374077
+      minDuration: 1.374077
     - name: PlayerArmSwordOn
       guid: 1f44fb610d32ad479779586b631c3efc
       id: 1660443884
@@ -502,8 +553,8 @@ MonoBehaviour:
         guid: 1f44fb610d32ad479779586b631c3efc
       Path: Events\Default Work Unit\PlayerArmSwordOn
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.384973
+      minDuration: 0.384973
     - name: PlayerAttack
       guid: 40725b6e70b3734185cd64eff355a941
       id: 2169369406
@@ -536,8 +587,8 @@ MonoBehaviour:
         guid: 9f779927fac95e4fb48aa2657be56549
       Path: Events\Default Work Unit\PlayerAttackSword
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.342585
+      minDuration: 0.342585
     - name: PlayerDie
       guid: 7ad928f034d06f4f9cc0eb5d59c7ab25
       id: 3966601280
@@ -587,8 +638,8 @@ MonoBehaviour:
         guid: 2bbf336a5a60374c8b9a6394247cdaf0
       Path: Events\Default Work Unit\PlayerEnergyDamage
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 1.12737
+      minDuration: 1.12737
     - name: PlayerJetPackOff
       guid: a91457fe517fbe41a749aba21d2c741b
       id: 2538694111
@@ -672,8 +723,8 @@ MonoBehaviour:
         guid: 9e96e088031da44fb9e2c8e42fa22b16
       Path: Events\Default Work Unit\PlayerStep
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.029942
+      minDuration: 0.520216
     - name: RaptorAttack
       guid: 23c90f76afe8eb4384fe597e5dc1a946
       id: 3271318801
@@ -689,8 +740,8 @@ MonoBehaviour:
         guid: 23c90f76afe8eb4384fe597e5dc1a946
       Path: Events\Default Work Unit\RaptorAttack
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.702404
+      minDuration: 0.702404
     - name: RaptorRoar
       guid: 2c52a979076f244094ba8202007d87e8
       id: 3630366149
@@ -722,9 +773,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: e389ebc11c11934aa7c0cb3ea179dd28
       Path: Events\Default Work Unit\RaptorStep
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 40
+      maxDuration: 0.365714
+      minDuration: 0.313469
     - name: TrikeAttack
       guid: 92666fde23b02b4d853458f8db268d37
       id: 3472234744
@@ -740,8 +791,8 @@ MonoBehaviour:
         guid: 92666fde23b02b4d853458f8db268d37
       Path: Events\Default Work Unit\TrikeAttack
       maxAttenuation: 0
-      maxDuration: 1.094059
-      minDuration: 1.094059
+      maxDuration: 1.647071
+      minDuration: 1.647071
     - name: TrikeRoar
       guid: ed891349701c074dbb4ef37e80b4054c
       id: 4083332888
@@ -773,9 +824,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: ed18f32df04ad7479a6bb9bfa589420d
       Path: Events\Default Work Unit\TrikeStep
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 40
+      maxDuration: 0.336689
+      minDuration: 0.264127
     - name: UiButtonEnter
       guid: 99e48611d2758945bc01be271403c040
       id: 3935862555
@@ -859,8 +910,8 @@ MonoBehaviour:
         guid: 194a3f4a78bb7346af84596478fc8a5d
       Path: Events\Default Work Unit\UiCraftFail
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.665652
+      minDuration: 0.665652
     - name: UiCraftSuccessful
       guid: a360d22b1345ac4a83ef6d757ee054f7
       id: 3041684469
@@ -941,8 +992,22 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 1b6df22fac5bf44c9ea156b53df8595d
     GuidInternal: 
-    m_lastTime: -8585646754299855938
+    m_lastTime: -8585640512349713763
     List:
+    - name: Beach_distance
+      guid: 8f972d8ee807074898208a2888df68cd
+      id: 1463885556
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 1b6df22fac5bf44c9ea156b53df8595d
+      - ElementName: Beach_distance
+        ObjectType: 13
+        guid: 8f972d8ee807074898208a2888df68cd
+      Path: Game Parameters\Default Work Unit\Beach_distance
     - name: VolEffect
       guid: c1b8c471a8bb6b468b20420e5436c35f
       id: 714118027
@@ -997,8 +1062,172 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 323958bf4555414f97dde599a6de2b8a
     GuidInternal: 
-    m_lastTime: -8585681289195005840
-    List: []
+    m_lastTime: -8585640512333131980
+    List:
+    - name: Ambiences
+      guid: dad1726e21fdb1498fa49339ad743a08
+      id: 1017660616
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 323958bf4555414f97dde599a6de2b8a
+      - ElementName: Ambiences
+        ObjectType: 9
+        guid: dad1726e21fdb1498fa49339ad743a08
+      Path: States\Default Work Unit\Ambiences
+      values:
+      - name: Field
+        guid: 1caa59be8ea2b448af0fe2618aa13063
+        id: 514358619
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 323958bf4555414f97dde599a6de2b8a
+        - ElementName: Ambiences
+          ObjectType: 9
+          guid: dad1726e21fdb1498fa49339ad743a08
+        - ElementName: Field
+          ObjectType: 8
+          guid: 1caa59be8ea2b448af0fe2618aa13063
+      - name: Forest
+        guid: 304f3d1baaf16b4881d707d6b1eece08
+        id: 491961918
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 323958bf4555414f97dde599a6de2b8a
+        - ElementName: Ambiences
+          ObjectType: 9
+          guid: dad1726e21fdb1498fa49339ad743a08
+        - ElementName: Forest
+          ObjectType: 8
+          guid: 304f3d1baaf16b4881d707d6b1eece08
+      - name: None
+        guid: f8fe075dd8c01e4e9e81b0f362906bfe
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 323958bf4555414f97dde599a6de2b8a
+        - ElementName: Ambiences
+          ObjectType: 9
+          guid: dad1726e21fdb1498fa49339ad743a08
+        - ElementName: None
+          ObjectType: 8
+          guid: f8fe075dd8c01e4e9e81b0f362906bfe
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+    - name: Music
+      guid: 8017eaf2b294114bb961c619cf0a8036
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 323958bf4555414f97dde599a6de2b8a
+      - ElementName: Music
+        ObjectType: 9
+        guid: 8017eaf2b294114bb961c619cf0a8036
+      Path: States\Default Work Unit\Music
+      values:
+      - name: Beach_Music
+        guid: e4a409a520d3c344ade14c479ae7e131
+        id: 3783252810
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 323958bf4555414f97dde599a6de2b8a
+        - ElementName: Music
+          ObjectType: 9
+          guid: 8017eaf2b294114bb961c619cf0a8036
+        - ElementName: Beach_Music
+          ObjectType: 8
+          guid: e4a409a520d3c344ade14c479ae7e131
+      - name: Boss_Music
+        guid: 8878d12c0634bc4986f5c764dcbee8f3
+        id: 2985113282
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 323958bf4555414f97dde599a6de2b8a
+        - ElementName: Music
+          ObjectType: 9
+          guid: 8017eaf2b294114bb961c619cf0a8036
+        - ElementName: Boss_Music
+          ObjectType: 8
+          guid: 8878d12c0634bc4986f5c764dcbee8f3
+      - name: Filed_Music
+        guid: a6a35f42a4011b4b86302ece9ad71315
+        id: 3712224257
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 323958bf4555414f97dde599a6de2b8a
+        - ElementName: Music
+          ObjectType: 9
+          guid: 8017eaf2b294114bb961c619cf0a8036
+        - ElementName: Filed_Music
+          ObjectType: 8
+          guid: a6a35f42a4011b4b86302ece9ad71315
+      - name: Forest_Music
+        guid: e4cf7b050cd2cd4991929df37b8602a8
+        id: 1201098966
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 323958bf4555414f97dde599a6de2b8a
+        - ElementName: Music
+          ObjectType: 9
+          guid: 8017eaf2b294114bb961c619cf0a8036
+        - ElementName: Forest_Music
+          ObjectType: 8
+          guid: e4cf7b050cd2cd4991929df37b8602a8
+      - name: None
+        guid: 4932935d4346f84bb5ce1d0250a665ed
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 323958bf4555414f97dde599a6de2b8a
+        - ElementName: Music
+          ObjectType: 9
+          guid: 8017eaf2b294114bb961c619cf0a8036
+        - ElementName: None
+          ObjectType: 8
+          guid: 4932935d4346f84bb5ce1d0250a665ed
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     PathAndIcons:

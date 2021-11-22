@@ -32,11 +32,13 @@ public class Enviroment : MonoBehaviour
                 if (enterEnviroment != env.enviroments[0].enterEnviroment)
                 {
                     Debug.Log("Cambio de Música a " + env.test[(int) enterEnviroment]);
+                    //ChangeMusicAmbient(env.enviroments[0].enterEnviroment);
                 }
             }
             else
             {
                 Debug.Log("Cambio de Música a " + env.test[(int)enterEnviroment]);
+                //ChangeMusicAmbient(env.enviroments[0].enterEnviroment);
             }
 
             env.enviroments.Insert(0, this);
@@ -55,12 +57,31 @@ public class Enviroment : MonoBehaviour
                 if (env.enviroments.Count > 0)
                 {
                     Debug.Log("Cambio de Música a " + env.test[(int) env.enviroments[0].enterEnviroment]);
+                    //ChangeMusicAmbient(env.enviroments[0].enterEnviroment);
                 }
                 else
                 {
                     Debug.Log("Cambio de Música a " + env.test[(int) exitEnviroment]);
+                    //ChangeMusicAmbient(env.enviroments[0].exitEnviroment);
                 }
             }
+        }
+    }
+    public void ChangeMusicAmbient(EnviromentManagement.Enviroments currentEnviroment)
+    {
+        switch (currentEnviroment)
+        {
+            case EnviromentManagement.Enviroments.None:
+                break;
+            case EnviromentManagement.Enviroments.Beach:
+                AkSoundEngine.PostEvent(AK.EVENTS.AMBBEACH, gameObject);
+                break;
+            case EnviromentManagement.Enviroments.Field:
+                AkSoundEngine.PostEvent(AK.EVENTS.AMBFIELD, gameObject);
+                break;
+            case EnviromentManagement.Enviroments.Forest:
+                AkSoundEngine.PostEvent(AK.EVENTS.AMBFOREST, gameObject);
+                break;
         }
     }
 }

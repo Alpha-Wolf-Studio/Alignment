@@ -1,0 +1,142 @@
+Event	ID	Name			Wwise Object Path	Notes
+	80751710	PauseOn			\Default Work Unit\PauseOn	
+	106216603	UiButtonExit			\Default Work Unit\UiButtonExit	
+	126850157	PlayerAttackSword			\Default Work Unit\PlayerAttackSword	
+	224212648	AmbBeach			\Default Work Unit\AmbBeach	
+	255002937	CompyRoar			\Default Work Unit\CompyRoar	
+	412471812	PlayerStep			\Default Work Unit\PlayerStep	
+	538913891	UiCraftFail			\Default Work Unit\UiCraftFail	
+	740467757	AmbField			\Default Work Unit\AmbField	
+	863504537	UiOpenInventory			\Default Work Unit\UiOpenInventory	
+	878168405	UiClickButton			\Default Work Unit\UiClickButton	
+	890299361	PlayerEnergyDamage			\Default Work Unit\PlayerEnergyDamage	
+	1012813505	DinoRecibeDamageSword			\Default Work Unit\DinoRecibeDamageSword	
+	1067794578	PlayAmbMusic			\Default Work Unit\PlayAmbMusic	
+	1247094977	DiloStep			\Default Work Unit\DiloStep	
+	1321486280	MusicBossOff			\Default Work Unit\MusicBossOff	
+	1394561708	PlayerDropItem			\Default Work Unit\PlayerDropItem	
+	1470014341	DinoRecibeDamageCannon			\Default Work Unit\DinoRecibeDamageCannon	
+	1477343779	RaptorStep			\Default Work Unit\RaptorStep	
+	1541757387	DiloAttack			\Default Work Unit\DiloAttack	
+	1603401268	PlayerArmEmptyOn			\Default Work Unit\PlayerArmEmptyOn	
+	1660443884	PlayerArmSwordOn			\Default Work Unit\PlayerArmSwordOn	
+	1968229471	UiCloseInventory			\Default Work Unit\UiCloseInventory	
+	2077580298	TrikeStep			\Default Work Unit\TrikeStep	
+	2169369406	PlayerAttack			\Default Work Unit\PlayerAttack	
+	2265561867	PlayerJetPackOn			\Default Work Unit\PlayerJetPackOn	
+	2280234578	MusicBossOn			\Default Work Unit\MusicBossOn	
+	2316306096	AmbForest			\Default Work Unit\AmbForest	
+	2538694111	PlayerJetPackOff			\Default Work Unit\PlayerJetPackOff	
+	2631962614	PlayerArmCannonOff			\Default Work Unit\PlayerArmCannonOff	
+	2685053305	UiUseItem			\Default Work Unit\UiUseItem	
+	2739055032	PlayerArmorDamage			\Default Work Unit\PlayerArmorDamage	
+	2932252690	PlayerArmEmptyOff			\Default Work Unit\PlayerArmEmptyOff	
+	2969189002	PlayerArmSwordOff			\Default Work Unit\PlayerArmSwordOff	
+	2996865923	DiloRoar			\Default Work Unit\DiloRoar	
+	3041684469	UiCraftSuccessful			\Default Work Unit\UiCraftSuccessful	
+	3060166911	CompyStep			\Default Work Unit\CompyStep	
+	3210062703	UiSwapItem			\Default Work Unit\UiSwapItem	
+	3271318801	RaptorAttack			\Default Work Unit\RaptorAttack	
+	3452482440	PlayerPickItem			\Default Work Unit\PlayerPickItem	
+	3472234744	TrikeAttack			\Default Work Unit\TrikeAttack	
+	3630366149	RaptorRoar			\Default Work Unit\RaptorRoar	
+	3758255951	CompletedTask			\Default Work Unit\CompletedTask	
+	3921005316	PauseOff			\Default Work Unit\PauseOff	
+	3935862555	UiButtonEnter			\Default Work Unit\UiButtonEnter	
+	3966601280	PlayerDie			\Default Work Unit\PlayerDie	
+	3990432824	PlayerArmCannonOn			\Default Work Unit\PlayerArmCannonOn	
+	4008126242	PlayerJump			\Default Work Unit\PlayerJump	
+	4083332888	TrikeRoar			\Default Work Unit\TrikeRoar	
+	4152337806	CompletedQuest			\Default Work Unit\CompletedQuest	
+	4253121485	CompyAttack			\Default Work Unit\CompyAttack	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1017660616	Ambiences			\Default Work Unit\Ambiences	
+
+State	ID	Name	State Group			Notes
+	491961918	Forest	Ambiences			
+	514358619	Field	Ambiences			
+	748895195	None	Ambiences			
+
+Effect plug-ins	ID	Name	Type				Notes
+	2568359573	Secret_message	Wwise Harmonizer			
+	4269441574	Heavy_Metal	Wwise Flanger			
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	209119826	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\Deactivate Sword\silence\Wwise Silence	
+	562211903	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Birds\Silence\Wwise Silence	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	5998164	Player_Pick Item_3	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Pick Item_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Pick_Item\Player_Pick Item_3		18472
+	7966758	Dino Step_4	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dilo Steps\Dino Step_4		23360
+	8741045	Wind_05	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_933DAB26.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Wind\Wind_05		1349632
+	10194424	Forest, Smooth Rustle_04	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_5366CFD5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Forest\Forest, Smooth Rustle_04		747400
+	24436010	Player_Drop Item	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Drop Item_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Drop Item		66214
+	25543302	Dino Step_12	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_12_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Raptor Steps\Dino Step_12		27712
+	49426062	Compy Step_7	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Compy Steps\Compy Step_7		11648
+	62729632	Activate Sword	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Activate Sword_5CA27A38.wem		\Actor-Mixer Hierarchy\Default Work Unit\Activate Sword		34018
+	63065351	Dino Step_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dilo Steps\Dino Step_2		23872
+	79051648	Player_Jump_With Landing	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Jump_With Landing_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Jump_With Landing		120434
+	82899237	Wind	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_F754C32A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Wind\Wind		1390220
+	88209200	Menu_Out	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Menu_Out_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu_Out		37076
+	93498598	Craft_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Craft_2_1CC3A73A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Craft_2		58774
+	116573761	Forest, Smooth Rustle	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_7FAD2F5E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Forest\Forest, Smooth Rustle		854164
+	120477107	Wind_01	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_E0A2B7E3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Wind\Wind_01		1633748
+	140734417	Wind_06	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_DE702150.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Wind\Wind_06		395800
+	148964275	Sword_Attack_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Sword_Attack_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword Attack\Sword_Attack_2		30280
+	150710841	Dino Step_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dilo Steps\Dino Step_1		25664
+	185232840	Compy Step_5	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Compy Steps\Compy Step_5		11008
+	203568805	Player Damage_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player Damage_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Armor Damage\Player Damage_2		80718
+	241760756	Deactivate Sword_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Deactivate Sword_1_13A366D4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Deactivate Sword\Deactivate Sword_1		33058
+	246838144	Compy Step_4	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Compy Steps\Compy Step_4		10944
+	283426189	Deactivate Cannon	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Deactivate Cannon_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Deactivate Cannon		86080
+	290825574	Pasos_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Pasos_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_2		125012
+	292127355	Dilo Fire_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dilo Fire_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dilo Fire\Dilo Fire_2		79950
+	292218602	Dino Step_7	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Raptor Steps\Dino Step_7		30784
+	337994893	Player_Shoot	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Shoot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Shoot		86884
+	352936415	Sword_Attack_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Sword_Attack_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword Attack\Sword_Attack_1		13742
+	366352810	Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_02	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_EDC26E09.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Birds\Birds Random\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_02		1311388
+	371553608	Wind_03	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_BF0364A2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Wind\Wind_03		1116248
+	389769619	Wind_07	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_6AADB1C4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Wind\Wind_07		1248160
+	413870853	Pasos_3	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Pasos_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_3		103068
+	428508052	Pasos_4	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Pasos_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_4		117664
+	439769062	Compy Step_8	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Compy Steps\Compy Step_8		11314
+	460607511	Energy damage	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Energy damage_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Energy damage		99498
+	463783719	Wind_04	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_56E92F8D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Wind\Wind_04		679920
+	466913685	Dino Step_9	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Raptor Steps\Dino Step_9		28480
+	473294982	Swipe_Menu_Items	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Swipe_Menu_Items_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Swipe_Menu_Items		23104
+	477441384	Pasos_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Pasos_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Steps\Pasos_1		161924
+	501376799	Open_Craft_Menu	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Open_Craft_Menu_F73A2624.wem		\Actor-Mixer Hierarchy\Default Work Unit\Open_Craft_Menu		75974
+	507265259	Raptor Attack_3	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Raptor Attack_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Compy Attack\Raptor Attack_3		62016
+	565623388	Forest, Smooth Rustle_02	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_1D1E435A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Forest\Forest, Smooth Rustle_02		1116216
+	572663694	Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_A4C63EE8.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Birds\Birds Random\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1		945096
+	581281108	Raptor Attack_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Raptor Attack_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Raptor Attack\Raptor Attack_2		37824
+	644304204	Water, Waves, Ocean, Beach, Small, Lapping  SND0008	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Beach\Water, Waves, Ocean, Beach, Small, Lapping  SND0008		17313368
+	646615204	Dino Step_10	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Raptor Steps\Dino Step_10		28224
+	727224815	Player_Pick Item_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Pick Item_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Pick_Item\Player_Pick Item_2		12992
+	741476641	Player Damage_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player Damage_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Armor Damage\Player Damage_1		94144
+	746796137	Dino Step_5	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dilo Steps\Dino Step_5		27456
+	753143526	Activate Cannon	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Activate Cannon_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Activate Cannon		101952
+	788207607	Compy Step_6	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Compy Steps\Compy Step_6		11008
+	812066498	Dino Step_8	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Raptor Steps\Dino Step_8		29760
+	816861029	Close_Craft_Menu	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Close_Craft_Menu_7881A363.wem		\Actor-Mixer Hierarchy\Default Work Unit\Close_Craft_Menu		61490
+	819322802	Wind_02	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_7F129901.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Wind\Wind_02		1430808
+	863079022	Dino Step_11	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_11_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Raptor Steps\Dino Step_11		32320
+	874837282	Compy Step_3	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Compy Steps\Compy Step_3		11140
+	887298362	Dino Step_3	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dilo Steps\Dino Step_3		27584
+	897380997	Dino Step_6	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dilo Steps\Dino Step_6		29760
+	900079939	Forest, Smooth Rustle_01	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_F5FCBCA3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Forest\Forest, Smooth Rustle_01		669756
+	907855225	Player_Death	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Death_DF2BFD1C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Death		510016
+	916797212	Compy Step_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Compy Steps\Compy Step_1		13248
+	929226526	Menu_In	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Menu_In_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu_In		37076
+	967836298	Trike Step_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Trike Step_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Trike Steps\Trike steps\Trike Step_1		17722
+	984081876	Compy Step_2	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Compy Steps\Compy Step_2		11136
+	985901743	Player_Pick Item_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Pick Item_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Pick_Item\Player_Pick Item_1		17704
+	988978352	Dilo Fire_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dilo Fire_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dilo Fire\Dilo Fire_1		55104
+	993370788	Knife, Throw, Spin, Hit Object With Metal Sound SND34521	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Knife, Throw, Spin, Hit Object With Metal Sound SND34521_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Compy Attack\Knife, Throw, Spin, Hit Object With Metal Sound SND34521		32556
+	993938383	Trike Attack	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dirt & Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502_A49B7F75.wem		\Actor-Mixer Hierarchy\Default Work Unit\Trike Attack		316300
+	995517507	Craft	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Craft_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Craft		69184
+	1023765488	Menu_Click_1	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Menu_Click_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu_Click_1		94144
+	1072147322	Forest, Smooth Rustle_03	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_98186EFC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Ambience\Forest\Forest, Smooth Rustle_03		854164
+	1072188128	Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_01	C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_02C2A75C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Complete ambience\Birds\Birds Random\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_01		798580
+

@@ -30,6 +30,7 @@ namespace AK
         static const AkUniqueID MUSICBOSSON = 2280234578U;
         static const AkUniqueID PAUSEOFF = 3921005316U;
         static const AkUniqueID PAUSEON = 80751710U;
+        static const AkUniqueID PLAYAMBMUSIC = 1067794578U;
         static const AkUniqueID PLAYERARMCANNONOFF = 2631962614U;
         static const AkUniqueID PLAYERARMCANNONON = 3990432824U;
         static const AkUniqueID PLAYERARMEMPTYOFF = 2932252690U;

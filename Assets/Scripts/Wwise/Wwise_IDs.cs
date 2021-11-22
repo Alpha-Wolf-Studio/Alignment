@@ -19,6 +19,7 @@ namespace AK
         public static uint MUSICBOSSON = 2280234578U;
         public static uint PAUSEOFF = 3921005316U;
         public static uint PAUSEON = 80751710U;
+        public static uint PLAYAMBMUSIC = 1067794578U;
         public static uint PLAYERARMCANNONOFF = 2631962614U;
         public static uint PLAYERARMCANNONON = 3990432824U;
         public static uint PLAYERARMEMPTYOFF = 2932252690U;
@@ -53,8 +54,39 @@ namespace AK
         public static uint UIUSEITEM = 2685053305U;
     } // public class EVENTS
 
+    public class STATES
+    {
+        public class AMBIENCES
+        {
+            public static uint GROUP = 1017660616U;
+
+            public class STATE
+            {
+                public static uint FIELD = 514358619U;
+                public static uint FOREST = 491961918U;
+                public static uint NONE = 748895195U;
+            } // public class STATE
+        } // public class AMBIENCES
+
+        public class MUSIC
+        {
+            public static uint GROUP = 3991942870U;
+
+            public class STATE
+            {
+                public static uint BEACH_MUSIC = 3783252810U;
+                public static uint BOSS_MUSIC = 2985113282U;
+                public static uint FILED_MUSIC = 3712224257U;
+                public static uint FOREST_MUSIC = 1201098966U;
+                public static uint NONE = 748895195U;
+            } // public class STATE
+        } // public class MUSIC
+
+    } // public class STATES
+
     public class GAME_PARAMETERS
     {
+        public static uint BEACH_DISTANCE = 1463885556U;
         public static uint VOLEFFECT = 714118027U;
         public static uint VOLGENERAL = 2360153336U;
         public static uint VOLMUSIC = 1770950993U;
@@ -69,6 +101,8 @@ namespace AK
     public class BUSSES
     {
         public static uint MASTER_AUDIO_BUS = 3803692087U;
+        public static uint MUSIC = 3991942870U;
+        public static uint SFX = 393239870U;
     } // public class BUSSES
 
     public class AUDIO_DEVICES
