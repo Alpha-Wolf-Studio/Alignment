@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void Start()
     {
+        AkSoundEngine.PostEvent(AK.EVENTS.PLAYAMBMUSIC, gameObject);
         GameInPause(false);
         QuestManager.Get().OnRepairedShip += CompletedGame;
         LoadGameManager();  // Sacar esta linea cuando se instancie en el menu

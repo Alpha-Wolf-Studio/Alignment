@@ -48,6 +48,7 @@ namespace AK
         static const AkUniqueID PLAYERJUMP = 4008126242U;
         static const AkUniqueID PLAYERPICKITEM = 3452482440U;
         static const AkUniqueID PLAYERSTEP = 412471812U;
+        static const AkUniqueID PLAYMENUMUSIC = 413545259U;
         static const AkUniqueID RAPTORATTACK = 3271318801U;
         static const AkUniqueID RAPTORROAR = 3630366149U;
         static const AkUniqueID RAPTORSTEP = 1477343779U;

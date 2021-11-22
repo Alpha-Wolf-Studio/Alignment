@@ -8,6 +8,7 @@ public class RotatePlanetMouse : MonoBehaviour
 
     private void Start()
     {
+        AkSoundEngine.PostEvent(AK.EVENTS.PLAYMENUMUSIC, gameObject);
         pos = transform.position;
     }
     private void OnMouseDrag()

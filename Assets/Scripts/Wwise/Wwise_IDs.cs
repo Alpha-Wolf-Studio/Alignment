@@ -37,6 +37,7 @@ namespace AK
         public static uint PLAYERJUMP = 4008126242U;
         public static uint PLAYERPICKITEM = 3452482440U;
         public static uint PLAYERSTEP = 412471812U;
+        public static uint PLAYMENUMUSIC = 413545259U;
         public static uint RAPTORATTACK = 3271318801U;
         public static uint RAPTORROAR = 3630366149U;
         public static uint RAPTORSTEP = 1477343779U;

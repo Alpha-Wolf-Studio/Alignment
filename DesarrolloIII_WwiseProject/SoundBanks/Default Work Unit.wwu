@@ -48,6 +48,7 @@
 						<ObjectRef Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UiButtonExit" ID="{EF696983-008A-4C6B-9217-732D8F3002F7}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerArmCannonOn" ID="{627B73A8-9EBA-4CB1-B5E1-CB6BD3AD06C9}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PlayMenuMusic" ID="{58728DA2-D035-4CEE-A15A-2F21CB94DB71}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="TrikeRoar" ID="{491389ED-1C70-4D07-BB4E-F37E80B4054C}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="TrikeAttack" ID="{DE6F6692-B023-4D2B-8534-58F8DB268D37}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DinoRecibeDamageCannon" ID="{0C277B87-BDA6-4E86-A39B-714CDFFD9E7A}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>

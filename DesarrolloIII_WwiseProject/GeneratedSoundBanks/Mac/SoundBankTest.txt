@@ -5,6 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	224212648	AmbBeach			\Default Work Unit\AmbBeach	
 	255002937	CompyRoar			\Default Work Unit\CompyRoar	
 	412471812	PlayerStep			\Default Work Unit\PlayerStep	
+	413545259	PlayMenuMusic			\Default Work Unit\PlayMenuMusic	
 	538913891	UiCraftFail			\Default Work Unit\UiCraftFail	
 	740467757	AmbField			\Default Work Unit\AmbField	
 	863504537	UiOpenInventory			\Default Work Unit\UiOpenInventory	

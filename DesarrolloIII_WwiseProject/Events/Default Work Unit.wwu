@@ -363,6 +363,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="PlayMenuMusic" ID="{58728DA2-D035-4CEE-A15A-2F21CB94DB71}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
