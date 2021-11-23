@@ -13,6 +13,7 @@ public class UIMenuManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         versionText.text = "Version: " + Application.version;
+        Time.timeScale = 1;
     }
     public enum Menues { Main, Play, Credits, Options, Exit }
     public Menues menuActual = Menues.Main;

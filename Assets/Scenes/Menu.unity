@@ -5770,7 +5770,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8881267686330601553}
   - component: {fileID: 8881267686330601550}
-  - component: {fileID: 8881267686330601552}
   m_Layer: 0
   m_Name: LoadSoundBank
   m_TagString: Untagged
@@ -5778,18 +5777,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8881267686330601552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8881267686330601551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c3b0cbe869e904409468e23557444a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8881267686330601553
 Transform:
   m_ObjectHideFlags: 0
