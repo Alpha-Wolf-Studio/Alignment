@@ -76,7 +76,6 @@ public class PlayerGame : PlayerState
         
         velX = Input.GetAxis("Horizontal");
         velZ = Input.GetAxis("Vertical");
-
         switch (movement)
         {
             case Moving.None:
@@ -85,13 +84,13 @@ public class PlayerGame : PlayerState
                 {
                     movement = Moving.Moving;
                     //Debug.Log("ESTADO: Empieza a Caminar.");
-                    AkSoundEngine.PostEvent(AK.EVENTS.PLAYERSTEP, gameObject);
+                    //AkSoundEngine.PostEvent(AK.EVENTS.PLAYERSTEP, gameObject);
                 }
                 break;
             case Moving.Moving:
-                onTimeMove += Time.deltaTime;
                 if (IsMoving())
                 {
+                    onTimeMove += Time.deltaTime;
                     Vector3 movementVectorWalk = (transform.forward * velZ + transform.right * velX) * speedMovement;
                     rb.MovePosition(transform.position + movementVectorWalk);
                     if (isRunning)
@@ -111,9 +110,9 @@ public class PlayerGame : PlayerState
                         //Debug.Log("ESTADO: Deja de Correr (Por Stamina).");
                         //Debug.Log("ESTADO: Empieza a Caminar.");
                     }
-                    if (onTimeMove > refTime - speedMovement)
+                    if (onTimeMove > refTime - speedMovement && player.IsGrounded)
                     {
-                        Debug.Log("Evento Camina.");
+                        Debug.Log("Evento Paso." + Time.timeSinceLevelLoad);
                         onTimeMove = 0;
                         AkSoundEngine.PostEvent(AK.EVENTS.PLAYERSTEP, gameObject);
                     }
@@ -132,7 +131,10 @@ public class PlayerGame : PlayerState
     }
     bool IsMoving()
     {
-        return (Mathf.Abs(velX) > Mathf.Epsilon || Mathf.Abs(velZ) > Mathf.Epsilon);
+        bool boolReturn = (Mathf.Abs(velX) > Mathf.Epsilon || Mathf.Abs(velZ) > Mathf.Epsilon);
+        if(!boolReturn)
+            Debug.Log("Quieto.");
+        return boolReturn;
     }
     private void TryRun()
     {
