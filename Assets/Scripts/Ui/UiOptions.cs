@@ -98,10 +98,10 @@ public class UiOptions : MonoBehaviour
             PlayerController playerController = FindObjectOfType<PlayerController>();
             DataPersistant.Get().LoadScene(playerController);
         }
-        
-        ChangeColorButton(imgGeneral, DataPersistant.Get().gameSettings.sounds.soundGeneralOn ? Color.white : colorOffSound);
-        ChangeColorButton(imgMusic, DataPersistant.Get().gameSettings.sounds.soundMusicOn ? Color.white : colorOffSound);
-        ChangeColorButton(imgEffect, DataPersistant.Get().gameSettings.sounds.soundEffectOn ? Color.white : colorOffSound);
+
+        ChangeSpriteImage(imgGeneral, spritesSounds[2]);
+        ChangeSpriteImage(imgMusic, spritesSounds[4]);
+        ChangeSpriteImage(imgEffect, spritesSounds[6]);
     }
     public void SetAllValues()
     {
@@ -196,7 +196,14 @@ public class UiOptions : MonoBehaviour
         float volume = DataPersistant.Get().gameSettings.sounds.soundGeneralOn ? DataPersistant.Get().gameSettings.sounds.GetVolumeGeneral() : 0;
         
         AkSoundEngine.SetRTPCValue(AK.GAME_PARAMETERS.VOLGENERAL, volume);
-        ChangeColorButton(imgGeneral, DataPersistant.Get().gameSettings.sounds.soundGeneralOn ? Color.white : colorOffSound);
+        if (DataPersistant.Get().gameSettings.sounds.soundGeneralOn) 
+        {
+            ChangeSpriteImage(imgGeneral, spritesSounds[2]);
+        }
+        else 
+        {
+            ChangeSpriteImage(imgGeneral, spritesSounds[3]);
+        }
     }
     public void SoundToggleMusic()
     {
@@ -204,7 +211,14 @@ public class UiOptions : MonoBehaviour
         float volume = DataPersistant.Get().gameSettings.sounds.soundMusicOn ? DataPersistant.Get().gameSettings.sounds.GetVolumeGeneral() : 0;
         
         AkSoundEngine.SetRTPCValue(AK.GAME_PARAMETERS.VOLMUSIC, volume);
-        ChangeColorButton(imgMusic, DataPersistant.Get().gameSettings.sounds.soundMusicOn ? Color.white : colorOffSound);
+        if (DataPersistant.Get().gameSettings.sounds.soundMusicOn)
+        {
+            ChangeSpriteImage(imgMusic, spritesSounds[4]);
+        }
+        else
+        {
+            ChangeSpriteImage(imgMusic, spritesSounds[5]);
+        }
     }
     public void SoundToggleEffect()
     {
@@ -212,14 +226,21 @@ public class UiOptions : MonoBehaviour
         float volume = DataPersistant.Get().gameSettings.sounds.soundEffectOn ? DataPersistant.Get().gameSettings.sounds.GetVolumeGeneral() : 0;
 
         AkSoundEngine.SetRTPCValue(AK.GAME_PARAMETERS.VOLEFFECT, volume);
-        ChangeColorButton(imgEffect, DataPersistant.Get().gameSettings.sounds.soundEffectOn ? Color.white : colorOffSound);
+        if (DataPersistant.Get().gameSettings.sounds.soundEffectOn)
+        {
+            ChangeSpriteImage(imgEffect, spritesSounds[6]);
+        }
+        else
+        {
+            ChangeSpriteImage(imgEffect, spritesSounds[7]);
+        }
     }
     public void SoundChangeGeneral(float value)
     {
         DataPersistant.Get().gameSettings.sounds.SetVolumeGeneral(value);
         AkSoundEngine.SetRTPCValue(AK.GAME_PARAMETERS.VOLGENERAL, value);
         Debug.Log("VolGeneralValue Cambiado a: " + value);
-        ChangeColorButton(imgGeneral, Color.white);
+        ChangeSpriteImage(imgGeneral, spritesSounds[2]);
         DataPersistant.Get().gameSettings.sounds.soundGeneralOn = true;
     }
     public void SoundChangeMusic(float value)
@@ -227,7 +248,7 @@ public class UiOptions : MonoBehaviour
         DataPersistant.Get().gameSettings.sounds.SetVolumeMusic(value);
         AkSoundEngine.SetRTPCValue(AK.GAME_PARAMETERS.VOLMUSIC, value);
         Debug.Log("VolMusicValue Cambiada a: " + value);
-        ChangeColorButton(imgMusic, Color.white);
+        ChangeSpriteImage(imgMusic, spritesSounds[4]);
         DataPersistant.Get().gameSettings.sounds.soundMusicOn = true;
     }
     public void SoundChangeEffect(float value)
@@ -235,11 +256,17 @@ public class UiOptions : MonoBehaviour
         DataPersistant.Get().gameSettings.sounds.SetVolumeEffects(value);
         AkSoundEngine.SetRTPCValue(AK.GAME_PARAMETERS.VOLEFFECT, value);
         Debug.Log("VolEffectValue Cambiado a: " + value);
-        ChangeColorButton(imgEffect, Color.white);
+        ChangeSpriteImage(imgEffect, spritesSounds[6]);
         DataPersistant.Get().gameSettings.sounds.soundEffectOn = true;
     }
     void ChangeColorButton(Image btn, Color color)
     {
         btn.color = color;
     }
+
+    void ChangeSpriteImage(Image img, Sprite newSprite) 
+    {
+        img.sprite = newSprite;
+    }
+
 }
