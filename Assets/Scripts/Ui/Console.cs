@@ -59,8 +59,11 @@ public class Console : MonoBehaviour, IPointerClickHandler
     private void OnDisable()
     {
         PauseGame(false);
-        player.ChangeControllerToGame();
-        player.AvailableCursor(false);
+        if (player) 
+        {
+            player.ChangeControllerToGame();
+            player.AvailableCursor(false);
+        }
     }
     private void Update()
     {

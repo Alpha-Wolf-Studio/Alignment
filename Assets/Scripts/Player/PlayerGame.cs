@@ -132,8 +132,8 @@ public class PlayerGame : PlayerState
     bool IsMoving()
     {
         bool boolReturn = (Mathf.Abs(velX) > Mathf.Epsilon || Mathf.Abs(velZ) > Mathf.Epsilon);
-        if(!boolReturn)
-            Debug.Log("Quieto.");
+        //if(!boolReturn)
+            //Debug.Log("Quieto.");
         return boolReturn;
     }
     private void TryRun()

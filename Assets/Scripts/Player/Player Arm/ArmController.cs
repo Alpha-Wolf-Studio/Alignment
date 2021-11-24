@@ -6,13 +6,16 @@ public class ArmController : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    public System.Action<int> OnArmChange;
+
     [SerializeField] List<ArmType> allArmTypes = new List<ArmType>();
     [SerializeField] Animator anim;
-    public enum ArmTypeSelection { Free = 1, Melee, Range, Size};
-    ArmTypeSelection currentArmTypeSelection = ArmTypeSelection.Free;
+    public enum ArmTypeSelection { Melee = 1, Range, Size};
+    ArmTypeSelection currentArmTypeSelection = ArmTypeSelection.Melee;
     bool armLocked = false;
     void LockArm() => armLocked = true;
     void UnlockArm() => armLocked = false;
+    void AttackEvent() => allArmTypes[(int)currentArmTypeSelection - 1].OnAttackEvent();
 
     private void Awake()
     {
@@ -24,13 +27,13 @@ public class ArmController : MonoBehaviour
 
     public void ChangeArmType(ArmTypeSelection armType)
     {
-        if (armLocked) return;
-        AudioChangeArmor(false, currentArmTypeSelection);
+        if (armLocked || currentArmTypeSelection == armType) return;
+        OnArmChange?.Invoke((int)armType);
+        AudioChangeArm(false, currentArmTypeSelection);
         currentArmTypeSelection = armType;
         anim.SetInteger("Arm Type", (int)armType);
         Invoke(nameof(EnableAudioChangeWeapon), 0.5f);
     }
-
 
     public void StartArmOneShootAction(Vector3 dir, DamageInfo info) 
     {
@@ -43,13 +46,13 @@ public class ArmController : MonoBehaviour
         if (armLocked) return;
         allArmTypes[(int)currentArmTypeSelection - 1].ContinuosAction(dir, info);
     }
-    void AudioChangeArmor(bool on, ArmTypeSelection armToAudio)
+    void AudioChangeArm(bool on, ArmTypeSelection armToAudio)
     {
         switch (armToAudio)
         {
-            case ArmTypeSelection.Free:
-                AkSoundEngine.PostEvent(on ? AK.EVENTS.PLAYERARMEMPTYON : AK.EVENTS.PLAYERARMEMPTYOFF, gameObject);
-                break;
+            //case ArmTypeSelection.Free:
+                //AkSoundEngine.PostEvent(on ? AK.EVENTS.PLAYERARMEMPTYON : AK.EVENTS.PLAYERARMEMPTYOFF, gameObject);
+                //break;
             case ArmTypeSelection.Melee:
                 AkSoundEngine.PostEvent(on ? AK.EVENTS.PLAYERARMSWORDON : AK.EVENTS.PLAYERARMSWORDOFF, gameObject);
                 break;
@@ -60,6 +63,6 @@ public class ArmController : MonoBehaviour
     }
     private void EnableAudioChangeWeapon()
     {
-        AudioChangeArmor(true, currentArmTypeSelection);
+        AudioChangeArm(true, currentArmTypeSelection);
     }
 }
