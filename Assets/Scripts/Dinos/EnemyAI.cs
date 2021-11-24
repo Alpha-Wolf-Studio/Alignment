@@ -197,6 +197,8 @@ public class EnemyAI : MonoBehaviour
         anim.SetBool("Walking", true);
         currentBehaviourUpdate = FrenzyUpdate;
         OnDinoRecievedDamage?.Invoke();
+        if(info.type == DamageType.Armor) AkSoundEngine.PostEvent(AK.EVENTS.DINORECIBEDAMAGESWORD, gameObject);
+        else AkSoundEngine.PostEvent(AK.EVENTS.DINORECIBEDAMAGECANNON, gameObject);
     }
     void StartChaseCheck(float distanceToPlayer) 
     {

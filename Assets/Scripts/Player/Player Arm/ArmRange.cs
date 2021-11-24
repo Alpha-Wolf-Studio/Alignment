@@ -42,7 +42,10 @@ public class ArmRange : ArmType
             onShoot?.Invoke(maxCoolDownShoot, true);
             currentCoolDownShoot = 0;
         }
-        AkSoundEngine.PostEvent(AK.EVENTS.PLAYERATTACK, gameObject);
     }
 
+    public override void OnAttackEvent() 
+    {
+        AkSoundEngine.PostEvent(AK.EVENTS.PLAYERATTACKRANGE, gameObject);
+    }
 }

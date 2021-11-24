@@ -15,4 +15,8 @@ public class ArmMelee : ArmType
     {
         //throw new System.NotImplementedException();
     }
+    public override void OnAttackEvent()
+    {
+        AkSoundEngine.PostEvent(AK.EVENTS.PLAYERATTACKSWORD, gameObject);
+    }
 }

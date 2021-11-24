@@ -13,4 +13,9 @@ public class ArmFree : ArmType
     {
         //throw new System.NotImplementedException();
     }
+
+    public override void OnAttackEvent()
+    {
+        //throw new System.NotImplementedException();
+    }
 }
