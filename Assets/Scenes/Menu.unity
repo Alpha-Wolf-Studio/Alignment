@@ -1035,18 +1035,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302248630}
   m_CullTransparentMesh: 0
---- !u!114 &437920062 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4520221016735156786, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1651793102}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &453815757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2956,6 +2944,7 @@ MonoBehaviour:
   - {fileID: 675677687}
   - {fileID: 640921273}
   timeTransition: 0.8
+  textSize: 48
   versionText: {fileID: 770759236}
   menuActual: 0
 --- !u!1 &1101698448
@@ -4435,55 +4424,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 109070727888218377, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
-      propertyPath: m_Color.a
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 109070727888218379, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
       propertyPath: m_Name
-      value: Background
+      value: Black Image
       objectReference: {fileID: 0}
     - target: {fileID: 109070728404240878, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
-      propertyPath: loadingBar
-      value: 
-      objectReference: {fileID: 437920062}
-    - target: {fileID: 109070728404240878, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-        type: 3}
-      propertyPath: textComponents.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 109070728404240878, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-        type: 3}
-      propertyPath: imageComponents.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 109070728404240878, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-        type: 3}
-      propertyPath: textComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 518504203}
-    - target: {fileID: 109070728404240878, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-        type: 3}
-      propertyPath: imageComponents.Array.data[0]
+      propertyPath: blackScreen
       value: 
       objectReference: {fileID: 1278936112}
     - target: {fileID: 109070728404240878, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
-      propertyPath: imageComponents.Array.data[1]
+      propertyPath: textComponent
       value: 
-      objectReference: {fileID: 924398032}
+      objectReference: {fileID: 518504203}
     - target: {fileID: 109070728404240878, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
-      propertyPath: imageComponents.Array.data[2]
+      propertyPath: loadingBarOverlay
       value: 
-      objectReference: {fileID: 437920062}
-    - target: {fileID: 4520221016735156786, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 377082062962121894, guid: 88eef4ac785e66948b4a0091701358c0,
-        type: 3}
+      objectReference: {fileID: 924398032}
     - target: {fileID: 4520221016735156786, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
       propertyPath: m_Color.a
@@ -4491,44 +4454,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520221016735156786, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.38431376
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520221016735156786, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.39607847
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520221016735156786, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.054901965
-      objectReference: {fileID: 0}
-    - target: {fileID: 4520221016735156786, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-        type: 3}
-      propertyPath: m_FillAmount
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7951263079020315769, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7984376650454792345, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 377082062962121894, guid: 88eef4ac785e66948b4a0091701358c0,
-        type: 3}
     - target: {fileID: 7984376650454792345, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8618071717798489495, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
+    - target: {fileID: 7984376650454792345, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 20
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7, type: 3}

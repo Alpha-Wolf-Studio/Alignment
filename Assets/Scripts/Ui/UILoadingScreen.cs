@@ -78,6 +78,11 @@ public class UILoadingScreen : MonoBehaviour
         loadingBar.fillAmount = barAmount;
     }
 
+    public void SetTextSize(float size) 
+    {
+        textComponent.fontSize = size;
+    }
+
     public void BlackScreenUnfade(bool useLoadingBar = false)
     {
         StartCoroutine(blackScreenUnfadeCoroutine(useLoadingBar));

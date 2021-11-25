@@ -3,20 +3,20 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviourSingleton<SceneManager>
 {
-
     [SerializeField] float minTimeToLoadScene = 1f;
     [SerializeField] float timeBeforeSceneChange = 1f;
     [SerializeField] UILoadingScreen uI_LoadingScreen = null;
-    public void LoadSceneAsync(string sceneName, string textInBetween = "", bool useLoadBar = false)
+    public void LoadSceneAsync(string sceneName, string textInBetween = "", float textSize = 24f, bool useLoadBar = false)
     {
-        StartCoroutine(AsynchronousLoadWithFake(sceneName, textInBetween, useLoadBar));
+        StartCoroutine(AsynchronousLoadWithFake(sceneName, textInBetween, textSize, useLoadBar));
     }
 
-    IEnumerator AsynchronousLoadWithFake(string scene, string textInBetween, bool useLoadBar)
+    IEnumerator AsynchronousLoadWithFake(string scene, string textInBetween, float textSize, bool useLoadBar)
     {
         float loadingProgress;
         float timeLoading = 0;
         uI_LoadingScreen.UpdateLoadingBar(0);
+        uI_LoadingScreen.SetTextSize(textSize);
 
         uI_LoadingScreen.FadeWithBlackScreen(textInBetween, useLoadBar);
         uI_LoadingScreen.LockFade();

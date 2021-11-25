@@ -5,6 +5,7 @@ public class UIMenuManager : MonoBehaviour
 {
     [SerializeField] private CanvasGroup[] menues;
     [SerializeField] private float timeTransition;
+    [SerializeField] private float textSize = 48f;
     [Space(10)]
     [SerializeField] TextMeshProUGUI versionText;
 
@@ -65,7 +66,7 @@ public class UIMenuManager : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
-        SceneManager.Get().LoadSceneAsync(scene, "Loading", true);
+        SceneManager.Get().LoadSceneAsync(scene, "Loading", textSize, true);
     }
     public void ExitGame()
     {
