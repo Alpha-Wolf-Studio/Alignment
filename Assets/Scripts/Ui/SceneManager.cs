@@ -7,17 +7,18 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
     [SerializeField] float minTimeToLoadScene = 1f;
     [SerializeField] float timeBeforeSceneChange = 1f;
     [SerializeField] UILoadingScreen uI_LoadingScreen = null;
-    public void LoadSceneAsync(string sceneName, string textInBetween = "")
+    public void LoadSceneAsync(string sceneName, string textInBetween = "", bool useLoadBar = false)
     {
-        StartCoroutine(AsynchronousLoadWithFake(sceneName, textInBetween));
+        StartCoroutine(AsynchronousLoadWithFake(sceneName, textInBetween, useLoadBar));
     }
 
-    IEnumerator AsynchronousLoadWithFake(string scene, string textInBetween)
+    IEnumerator AsynchronousLoadWithFake(string scene, string textInBetween, bool useLoadBar)
     {
         float loadingProgress;
         float timeLoading = 0;
+        uI_LoadingScreen.UpdateLoadingBar(0);
 
-        uI_LoadingScreen.FadeWithBlackScreen(textInBetween);
+        uI_LoadingScreen.FadeWithBlackScreen(textInBetween, useLoadBar);
         uI_LoadingScreen.LockFade();
         var t = timeBeforeSceneChange;
         while (t > 0)
@@ -35,11 +36,16 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
             loadingProgress = ao.progress + 0.1f;
             loadingProgress = loadingProgress * timeLoading / minTimeToLoadScene;
 
+            if (useLoadBar) uI_LoadingScreen.UpdateLoadingBar(loadingProgress);
+
             // Se completo la carga
             if (loadingProgress >= 1)
             {
                 ao.allowSceneActivation = true;
+                loadingProgress = 1;
             }
+
+
             yield return null;
         }
 

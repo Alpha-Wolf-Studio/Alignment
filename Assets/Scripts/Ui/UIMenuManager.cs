@@ -65,7 +65,7 @@ public class UIMenuManager : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
-        SceneManager.Get().LoadSceneAsync(scene);
+        SceneManager.Get().LoadSceneAsync(scene, "Loading", true);
     }
     public void ExitGame()
     {
