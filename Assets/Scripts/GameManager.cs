@@ -34,14 +34,15 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         player.ChangeControllerToNone();
         GameOver("You repaired the ship and got the timeline fixed.");
     }
-    private void GameOver(string gameOverText = "")
+    private void GameOver(string gameOverText = "", bool won = false)
     {
         playerEntity.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        ChangeScene("Menu", gameOverText);
+        ChangeScene("Menu", gameOverText, won);
     }
-    public void ChangeScene(string scene, string gameOverText)
+    void ChangeScene(string scene, string gameOverText, bool won)
     {
-        SceneManager.Get().LoadSceneAsync(scene, gameOverText);
+        RoboFaces currentRoboFace = won ? RoboFaces.Happy : RoboFaces.Dead; 
+        SceneManager.Get().LoadSceneAsync(scene, gameOverText, 24, false, currentRoboFace);
     }
     public void GameInPause(bool pause)
     {

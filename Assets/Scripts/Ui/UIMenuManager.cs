@@ -66,7 +66,7 @@ public class UIMenuManager : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
-        SceneManager.Get().LoadSceneAsync(scene, "Loading", textSize, true);
+        SceneManager.Get().LoadSceneAsync(scene, "Loading", textSize, true, RoboFaces.Warning);
     }
     public void ExitGame()
     {

@@ -6,19 +6,19 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
     [SerializeField] float minTimeToLoadScene = 1f;
     [SerializeField] float timeBeforeSceneChange = 1f;
     [SerializeField] UILoadingScreen uI_LoadingScreen = null;
-    public void LoadSceneAsync(string sceneName, string textInBetween = "", float textSize = 24f, bool useLoadBar = false)
+    public void LoadSceneAsync(string sceneName, string textInBetween = "", float textSize = 24f, bool useLoadBar = false, RoboFaces roboFace = RoboFaces.None)
     {
-        StartCoroutine(AsynchronousLoadWithFake(sceneName, textInBetween, textSize, useLoadBar));
+        StartCoroutine(AsynchronousLoadWithFake(sceneName, textInBetween, textSize, useLoadBar, roboFace));
     }
 
-    IEnumerator AsynchronousLoadWithFake(string scene, string textInBetween, float textSize, bool useLoadBar)
+    IEnumerator AsynchronousLoadWithFake(string scene, string textInBetween, float textSize, bool useLoadBar, RoboFaces roboFace)
     {
         float loadingProgress;
         float timeLoading = 0;
         uI_LoadingScreen.UpdateLoadingBar(0);
         uI_LoadingScreen.SetTextSize(textSize);
-
-        uI_LoadingScreen.FadeWithBlackScreen(textInBetween, useLoadBar);
+        uI_LoadingScreen.FadeWithBlackScreen(textInBetween, useLoadBar, roboFace != RoboFaces.None);
+        uI_LoadingScreen.SetNewRoboface(roboFace);
         uI_LoadingScreen.LockFade();
         var t = timeBeforeSceneChange;
         while (t > 0)

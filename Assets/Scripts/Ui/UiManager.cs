@@ -201,7 +201,7 @@ public class UiManager : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
-        SceneManager.Get().LoadSceneAsync(scene);
+        SceneManager.Get().LoadSceneAsync(scene, "", 24, false, RoboFaces.Sad);
     }
     private void OnDestroy()
     {
