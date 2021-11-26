@@ -112,7 +112,6 @@ public class PlayerGame : PlayerState
                     }
                     if (onTimeMove > refTime - speedMovement && player.IsGrounded)
                     {
-                        Debug.Log("Evento Paso." + Time.timeSinceLevelLoad);
                         onTimeMove = 0;
                         AkSoundEngine.PostEvent(AK.EVENTS.PLAYERSTEP, gameObject);
                     }
