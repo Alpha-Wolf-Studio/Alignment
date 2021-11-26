@@ -46,6 +46,6 @@ public class ArmRange : ArmType
 
     public override void OnAttackEvent() 
     {
-        AkSoundEngine.PostEvent(AK.EVENTS.PLAYERATTACKRANGE, gameObject);
+        AkSoundEngine.PostEvent(AK.EVENTS.PLAYERATTACK, gameObject);
     }
 }
