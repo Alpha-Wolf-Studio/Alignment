@@ -114,6 +114,7 @@ public class Console : MonoBehaviour, IPointerClickHandler
         AddCommand("cheat stamina", InfinityStamina, "Infinity Stamina.");
         AddCommand("cheat jetpack", AddJetPack, "Add Jetpack.");
         AddCommand("cheat godmode", AddGodMode, "Add GodMode.");
+        AddCommand("cheat items", AddBasicsItems, "Add 10 basics Items.");
     }
     private void AddCommand(string cmdName, Method cmdCommand, string cmdDescription)
     {
@@ -219,6 +220,13 @@ public class Console : MonoBehaviour, IPointerClickHandler
     void FogOnOff()
     {
         RenderSettings.fog = !RenderSettings.fog;
+    }
+    void AddBasicsItems()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            invPlayer.AddNewItem(i, 10);
+        }
     }
 
     // ------------------------------------------------------------------------------------

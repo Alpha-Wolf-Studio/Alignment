@@ -21,7 +21,7 @@ public class PlayerGame : PlayerState
 
     private float velX;
     private float velZ;
-    private float refTime = 1f;
+    private float refTime = 0.75f;
     private float onTimeMove;
     public enum Moving
     {

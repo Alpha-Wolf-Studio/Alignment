@@ -8,9 +8,10 @@ public class EnviromentManagement : MonoBehaviour
         None,
         Field,
         Forest,
-        Beach
+        Beach,
+        Boss
     }
 
-    [HideInInspector] public string[] test = {"None", "Field", "Forest", "Beach"};
+    [HideInInspector] public string[] test = {"None", "Field", "Forest", "Beach", "Boss"};
     public List<Enviroment> enviroments;
 }
