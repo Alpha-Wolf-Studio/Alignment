@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneManager : MonoBehaviourSingleton<SceneManager>
 {
     [SerializeField] float minTimeToLoadScene = 1f;
     [SerializeField] float timeBeforeSceneChange = 1f;
     [SerializeField] UILoadingScreen uI_LoadingScreen = null;
+    public GameObject imageHead;
+    public Image blackImage;
+    public bool showImage = true;
+
     public void LoadSceneAsync(string sceneName, string textInBetween = "", float textSize = 24f, bool useLoadBar = false, RoboFaces roboFace = RoboFaces.None)
     {
         StartCoroutine(AsynchronousLoadWithFake(sceneName, textInBetween, textSize, useLoadBar, roboFace));

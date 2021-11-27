@@ -11,6 +11,11 @@ public class UIMenuManager : MonoBehaviour
 
     void Start()
     {
+        SceneManager.Get().showImage = true;
+        SceneManager.Get().imageHead.SetActive(false);
+        Color color = Color.white;
+        color.a = 0;
+        SceneManager.Get().blackImage.color = color;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         versionText.text = "Version: " + Application.version;
