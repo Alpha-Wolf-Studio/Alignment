@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: Craft first Battery
   tasks:
-  - type: 0
+  - hasCustomDescription: 1
+    customDescription: Kill 2 Triceratops.
+    type: 0
     dinosaursToKill: 1
     killAmount: 2
     itemToPickUp: {fileID: 11400000, guid: 125e2bdc01777cf44b21fa9ac4acdc01, type: 2}
@@ -22,7 +24,9 @@ MonoBehaviour:
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
-  - type: 0
+  - hasCustomDescription: 1
+    customDescription: Kill 4 Compsognathus.
+    type: 0
     dinosaursToKill: 3
     killAmount: 4
     itemToPickUp: {fileID: 11400000, guid: 6082c22687e5805458b5d75050d72405, type: 2}

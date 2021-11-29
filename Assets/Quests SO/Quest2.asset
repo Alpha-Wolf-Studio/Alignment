@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: Craft first Battery
   tasks:
-  - hasCustomDescription: 0
-    customDescription: 
+  - hasCustomDescription: 1
+    customDescription: Kill 2 Triceratops.
     type: 0
     dinosaursToKill: 1
     killAmount: 2
@@ -24,8 +24,8 @@ MonoBehaviour:
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
-  - hasCustomDescription: 0
-    customDescription: 
+  - hasCustomDescription: 1
+    customDescription: Kill 2 Raptors.
     type: 0
     dinosaursToKill: 0
     killAmount: 2
@@ -34,8 +34,8 @@ MonoBehaviour:
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
-  - hasCustomDescription: 0
-    customDescription: 
+  - hasCustomDescription: 1
+    customDescription: Craft 2 Batteries.
     type: 2
     dinosaursToKill: 2
     killAmount: 4
@@ -44,8 +44,8 @@ MonoBehaviour:
     itemToCraft: {fileID: 11400000, guid: 95cf3de6e97f8314ba8ba7e2a43fed4f, type: 2}
     craftAmount: 2
     locationToRepair: 0
-  - hasCustomDescription: 0
-    customDescription: 
+  - hasCustomDescription: 1
+    customDescription: Craft 1 Compressor.
     type: 2
     dinosaursToKill: 2
     killAmount: 4

@@ -189,7 +189,7 @@ public class UiInventory : MonoBehaviour
     void ResizeWithResolution()
     {
         Vector2 currentResolution = DataPersistant.Get().gameSettings.general.GetCurrentResolutionVector2();
-        Debug.Log("Resolucion Anterior: " + refResolution + "Resolucion Actual: " + currentResolution);
+        //Debug.Log("Resolucion Anterior: " + refResolution + "Resolucion Actual: " + currentResolution);
         bool sameResolution = (refResolution == currentResolution);
         if (sameResolution) return;
         refResolution = currentResolution;

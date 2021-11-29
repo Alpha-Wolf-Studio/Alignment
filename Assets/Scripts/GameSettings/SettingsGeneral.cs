@@ -77,7 +77,7 @@ public class SettingsGeneral
         fullScreen = value;
         Screen.fullScreenMode = fullScreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
         string textFullScreen = fullScreen ? "Full" : "Windowed";
-        Debug.Log("FullScreenMode en: " + textFullScreen);
+        //Debug.Log("FullScreenMode en: " + textFullScreen);
     }
     public void SetResolution(int resolution)
     {
@@ -86,25 +86,25 @@ public class SettingsGeneral
         int height = resolutions[currentResolution].y;
         Screen.SetResolution(width, height, fullScreen);
 
-        Debug.Log("Resolucion en: " + width + " x " + height);
+        //Debug.Log("Resolucion en: " + width + " x " + height);
     }
     public void SetVsyncMode(bool modeVsync)
     {
         vSync = modeVsync;
         QualitySettings.vSyncCount = vSync ? 1 : 0;
-        Debug.Log("vSyncCount en: " + QualitySettings.vSyncCount);
+        //Debug.Log("vSyncCount en: " + QualitySettings.vSyncCount);
     }
     public void AlternateVsyncMode()
     {
         vSync = !vSync;
         QualitySettings.vSyncCount = vSync ? 1 : 0;
-        Debug.Log("vSyncCount en: " + QualitySettings.vSyncCount);
+        //Debug.Log("vSyncCount en: " + QualitySettings.vSyncCount);
     }
     public void AlternateFullScreenMode()
     {
         fullScreen = !fullScreen;
         Screen.fullScreenMode = fullScreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
         string textFullScreen = fullScreen ? "Full" : "Windowed";
-        Debug.Log("FullScreenMode en: " + textFullScreen);
+        //Debug.Log("FullScreenMode en: " + textFullScreen);
     }
 }

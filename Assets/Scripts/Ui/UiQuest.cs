@@ -23,42 +23,43 @@ public class UiQuest : MonoBehaviour
         SetQuest();
         questHandler.OnTaskProgress += RefreshAllTask;
     }
+
     void SetQuest()
     {
         ClearTasks();
         tasks = questHandler.GetAllTask();
-
-        for (int i = 0; i < tasks.Count; i++)
+        if (!QuestManager.Get().questsDone)
         {
-            UiTask uiTask = Instantiate(pfUiTask, panelTask);
-            if (i == tasks.Count - 1)
-                uiTask.GetComponent<Image>().sprite = lastSpritesTasks;
-            allUiTasks.Add(uiTask);
-            uiTask.toggle.isOn = false;
-            SetTask(ref uiTask, tasks[i], i);
-        }
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                UiTask uiTask = Instantiate(pfUiTask, panelTask);
+                if (i == tasks.Count - 1)
+                    uiTask.GetComponent<Image>().sprite = lastSpritesTasks;
+                allUiTasks.Add(uiTask);
+                uiTask.toggle.isOn = false;
+                SetTask(ref uiTask, tasks[i], i);
+            }
 
-        nameQuest.text = "(Q) " + questHandler.allQuest[questHandler.GetCurrentQuest()].questTitle;
+            nameQuest.text = "(Q) " + questHandler.allQuest[questHandler.GetCurrentQuest()].questTitle;
+        }
+        else
+            nameQuest.text = "";
     }
     void SetTask(ref UiTask uiTask,SubQuest task, int i)
     {
         switch (task.type)
         {
             case SubQuest.SubQuestType.KILL:
-                uiTask.nameTask.text = "Kill Dino";
-                uiTask.description.text = task.hasCustomDescription ? task.customDescription : "Look for the dino to kill";
+                uiTask.nameTask.text = task.customDescription;
                 break;
             case SubQuest.SubQuestType.PICKUP:
-                uiTask.nameTask.text = "Collect " + task.pickUpAmount + " of " + task.itemToPickUp.itemName;
-                uiTask.description.text = task.hasCustomDescription ? task.customDescription : "kill dinosaurs to get this item";
+                uiTask.nameTask.text = task.customDescription;
                 break;
             case SubQuest.SubQuestType.CRAFT:
-                uiTask.nameTask.text = "Craft " + task.craftAmount + " of " + task.itemToCraft.itemName;
-                uiTask.description.text = task.hasCustomDescription ? task.customDescription : "Open inventory with " + "E" + " and craft " + task.itemToCraft.itemName;
+                uiTask.nameTask.text = task.customDescription;
                 break;
             case SubQuest.SubQuestType.REPAIR:
-                uiTask.nameTask.text = "Repair Spaceship";
-                uiTask.description.text = task.hasCustomDescription ? task.customDescription : "Left Click on Object to deposite.";
+                uiTask.nameTask.text = task.customDescription;
                 break;
             default:
                 Debug.LogError("El index " + i + " no está en el switch de la quest: ", gameObject);
@@ -80,7 +81,7 @@ public class UiQuest : MonoBehaviour
         {
             bool finished = tasks[i].IsCompleted();
             allUiTasks[i].toggle.isOn = finished;
-            Debug.Log("Task: " + allUiTasks[i].name + " Terminada: " + finished);
+            //Debug.Log("Task: " + allUiTasks[i].name + " Terminada: " + finished);
         }
     }
 }

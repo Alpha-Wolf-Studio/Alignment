@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         horizontalSensitive = sensitive.x;
         verticalSensitive = sensitive.y;
-        Debug.Log("Sensitive X: " + horizontalSensitive + "Sensitive Y: " + verticalSensitive);
+        //Debug.Log("Sensitive X: " + horizontalSensitive + "Sensitive Y: " + verticalSensitive);
     }
     public void AvailableCursor(bool enable)
     {

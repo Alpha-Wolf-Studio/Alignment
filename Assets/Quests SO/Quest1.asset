@@ -15,7 +15,7 @@ MonoBehaviour:
   questTitle: Craft first Battery
   tasks:
   - hasCustomDescription: 1
-    customDescription: Kill Trikes to get this
+    customDescription: Collect 2 Zinc. Kill Trikes to get this.
     type: 1
     dinosaursToKill: 2
     killAmount: 4
@@ -25,7 +25,7 @@ MonoBehaviour:
     craftAmount: 0
     locationToRepair: 0
   - hasCustomDescription: 1
-    customDescription: Kill Raptor to get this
+    customDescription: Collect 2 Pile. Kill Raptor to get this.
     type: 1
     dinosaursToKill: 2
     killAmount: 4
@@ -35,7 +35,7 @@ MonoBehaviour:
     craftAmount: 0
     locationToRepair: 0
   - hasCustomDescription: 1
-    customDescription: Kill Copis to get this
+    customDescription: Collect 2 Iron. Kill Copis to get this.
     type: 1
     dinosaursToKill: 2
     killAmount: 4
@@ -44,8 +44,8 @@ MonoBehaviour:
     itemToCraft: {fileID: 0}
     craftAmount: 0
     locationToRepair: 0
-  - hasCustomDescription: 0
-    customDescription: 
+  - hasCustomDescription: 1
+    customDescription: Craft 1 Battery.
     type: 2
     dinosaursToKill: 2
     killAmount: 4

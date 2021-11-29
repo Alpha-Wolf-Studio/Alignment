@@ -82,6 +82,12 @@ public class Enviroment : MonoBehaviour
             case EnviromentManagement.Enviroments.Forest:
                 AkSoundEngine.PostEvent(AK.EVENTS.AMBFOREST, gameObject);
                 break;
+            case EnviromentManagement.Enviroments.Boss:
+                AkSoundEngine.PostEvent(AK.EVENTS.MUSICBOSSON, gameObject);
+                break;
+            default:
+                Debug.LogWarning("Audio No Implementado.");
+                break;
         }
     }
 }

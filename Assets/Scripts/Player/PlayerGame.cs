@@ -212,7 +212,7 @@ public class PlayerGame : PlayerState
                 {
                     movement = Moving.Flying;
                     AkSoundEngine.PostEvent(AK.EVENTS.PLAYERJETPACKON, gameObject);
-                    Debug.Log("Inicia a Volar 01");
+                    //Debug.Log("Inicia a Volar 01");
                 }
             }
         }
@@ -227,7 +227,7 @@ public class PlayerGame : PlayerState
                     if (movement != Moving.Flying)
                     {
                         AkSoundEngine.PostEvent(AK.EVENTS.PLAYERJETPACKON, gameObject);
-                        Debug.Log("Inicia a Volar 02");
+                        //Debug.Log("Inicia a Volar 02");
                     }
                     movement = Moving.Flying;
                 }

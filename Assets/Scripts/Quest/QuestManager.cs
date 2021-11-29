@@ -26,6 +26,8 @@ public class QuestManager : MonoBehaviourSingleton<QuestManager>
     [Header("Enemy References")]
     [SerializeField] EnemyManager enemyManager = null;
 
+    [HideInInspector] public bool questsDone;
+
     private void Start()
     {
         objectsToRepair = FindObjectsOfType<ReparableObject>();
@@ -41,15 +43,27 @@ public class QuestManager : MonoBehaviourSingleton<QuestManager>
     }
     void StartNewQuest()
     {
-        currentQuest++;
-        currentSubquest.Clear();
-        for (int i = 0; i < allQuest[currentQuest].tasks.Count; i++)
+        if (!questsDone)
         {
-            int killAmount = allQuest[currentQuest].tasks[i].killAmount;
-            int pickUpAmount = allQuest[currentQuest].tasks[i].pickUpAmount;
-            int craftAmount = allQuest[currentQuest].tasks[i].craftAmount;
-            SubQuest t = new SubQuest(allQuest[currentQuest].tasks[i], killAmount, pickUpAmount, craftAmount);
-            currentSubquest.Add(t);
+            currentQuest++;
+            currentSubquest.Clear();
+
+            if (currentQuest < allQuest.Count)
+            {
+                for (int i = 0; i < allQuest[currentQuest].tasks.Count; i++)
+                {
+                    int killAmount = allQuest[currentQuest].tasks[i].killAmount;
+                    int pickUpAmount = allQuest[currentQuest].tasks[i].pickUpAmount;
+                    int craftAmount = allQuest[currentQuest].tasks[i].craftAmount;
+                    SubQuest t = new SubQuest(allQuest[currentQuest].tasks[i], killAmount, pickUpAmount, craftAmount);
+                    currentSubquest.Add(t);
+                }
+            }
+            else
+            {
+                questsDone = true;
+                Debug.Log("No hay mas Quests. Cant quests: " + allQuest.Count, gameObject);
+            }
         }
     }
     public List<SubQuest> GetCurrentTasks()
@@ -68,12 +82,14 @@ public class QuestManager : MonoBehaviourSingleton<QuestManager>
                 objectsRepaired++;
             }
         }
+
         if (IsCurrentQuestDone())
         {
             StartNewQuest();
             OnQuestCompleted?.Invoke();
             AkSoundEngine.PostEvent(AK.EVENTS.COMPLETEDQUEST, gameObject);
         }
+
         if(objectsRepaired == objectsToRepair.Length) 
         {
             OnRepairedShip?.Invoke();
@@ -163,8 +179,11 @@ public class QuestManager : MonoBehaviourSingleton<QuestManager>
         return task.type == SubQuest.SubQuestType.KILL &&
                task.dinosaursToKill == dino;
     }
-    bool IsCurrentQuestDone() 
+    bool IsCurrentQuestDone()
     {
+        if (questsDone) 
+            return false;
+
         foreach (var task in currentSubquest)
         {
             if (!task.IsCompleted())

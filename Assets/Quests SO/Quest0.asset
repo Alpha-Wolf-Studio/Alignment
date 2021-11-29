@@ -15,7 +15,7 @@ MonoBehaviour:
   questTitle: Craft first Battery
   tasks:
   - hasCustomDescription: 1
-    customDescription: Kill your fist Raptor
+    customDescription: Kill your fist Raptor.
     type: 0
     dinosaursToKill: 0
     killAmount: 1
