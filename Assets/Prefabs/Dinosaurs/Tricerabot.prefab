@@ -825,11 +825,9 @@ MonoBehaviour:
   meleeColliders:
   - {fileID: 4204586854832778168}
   chargePushStrenght: 600
-  chargeSpeedMultiplier: 5
-  DirectChargeStoppingDistance: 2
+  chargeSpeedMultiplier: 20
   chargeMinStart: 30
-  chargeMinResolveTime: 2
-  chargeForwardOffset: 20
+  chargeMinEnd: 10
 --- !u!114 &875581337885331909
 MonoBehaviour:
   m_ObjectHideFlags: 0

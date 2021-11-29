@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class TriAttackAI : AIAttackModule
 {
     [SerializeField] List<MeleeAttackCollider> meleeColliders = new List<MeleeAttackCollider>();
     [SerializeField] float chargePushStrenght = 600f;
     [SerializeField] float chargeSpeedMultiplier = 5f;
-    [SerializeField] float DirectChargeStoppingDistance = 2.0f;
     [SerializeField] float chargeMinStart = 10.0f;
-    [SerializeField] float chargeMinResolveTime = 2.0f;
-    [SerializeField] float chargeForwardOffset = 7.0f;
+    [SerializeField] float chargeMinEnd = 1.0f;
     float multipliedSpeed = 0;
     float multipliedRotationSpeed = 0;
     IEnumerator ChargeCoroutine = null;
@@ -58,28 +59,20 @@ public class TriAttackAI : AIAttackModule
         {   //En caso de tener al player demasiado cerca al empezar la carga
             do
             {
-                agent.Move(transform.forward * Time.deltaTime * chargeForwardOffset);
                 agent.SetDestination(transform.position + transform.forward);
                 yield return new WaitForEndOfFrame();
             } while (Vector3.Distance(transform.position, dirTransform.position) < chargeMinStart);
         }
         Vector3 dir;
+        float p = 0;
         do
         {
             dir = dirTransform.position;
             dir.y = transform.position.y;
             agent.SetDestination(dir);
-            agent.Move(transform.forward * Time.deltaTime * chargeForwardOffset); //Tengo un offset para naturalizar la direccion del enemigo
-            yield return new WaitForEndOfFrame();
-        } while (Vector3.Distance(transform.position, dir) > DirectChargeStoppingDistance);
-        float p = 0;
-        do
-        {
-            agent.Move(transform.forward * Time.deltaTime * chargeForwardOffset); //Al estar cerca del objetivo continua derecho
-            agent.SetDestination(transform.position + transform.forward);
             p += Time.deltaTime;
             yield return new WaitForEndOfFrame();
-        } while (p < chargeMinResolveTime);
+        } while (Vector3.Distance(transform.position, dirTransform.position) > chargeMinEnd);
         anim.SetBool("Melee Attack", true);
     }
 
@@ -101,4 +94,15 @@ public class TriAttackAI : AIAttackModule
         canCharge = true;
         anim.SetBool("Melee Attack", false);
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Handles.color = Color.red;
+        Handles.DrawWireDisc(transform.position, transform.up, chargeMinEnd);
+        Handles.color = Color.magenta;
+        Handles.DrawWireDisc(transform.position, transform.up, chargeMinStart);
+    }
+#endif
+
 }

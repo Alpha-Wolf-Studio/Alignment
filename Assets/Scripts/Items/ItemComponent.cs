@@ -42,7 +42,6 @@ public class ItemComponent : MonoBehaviour
         pickeable = false;
         onTime = 0;
         transform.localScale = initialSize;
-        Debug.Log("Scale: " + initialSize);
 
         StartCoroutine(destroyItem);
         StartCoroutine(pickeableItem);
