@@ -80,16 +80,6 @@ public class EnemyAI : MonoBehaviour
         playerTransform = trans;
     }
 
-    public void StopMoving(DamageInfo info) 
-    {
-        agent.SetDestination(transform.position);
-        agent.basicNavAgent.isStopped = true;
-        OnDied?.Invoke(dinoType, this);
-        attackModule.StopAttackEvent();
-        anim.SetBool("Walking", false);
-        playerTransform = null;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -227,6 +217,33 @@ public class EnemyAI : MonoBehaviour
             anim.SetBool("Walking", false);
             agent.SetDestination(transform.position);
             agent.basicNavAgent.isStopped = true;
+        }
+    }
+    public void StopMoving(DamageInfo info)
+    {
+        agent.SetDestination(transform.position);
+        agent.basicNavAgent.isStopped = true;
+        OnDied?.Invoke(dinoType, this);
+        attackModule.StopAttackEvent();
+        anim.SetBool("Walking", false);
+        playerTransform = null;
+        switch (dinoType)
+        {
+            case DinoType.Compsognathus:
+                AkSoundEngine.PostEvent(AK.EVENTS.COMPYROAR, gameObject);
+                break;
+            case DinoType.Dilophosaurus:
+                AkSoundEngine.PostEvent(AK.EVENTS.DILOROAR, gameObject);
+                break;
+            case DinoType.Raptor:
+                AkSoundEngine.PostEvent(AK.EVENTS.RAPTORROAR, gameObject);
+                break;
+            case DinoType.Triceratops:
+                AkSoundEngine.PostEvent(AK.EVENTS.TRIKEROAR, gameObject);
+                break;
+            default:
+                Debug.LogWarning("No está seteado dinoClass: ", gameObject);
+                break;
         }
     }
 
