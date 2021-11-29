@@ -6,9 +6,12 @@ using TMPro;
 public class UILoadingScreen : MonoBehaviour
 {
     [SerializeField] Image blackScreen = null;
+    [SerializeField] TextMeshProUGUI textComponent = null;
+
+    [Header("Loading")]
     [SerializeField] Image loadingBar = null;
     [SerializeField] Image[] loadingImages = null;
-    [SerializeField] TextMeshProUGUI textComponent = null;
+    [SerializeField] Animator glowAnimator = null;
 
     [Header("Roboface")]
     [SerializeField] Image roboFace = null;
@@ -56,6 +59,7 @@ public class UILoadingScreen : MonoBehaviour
             {
                 img.color = new Color(img.color.r, img.color.g, img.color.b, 1);
             }
+            glowAnimator.enabled = true;
         }
         if (useRoboFace)
         {
@@ -65,6 +69,7 @@ public class UILoadingScreen : MonoBehaviour
         {
             yield return null;
         }
+        glowAnimator.enabled = false;
         while (blackScreen.color.a - Time.unscaledDeltaTime > 0)
         {
             blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, blackScreen.color.a - Time.unscaledDeltaTime);
@@ -124,6 +129,7 @@ public class UILoadingScreen : MonoBehaviour
 
     IEnumerator blackScreenUnfadeCoroutine(bool useLoadingBar, bool useRoboFace)
     {
+        glowAnimator.enabled = false;
         while (blackScreen.color.a - Time.unscaledDeltaTime > 0)
         {
             blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, blackScreen.color.a - Time.unscaledDeltaTime);
