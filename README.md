@@ -1,5 +1,7 @@
 <p align="center">
-<img src="logo.png" alt="Aligment"/>
+  <a href="https://github.com/AlphaWolfStudios/Alignment">
+	<img src="logo.png" alt="Aligment"/>
+  </a> 
 </p>
 
 # Aligment
