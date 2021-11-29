@@ -7,11 +7,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void Start()
     {
-        SceneManager.Get().showImage = false;
-        Color color = Color.black;
-        color.a = 0;
-        SceneManager.Get().blackImage.color = color;
-        SceneManager.Get().imageHead.SetActive(true);
         AkSoundEngine.PostEvent(AK.EVENTS.PLAYAMBMUSIC, gameObject);
         GameInPause(false);
         QuestManager.Get().OnRepairedShip += CompletedGame;

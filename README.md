@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/AlphaWolfStudios/Alignment">
+  <a href="https://alpha-wolf-studios.itch.io/alignment">
 	<img src="logo.png" alt="Aligment"/>
   </a> 
 </p>

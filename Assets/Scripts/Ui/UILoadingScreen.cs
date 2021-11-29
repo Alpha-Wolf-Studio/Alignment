@@ -7,7 +7,7 @@ public class UILoadingScreen : MonoBehaviour
 {
     [SerializeField] Image blackScreen = null;
     [SerializeField] Image loadingBar = null;
-    [SerializeField] Image loadingBarOverlay = null;
+    [SerializeField] Image[] loadingImages = null;
     [SerializeField] TextMeshProUGUI textComponent = null;
 
     [Header("Roboface")]
@@ -29,14 +29,18 @@ public class UILoadingScreen : MonoBehaviour
 
     IEnumerator blackScreenFade(bool useLoadingBar, bool useRoboFace)
     {
+        if (useLoadingBar) blackScreen.color = new Color(1, 1, 1, 0);
+        else blackScreen.color = new Color(0, 0, 0, 0);
         while (blackScreen.color.a + Time.unscaledDeltaTime < 1)
         {
             blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, blackScreen.color.a + Time.unscaledDeltaTime);
             textComponent.color = new Color(textComponent.color.r, textComponent.color.g, textComponent.color.b, textComponent.color.a + Time.unscaledDeltaTime);
             if (useLoadingBar) 
             {
-                loadingBar.color = new Color(loadingBar.color.r, loadingBar.color.g, loadingBar.color.b, loadingBar.color.a + Time.unscaledDeltaTime);
-                loadingBarOverlay.color = new Color(loadingBarOverlay.color.r, loadingBarOverlay.color.g, loadingBarOverlay.color.b, loadingBarOverlay.color.a + Time.unscaledDeltaTime);
+                foreach (var img in loadingImages)
+                {
+                    img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a + Time.unscaledDeltaTime);
+                }
             }
             if(useRoboFace) 
             {
@@ -48,8 +52,10 @@ public class UILoadingScreen : MonoBehaviour
         textComponent.color = new Color(textComponent.color.r, textComponent.color.g, textComponent.color.b, 1);
         if (useLoadingBar)
         {
-            loadingBar.color = new Color(loadingBar.color.r, loadingBar.color.g, loadingBar.color.b, 1);
-            loadingBarOverlay.color = new Color(loadingBarOverlay.color.r, loadingBarOverlay.color.g, loadingBarOverlay.color.b, 1);
+            foreach (var img in loadingImages)
+            {
+                img.color = new Color(img.color.r, img.color.g, img.color.b, 1);
+            }
         }
         if (useRoboFace)
         {
@@ -65,8 +71,10 @@ public class UILoadingScreen : MonoBehaviour
             textComponent.color = new Color(textComponent.color.r, textComponent.color.g, textComponent.color.b, textComponent.color.a - Time.unscaledDeltaTime);
             if (useLoadingBar)
             {
-                loadingBar.color = new Color(loadingBar.color.r, loadingBar.color.g, loadingBar.color.b, loadingBar.color.a - Time.unscaledDeltaTime);
-                loadingBarOverlay.color = new Color(loadingBarOverlay.color.r, loadingBarOverlay.color.g, loadingBarOverlay.color.b, loadingBarOverlay.color.a - Time.unscaledDeltaTime);
+                foreach (var img in loadingImages)
+                {
+                    img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a - Time.unscaledDeltaTime);
+                }
             }
             if (useRoboFace)
             {
@@ -78,8 +86,10 @@ public class UILoadingScreen : MonoBehaviour
         textComponent.color = new Color(textComponent.color.r, textComponent.color.g, textComponent.color.b, 0);
         if (useLoadingBar)
         {
-            loadingBar.color = new Color(loadingBar.color.r, loadingBar.color.g, loadingBar.color.b, 0);
-            loadingBarOverlay.color = new Color(loadingBarOverlay.color.r, loadingBarOverlay.color.g, loadingBarOverlay.color.b, 0);
+            foreach (var img in loadingImages)
+            {
+                img.color = new Color(img.color.r, img.color.g, img.color.b, 0);
+            }
         }
         if (useRoboFace)
         {
@@ -120,8 +130,10 @@ public class UILoadingScreen : MonoBehaviour
             textComponent.color = new Color(textComponent.color.r, textComponent.color.g, textComponent.color.b, textComponent.color.a - Time.unscaledDeltaTime);
             if (useLoadingBar)
             {
-                loadingBar.color = new Color(loadingBar.color.r, loadingBar.color.g, loadingBar.color.b, loadingBar.color.a - Time.unscaledDeltaTime);
-                loadingBarOverlay.color = new Color(loadingBarOverlay.color.r, loadingBarOverlay.color.g, loadingBarOverlay.color.b, loadingBarOverlay.color.a - Time.unscaledDeltaTime);
+                foreach (var img in loadingImages)
+                {
+                    img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a - Time.unscaledDeltaTime);
+                }
             }
             if (useRoboFace)
             {
@@ -133,8 +145,10 @@ public class UILoadingScreen : MonoBehaviour
         textComponent.color = new Color(textComponent.color.r, textComponent.color.g, textComponent.color.b, 0);
         if (useLoadingBar)
         {
-            loadingBar.color = new Color(loadingBar.color.r, loadingBar.color.g, loadingBar.color.b, 0);
-            loadingBarOverlay.color = new Color(loadingBarOverlay.color.r, loadingBarOverlay.color.g, loadingBarOverlay.color.b, 0);
+            foreach (var img in loadingImages)
+            {
+                img.color = new Color(img.color.r, img.color.g, img.color.b, 0);
+            }
         }
         if (useRoboFace)
         {
