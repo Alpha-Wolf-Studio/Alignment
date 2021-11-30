@@ -211,7 +211,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Beach" ID="{F0B48B41-D633-4B40-B743-E3668013492A}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+									<ObjectRef Name="Beach_01" ID="{9A333307-F59D-47EC-9A39-ADBDEB48A16C}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -229,7 +229,7 @@
 						<Action Name="" ID="{51E828D9-791D-458A-8473-5429B7DC1061}" ShortID="114609361">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Beach" ID="{F0B48B41-D633-4B40-B743-E3668013492A}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+									<ObjectRef Name="Beach_01" ID="{9A333307-F59D-47EC-9A39-ADBDEB48A16C}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -339,10 +339,10 @@
 				</Event>
 				<Event Name="AmbBeach" ID="{CA528DF9-D86F-48C5-A9D2-3060E567978F}">
 					<ChildrenList>
-						<Action Name="" ID="{CD931168-BEEC-429D-B0B4-3BAECB7C0D7F}" ShortID="69424207">
+						<Action Name="" ID="{9769B38C-B1D8-4293-9228-0D898F6C5AFE}" ShortID="319804733">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Beach" ID="{F0B48B41-D633-4B40-B743-E3668013492A}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+									<ObjectRef Name="Beach_01" ID="{9A333307-F59D-47EC-9A39-ADBDEB48A16C}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -447,7 +447,32 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="PlayMenuMusic" ID="{58728DA2-D035-4CEE-A15A-2F21CB94DB71}"/>
+				<Event Name="PlayMenuMusic" ID="{58728DA2-D035-4CEE-A15A-2F21CB94DB71}">
+					<ChildrenList>
+						<Action Name="" ID="{1F29AC63-FA96-4F91-9AF3-8D0EDA224E60}" ShortID="626231597">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Complete ambience" ID="{BC9587C7-5B74-462B-9636-5D97C65132A6}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{A4BAAF11-EB44-4745-8DBB-0BA75D701247}" ShortID="706220619">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Beach_01" ID="{9A333307-F59D-47EC-9A39-ADBDEB48A16C}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

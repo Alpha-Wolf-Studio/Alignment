@@ -735,49 +735,6 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<BlendContainer Name="Beach" ID="{F0B48B41-D633-4B40-B743-E3668013492A}" ShortID="933656668">
-							<PropertyList>
-								<Property Name="OverrideOutput" Type="bool" Value="True"/>
-								<Property Name="OverridePositioning" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<ObjectRef Name="Attenuation" ID="{87F750D7-DB3D-46F1-A82B-7DD9913E44B4}" WorkUnitID="{EC4065AE-07DE-4A2B-85F2-8E69EC9F53BC}"/>
-								</Reference>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{D1C2E150-97CA-4CE0-8F4B-FB7F323F21CF}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{18057D5A-41A5-4D38-8DD2-7685F6B76FB4}" ShortID="574638145">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{02C9C3CF-D209-4D6E-90A8-D22E164E0B47}">
-											<Language>SFX</Language>
-											<AudioFile>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="644304204"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{02C9C3CF-D209-4D6E-90A8-D22E164E0B47}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-							<ObjectLists/>
-						</BlendContainer>
 						<BlendContainer Name="Complete ambience" ID="{BC9587C7-5B74-462B-9636-5D97C65132A6}" ShortID="693771962">
 							<PropertyList>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
@@ -1486,6 +1443,160 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</BlendContainer>
+						<RandomSequenceContainer Name="Beach_01" ID="{9A333307-F59D-47EC-9A39-ADBDEB48A16C}" ShortID="868999617">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Beach Attenuation" ID="{DFC80282-AB49-4DC2-843C-E6D6AB852688}" WorkUnitID="{EC4065AE-07DE-4A2B-85F2-8E69EC9F53BC}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{D1C2E150-97CA-4CE0-8F4B-FB7F323F21CF}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{18057D5A-41A5-4D38-8DD2-7685F6B76FB4}" ShortID="574638145">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Beach Attenuation" ID="{DFC80282-AB49-4DC2-843C-E6D6AB852688}" WorkUnitID="{EC4065AE-07DE-4A2B-85F2-8E69EC9F53BC}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{D1C2E150-97CA-4CE0-8F4B-FB7F323F21CF}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{02C9C3CF-D209-4D6E-90A8-D22E164E0B47}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.715662367724867"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.715662367724867"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="10.4282230725623"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="782427581"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{02C9C3CF-D209-4D6E-90A8-D22E164E0B47}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008_01" ID="{77D65118-A1BB-4BED-BF2C-F0A5CACAB951}" ShortID="925083720">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{1B1FCBAD-66E8-46CF-BE20-E8D08146C5D6}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="1.02237481103553"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.511187405517763"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="10.6326980347695"/>
+												<Property Name="TrimEnd" Type="Real64" Value="28.8309696712018"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1066879339"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{1B1FCBAD-66E8-46CF-BE20-E8D08146C5D6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008_02" ID="{EE47C9B7-A22F-4D05-ADAA-31FFDE7DE4CD}" ShortID="2605284">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{00F1C989-CB7C-4C22-8A6A-A4C4303AFAE2}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="1.43132473544973"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="1.12461229213908"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="47.1314787887377"/>
+												<Property Name="TrimEnd" Type="Real64" Value="64.8185630196523"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="783516134"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{00F1C989-CB7C-4C22-8A6A-A4C4303AFAE2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008_03" ID="{3D9ED6DE-1216-4638-AE45-CA3FA62BC93F}" ShortID="895748548">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{8A759C11-C241-4CD5-BF19-EE50489A12DD}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="1.53356221655329"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="1.02237481103553"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="64.5118505763417"/>
+												<Property Name="TrimEnd" Type="Real64" Value="88.0264712301587"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="644304204"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Water, Waves, Ocean, Beach, Small, Lapping  SND0008" ID="{8A759C11-C241-4CD5-BF19-EE50489A12DD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
 					</ChildrenList>
 					<ObjectLists/>
 				</ActorMixer>
@@ -1901,6 +2012,19 @@
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{2544DA8C-B1DD-4D50-84A5-D8A79C2B1FF5}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="150"/>
+													<Property Name="Min" Type="Real64" Value="-150"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-6</Value>
@@ -2066,6 +2190,19 @@
 								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{27F24ACA-C3BD-4D39-9707-0656EB30C140}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="150"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
@@ -2953,6 +3090,13 @@
 							<ObjectLists/>
 						</BlendContainer>
 						<Sound Name="Trike Attack" ID="{F221A136-383C-45A4-8439-785E502FA261}" ShortID="851547019">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
