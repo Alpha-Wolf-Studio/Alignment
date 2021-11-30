@@ -38,8 +38,8 @@ public class TriAttackAI : AIAttackModule
                 StopCoroutine(ChargeCoroutine);
             }
             ChargeCoroutine = Charge(dirTransform);
-            StartCoroutine(ChargeCoroutine);
             AIAttacked();
+            StartCoroutine(ChargeCoroutine);
         }
     }
     IEnumerator Charge(Transform dirTransform)
@@ -79,7 +79,6 @@ public class TriAttackAI : AIAttackModule
     public override void StartAttackEvent()
     {
         attackStarted = true;
-        AIAttacked();
         foreach (var collider in meleeColliders)
         {
             collider.StartCollider();
@@ -87,11 +86,11 @@ public class TriAttackAI : AIAttackModule
     }
     public override void StopAttackEvent()
     {
+        canCharge = true;
         foreach (var collider in meleeColliders)
         {
             collider.StopCollider();
         }
-        canCharge = true;
         anim.SetBool("Melee Attack", false);
     }
 
