@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 
 public class ReparableObject : MonoBehaviour
-{                       // Todo: Solución: Separar los calculos y los requerimientos de lo que muestra el Canvas
+{
     public Action<RepairLocations> OnRepair;
     public RepairLocations location;
     public string nameToRepair;
