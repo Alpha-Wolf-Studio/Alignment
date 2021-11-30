@@ -32,8 +32,7 @@ public class UILoadingScreen : MonoBehaviour
 
     IEnumerator blackScreenFade(bool useLoadingBar, bool useRoboFace)
     {
-        if (useLoadingBar) blackScreen.color = new Color(1, 1, 1, 0);
-        else blackScreen.color = new Color(0, 0, 0, 0);
+        blackScreen.color = useLoadingBar ? new Color(1, 1, 1, 0) : new Color(0, 0, 0, 0);
         while (blackScreen.color.a + Time.unscaledDeltaTime < 1)
         {
             blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, blackScreen.color.a + Time.unscaledDeltaTime);
@@ -130,6 +129,7 @@ public class UILoadingScreen : MonoBehaviour
     IEnumerator blackScreenUnfadeCoroutine(bool useLoadingBar, bool useRoboFace)
     {
         glowAnimator.enabled = false;
+
         while (blackScreen.color.a - Time.unscaledDeltaTime > 0)
         {
             blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, blackScreen.color.a - Time.unscaledDeltaTime);
@@ -141,12 +141,15 @@ public class UILoadingScreen : MonoBehaviour
                     img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a - Time.unscaledDeltaTime);
                 }
             }
+
             if (useRoboFace)
             {
                 roboFace.color = new Color(roboFace.color.r, roboFace.color.g, roboFace.color.b, roboFace.color.a - Time.unscaledDeltaTime);
             }
+
             yield return null;
         }
+
         blackScreen.color = new Color(blackScreen.color.r, blackScreen.color.g, blackScreen.color.b, 0);
         textComponent.color = new Color(textComponent.color.r, textComponent.color.g, textComponent.color.b, 0);
         if (useLoadingBar)

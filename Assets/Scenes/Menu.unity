@@ -4352,6 +4352,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 976504726, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 109070727115156780, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
       propertyPath: m_RootOrder
@@ -4426,7 +4430,7 @@ PrefabInstance:
     - target: {fileID: 109070728404240878, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
       propertyPath: loadingImages.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 109070728404240878, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
@@ -4443,6 +4447,11 @@ PrefabInstance:
       propertyPath: loadingImages.Array.data[2]
       value: 
       objectReference: {fileID: 1651793104}
+    - target: {fileID: 219584028882884952, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4520221016735156786, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
       propertyPath: m_Color.a
@@ -4456,6 +4465,11 @@ PrefabInstance:
     - target: {fileID: 8021144293092163441, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
         type: 3}
       propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021144293092163441, guid: 3f19126a7d4b9394abf5a8ef8e14b8e7,
+        type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="1346451363">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="714118027" Name="VolEffect" ObjectPath="\Game Parameters\Default Work Unit\VolEffect"/>
+				<GameParameter Id="1770950993" Name="VolMusic" ObjectPath="\Game Parameters\Default Work Unit\VolMusic"/>
+				<GameParameter Id="2360153336" Name="VolGeneral" ObjectPath="\Game Parameters\Default Work Unit\VolGeneral"/>
+			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="1946707388" Language="SFX" Hash="2538107725">
+			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankTest</ObjectPath>
+			<ShortName>SoundBankTest</ShortName>
+			<Path>SoundBankTest.bnk</Path>
+			<IncludedEvents>
+				<Event Id="224212648" Name="AmbBeach" ObjectPath="\Events\Default Work Unit\AmbBeach" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="90.173462" DurationMax="90.173462">
+					<IncludedMemoryFiles>
+						<File Id="644304204" Language="SFX">
+							<ShortName>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</ShortName>
+							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="740467757" Name="AmbField" ObjectPath="\Events\Default Work Unit\AmbField" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2316306096" Name="AmbForest" ObjectPath="\Events\Default Work Unit\AmbForest" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4152337806" Name="CompletedQuest" ObjectPath="\Events\Default Work Unit\CompletedQuest" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3758255951" Name="CompletedTask" ObjectPath="\Events\Default Work Unit\CompletedTask" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4253121485" Name="CompyAttack" ObjectPath="\Events\Default Work Unit\CompyAttack" DurationType="OneShot" DurationMin="0.702404" DurationMax="0.702404">
+					<IncludedMemoryFiles>
+						<File Id="507265259" Language="SFX">
+							<ShortName>Raptor Attack_3.wav</ShortName>
+							<Path>SFX\Raptor Attack_3_10C4C929.wem</Path>
+						</File>
+						<File Id="993370788" Language="SFX">
+							<ShortName>Knife, Throw, Spin, Hit Object With Metal Sound SND34521.wav</ShortName>
+							<Path>SFX\Knife, Throw, Spin, Hit Object With Metal Sound SND34521_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="255002937" Name="CompyRoar" ObjectPath="\Events\Default Work Unit\CompyRoar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3060166911" Name="CompyStep" ObjectPath="\Events\Default Work Unit\CompyStep" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.116433" DurationMax="0.158367">
+					<IncludedMemoryFiles>
+						<File Id="49426062" Language="SFX">
+							<ShortName>Compy Step_7.wav</ShortName>
+							<Path>SFX\Compy Step_7_10C4C929.wem</Path>
+						</File>
+						<File Id="185232840" Language="SFX">
+							<ShortName>Compy Step_5.wav</ShortName>
+							<Path>SFX\Compy Step_5_10C4C929.wem</Path>
+						</File>
+						<File Id="246838144" Language="SFX">
+							<ShortName>Compy Step_4.wav</ShortName>
+							<Path>SFX\Compy Step_4_10C4C929.wem</Path>
+						</File>
+						<File Id="439769062" Language="SFX">
+							<ShortName>Compy Step_8.wav</ShortName>
+							<Path>SFX\Compy Step_8_10C4C929.wem</Path>
+						</File>
+						<File Id="788207607" Language="SFX">
+							<ShortName>Compy Step_6.wav</ShortName>
+							<Path>SFX\Compy Step_6_10C4C929.wem</Path>
+						</File>
+						<File Id="874837282" Language="SFX">
+							<ShortName>Compy Step_3.wav</ShortName>
+							<Path>SFX\Compy Step_3_10C4C929.wem</Path>
+						</File>
+						<File Id="916797212" Language="SFX">
+							<ShortName>Compy Step_1.wav</ShortName>
+							<Path>SFX\Compy Step_1_10C4C929.wem</Path>
+						</File>
+						<File Id="984081876" Language="SFX">
+							<ShortName>Compy Step_2.wav</ShortName>
+							<Path>SFX\Compy Step_2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1541757387" Name="DiloAttack" ObjectPath="\Events\Default Work Unit\DiloAttack" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.854902" DurationMax="0.959595">
+					<IncludedMemoryFiles>
+						<File Id="292127355" Language="SFX">
+							<ShortName>Dilo Fire_2.wav</ShortName>
+							<Path>SFX\Dilo Fire_2_10C4C929.wem</Path>
+						</File>
+						<File Id="988978352" Language="SFX">
+							<ShortName>Dilo Fire_1.wav</ShortName>
+							<Path>SFX\Dilo Fire_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2996865923" Name="DiloRoar" ObjectPath="\Events\Default Work Unit\DiloRoar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1247094977" Name="DiloStep" ObjectPath="\Events\Default Work Unit\DiloStep" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.264127" DurationMax="0.336689">
+					<IncludedMemoryFiles>
+						<File Id="7966758" Language="SFX">
+							<ShortName>Dino Step_4.wav</ShortName>
+							<Path>SFX\Dino Step_4_10C4C929.wem</Path>
+						</File>
+						<File Id="63065351" Language="SFX">
+							<ShortName>Dino Step_2.wav</ShortName>
+							<Path>SFX\Dino Step_2_10C4C929.wem</Path>
+						</File>
+						<File Id="150710841" Language="SFX">
+							<ShortName>Dino Step_1.wav</ShortName>
+							<Path>SFX\Dino Step_1_10C4C929.wem</Path>
+						</File>
+						<File Id="746796137" Language="SFX">
+							<ShortName>Dino Step_5.wav</ShortName>
+							<Path>SFX\Dino Step_5_10C4C929.wem</Path>
+						</File>
+						<File Id="887298362" Language="SFX">
+							<ShortName>Dino Step_3.wav</ShortName>
+							<Path>SFX\Dino Step_3_10C4C929.wem</Path>
+						</File>
+						<File Id="897380997" Language="SFX">
+							<ShortName>Dino Step_6.wav</ShortName>
+							<Path>SFX\Dino Step_6_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1470014341" Name="DinoRecibeDamageCannon" ObjectPath="\Events\Default Work Unit\DinoRecibeDamageCannon" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1012813505" Name="DinoRecibeDamageSword" ObjectPath="\Events\Default Work Unit\DinoRecibeDamageSword" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1321486280" Name="MusicBossOff" ObjectPath="\Events\Default Work Unit\MusicBossOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2280234578" Name="MusicBossOn" ObjectPath="\Events\Default Work Unit\MusicBossOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3921005316" Name="PauseOff" ObjectPath="\Events\Default Work Unit\PauseOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="80751710" Name="PauseOn" ObjectPath="\Events\Default Work Unit\PauseOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1067794578" Name="PlayAmbMusic" ObjectPath="\Events\Default Work Unit\PlayAmbMusic" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="8741045" Language="SFX">
+							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
+							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_933DAB26.wem</Path>
+						</File>
+						<File Id="10194424" Language="SFX">
+							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
+							<Path>SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_5366CFD5.wem</Path>
+						</File>
+						<File Id="82899237" Language="SFX">
+							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
+							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_F754C32A.wem</Path>
+						</File>
+						<File Id="116573761" Language="SFX">
+							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
+							<Path>SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_7FAD2F5E.wem</Path>
+						</File>
+						<File Id="120477107" Language="SFX">
+							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
+							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_E0A2B7E3.wem</Path>
+						</File>
+						<File Id="140734417" Language="SFX">
+							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
+							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_DE702150.wem</Path>
+						</File>
+						<File Id="366352810" Language="SFX">
+							<ShortName>Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1.wav</ShortName>
+							<Path>SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_EDC26E09.wem</Path>
+						</File>
+						<File Id="371553608" Language="SFX">
+							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
+							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_BF0364A2.wem</Path>
+						</File>
+						<File Id="389769619" Language="SFX">
+							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
+							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_6AADB1C4.wem</Path>
+						</File>
+						<File Id="463783719" Language="SFX">
+							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
+							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_56E92F8D.wem</Path>
+						</File>
+						<File Id="565623388" Language="SFX">
+							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
+							<Path>SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_1D1E435A.wem</Path>
+						</File>
+						<File Id="572663694" Language="SFX">
+							<ShortName>Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1.wav</ShortName>
+							<Path>SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_A4C63EE8.wem</Path>
+						</File>
+						<File Id="819322802" Language="SFX">
+							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
+							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_7F129901.wem</Path>
+						</File>
+						<File Id="900079939" Language="SFX">
+							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
+							<Path>SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_F5FCBCA3.wem</Path>
+						</File>
+						<File Id="1072147322" Language="SFX">
+							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
+							<Path>SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_98186EFC.wem</Path>
+						</File>
+						<File Id="1072188128" Language="SFX">
+							<ShortName>Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1.wav</ShortName>
+							<Path>SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_02C2A75C.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{BE59AA1C-A28E-48B4-AF0F-E2618AA13063}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{BE59AA1C-A28E-48B4-AF0F-E2618AA13063}">
+							<Media>
+								<File Id="8741045"/>
+								<File Id="82899237"/>
+								<File Id="120477107"/>
+								<File Id="140734417"/>
+								<File Id="371553608"/>
+								<File Id="389769619"/>
+								<File Id="463783719"/>
+								<File Id="819322802"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{1B3D4F30-F1AA-486B-81D7-07D6B1EECE08}">
+							<Media>
+								<File Id="10194424"/>
+								<File Id="116573761"/>
+								<File Id="565623388"/>
+								<File Id="900079939"/>
+								<File Id="1072147322"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2631962614" Name="PlayerArmCannonOff" ObjectPath="\Events\Default Work Unit\PlayerArmCannonOff" DurationType="OneShot" DurationMin="0.975238" DurationMax="0.975238">
+					<IncludedMemoryFiles>
+						<File Id="283426189" Language="SFX">
+							<ShortName>Deactivate Cannon.wav</ShortName>
+							<Path>SFX\Deactivate Cannon_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3990432824" Name="PlayerArmCannonOn" ObjectPath="\Events\Default Work Unit\PlayerArmCannonOn" DurationType="OneShot" DurationMin="1.155193" DurationMax="1.155193">
+					<IncludedMemoryFiles>
+						<File Id="753143526" Language="SFX">
+							<ShortName>Activate Cannon.wav</ShortName>
+							<Path>SFX\Activate Cannon_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2932252690" Name="PlayerArmEmptyOff" ObjectPath="\Events\Default Work Unit\PlayerArmEmptyOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1603401268" Name="PlayerArmEmptyOn" ObjectPath="\Events\Default Work Unit\PlayerArmEmptyOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2739055032" Name="PlayerArmorDamage" ObjectPath="\Events\Default Work Unit\PlayerArmorDamage" DurationType="OneShot" DurationMin="1.066667" DurationMax="1.066667">
+					<IncludedMemoryFiles>
+						<File Id="203568805" Language="SFX">
+							<ShortName>Player Damage_2.wav</ShortName>
+							<Path>SFX\Player Damage_2_10C4C929.wem</Path>
+						</File>
+						<File Id="741476641" Language="SFX">
+							<ShortName>Player Damage_1.wav</ShortName>
+							<Path>SFX\Player Damage_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2969189002" Name="PlayerArmSwordOff" ObjectPath="\Events\Default Work Unit\PlayerArmSwordOff" DurationType="OneShot" DurationMin="1.374077" DurationMax="1.374077">
+					<IncludedMemoryFiles>
+						<File Id="241760756" Language="SFX">
+							<ShortName>Deactivate Sword_1.wav</ShortName>
+							<Path>SFX\Deactivate Sword_1_13A366D4.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1660443884" Name="PlayerArmSwordOn" ObjectPath="\Events\Default Work Unit\PlayerArmSwordOn" DurationType="OneShot" DurationMin="0.384973" DurationMax="0.384973">
+					<IncludedMemoryFiles>
+						<File Id="62729632" Language="SFX">
+							<ShortName>Activate Sword.wav</ShortName>
+							<Path>SFX\Activate Sword_5CA27A38.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2169369406" Name="PlayerAttack" ObjectPath="\Events\Default Work Unit\PlayerAttack" DurationType="OneShot" DurationMin="0.929106" DurationMax="1.042886">
+					<IncludedMemoryFiles>
+						<File Id="337994893" Language="SFX">
+							<ShortName>Player_Shoot.wav</ShortName>
+							<Path>SFX\Player_Shoot_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="126850157" Name="PlayerAttackSword" ObjectPath="\Events\Default Work Unit\PlayerAttackSword" DurationType="OneShot" DurationMin="0.342585" DurationMax="0.342585">
+					<IncludedMemoryFiles>
+						<File Id="148964275" Language="SFX">
+							<ShortName>Sword_Attack_2.wav</ShortName>
+							<Path>SFX\Sword_Attack_2_10C4C929.wem</Path>
+						</File>
+						<File Id="352936415" Language="SFX">
+							<ShortName>Sword_Attack_1.wav</ShortName>
+							<Path>SFX\Sword_Attack_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3966601280" Name="PlayerDie" ObjectPath="\Events\Default Work Unit\PlayerDie" DurationType="OneShot" DurationMin="5.781769" DurationMax="5.781769">
+					<IncludedMemoryFiles>
+						<File Id="907855225" Language="SFX">
+							<ShortName>Player_Death.wav</ShortName>
+							<Path>SFX\Player_Death_DF2BFD1C.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1394561708" Name="PlayerDropItem" ObjectPath="\Events\Default Work Unit\PlayerDropItem" DurationType="OneShot" DurationMin="0.750000" DurationMax="0.750000">
+					<IncludedMemoryFiles>
+						<File Id="24436010" Language="SFX">
+							<ShortName>Player_Drop Item.wav</ShortName>
+							<Path>SFX\Player_Drop Item_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="890299361" Name="PlayerEnergyDamage" ObjectPath="\Events\Default Work Unit\PlayerEnergyDamage" DurationType="OneShot" DurationMin="1.127370" DurationMax="1.127370">
+					<IncludedMemoryFiles>
+						<File Id="460607511" Language="SFX">
+							<ShortName>Energy damage.wav</ShortName>
+							<Path>SFX\Energy damage_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2538694111" Name="PlayerJetPackOff" ObjectPath="\Events\Default Work Unit\PlayerJetPackOff" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2265561867" Name="PlayerJetPackOn" ObjectPath="\Events\Default Work Unit\PlayerJetPackOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4008126242" Name="PlayerJump" ObjectPath="\Events\Default Work Unit\PlayerJump" DurationType="OneShot" DurationMin="1.364739" DurationMax="1.364739">
+					<IncludedMemoryFiles>
+						<File Id="79051648" Language="SFX">
+							<ShortName>Player_Jump_With Landing.wav</ShortName>
+							<Path>SFX\Player_Jump_With Landing_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3452482440" Name="PlayerPickItem" ObjectPath="\Events\Default Work Unit\PlayerPickItem" DurationType="OneShot" DurationMin="0.123255" DurationMax="0.248196">
+					<IncludedMemoryFiles>
+						<File Id="5998164" Language="SFX">
+							<ShortName>Player_Pick Item_3.wav</ShortName>
+							<Path>SFX\Player_Pick Item_3_10C4C929.wem</Path>
+						</File>
+						<File Id="727224815" Language="SFX">
+							<ShortName>Player_Pick Item_2.wav</ShortName>
+							<Path>SFX\Player_Pick Item_2_10C4C929.wem</Path>
+						</File>
+						<File Id="985901743" Language="SFX">
+							<ShortName>Player_Pick Item_1.wav</ShortName>
+							<Path>SFX\Player_Pick Item_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="412471812" Name="PlayerStep" ObjectPath="\Events\Default Work Unit\PlayerStep" DurationType="OneShot" DurationMin="0.520216" DurationMax="1.029942">
+					<IncludedMemoryFiles>
+						<File Id="290825574" Language="SFX">
+							<ShortName>Pasos_2.wav</ShortName>
+							<Path>SFX\Pasos_2_10C4C929.wem</Path>
+						</File>
+						<File Id="413870853" Language="SFX">
+							<ShortName>Pasos_3.wav</ShortName>
+							<Path>SFX\Pasos_3_10C4C929.wem</Path>
+						</File>
+						<File Id="428508052" Language="SFX">
+							<ShortName>Pasos_4.wav</ShortName>
+							<Path>SFX\Pasos_4_10C4C929.wem</Path>
+						</File>
+						<File Id="477441384" Language="SFX">
+							<ShortName>Pasos_1.wav</ShortName>
+							<Path>SFX\Pasos_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="413545259" Name="PlayMenuMusic" ObjectPath="\Events\Default Work Unit\PlayMenuMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3271318801" Name="RaptorAttack" ObjectPath="\Events\Default Work Unit\RaptorAttack" DurationType="OneShot" DurationMin="0.702404" DurationMax="0.702404">
+					<IncludedMemoryFiles>
+						<File Id="352936415" Language="SFX">
+							<ShortName>Sword_Attack_1.wav</ShortName>
+							<Path>SFX\Sword_Attack_1_10C4C929.wem</Path>
+						</File>
+						<File Id="507265259" Language="SFX">
+							<ShortName>Raptor Attack_3.wav</ShortName>
+							<Path>SFX\Raptor Attack_3_10C4C929.wem</Path>
+						</File>
+						<File Id="581281108" Language="SFX">
+							<ShortName>Raptor Attack_2.wav</ShortName>
+							<Path>SFX\Raptor Attack_2_10C4C929.wem</Path>
+						</File>
+						<File Id="993370788" Language="SFX">
+							<ShortName>Knife, Throw, Spin, Hit Object With Metal Sound SND34521.wav</ShortName>
+							<Path>SFX\Knife, Throw, Spin, Hit Object With Metal Sound SND34521_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3630366149" Name="RaptorRoar" ObjectPath="\Events\Default Work Unit\RaptorRoar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1477343779" Name="RaptorStep" ObjectPath="\Events\Default Work Unit\RaptorStep" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.313469" DurationMax="0.365714">
+					<IncludedMemoryFiles>
+						<File Id="25543302" Language="SFX">
+							<ShortName>Dino Step_12.wav</ShortName>
+							<Path>SFX\Dino Step_12_10C4C929.wem</Path>
+						</File>
+						<File Id="292218602" Language="SFX">
+							<ShortName>Dino Step_7.wav</ShortName>
+							<Path>SFX\Dino Step_7_10C4C929.wem</Path>
+						</File>
+						<File Id="466913685" Language="SFX">
+							<ShortName>Dino Step_9.wav</ShortName>
+							<Path>SFX\Dino Step_9_10C4C929.wem</Path>
+						</File>
+						<File Id="646615204" Language="SFX">
+							<ShortName>Dino Step_10.wav</ShortName>
+							<Path>SFX\Dino Step_10_10C4C929.wem</Path>
+						</File>
+						<File Id="812066498" Language="SFX">
+							<ShortName>Dino Step_8.wav</ShortName>
+							<Path>SFX\Dino Step_8_10C4C929.wem</Path>
+						</File>
+						<File Id="863079022" Language="SFX">
+							<ShortName>Dino Step_11.wav</ShortName>
+							<Path>SFX\Dino Step_11_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3472234744" Name="TrikeAttack" ObjectPath="\Events\Default Work Unit\TrikeAttack" DurationType="OneShot" DurationMin="1.647071" DurationMax="1.647071">
+					<IncludedMemoryFiles>
+						<File Id="993938383" Language="SFX">
+							<ShortName>Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502.wav</ShortName>
+							<Path>SFX\Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502_A49B7F75.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4083332888" Name="TrikeRoar" ObjectPath="\Events\Default Work Unit\TrikeRoar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2077580298" Name="TrikeStep" ObjectPath="\Events\Default Work Unit\TrikeStep" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.264127" DurationMax="0.336689">
+					<IncludedMemoryFiles>
+						<File Id="7966758" Language="SFX">
+							<ShortName>Dino Step_4.wav</ShortName>
+							<Path>SFX\Dino Step_4_10C4C929.wem</Path>
+						</File>
+						<File Id="63065351" Language="SFX">
+							<ShortName>Dino Step_2.wav</ShortName>
+							<Path>SFX\Dino Step_2_10C4C929.wem</Path>
+						</File>
+						<File Id="150710841" Language="SFX">
+							<ShortName>Dino Step_1.wav</ShortName>
+							<Path>SFX\Dino Step_1_10C4C929.wem</Path>
+						</File>
+						<File Id="746796137" Language="SFX">
+							<ShortName>Dino Step_5.wav</ShortName>
+							<Path>SFX\Dino Step_5_10C4C929.wem</Path>
+						</File>
+						<File Id="887298362" Language="SFX">
+							<ShortName>Dino Step_3.wav</ShortName>
+							<Path>SFX\Dino Step_3_10C4C929.wem</Path>
+						</File>
+						<File Id="897380997" Language="SFX">
+							<ShortName>Dino Step_6.wav</ShortName>
+							<Path>SFX\Dino Step_6_10C4C929.wem</Path>
+						</File>
+						<File Id="967836298" Language="SFX">
+							<ShortName>Trike Step_1.wav</ShortName>
+							<Path>SFX\Trike Step_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3935862555" Name="UiButtonEnter" ObjectPath="\Events\Default Work Unit\UiButtonEnter" DurationType="OneShot" DurationMin="0.209819" DurationMax="0.209819">
+					<IncludedMemoryFiles>
+						<File Id="929226526" Language="SFX">
+							<ShortName>Menu_In.wav</ShortName>
+							<Path>SFX\Menu_In_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="106216603" Name="UiButtonExit" ObjectPath="\Events\Default Work Unit\UiButtonExit" DurationType="OneShot" DurationMin="0.209819" DurationMax="0.209819">
+					<IncludedMemoryFiles>
+						<File Id="88209200" Language="SFX">
+							<ShortName>Menu_Out.wav</ShortName>
+							<Path>SFX\Menu_Out_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="878168405" Name="UiClickButton" ObjectPath="\Events\Default Work Unit\UiClickButton" DurationType="OneShot" DurationMin="0.533333" DurationMax="0.533333">
+					<IncludedMemoryFiles>
+						<File Id="1023765488" Language="SFX">
+							<ShortName>Menu_Click_1.wav</ShortName>
+							<Path>SFX\Menu_Click_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1968229471" Name="UiCloseInventory" ObjectPath="\Events\Default Work Unit\UiCloseInventory" DurationType="OneShot" DurationMin="0.696438" DurationMax="0.696438">
+					<IncludedMemoryFiles>
+						<File Id="816861029" Language="SFX">
+							<ShortName>Close_Craft_Menu.wav</ShortName>
+							<Path>SFX\Close_Craft_Menu_7881A363.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="538913891" Name="UiCraftFail" ObjectPath="\Events\Default Work Unit\UiCraftFail" DurationType="OneShot" DurationMin="0.665652" DurationMax="0.665652">
+					<IncludedMemoryFiles>
+						<File Id="93498598" Language="SFX">
+							<ShortName>Craft_2.wav</ShortName>
+							<Path>SFX\Craft_2_1CC3A73A.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3041684469" Name="UiCraftSuccessful" ObjectPath="\Events\Default Work Unit\UiCraftSuccessful" DurationType="OneShot" DurationMin="0.783673" DurationMax="0.783673">
+					<IncludedMemoryFiles>
+						<File Id="995517507" Language="SFX">
+							<ShortName>Craft.wav</ShortName>
+							<Path>SFX\Craft_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="863504537" Name="UiOpenInventory" ObjectPath="\Events\Default Work Unit\UiOpenInventory" DurationType="OneShot" DurationMin="0.860666" DurationMax="0.860666">
+					<IncludedMemoryFiles>
+						<File Id="501376799" Language="SFX">
+							<ShortName>Open_Craft_Menu.wav</ShortName>
+							<Path>SFX\Open_Craft_Menu_F73A2624.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3210062703" Name="UiSwapItem" ObjectPath="\Events\Default Work Unit\UiSwapItem" DurationType="OneShot" DurationMin="0.261224" DurationMax="0.261224">
+					<IncludedMemoryFiles>
+						<File Id="473294982" Language="SFX">
+							<ShortName>Swipe_Menu_Items.wav</ShortName>
+							<Path>SFX\Swipe_Menu_Items_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2685053305" Name="UiUseItem" ObjectPath="\Events\Default Work Unit\UiUseItem" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+			</IncludedEvents>
+			<StateGroups>
+				<StateGroup Id="1017660616" Name="Ambiences" ObjectPath="\States\Default Work Unit\Ambiences" GUID="{6E72D1DA-FD21-49B1-8FA4-9339AD743A08}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Ambiences\None" GUID="{5D07FEF8-C0D8-4E1E-9E81-B0F362906BFE}"/>
+						<State Id="514358619" Name="Field" ObjectPath="\States\Default Work Unit\Ambiences\Field" GUID="{BE59AA1C-A28E-48B4-AF0F-E2618AA13063}"/>
+						<State Id="491961918" Name="Forest" ObjectPath="\States\Default Work Unit\Ambiences\Forest" GUID="{1B3D4F30-F1AA-486B-81D7-07D6B1EECE08}"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
