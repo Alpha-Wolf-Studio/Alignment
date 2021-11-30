@@ -182,8 +182,49 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}"/>
-				<Event Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}"/>
+				<Event Name="PauseOn" ID="{91A1FB64-912C-4390-9750-BA8D3F4A84F2}">
+					<ChildrenList>
+						<Action Name="" ID="{6823D085-E1C9-49EE-84AF-39585D16E336}" ShortID="54618637">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Complete ambience" ID="{BC9587C7-5B74-462B-9636-5D97C65132A6}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{89C8B18B-E679-4256-B515-39662E5BDE96}" ShortID="1055662805">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Beach" ID="{F0B48B41-D633-4B40-B743-E3668013492A}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PauseOff" ID="{F6DE385E-F7DA-4C4D-80D4-0FE154C58BAF}">
+					<ChildrenList>
+						<Action Name="" ID="{74455654-95F0-4895-899E-432D0873EF1D}" ShortID="1049541496">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Complete ambience" ID="{BC9587C7-5B74-462B-9636-5D97C65132A6}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{51E828D9-791D-458A-8473-5429B7DC1061}" ShortID="114609361">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Beach" ID="{F0B48B41-D633-4B40-B743-E3668013492A}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="CompyStep" ID="{052E226C-3BB4-4B64-A2D2-D267F29B4128}">
 					<ChildrenList>
 						<Action Name="" ID="{F3DC1167-1000-4AE4-B9C0-6EF078D8BC06}" ShortID="919647141">
@@ -272,7 +313,20 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="AmbField" ID="{5DB14B4D-E3B3-4731-A79A-DE909201E2E8}"/>
+				<Event Name="AmbField" ID="{5DB14B4D-E3B3-4731-A79A-DE909201E2E8}">
+					<ChildrenList>
+						<Action Name="" ID="{8E9799A8-A9AA-4433-8960-D24836E27D5C}" ShortID="970147824">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Field" ID="{BE59AA1C-A28E-48B4-AF0F-E2618AA13063}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="AmbBeach" ID="{CA528DF9-D86F-48C5-A9D2-3060E567978F}">
 					<ChildrenList>
 						<Action Name="" ID="{CD931168-BEEC-429D-B0B4-3BAECB7C0D7F}" ShortID="69424207">
@@ -284,7 +338,20 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="AmbForest" ID="{1181B9C7-2EFF-4B80-95C2-FB50E0B22E0F}"/>
+				<Event Name="AmbForest" ID="{1181B9C7-2EFF-4B80-95C2-FB50E0B22E0F}">
+					<ChildrenList>
+						<Action Name="" ID="{B2BC06F9-46C4-4406-9BF9-84134A75C466}" ShortID="799906329">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Forest" ID="{1B3D4F30-F1AA-486B-81D7-07D6B1EECE08}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="DinoRecibeDamageSword" ID="{CB362124-8463-4249-A58E-C19EC56DA609}"/>
 				<Event Name="PlayerArmEmptyOn" ID="{5B4DC011-AB24-454D-9DA2-116C843768AE}"/>
 				<Event Name="PlayerAttackSword" ID="{2799779F-C9FA-4F5E-B48A-A2657BE56549}">
@@ -358,6 +425,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Complete ambience" ID="{BC9587C7-5B74-462B-9636-5D97C65132A6}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{9B6FBDBC-77E9-44E2-A29C-FE8CEB3F7D4F}" ShortID="719658862">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Field" ID="{BE59AA1C-A28E-48B4-AF0F-E2618AA13063}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
