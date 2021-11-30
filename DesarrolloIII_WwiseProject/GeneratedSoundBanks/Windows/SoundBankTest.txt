@@ -14,12 +14,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	1012813505	DinoRecibeDamageSword			\Default Work Unit\DinoRecibeDamageSword	
 	1067794578	PlayAmbMusic			\Default Work Unit\PlayAmbMusic	
 	1247094977	DiloStep			\Default Work Unit\DiloStep	
-	1321486280	MusicBossOff			\Default Work Unit\MusicBossOff	
 	1394561708	PlayerDropItem			\Default Work Unit\PlayerDropItem	
 	1470014341	DinoRecibeDamageCannon			\Default Work Unit\DinoRecibeDamageCannon	
 	1477343779	RaptorStep			\Default Work Unit\RaptorStep	
 	1541757387	DiloAttack			\Default Work Unit\DiloAttack	
-	1603401268	PlayerArmEmptyOn			\Default Work Unit\PlayerArmEmptyOn	
 	1660443884	PlayerArmSwordOn			\Default Work Unit\PlayerArmSwordOn	
 	1968229471	UiCloseInventory			\Default Work Unit\UiCloseInventory	
 	2077580298	TrikeStep			\Default Work Unit\TrikeStep	
@@ -31,7 +29,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	2631962614	PlayerArmCannonOff			\Default Work Unit\PlayerArmCannonOff	
 	2685053305	UiUseItem			\Default Work Unit\UiUseItem	
 	2739055032	PlayerArmorDamage			\Default Work Unit\PlayerArmorDamage	
-	2932252690	PlayerArmEmptyOff			\Default Work Unit\PlayerArmEmptyOff	
 	2969189002	PlayerArmSwordOff			\Default Work Unit\PlayerArmSwordOff	
 	2996865923	DiloRoar			\Default Work Unit\DiloRoar	
 	3041684469	UiCraftSuccessful			\Default Work Unit\UiCraftSuccessful	
@@ -84,6 +81,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	150710841	Dino Step_1	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Dilo Steps\Dino Step_1		25664
 	185232840	Compy Step_5	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Compy Steps\Compy Step_5		11008
 	203568805	Player Damage_2	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player Damage_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Armor Damage\Player Damage_2		80718
+	206301987	Trike Attack	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dirt & Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502 1_37D53304.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Trike Attack		216276
 	241760756	Deactivate Sword_1	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Deactivate Sword_1_13A366D4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Weapons\Deactivate Sword\Deactivate Sword_1		33058
 	246838144	Compy Step_4	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Compy Steps\Compy Step_4		10944
 	283426189	Deactivate Cannon	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Deactivate Cannon_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Weapons\Deactivate Cannon		86080
@@ -108,12 +106,15 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	565623388	Forest, Smooth Rustle_02	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_1D1E435A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\Complete ambience\Ambience\Forest\Forest, Smooth Rustle_02		1116216
 	572663694	Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_A4C63EE8.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\Complete ambience\Birds Random\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1		945096
 	581281108	Raptor Attack_2	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Raptor Attack_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Raptor Attack\Raptor Attack_2		37824
-	644304204	Water, Waves, Ocean, Beach, Small, Lapping  SND0008	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\Beach\Water, Waves, Ocean, Beach, Small, Lapping  SND0008		17313368
+	644304204	Water, Waves, Ocean, Beach, Small, Lapping  SND0008_03	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_D5F6E5AC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\Beach_01\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_03		4514868
 	646615204	Dino Step_10	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Raptor Steps\Dino Step_10		28224
+	696755309	Bell Sequence 3	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Bell Sequence 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Bell Sequence 3		105708
 	727224815	Player_Pick Item_2	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Pick Item_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Player_Pick_Item\Player_Pick Item_2		12992
 	741476641	Player Damage_1	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player Damage_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Armor Damage\Player Damage_1		94144
 	746796137	Dino Step_5	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Dilo Steps\Dino Step_5		27456
 	753143526	Activate Cannon	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Activate Cannon_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Weapons\Activate Cannon		101952
+	782427581	Water, Waves, Ocean, Beach, Small, Lapping  SND0008	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_6905E17A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\Beach_01\Water, Waves, Ocean, Beach, Small, Lapping  SND0008		2002284
+	783516134	Water, Waves, Ocean, Beach, Small, Lapping  SND0008_02	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_A31D38D3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\Beach_01\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_02		3395984
 	788207607	Compy Step_6	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Compy Step_6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Compy Steps\Compy Step_6		11008
 	812066498	Dino Step_8	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dino Step_8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Raptor Steps\Dino Step_8		29760
 	816861029	Close_Craft_Menu	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Close_Craft_Menu_7881A363.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Close_Craft_Menu		61490
@@ -131,9 +132,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	985901743	Player_Pick Item_1	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Player_Pick Item_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Player_Pick_Item\Player_Pick Item_1		17704
 	988978352	Dilo Fire_1	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dilo Fire_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Dilo Fire\Dilo Fire_1		55104
 	993370788	Knife, Throw, Spin, Hit Object With Metal Sound SND34521	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Knife, Throw, Spin, Hit Object With Metal Sound SND34521_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Compy Attack\Knife, Throw, Spin, Hit Object With Metal Sound SND34521		32556
-	993938383	Trike Attack	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Dirt & Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502_2D4F461B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dinos\Trike Attack		333696
 	995517507	Craft	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Craft_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Craft		69184
 	1023765488	Menu_Click_1	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Menu_Click_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu_Click_1		94144
+	1066879339	Water, Waves, Ocean, Beach, Small, Lapping  SND0008_01	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_2A2E9319.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\Beach_01\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_01		3494132
 	1072147322	Forest, Smooth Rustle_03	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_98186EFC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\Complete ambience\Ambience\Forest\Forest, Smooth Rustle_03		854164
 	1072188128	Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_01	D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_02C2A75C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\Complete ambience\Birds Random\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_01		798580
 

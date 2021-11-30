@@ -91,7 +91,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="CompletedTask" ID="{FC681339-491B-4198-9DD4-38C8452A27BD}"/>
+				<Event Name="CompletedTask" ID="{FC681339-491B-4198-9DD4-38C8452A27BD}">
+					<ChildrenList>
+						<Action Name="" ID="{5ECB6B9B-6745-4A18-A82A-BB3A19EECE03}" ShortID="569183728">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Bell Sequence 3" ID="{6B3356F9-D6BA-47EB-A522-76E7CEC5CA93}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="CompletedQuest" ID="{669CF6CA-C058-4F7A-90F2-EA9CFBF38D65}"/>
 				<Event Name="UiClickButton" ID="{82251FB2-C3E7-4514-A2F4-A7B8935E3407}">
 					<ChildrenList>
@@ -285,7 +295,7 @@
 						<Action Name="" ID="{101E0205-DE20-416E-9B28-1F38EDDA05DF}" ShortID="1029249662">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Trike Attack" ID="{CE98C40D-AE48-4E47-B7AA-B2B60CA1BC31}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+									<ObjectRef Name="Trike Attack" ID="{F221A136-383C-45A4-8439-785E502FA261}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -353,7 +363,6 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="DinoRecibeDamageSword" ID="{CB362124-8463-4249-A58E-C19EC56DA609}"/>
-				<Event Name="PlayerArmEmptyOn" ID="{5B4DC011-AB24-454D-9DA2-116C843768AE}"/>
 				<Event Name="PlayerAttackSword" ID="{2799779F-C9FA-4F5E-B48A-A2657BE56549}">
 					<ChildrenList>
 						<Action Name="" ID="{7C6C9382-5AD4-4C63-9117-3FCBDC6BF727}" ShortID="421803846">
@@ -365,7 +374,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="PlayerArmEmptyOff" ID="{44D6124F-BD15-47D3-86F9-22317B53429B}"/>
 				<Event Name="PlayerArmSwordOn" ID="{61FB441F-320D-47AD-9779-586B631C3EFC}">
 					<ChildrenList>
 						<Action Name="" ID="{9AC18EE3-0D4E-4F37-A098-1E82F9850BA2}" ShortID="897597214">
@@ -416,7 +424,6 @@
 				<Event Name="TrikeRoar" ID="{491389ED-1C70-4D07-BB4E-F37E80B4054C}"/>
 				<Event Name="DiloRoar" ID="{011DABF5-2D97-41B0-8417-5882AF37BD53}"/>
 				<Event Name="MusicBossOn" ID="{482ADBDE-AE21-4665-8EC0-422C4F04B959}"/>
-				<Event Name="MusicBossOff" ID="{DC5C83BD-F52A-4656-B010-D32F1EF19906}"/>
 				<Event Name="PlayerJetPackOn" ID="{922F4267-85AE-4837-8A03-800C2104BA12}"/>
 				<Event Name="PlayerJetPackOff" ID="{FE5714A9-7F51-41BE-A749-ABA21D2C741B}"/>
 				<Event Name="PlayAmbMusic" ID="{A2CB2748-7548-429D-9551-069943CC255E}">

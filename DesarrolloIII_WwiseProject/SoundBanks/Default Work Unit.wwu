@@ -22,16 +22,13 @@
 						<ObjectRef Name="PlayerArmSwordOff" ID="{D6FD0FDD-6BD6-4447-9F7F-CCC4BEBE951B}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UiClickButton" ID="{82251FB2-C3E7-4514-A2F4-A7B8935E3407}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="CompyAttack" ID="{16CAFB67-C85E-4549-9807-55D8071D11DA}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="PlayerArmEmptyOn" ID="{5B4DC011-AB24-454D-9DA2-116C843768AE}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UiButtonEnter" ID="{1186E499-75D2-4589-BC01-BE271403C040}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="MusicBossOff" ID="{DC5C83BD-F52A-4656-B010-D32F1EF19906}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="MusicBossOn" ID="{482ADBDE-AE21-4665-8EC0-422C4F04B959}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UiCraftFail" ID="{4A3F4A19-BB78-4673-AF84-596478FC8A5D}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerArmCannonOff" ID="{2971C6DF-C298-4722-83C4-50E251A30331}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UiCloseInventory" ID="{17613B5B-CD47-4729-BE03-8ED44935C33F}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="AmbField" ID="{5DB14B4D-E3B3-4731-A79A-DE909201E2E8}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerArmSwordOn" ID="{61FB441F-320D-47AD-9779-586B631C3EFC}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="PlayerArmEmptyOff" ID="{44D6124F-BD15-47D3-86F9-22317B53429B}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="TrikeStep" ID="{2DF318ED-4AF0-47D7-9A6B-B9BFA589420D}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerJetPackOn" ID="{922F4267-85AE-4837-8A03-800C2104BA12}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="PlayerDropItem" ID="{8C2B3E82-AC48-4861-8D57-4A240314A69F}" WorkUnitID="{EF8871EF-228B-433D-803F-F70594D394B5}" Origin="Manual" Filter="7"/>

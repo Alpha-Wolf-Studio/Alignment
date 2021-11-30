@@ -26,15 +26,12 @@ namespace AK
         static const AkUniqueID DILOSTEP = 1247094977U;
         static const AkUniqueID DINORECIBEDAMAGECANNON = 1470014341U;
         static const AkUniqueID DINORECIBEDAMAGESWORD = 1012813505U;
-        static const AkUniqueID MUSICBOSSOFF = 1321486280U;
         static const AkUniqueID MUSICBOSSON = 2280234578U;
         static const AkUniqueID PAUSEOFF = 3921005316U;
         static const AkUniqueID PAUSEON = 80751710U;
         static const AkUniqueID PLAYAMBMUSIC = 1067794578U;
         static const AkUniqueID PLAYERARMCANNONOFF = 2631962614U;
         static const AkUniqueID PLAYERARMCANNONON = 3990432824U;
-        static const AkUniqueID PLAYERARMEMPTYOFF = 2932252690U;
-        static const AkUniqueID PLAYERARMEMPTYON = 1603401268U;
         static const AkUniqueID PLAYERARMORDAMAGE = 2739055032U;
         static const AkUniqueID PLAYERARMSWORDOFF = 2969189002U;
         static const AkUniqueID PLAYERARMSWORDON = 1660443884U;

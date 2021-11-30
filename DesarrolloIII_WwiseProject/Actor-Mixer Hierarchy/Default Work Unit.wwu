@@ -695,6 +695,29 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</ActorMixer>
+						<Sound Name="Bell Sequence 3" ID="{6B3356F9-D6BA-47EB-A522-76E7CEC5CA93}" ShortID="918497526">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Bell Sequence 3" ID="{30A08CC4-D44A-48DA-8FA7-95BFDF55B41D}">
+									<Language>SFX</Language>
+									<AudioFile>Bell Sequence 3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="696755309"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Bell Sequence 3" ID="{30A08CC4-D44A-48DA-8FA7-95BFDF55B41D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 					<ObjectLists/>
 				</ActorMixer>
@@ -1499,6 +1522,11 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -1706,6 +1734,11 @@
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -1868,6 +1901,11 @@
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -2029,6 +2067,11 @@
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -2909,35 +2952,7 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</BlendContainer>
-						<Sound Name="Trike Attack" ID="{CE98C40D-AE48-4E47-B7AA-B2B60CA1BC31}" ShortID="25829458">
-							<PropertyList>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
-								<Property Name="MakeUpGain" Type="Real64">
-									<ValueList>
-										<Value>8</Value>
-									</ValueList>
-								</Property>
-								<Property Name="OverrideOutput" Type="bool" Value="True"/>
-								<Property Name="OverridePositioning" Type="bool" Value="True"/>
-								<Property Name="Pitch" Type="int32">
-									<ModifierList>
-										<ModifierInfo>
-											<Modifier Name="" ID="{DCA8D6D8-758D-4FA8-B233-8C4A6B6937E1}">
-												<PropertyList>
-													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Min" Type="Real64" Value="-150"/>
-												</PropertyList>
-											</Modifier>
-										</ModifierInfo>
-									</ModifierList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-11</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
+						<Sound Name="Trike Attack" ID="{F221A136-383C-45A4-8439-785E502FA261}" ShortID="851547019">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -2947,22 +2962,23 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502" ID="{A8FC4596-5E0F-4B0C-8366-B734197E6EB6}">
+								<AudioFileSource Name="Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502 1" ID="{8FD04FE1-D895-45C5-ABDA-755F6DF4E9C3}">
 									<PropertyList>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.0664466411564628"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0300294075963719"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.199286068594104"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-										<Property Name="TrimBegin" Type="Real64" Value="0.038257157029478"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.155606930272109"/>
 									</PropertyList>
 									<Language>SFX</Language>
-									<AudioFile>Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502.wav</AudioFile>
+									<AudioFile>Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502 1.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="993938383"/>
+										<MediaID ID="206301987"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502" ID="{A8FC4596-5E0F-4B0C-8366-B734197E6EB6}" Platform="Linked"/>
+								<ActiveSource Name="Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502 1" ID="{8FD04FE1-D895-45C5-ABDA-755F6DF4E9C3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
