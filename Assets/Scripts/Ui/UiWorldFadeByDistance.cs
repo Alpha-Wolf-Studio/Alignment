@@ -3,7 +3,7 @@ using UnityEngine;
 public class UiWorldFadeByDistance : MonoBehaviour
 {
     public Action<bool> onActive;
-
+    
     [SerializeField] private Transform myTransform;
     public Transform otherTransform;
     [SerializeField] private CanvasGroup canvasGroupFade;
@@ -11,6 +11,7 @@ public class UiWorldFadeByDistance : MonoBehaviour
     [SerializeField] private float minDistanceToShow = 5;
     [SerializeField] private float maxDistanceToShow = 15;
     [SerializeField] private bool enable;
+    [SerializeField] private bool lookAtPlayer = false;
 
     private void Start()
     {
@@ -47,6 +48,8 @@ public class UiWorldFadeByDistance : MonoBehaviour
         float distanceSqr = Vector3.SqrMagnitude(otherTransform.position - myTransform.position);
         if (distanceSqr < maxDistanceToShow * maxDistanceToShow)
         {
+            transform.LookAt(otherTransform, Vector3.up);
+            //transform.up = Vector3.up;
             float distance = DistanceToPlayer();
             canvasGroupFade.alpha = 1 - (distance - minDistanceToShow) / (maxDistanceToShow - minDistanceToShow);
             if (!enable)
