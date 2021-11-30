@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Documentos\Archivos\Image Campus\Alignment\DesarrolloIII\DesarrolloIII_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\feder\Desktop\Image Campus\2- Desarrollo III\DesarrolloIII\DesarrolloIII_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,28 +21,16 @@
 				<GameParameter Id="2360153336" Name="VolGeneral" ObjectPath="\Game Parameters\Default Work Unit\VolGeneral"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1946707388" Language="SFX" Hash="2014918842">
+		<SoundBank Id="1946707388" Language="SFX" Hash="383775052">
 			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankTest</ObjectPath>
 			<ShortName>SoundBankTest</ShortName>
 			<Path>SoundBankTest.bnk</Path>
 			<IncludedEvents>
-				<Event Id="224212648" Name="AmbBeach" ObjectPath="\Events\Default Work Unit\AmbBeach" MaxAttenuation="70.000000" DurationType="Infinite">
+				<Event Id="224212648" Name="AmbBeach" ObjectPath="\Events\Default Work Unit\AmbBeach" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="90.173462" DurationMax="90.173462">
 					<IncludedMemoryFiles>
 						<File Id="644304204" Language="SFX">
 							<ShortName>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</ShortName>
-							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_D5F6E5AC.wem</Path>
-						</File>
-						<File Id="782427581" Language="SFX">
-							<ShortName>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</ShortName>
-							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_6905E17A.wem</Path>
-						</File>
-						<File Id="783516134" Language="SFX">
-							<ShortName>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</ShortName>
-							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_A31D38D3.wem</Path>
-						</File>
-						<File Id="1066879339" Language="SFX">
-							<ShortName>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</ShortName>
-							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_2A2E9319.wem</Path>
+							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -210,15 +198,7 @@
 						</File>
 						<File Id="644304204" Language="SFX">
 							<ShortName>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</ShortName>
-							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_D5F6E5AC.wem</Path>
-						</File>
-						<File Id="782427581" Language="SFX">
-							<ShortName>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</ShortName>
-							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_6905E17A.wem</Path>
-						</File>
-						<File Id="783516134" Language="SFX">
-							<ShortName>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</ShortName>
-							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_A31D38D3.wem</Path>
+							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_10C4C929.wem</Path>
 						</File>
 						<File Id="819322802" Language="SFX">
 							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
@@ -227,10 +207,6 @@
 						<File Id="900079939" Language="SFX">
 							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
 							<Path>SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_F5FCBCA3.wem</Path>
-						</File>
-						<File Id="1066879339" Language="SFX">
-							<ShortName>Water, Waves, Ocean, Beach, Small, Lapping  SND0008.wav</ShortName>
-							<Path>SFX\Water, Waves, Ocean, Beach, Small, Lapping  SND0008_2A2E9319.wem</Path>
 						</File>
 						<File Id="1072147322" Language="SFX">
 							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
@@ -494,7 +470,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3630366149" Name="RaptorRoar" ObjectPath="\Events\Default Work Unit\RaptorRoar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1477343779" Name="RaptorStep" ObjectPath="\Events\Default Work Unit\RaptorStep" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.287453" DurationMax="0.398814">
+				<Event Id="1477343779" Name="RaptorStep" ObjectPath="\Events\Default Work Unit\RaptorStep" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.313469" DurationMax="0.365714">
 					<IncludedMemoryFiles>
 						<File Id="25543302" Language="SFX">
 							<ShortName>Dino Step_12.wav</ShortName>
@@ -526,12 +502,12 @@
 					<IncludedMemoryFiles>
 						<File Id="206301987" Language="SFX">
 							<ShortName>Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502 1.wav</ShortName>
-							<Path>SFX\Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502 1_37D53304.wem</Path>
+							<Path>SFX\Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502 1_8AE1E637.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="4083332888" Name="TrikeRoar" ObjectPath="\Events\Default Work Unit\TrikeRoar" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2077580298" Name="TrikeStep" ObjectPath="\Events\Default Work Unit\TrikeStep" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.242206" DurationMax="0.356710">
+				<Event Id="2077580298" Name="TrikeStep" ObjectPath="\Events\Default Work Unit\TrikeStep" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.264127" DurationMax="0.336689">
 					<IncludedMemoryFiles>
 						<File Id="7966758" Language="SFX">
 							<ShortName>Dino Step_4.wav</ShortName>
