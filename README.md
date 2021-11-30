@@ -26,6 +26,7 @@ This is a game being developed by students from <a href="https://www.imagecampus
 - **Nicolas Jimenez Lamberti** - *Art*
 - **Santiago Lafosse** - *Art*
 - **Daniel Andrés Guerrero Ramirez** - *Audio*
+- **Joaquin Otero** - *Audio*
 - **Juan Pablo Kavulakian** - *Testing*
 - **Ignacio Carrizo** - *Testing*
 - **Tomas Hirsch** - *Testing*
