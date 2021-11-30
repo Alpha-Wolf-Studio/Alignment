@@ -19,6 +19,7 @@ public class UiInventory : MonoBehaviour
     public Button prefabItemInventory;
     public GameObject item;
     public GameObject toolTip;
+    public TextMeshProUGUI textToolTip;
     public CanvasGroup hud;
 
     private float onTime;
@@ -310,8 +311,7 @@ public class UiInventory : MonoBehaviour
         int id = uiItem.GetID();
 
         string text = TextFormatter(uiItem, id);
-        TextMeshProUGUI textMesh = toolTip.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        textMesh.text = text;
+        textToolTip.text = text;
         return text;
     }
     public void SwapButtonsIDs()
