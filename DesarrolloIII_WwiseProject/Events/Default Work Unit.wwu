@@ -89,6 +89,28 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{18C98E2A-4646-48B4-9E41-BCC81A0B50F2}" ShortID="119617346">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Beach_01" ID="{9A333307-F59D-47EC-9A39-ADBDEB48A16C}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{25454E34-AB88-42BA-B971-2C5D02468E96}" ShortID="503582920">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Complete ambience" ID="{BC9587C7-5B74-462B-9636-5D97C65132A6}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="CompletedTask" ID="{FC681339-491B-4198-9DD4-38C8452A27BD}">
@@ -419,10 +441,50 @@
 					</ChildrenList>
 				</Event>
 				<Event Name="DinoRecibeDamageCannon" ID="{0C277B87-BDA6-4E86-A39B-714CDFFD9E7A}"/>
-				<Event Name="CompyRoar" ID="{8EF1E407-9940-4B32-9A7F-034DDEBA19BE}"/>
-				<Event Name="RaptorRoar" ID="{79A9522C-6F07-4024-94BA-8202007D87E8}"/>
-				<Event Name="TrikeRoar" ID="{491389ED-1C70-4D07-BB4E-F37E80B4054C}"/>
-				<Event Name="DiloRoar" ID="{011DABF5-2D97-41B0-8417-5882AF37BD53}"/>
+				<Event Name="CompyRoar" ID="{8EF1E407-9940-4B32-9A7F-034DDEBA19BE}">
+					<ChildrenList>
+						<Action Name="" ID="{C4298B03-1ACE-493C-86F1-91EBC756F606}" ShortID="744373297">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Compy Roar" ID="{4B23BEED-536D-47FB-9D56-9F3789F185FC}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="RaptorRoar" ID="{79A9522C-6F07-4024-94BA-8202007D87E8}">
+					<ChildrenList>
+						<Action Name="" ID="{6D739739-068B-44A5-876C-9C1C61234041}" ShortID="687410584">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Raptor Roar" ID="{15717476-63EC-461B-B97E-C96DDAEAC623}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="TrikeRoar" ID="{491389ED-1C70-4D07-BB4E-F37E80B4054C}">
+					<ChildrenList>
+						<Action Name="" ID="{074DDE3C-C43E-4ACC-A695-155ACF171A07}" ShortID="959436763">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Trike Roar" ID="{435EFD42-4567-46FA-B35C-DC61741D85E8}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DiloRoar" ID="{011DABF5-2D97-41B0-8417-5882AF37BD53}">
+					<ChildrenList>
+						<Action Name="" ID="{347FD7C0-5CD9-4252-B2E9-5BCECDC56071}" ShortID="100269603">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dilo Roar" ID="{B19538F1-F4C8-4CA7-BA61-1062455B123A}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="MusicBossOn" ID="{482ADBDE-AE21-4665-8EC0-422C4F04B959}"/>
 				<Event Name="PlayerJetPackOn" ID="{922F4267-85AE-4837-8A03-800C2104BA12}"/>
 				<Event Name="PlayerJetPackOff" ID="{FE5714A9-7F51-41BE-A749-ABA21D2C741B}"/>

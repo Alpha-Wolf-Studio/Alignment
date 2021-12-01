@@ -1453,7 +1453,7 @@
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>6</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -3123,6 +3123,223 @@
 							<ObjectLists/>
 							<ActiveSourceList>
 								<ActiveSource Name="Dirt &amp; Sand, Movement, Stones, Soil, Dust, Clay, Rolling Down, Low End 01 SND51502 1" ID="{8FD04FE1-D895-45C5-ABDA-755F6DF4E9C3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Compy Roar" ID="{4B23BEED-536D-47FB-9D56-9F3789F185FC}" ShortID="434854214">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Compy Roar" ID="{194A6FDE-7D9C-4050-8044-7FE898B65E8E}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.0790781618769957"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0790781618769957"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Compy Roar.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="415908674"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Compy Roar" ID="{194A6FDE-7D9C-4050-8044-7FE898B65E8E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Dilo Roar" ID="{B19538F1-F4C8-4CA7-BA61-1062455B123A}" ShortID="742104286">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>30</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-280</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+								</Reference>
+								<Reference Name="Effect0">
+									<Custom>
+										<Effect Name="Wwise Flanger (Custom)" ID="{2309FE0E-37B8-4067-89E4-740D5F864E7A}" ShortID="539118961" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
+											<PropertyList>
+												<Property Name="DryLevel" Type="Real32" Value="0.76"/>
+												<Property Name="ModPhaseMode" Type="int32" Value="2"/>
+												<Property Name="ModSmoothing" Type="Real32" Value="29"/>
+												<Property Name="WetDryMix" Type="Real32" Value="53"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Compy Roar" ID="{21E9776D-1DEE-4CEF-B11C-4F59C4E71902}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.0790781618769957"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0790781618769957"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Compy Roar.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="415908674"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Compy Roar" ID="{21E9776D-1DEE-4CEF-B11C-4F59C4E71902}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Raptor Roar" ID="{15717476-63EC-461B-B97E-C96DDAEAC623}" ShortID="337188270">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-280</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+								</Reference>
+								<Reference Name="Effect0">
+									<Custom>
+										<Effect Name="Wwise Harmonizer (Custom)" ID="{3EB2D691-9AF3-4821-BF7F-176C597FB67C}" ShortID="1038695989" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
+											<PropertyList>
+												<Property Name="DryLevel" Type="Real32" Value="3"/>
+												<Property Name="ProcessLFE" Type="bool" Value="True"/>
+												<Property Name="Voice1FilterFrequency" Type="Real32" Value="605"/>
+												<Property Name="Voice1FilterType" Type="int32" Value="4"/>
+												<Property Name="Voice1Gain" Type="Real32" Value="1"/>
+												<Property Name="Voice1Pitch" Type="Real32" Value="-900"/>
+												<Property Name="WetLevel" Type="Real32" Value="3"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Compy Roar" ID="{DE0F44C8-6D02-43D0-85A8-68497B2E4768}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.0790781618769957"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0790781618769957"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Compy Roar.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="415908674"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Compy Roar" ID="{DE0F44C8-6D02-43D0-85A8-68497B2E4768}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Trike Roar" ID="{435EFD42-4567-46FA-B35C-DC61741D85E8}" ShortID="220849068">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>50</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-1840</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+								</Reference>
+								<Reference Name="Effect0">
+									<Custom>
+										<Effect Name="Wwise Harmonizer (Custom)" ID="{5A52AA53-F0AD-4F9A-AEAA-416C45315799}" ShortID="362936131" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
+											<PropertyList>
+												<Property Name="DryLevel" Type="Real32" Value="3"/>
+												<Property Name="ProcessLFE" Type="bool" Value="True"/>
+												<Property Name="SyncDry" Type="bool" Value="False"/>
+												<Property Name="Voice1FilterFrequency" Type="Real32" Value="548"/>
+												<Property Name="Voice1FilterType" Type="int32" Value="4"/>
+												<Property Name="Voice1Gain" Type="Real32" Value="1"/>
+												<Property Name="Voice1Pitch" Type="Real32" Value="-1200"/>
+												<Property Name="WetLevel" Type="Real32" Value="3"/>
+												<Property Name="WindowSize" Type="int32" Value="2048"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Compy Roar" ID="{69630824-28A5-43FB-AEBA-D8B84F4DAE68}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.0790781618769957"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0790781618769957"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Compy Roar.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="415908674"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Compy Roar" ID="{69630824-28A5-43FB-AEBA-D8B84F4DAE68}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
