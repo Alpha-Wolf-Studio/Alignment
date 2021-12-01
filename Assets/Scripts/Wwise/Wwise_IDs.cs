@@ -15,15 +15,12 @@ namespace AK
         public static uint DILOSTEP = 1247094977U;
         public static uint DINORECIBEDAMAGECANNON = 1470014341U;
         public static uint DINORECIBEDAMAGESWORD = 1012813505U;
-        public static uint MUSICBOSSOFF = 1321486280U;
         public static uint MUSICBOSSON = 2280234578U;
         public static uint PAUSEOFF = 3921005316U;
         public static uint PAUSEON = 80751710U;
         public static uint PLAYAMBMUSIC = 1067794578U;
         public static uint PLAYERARMCANNONOFF = 2631962614U;
         public static uint PLAYERARMCANNONON = 3990432824U;
-        public static uint PLAYERARMEMPTYOFF = 2932252690U;
-        public static uint PLAYERARMEMPTYON = 1603401268U;
         public static uint PLAYERARMORDAMAGE = 2739055032U;
         public static uint PLAYERARMSWORDOFF = 2969189002U;
         public static uint PLAYERARMSWORDON = 1660443884U;
