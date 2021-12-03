@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: ef7188ef8b223d43803ff70594d394b5
     GuidInternal: 
-    m_lastTime: -8585633647253895325
+    m_lastTime: -8585630459623313861
     List:
     - name: AmbBeach
       guid: f98d52ca6fd8c548a9d23060e567978f
@@ -144,9 +144,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: f98d52ca6fd8c548a9d23060e567978f
       Path: Events\Default Work Unit\AmbBeach
-      maxAttenuation: 40
-      maxDuration: 90.17346
-      minDuration: 90.17346
+      maxAttenuation: 80
+      maxDuration: -1
+      minDuration: -1
     - name: AmbField
       guid: 4d4bb15db3e33147a79ade909201e2e8
       id: 740467757
@@ -196,8 +196,8 @@ MonoBehaviour:
         guid: caf69c6658c07a4f90f2ea9cfbf38d65
       Path: Events\Default Work Unit\CompletedQuest
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 2.693896
+      minDuration: 2.693896
     - name: CompletedTask
       guid: 391368fc1b4998419dd438c8452a27bd
       id: 3758255951
@@ -247,8 +247,8 @@ MonoBehaviour:
         guid: 07e4f18e4099324b9a7f034ddeba19be
       Path: Events\Default Work Unit\CompyRoar
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.704595
+      minDuration: 0.704595
     - name: CompyStep
       guid: 6c222e05b43b644ba2d2d267f29b4128
       id: 3060166911
@@ -298,8 +298,8 @@ MonoBehaviour:
         guid: f5ab1d01972db04184175882af37bd53
       Path: Events\Default Work Unit\DiloRoar
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.828286
+      minDuration: 0.828286
     - name: DiloStep
       guid: 771d61e56e12e041a65a8ee9147f7ed0
       id: 1247094977
@@ -331,9 +331,9 @@ MonoBehaviour:
         ObjectType: 3
         guid: 877b270ca6bd864ea39b714cdffd9e7a
       Path: Events\Default Work Unit\DinoRecibeDamageCannon
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 40
+      maxDuration: 0.639186
+      minDuration: 0.639186
     - name: DinoRecibeDamageSword
       guid: 242136cb63844942a58ec19ec56da609
       id: 1012813505
@@ -723,8 +723,8 @@ MonoBehaviour:
         guid: 2c52a979076f244094ba8202007d87e8
       Path: Events\Default Work Unit\RaptorRoar
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.828286
+      minDuration: 0.828286
     - name: RaptorStep
       guid: e389ebc11c11934aa7c0cb3ea179dd28
       id: 1477343779
@@ -740,8 +740,8 @@ MonoBehaviour:
         guid: e389ebc11c11934aa7c0cb3ea179dd28
       Path: Events\Default Work Unit\RaptorStep
       maxAttenuation: 40
-      maxDuration: 0.365714
-      minDuration: 0.313469
+      maxDuration: 0.398814
+      minDuration: 0.287453
     - name: TrikeAttack
       guid: 92666fde23b02b4d853458f8db268d37
       id: 3472234744
@@ -774,8 +774,8 @@ MonoBehaviour:
         guid: ed891349701c074dbb4ef37e80b4054c
       Path: Events\Default Work Unit\TrikeRoar
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 2.039478
+      minDuration: 2.039478
     - name: TrikeStep
       guid: ed18f32df04ad7479a6bb9bfa589420d
       id: 2077580298
@@ -791,8 +791,8 @@ MonoBehaviour:
         guid: ed18f32df04ad7479a6bb9bfa589420d
       Path: Events\Default Work Unit\TrikeStep
       maxAttenuation: 40
-      maxDuration: 0.336689
-      minDuration: 0.264127
+      maxDuration: 0.35671
+      minDuration: 0.242206
     - name: UiButtonEnter
       guid: 99e48611d2758945bc01be271403c040
       id: 3935862555
