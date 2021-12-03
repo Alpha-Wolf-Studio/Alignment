@@ -100,8 +100,8 @@
 					<ChildrenList>
 						<Effect Name="Light_Expander" ID="{C7E71A3B-745F-47B0-8F31-276DD413F83C}" PluginName="Wwise Expander" CompanyID="0" PluginID="109" PluginType="3">
 							<PropertyList>
-								<Property Name="Ratio" Type="Real32" Value="1.5"/>
-								<Property Name="Threshold" Type="Real32" Value="0"/>
+								<Property Name="Ratio" Type="Real32" Value="11.3"/>
+								<Property Name="Threshold" Type="Real32" Value="-38"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Noise_Gate_Fast_Attack" ID="{747A6B61-E953-474C-8227-672C884DA616}" PluginName="Wwise Expander" CompanyID="0" PluginID="109" PluginType="3">
@@ -743,10 +743,11 @@
 						</Effect>
 						<Effect Name="Small_Wooden_Room1" ID="{F7CBE859-36A8-4174-B553-AE32A7FE95FA}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
 							<PropertyList>
+								<Property Name="DryLevel" Type="Real32" Value="-5.3"/>
 								<Property Name="HFRatio" Type="Real32" Value="10"/>
 								<Property Name="NumberOfDelays" Type="int32" Value="12"/>
 								<Property Name="ReverbTime" Type="Real32" Value="1.5"/>
-								<Property Name="WetLevel" Type="Real32" Value="-30"/>
+								<Property Name="WetLevel" Type="Real32" Value="-23"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Tunnel1" ID="{CC44B890-9865-4157-965F-86FED27BC4C6}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">

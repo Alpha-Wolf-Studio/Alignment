@@ -83,10 +83,10 @@ namespace AK
 
             namespace STATE
             {
-                static const AkUniqueID BEACH_MUSIC = 3783252810U;
                 static const AkUniqueID BOSS_MUSIC = 2985113282U;
                 static const AkUniqueID FILED_MUSIC = 3712224257U;
                 static const AkUniqueID FOREST_MUSIC = 1201098966U;
+                static const AkUniqueID MENU_MUSIC = 4055567060U;
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
         } // namespace MUSIC

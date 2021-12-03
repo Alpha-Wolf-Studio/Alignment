@@ -124,7 +124,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="CompletedQuest" ID="{669CF6CA-C058-4F7A-90F2-EA9CFBF38D65}"/>
+				<Event Name="CompletedQuest" ID="{669CF6CA-C058-4F7A-90F2-EA9CFBF38D65}">
+					<ChildrenList>
+						<Action Name="" ID="{ED51F0D1-D5BC-4A98-BFEA-33E9C69849FA}" ShortID="28538044">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SF-DS Machine Mechanics Small 04" ID="{7117CC94-9CF0-4FA7-B890-F8407419E976}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="UiClickButton" ID="{82251FB2-C3E7-4514-A2F4-A7B8935E3407}">
 					<ChildrenList>
 						<Action Name="" ID="{828125DD-EF30-4B18-9C1C-61733764B851}" ShortID="981311588">
@@ -255,6 +265,16 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{FB1E7255-735C-4769-90B3-D608DAF865BB}" ShortID="199525254">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Filed_Music" ID="{425FA3A6-01A4-4B1B-8630-2ECE9AD71315}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="CompyStep" ID="{052E226C-3BB4-4B64-A2D2-D267F29B4128}">
@@ -357,6 +377,16 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{88A287A4-573C-4AE5-8C0B-23EE749901C4}" ShortID="978274622">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Filed_Music" ID="{425FA3A6-01A4-4B1B-8630-2ECE9AD71315}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="AmbBeach" ID="{CA528DF9-D86F-48C5-A9D2-3060E567978F}">
@@ -379,6 +409,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Forest" ID="{1B3D4F30-F1AA-486B-81D7-07D6B1EECE08}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{B15D91AB-1765-4903-8B25-E46EA7AC2FAB}" ShortID="113209869">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Forest_Music" ID="{057BCFE4-D20C-49CD-9192-9DF37B8602A8}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -440,7 +480,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="DinoRecibeDamageCannon" ID="{0C277B87-BDA6-4E86-A39B-714CDFFD9E7A}"/>
+				<Event Name="DinoRecibeDamageCannon" ID="{0C277B87-BDA6-4E86-A39B-714CDFFD9E7A}">
+					<ChildrenList>
+						<Action Name="" ID="{C53E3EA8-0749-4A5D-924A-CC0A7C91FC8E}" ShortID="773686027">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dino Hit" ID="{2364E6B5-F7F1-4C01-998D-BF3C7DD64A69}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="CompyRoar" ID="{8EF1E407-9940-4B32-9A7F-034DDEBA19BE}">
 					<ChildrenList>
 						<Action Name="" ID="{C4298B03-1ACE-493C-86F1-91EBC756F606}" ShortID="744373297">
@@ -507,6 +557,13 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{6FDD29F1-541E-4BFE-B4AF-E8A6FB4503A8}" ShortID="821959228">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Switch Music" ID="{233CEBE4-0C46-40DB-AD95-A1C43443295C}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="PlayMenuMusic" ID="{58728DA2-D035-4CEE-A15A-2F21CB94DB71}">
@@ -530,6 +587,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Beach_01" ID="{9A333307-F59D-47EC-9A39-ADBDEB48A16C}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{C3426A7E-EAC9-42A0-8F86-41F4A3994012}" ShortID="741273564">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

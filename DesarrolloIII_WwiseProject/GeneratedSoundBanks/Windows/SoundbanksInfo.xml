@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1346451363">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2045938004">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2360153336" Name="VolGeneral" ObjectPath="\Game Parameters\Default Work Unit\VolGeneral"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1946707388" Language="SFX" Hash="1554622216">
+		<SoundBank Id="1946707388" Language="SFX" Hash="1779178285">
 			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankTest</ObjectPath>
 			<ShortName>SoundBankTest</ShortName>
 			<Path>SoundBankTest.bnk</Path>
@@ -49,14 +49,23 @@
 				<Event Id="740467757" Name="AmbField" ObjectPath="\Events\Default Work Unit\AmbField" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
 						<ActionSetStateEntry Id="514358619" Name="Field" ObjectPath="\States\Default Work Unit\Ambiences\Field"/>
+						<ActionSetStateEntry Id="3712224257" Name="Filed_Music" ObjectPath="\States\Default Work Unit\Music\Filed_Music"/>
 					</ActionSetState>
 				</Event>
 				<Event Id="2316306096" Name="AmbForest" ObjectPath="\Events\Default Work Unit\AmbForest" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
 						<ActionSetStateEntry Id="491961918" Name="Forest" ObjectPath="\States\Default Work Unit\Ambiences\Forest"/>
+						<ActionSetStateEntry Id="1201098966" Name="Forest_Music" ObjectPath="\States\Default Work Unit\Music\Forest_Music"/>
 					</ActionSetState>
 				</Event>
-				<Event Id="4152337806" Name="CompletedQuest" ObjectPath="\Events\Default Work Unit\CompletedQuest" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4152337806" Name="CompletedQuest" ObjectPath="\Events\Default Work Unit\CompletedQuest" DurationType="OneShot" DurationMin="2.693896" DurationMax="2.693896">
+					<IncludedMemoryFiles>
+						<File Id="578013859" Language="SFX">
+							<ShortName>SF-DS Machine Mechanics Small 04.wav</ShortName>
+							<Path>SFX\SF-DS Machine Mechanics Small 04_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3758255951" Name="CompletedTask" ObjectPath="\Events\Default Work Unit\CompletedTask" DurationType="OneShot" DurationMin="1.100458" DurationMax="1.100458">
 					<IncludedMemoryFiles>
 						<File Id="696755309" Language="SFX">
@@ -169,7 +178,18 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1470014341" Name="DinoRecibeDamageCannon" ObjectPath="\Events\Default Work Unit\DinoRecibeDamageCannon" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1470014341" Name="DinoRecibeDamageCannon" ObjectPath="\Events\Default Work Unit\DinoRecibeDamageCannon" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.639186" DurationMax="0.639186">
+					<IncludedMemoryFiles>
+						<File Id="64612213" Language="SFX">
+							<ShortName>Fight, Impact, Punch, Fat, Only Impact x5 02 SND44916.wav</ShortName>
+							<Path>SFX\Fight, Impact, Punch, Fat, Only Impact x5 02 SND44916_4B5581F9.wem</Path>
+						</File>
+						<File Id="68327165" Language="SFX">
+							<ShortName>MACK Electric Sparks Synth Large.wav</ShortName>
+							<Path>SFX\MACK Electric Sparks Synth Large_AC992276.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1012813505" Name="DinoRecibeDamageSword" ObjectPath="\Events\Default Work Unit\DinoRecibeDamageSword" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2280234578" Name="MusicBossOn" ObjectPath="\Events\Default Work Unit\MusicBossOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3921005316" Name="PauseOff" ObjectPath="\Events\Default Work Unit\PauseOff" DurationType="Infinite">
@@ -255,6 +275,9 @@
 							<Path>SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_02C2A75C.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="3712224257" Name="Filed_Music" ObjectPath="\States\Default Work Unit\Music\Filed_Music"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="80751710" Name="PauseOn" ObjectPath="\Events\Default Work Unit\PauseOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1067794578" Name="PlayAmbMusic" ObjectPath="\Events\Default Work Unit\PlayAmbMusic" DurationType="Infinite">
@@ -267,9 +290,25 @@
 							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
 							<Path>SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_5366CFD5.wem</Path>
 						</File>
+						<File Id="13311117" Language="SFX">
+							<ShortName>WindBass3.wav</ShortName>
+							<Path>SFX\WindBass3_10C4C929.wem</Path>
+						</File>
+						<File Id="18164855" Language="SFX">
+							<ShortName>Salterio2.wav</ShortName>
+							<Path>SFX\Salterio2_10C4C929.wem</Path>
+						</File>
 						<File Id="82899237" Language="SFX">
 							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
 							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_F754C32A.wem</Path>
+						</File>
+						<File Id="90990633" Language="SFX">
+							<ShortName>Woods1.wav</ShortName>
+							<Path>SFX\Woods1_10C4C929.wem</Path>
+						</File>
+						<File Id="95453783" Language="SFX">
+							<ShortName>Drone2.wav</ShortName>
+							<Path>SFX\Drone2_4928F987.wem</Path>
 						</File>
 						<File Id="116573761" Language="SFX">
 							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
@@ -279,9 +318,33 @@
 							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
 							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_E0A2B7E3.wem</Path>
 						</File>
+						<File Id="127840276" Language="SFX">
+							<ShortName>Marimbabass2.wav</ShortName>
+							<Path>SFX\Marimbabass2_10C4C929.wem</Path>
+						</File>
+						<File Id="133329702" Language="SFX">
+							<ShortName>MarimbaBass1.wav</ShortName>
+							<Path>SFX\MarimbaBass1_10C4C929.wem</Path>
+						</File>
 						<File Id="140734417" Language="SFX">
 							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
 							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_DE702150.wem</Path>
+						</File>
+						<File Id="186434609" Language="SFX">
+							<ShortName>Koto2.wav</ShortName>
+							<Path>SFX\Koto2_10C4C929.wem</Path>
+						</File>
+						<File Id="245310084" Language="SFX">
+							<ShortName>Perc1.wav</ShortName>
+							<Path>SFX\Perc1_10C4C929.wem</Path>
+						</File>
+						<File Id="285642849" Language="SFX">
+							<ShortName>Drone1.wav</ShortName>
+							<Path>SFX\Drone1_3FB41F00.wem</Path>
+						</File>
+						<File Id="331194186" Language="SFX">
+							<ShortName>MarimbaBass4.wav</ShortName>
+							<Path>SFX\MarimbaBass4_10C4C929.wem</Path>
 						</File>
 						<File Id="366352810" Language="SFX">
 							<ShortName>Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1.wav</ShortName>
@@ -295,9 +358,37 @@
 							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
 							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_6AADB1C4.wem</Path>
 						</File>
+						<File Id="449020655" Language="SFX">
+							<ShortName>Drone3.wav</ShortName>
+							<Path>SFX\Drone3_FD41D67D.wem</Path>
+						</File>
+						<File Id="451608999" Language="SFX">
+							<ShortName>Perc4.wav</ShortName>
+							<Path>SFX\Perc4_10C4C929.wem</Path>
+						</File>
+						<File Id="458143693" Language="SFX">
+							<ShortName>Vocal4.wav</ShortName>
+							<Path>SFX\Vocal4_10C4C929.wem</Path>
+						</File>
+						<File Id="463227659" Language="SFX">
+							<ShortName>MarimbaBass3.wav</ShortName>
+							<Path>SFX\MarimbaBass3_10C4C929.wem</Path>
+						</File>
 						<File Id="463783719" Language="SFX">
 							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
 							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_56E92F8D.wem</Path>
+						</File>
+						<File Id="486962166" Language="SFX">
+							<ShortName>ArpMarimba2.wav</ShortName>
+							<Path>SFX\ArpMarimba2_10C4C929.wem</Path>
+						</File>
+						<File Id="498833633" Language="SFX">
+							<ShortName>Windbass4.wav</ShortName>
+							<Path>SFX\Windbass4_10C4C929.wem</Path>
+						</File>
+						<File Id="530136252" Language="SFX">
+							<ShortName>Vocal3.wav</ShortName>
+							<Path>SFX\Vocal3_10C4C929.wem</Path>
 						</File>
 						<File Id="565623388" Language="SFX">
 							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
@@ -307,13 +398,65 @@
 							<ShortName>Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1.wav</ShortName>
 							<Path>SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_A4C63EE8.wem</Path>
 						</File>
+						<File Id="628590501" Language="SFX">
+							<ShortName>Perc3.wav</ShortName>
+							<Path>SFX\Perc3_10C4C929.wem</Path>
+						</File>
+						<File Id="656422397" Language="SFX">
+							<ShortName>arp1.wav</ShortName>
+							<Path>SFX\arp1_69228B55.wem</Path>
+						</File>
+						<File Id="679133711" Language="SFX">
+							<ShortName>Vocal1.wav</ShortName>
+							<Path>SFX\Vocal1_10C4C929.wem</Path>
+						</File>
+						<File Id="708470757" Language="SFX">
+							<ShortName>Woods2.wav</ShortName>
+							<Path>SFX\Woods2_10C4C929.wem</Path>
+						</File>
+						<File Id="726600754" Language="SFX">
+							<ShortName>Windbass2.wav</ShortName>
+							<Path>SFX\Windbass2_10C4C929.wem</Path>
+						</File>
+						<File Id="736240202" Language="SFX">
+							<ShortName>ArpMarimba1.wav</ShortName>
+							<Path>SFX\ArpMarimba1_10C4C929.wem</Path>
+						</File>
+						<File Id="771990760" Language="SFX">
+							<ShortName>Koto1.wav</ShortName>
+							<Path>SFX\Koto1_10C4C929.wem</Path>
+						</File>
+						<File Id="785896722" Language="SFX">
+							<ShortName>Vocal2.wav</ShortName>
+							<Path>SFX\Vocal2_10C4C929.wem</Path>
+						</File>
+						<File Id="787662692" Language="SFX">
+							<ShortName>WindBass1.wav</ShortName>
+							<Path>SFX\WindBass1_10C4C929.wem</Path>
+						</File>
+						<File Id="791801323" Language="SFX">
+							<ShortName>Perc2.wav</ShortName>
+							<Path>SFX\Perc2_10C4C929.wem</Path>
+						</File>
 						<File Id="819322802" Language="SFX">
 							<ShortName>Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624.wav</ShortName>
 							<Path>SFX\Wind, General, Gusts, Snow, Rustling, Howling 02 SND11624_7F129901.wem</Path>
 						</File>
+						<File Id="881855338" Language="SFX">
+							<ShortName>Perc5.wav</ShortName>
+							<Path>SFX\Perc5_10C4C929.wem</Path>
+						</File>
 						<File Id="900079939" Language="SFX">
 							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
 							<Path>SFX\Wind, Vegetation, Forest, Smooth Rustle SND1332_F5FCBCA3.wem</Path>
+						</File>
+						<File Id="938099276" Language="SFX">
+							<ShortName>Salterio1.wav</ShortName>
+							<Path>SFX\Salterio1_10C4C929.wem</Path>
+						</File>
+						<File Id="1015340234" Language="SFX">
+							<ShortName>arp2.wav</ShortName>
+							<Path>SFX\arp2_D0424164.wem</Path>
 						</File>
 						<File Id="1072147322" Language="SFX">
 							<ShortName>Wind, Vegetation, Forest, Smooth Rustle SND1332.wav</ShortName>
@@ -324,7 +467,7 @@
 							<Path>SFX\Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_02C2A75C.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
-					<DefaultSwitchValue>{BE59AA1C-A28E-48B4-AF0F-E2618AA13063}</DefaultSwitchValue>
+					<DefaultSwitchValue>{A509A4E4-D320-44C3-ADE1-4C479AE7E131}</DefaultSwitchValue>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{BE59AA1C-A28E-48B4-AF0F-E2618AA13063}">
 							<Media>
@@ -345,6 +488,44 @@
 								<File Id="565623388"/>
 								<File Id="900079939"/>
 								<File Id="1072147322"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{425FA3A6-01A4-4B1B-8630-2ECE9AD71315}">
+							<Media>
+								<File Id="13311117"/>
+								<File Id="95453783"/>
+								<File Id="127840276"/>
+								<File Id="133329702"/>
+								<File Id="245310084"/>
+								<File Id="285642849"/>
+								<File Id="331194186"/>
+								<File Id="449020655"/>
+								<File Id="451608999"/>
+								<File Id="458143693"/>
+								<File Id="463227659"/>
+								<File Id="498833633"/>
+								<File Id="530136252"/>
+								<File Id="628590501"/>
+								<File Id="656422397"/>
+								<File Id="679133711"/>
+								<File Id="726600754"/>
+								<File Id="785896722"/>
+								<File Id="787662692"/>
+								<File Id="791801323"/>
+								<File Id="881855338"/>
+								<File Id="1015340234"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{057BCFE4-D20C-49CD-9192-9DF37B8602A8}">
+							<Media>
+								<File Id="18164855"/>
+								<File Id="90990633"/>
+								<File Id="186434609"/>
+								<File Id="486962166"/>
+								<File Id="708470757"/>
+								<File Id="736240202"/>
+								<File Id="771990760"/>
+								<File Id="938099276"/>
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -486,7 +667,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="413545259" Name="PlayMenuMusic" ObjectPath="\Events\Default Work Unit\PlayMenuMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="413545259" Name="PlayMenuMusic" ObjectPath="\Events\Default Work Unit\PlayMenuMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<ActionSetState>
+						<ActionSetStateEntry Id="4055567060" Name="Menu_Music" ObjectPath="\States\Default Work Unit\Music\Menu_Music"/>
+					</ActionSetState>
+				</Event>
 				<Event Id="3271318801" Name="RaptorAttack" ObjectPath="\Events\Default Work Unit\RaptorAttack" DurationType="OneShot" DurationMin="0.702404" DurationMax="0.702404">
 					<IncludedMemoryFiles>
 						<File Id="352936415" Language="SFX">
@@ -657,6 +842,9 @@
 				</Event>
 				<Event Id="2685053305" Name="UiUseItem" ObjectPath="\Events\Default Work Unit\UiUseItem" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="1463885556" Name="Beach_distance" ObjectPath="\Game Parameters\Default Work Unit\Beach_distance"/>
+			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="491961918" Name="Forest" ObjectPath="\States\Default Work Unit\Ambiences\Forest" GUID="{1B3D4F30-F1AA-486B-81D7-07D6B1EECE08}">
 					<States/>
@@ -670,6 +858,24 @@
 						<State Id="514358619" Name="Field" ObjectPath="\States\Default Work Unit\Ambiences\Field" GUID="{BE59AA1C-A28E-48B4-AF0F-E2618AA13063}"/>
 						<State Id="491961918" Name="Forest" ObjectPath="\States\Default Work Unit\Ambiences\Forest" GUID="{1B3D4F30-F1AA-486B-81D7-07D6B1EECE08}"/>
 					</States>
+				</StateGroup>
+				<StateGroup Id="1201098966" Name="Forest_Music" ObjectPath="\States\Default Work Unit\Music\Forest_Music" GUID="{057BCFE4-D20C-49CD-9192-9DF37B8602A8}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3712224257" Name="Filed_Music" ObjectPath="\States\Default Work Unit\Music\Filed_Music" GUID="{425FA3A6-01A4-4B1B-8630-2ECE9AD71315}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3991942870" Name="Music" ObjectPath="\States\Default Work Unit\Music" GUID="{F2EA1780-94B2-4B11-B961-C619CF0A8036}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Music\None" GUID="{5D933249-4643-4BF8-B5CE-1D0250A665ED}"/>
+						<State Id="3712224257" Name="Filed_Music" ObjectPath="\States\Default Work Unit\Music\Filed_Music" GUID="{425FA3A6-01A4-4B1B-8630-2ECE9AD71315}"/>
+						<State Id="1201098966" Name="Forest_Music" ObjectPath="\States\Default Work Unit\Music\Forest_Music" GUID="{057BCFE4-D20C-49CD-9192-9DF37B8602A8}"/>
+						<State Id="4055567060" Name="Menu_Music" ObjectPath="\States\Default Work Unit\Music\Menu_Music" GUID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+						<State Id="2985113282" Name="Boss_Music" ObjectPath="\States\Default Work Unit\Music\Boss_Music" GUID="{2CD17888-3406-49BC-86F5-C764DCBEE8F3}"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="4055567060" Name="Menu_Music" ObjectPath="\States\Default Work Unit\Music\Menu_Music" GUID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}">
+					<States/>
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
