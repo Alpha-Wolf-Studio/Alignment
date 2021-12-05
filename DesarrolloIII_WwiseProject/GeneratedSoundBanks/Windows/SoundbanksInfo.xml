@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2045938004">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3854081879">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2360153336" Name="VolGeneral" ObjectPath="\Game Parameters\Default Work Unit\VolGeneral"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1946707388" Language="SFX" Hash="1779178285">
+		<SoundBank Id="1946707388" Language="SFX" Hash="673725291">
 			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankTest</ObjectPath>
 			<ShortName>SoundBankTest</ShortName>
 			<Path>SoundBankTest.bnk</Path>
@@ -74,8 +74,12 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4253121485" Name="CompyAttack" ObjectPath="\Events\Default Work Unit\CompyAttack" DurationType="OneShot" DurationMin="0.702404" DurationMax="0.702404">
+				<Event Id="4253121485" Name="CompyAttack" ObjectPath="\Events\Default Work Unit\CompyAttack" DurationType="OneShot" DurationMin="0.615020" DurationMax="0.615020">
 					<IncludedMemoryFiles>
+						<File Id="352936415" Language="SFX">
+							<ShortName>Sword_Attack_1.wav</ShortName>
+							<Path>SFX\Sword_Attack_1_10C4C929.wem</Path>
+						</File>
 						<File Id="507265259" Language="SFX">
 							<ShortName>Raptor Attack_3.wav</ShortName>
 							<Path>SFX\Raptor Attack_3_10C4C929.wem</Path>
@@ -182,15 +186,26 @@
 					<IncludedMemoryFiles>
 						<File Id="64612213" Language="SFX">
 							<ShortName>Fight, Impact, Punch, Fat, Only Impact x5 02 SND44916.wav</ShortName>
-							<Path>SFX\Fight, Impact, Punch, Fat, Only Impact x5 02 SND44916_4B5581F9.wem</Path>
+							<Path>SFX\Fight, Impact, Punch, Fat, Only Impact x5 02 SND44916_4508C2FF.wem</Path>
 						</File>
 						<File Id="68327165" Language="SFX">
 							<ShortName>MACK Electric Sparks Synth Large.wav</ShortName>
-							<Path>SFX\MACK Electric Sparks Synth Large_AC992276.wem</Path>
+							<Path>SFX\MACK Electric Sparks Synth Large_FA373106.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1012813505" Name="DinoRecibeDamageSword" ObjectPath="\Events\Default Work Unit\DinoRecibeDamageSword" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1012813505" Name="DinoRecibeDamageSword" ObjectPath="\Events\Default Work Unit\DinoRecibeDamageSword" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.639186" DurationMax="0.639186">
+					<IncludedMemoryFiles>
+						<File Id="64612213" Language="SFX">
+							<ShortName>Fight, Impact, Punch, Fat, Only Impact x5 02 SND44916.wav</ShortName>
+							<Path>SFX\Fight, Impact, Punch, Fat, Only Impact x5 02 SND44916_4508C2FF.wem</Path>
+						</File>
+						<File Id="68327165" Language="SFX">
+							<ShortName>MACK Electric Sparks Synth Large.wav</ShortName>
+							<Path>SFX\MACK Electric Sparks Synth Large_FA373106.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2280234578" Name="MusicBossOn" ObjectPath="\Events\Default Work Unit\MusicBossOn" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3921005316" Name="PauseOff" ObjectPath="\Events\Default Work Unit\PauseOff" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -669,15 +684,11 @@
 				</Event>
 				<Event Id="413545259" Name="PlayMenuMusic" ObjectPath="\Events\Default Work Unit\PlayMenuMusic" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
 					<ActionSetState>
-						<ActionSetStateEntry Id="4055567060" Name="Menu_Music" ObjectPath="\States\Default Work Unit\Music\Menu_Music"/>
+						<ActionSetStateEntry Id="3783252810" Name="Beach_Music" ObjectPath="\States\Default Work Unit\Music\Beach_Music"/>
 					</ActionSetState>
 				</Event>
 				<Event Id="3271318801" Name="RaptorAttack" ObjectPath="\Events\Default Work Unit\RaptorAttack" DurationType="OneShot" DurationMin="0.702404" DurationMax="0.702404">
 					<IncludedMemoryFiles>
-						<File Id="352936415" Language="SFX">
-							<ShortName>Sword_Attack_1.wav</ShortName>
-							<Path>SFX\Sword_Attack_1_10C4C929.wem</Path>
-						</File>
 						<File Id="507265259" Language="SFX">
 							<ShortName>Raptor Attack_3.wav</ShortName>
 							<Path>SFX\Raptor Attack_3_10C4C929.wem</Path>
@@ -865,17 +876,17 @@
 				<StateGroup Id="3712224257" Name="Filed_Music" ObjectPath="\States\Default Work Unit\Music\Filed_Music" GUID="{425FA3A6-01A4-4B1B-8630-2ECE9AD71315}">
 					<States/>
 				</StateGroup>
+				<StateGroup Id="3783252810" Name="Beach_Music" ObjectPath="\States\Default Work Unit\Music\Beach_Music" GUID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}">
+					<States/>
+				</StateGroup>
 				<StateGroup Id="3991942870" Name="Music" ObjectPath="\States\Default Work Unit\Music" GUID="{F2EA1780-94B2-4B11-B961-C619CF0A8036}">
 					<States>
 						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Music\None" GUID="{5D933249-4643-4BF8-B5CE-1D0250A665ED}"/>
 						<State Id="3712224257" Name="Filed_Music" ObjectPath="\States\Default Work Unit\Music\Filed_Music" GUID="{425FA3A6-01A4-4B1B-8630-2ECE9AD71315}"/>
 						<State Id="1201098966" Name="Forest_Music" ObjectPath="\States\Default Work Unit\Music\Forest_Music" GUID="{057BCFE4-D20C-49CD-9192-9DF37B8602A8}"/>
-						<State Id="4055567060" Name="Menu_Music" ObjectPath="\States\Default Work Unit\Music\Menu_Music" GUID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+						<State Id="3783252810" Name="Beach_Music" ObjectPath="\States\Default Work Unit\Music\Beach_Music" GUID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 						<State Id="2985113282" Name="Boss_Music" ObjectPath="\States\Default Work Unit\Music\Boss_Music" GUID="{2CD17888-3406-49BC-86F5-C764DCBEE8F3}"/>
 					</States>
-				</StateGroup>
-				<StateGroup Id="4055567060" Name="Menu_Music" ObjectPath="\States\Default Work Unit\Music\Menu_Music" GUID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}">
-					<States/>
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
