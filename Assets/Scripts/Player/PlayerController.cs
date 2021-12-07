@@ -46,6 +46,9 @@ public class PlayerController : MonoBehaviour
             sensitive = DataPersistant.Get().gameSettings.controls.GetSensitives();
             SetSensitive(sensitive);
         }
+
+        ChangeControllerToGame();
+        AvailableCursor(false);
     }
     private void Update()
     {

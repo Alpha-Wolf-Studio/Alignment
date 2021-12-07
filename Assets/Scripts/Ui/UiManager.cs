@@ -32,7 +32,6 @@ public class UiManager : MonoBehaviour
     }
     void Start()
     {
-        player.ChangeControllerToNone();
         entity.OnUpdateStats += TakeDamage;
         entity.OnDeath += Death;
         ArmRange.onShoot += Shoot;
