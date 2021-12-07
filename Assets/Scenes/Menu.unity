@@ -1602,8 +1602,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 358, y: -155.1}
-  m_SizeDelta: {x: 978.6561, y: 760.8191}
+  m_AnchoredPosition: {x: 358, y: -135.5}
+  m_SizeDelta: {x: 978.6561, y: 806.48364}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &565848004
 MonoBehaviour:
@@ -1625,9 +1625,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Art:\nNicol\xE1s Jim\xE9nez Lamberti.\nSantiago Lafosse.\n\nDev:\nAdri\xE1n
-    Sgro.\nFederico Oliv\xE9.\n\nSound:\nDaniel Guerrero\n\nQuality Assurance:\nLucas
-    Gast\xF3n Benitez\r\nGonzalo Stutz\r\nJuan Bautista Huppi Siciliano\r\nJuan Pablo
-    Kavulakian\r\nIgnacio Carrizo\r\nTomas Hirsch"
+    Sgro\nFederico Oliv\xE9\n\nSound:\nDaniel Guerrero\nJoaqu\xEDn Otero\n\nQuality
+    Assurance:\nLucas Gast\xF3n Benitez\r\nGonzalo Stutz\r\nJuan Bautista Huppi Siciliano\r\nJuan
+    Pablo Kavulakian\r\nIgnacio Carrizo\r\nTomas Hirsch"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a74dbc96a5e89be409f0fbeef74937d4, type: 2}
   m_sharedMaterial: {fileID: 1840986220843964430, guid: a74dbc96a5e89be409f0fbeef74937d4,
@@ -1655,10 +1655,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37
+  m_fontSize: 35.65
   m_fontSizeBase: 37
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
