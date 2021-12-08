@@ -7,6 +7,11 @@
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="1"/>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -36,7 +41,7 @@
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-12</Value>
+										<Value>-15</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -160,6 +165,13 @@
 							<ObjectLists/>
 						</RandomSequenceContainer>
 						<BlendContainer Name="Armor Damage" ID="{635F18D2-5126-4A04-9156-F40BBB691D20}" ShortID="234938154">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -257,7 +269,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-14</Value>
+										<Value>-13</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -416,6 +428,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<ActorMixer Name="Weapons" ID="{84E9C8BF-5102-40EC-9BBB-EC32B99BA47A}" ShortID="238458707">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -725,7 +744,7 @@
 								<ActiveSource Name="Bell Sequence 3" ID="{30A08CC4-D44A-48DA-8FA7-95BFDF55B41D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="SF-DS Machine Mechanics Small 04" ID="{7117CC94-9CF0-4FA7-B890-F8407419E976}" ShortID="435879329">
+						<Sound Name="Machine Mechanics" ID="{7117CC94-9CF0-4FA7-B890-F8407419E976}" ShortID="435879329">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
@@ -764,7 +783,7 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-6</Value>
+								<Value>-3</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1333,6 +1352,11 @@
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1343,7 +1367,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1" ID="{EBE60852-055C-4BAB-A008-09F18B6ABBA9}" ShortID="922966893">
+										<Sound Name="Birds_1" ID="{EBE60852-055C-4BAB-A008-09F18B6ABBA9}" ShortID="922966893">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1379,7 +1403,7 @@
 												<ActiveSource Name="Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1" ID="{6F8B9F1B-66B2-4F48-B255-37D2F8CA9D6C}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_01" ID="{E36BEF35-C362-4C40-8899-A4DACE5A4FDF}" ShortID="65284383">
+										<Sound Name="Birds_2" ID="{E36BEF35-C362-4C40-8899-A4DACE5A4FDF}" ShortID="65284383">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1415,7 +1439,7 @@
 												<ActiveSource Name="Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1" ID="{EC322D57-E1DD-43E6-9A17-01A7D18C04F5}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="Ambience, Grassland, Meadow, Day, Birds, Insects, Yellowstone National Park, Wyoming SND40668 1_02" ID="{2A044483-D2BF-4E13-89B7-2C573BCB9086}" ShortID="815982070">
+										<Sound Name="Birds_3" ID="{2A044483-D2BF-4E13-89B7-2C573BCB9086}" ShortID="815982070">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1499,7 +1523,7 @@
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-6</Value>
+										<Value>-3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1650,6 +1674,11 @@
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="9"/>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -2824,6 +2853,11 @@
 							<PropertyList>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>230</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2869,7 +2903,7 @@
 										<ActiveSource Name="Raptor Attack_3" ID="{6ACCB939-C759-46DE-84B5-D08CC71E3901}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Knife, Throw, Spin, Hit Object With Metal Sound SND34521" ID="{5EDACCD9-16C5-4387-8AB9-4277566EBBC0}" ShortID="579306429">
+								<Sound Name="Metal Sound" ID="{5EDACCD9-16C5-4387-8AB9-4277566EBBC0}" ShortID="579306429">
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
@@ -2897,6 +2931,42 @@
 									<ObjectLists/>
 									<ActiveSourceList>
 										<ActiveSource Name="Knife, Throw, Spin, Hit Object With Metal Sound SND34521" ID="{99CF96FF-13D7-4163-BCDA-5241DDD87AF7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Sword_Attack_1" ID="{00717AEB-3A47-4D25-813F-46FD6C33E068}" ShortID="164320319">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>42</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{D1C2E150-97CA-4CE0-8F4B-FB7F323F21CF}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Sword_Attack_1" ID="{2D2B5536-9B77-4B39-8968-9CEE50D7D39A}">
+											<Language>SFX</Language>
+											<AudioFile>Sword_Attack_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="352936415"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Sword_Attack_1" ID="{2D2B5536-9B77-4B39-8968-9CEE50D7D39A}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -3066,43 +3136,7 @@
 										<ActiveSource Name="Raptor Attack_3" ID="{825A3DB0-839E-494B-8A59-4A5C82323699}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Sword_Attack_1" ID="{00717AEB-3A47-4D25-813F-46FD6C33E068}" ShortID="164320319">
-									<PropertyList>
-										<Property Name="Lowpass" Type="int16">
-											<ValueList>
-												<Value>42</Value>
-											</ValueList>
-										</Property>
-										<Property Name="OverrideEffect" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>4</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Sword_Attack_1" ID="{2D2B5536-9B77-4B39-8968-9CEE50D7D39A}">
-											<Language>SFX</Language>
-											<AudioFile>Sword_Attack_1.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="352936415"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="Sword_Attack_1" ID="{2D2B5536-9B77-4B39-8968-9CEE50D7D39A}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Knife, Throw, Spin, Hit Object With Metal Sound SND34521" ID="{3F57B317-4F38-4C96-9A9B-031A95D3F076}" ShortID="415714740">
+								<Sound Name="Metal Sound" ID="{3F57B317-4F38-4C96-9A9B-031A95D3F076}" ShortID="415714740">
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
@@ -3414,7 +3448,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Fight, Impact, Punch, Fat, Only Impact x5 02 SND44916" ID="{117EDAF2-E7F8-40BB-8697-D9318E96D412}" ShortID="49037784">
+								<Sound Name="Fight, Impact, Punch, Fat" ID="{117EDAF2-E7F8-40BB-8697-D9318E96D412}" ShortID="49037784">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -3442,7 +3476,14 @@
 										<ActiveSource Name="Fight, Impact, Punch, Fat, Only Impact x5 02 SND44916" ID="{363C95A3-4500-4A98-90FD-82AFDF4C7803}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="MACK Electric Sparks Synth Large" ID="{DF0D1939-3689-4E17-91EC-D45C260C0C93}" ShortID="293077762">
+								<Sound Name="Electric Sparks" ID="{DF0D1939-3689-4E17-91EC-D45C260C0C93}" ShortID="293077762">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -3764,6 +3805,11 @@
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="13"/>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -3777,18 +3823,13 @@
 						<SwitchContainer Name="Switch Music" ID="{233CEBE4-0C46-40DB-AD95-A1C43443295C}" ShortID="209434329">
 							<PropertyList>
 								<Property Name="SwitchBehavior" Type="int16" Value="1"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-10</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
 								</Reference>
 								<Reference Name="DefaultSwitchOrState">
-									<ObjectRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
+									<ObjectRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
@@ -3819,7 +3860,7 @@
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-19</Value>
+														<Value>-13</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -3946,7 +3987,7 @@
 												</StateGroupList>
 												<CustomStateList>
 													<CustomState>
-														<StateRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+														<StateRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 														<CustomState Name="" ID="{C929F842-43CF-4284-8FD8-A8198DA4967F}" ShortID="537578097">
 															<PropertyList>
 																<Property Name="Volume" Type="Real64" Value="-108"/>
@@ -3984,7 +4025,7 @@
 														<Effect Name="Wwise Harmonizer (Custom)" ID="{1E26FEDF-1525-40C0-B6C6-61A60B7943E4}" ShortID="1027493627" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
 															<PropertyList>
 																<Property Name="Voice2Enable" Type="bool" Value="True"/>
-																<Property Name="Voice2FilterFrequency" Type="Real32" Value="74"/>
+																<Property Name="Voice2FilterFrequency" Type="Real32" Value="20"/>
 																<Property Name="Voice2FilterType" Type="int32" Value="4"/>
 																<Property Name="Voice2Gain" Type="Real32">
 																	<RTPCList>
@@ -4015,6 +4056,7 @@
 																	</RTPCList>
 																</Property>
 																<Property Name="Voice2Pitch" Type="Real32" Value="1200"/>
+																<Property Name="WetLevel" Type="Real32" Value="3"/>
 															</PropertyList>
 														</Effect>
 													</Custom>
@@ -4156,7 +4198,7 @@
 												</StateGroupList>
 												<CustomStateList>
 													<CustomState>
-														<StateRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+														<StateRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 														<CustomState Name="" ID="{563E39AE-95FA-4F07-ACAB-E29F0C35470F}" ShortID="780034899">
 															<PropertyList>
 																<Property Name="Highpass" Type="int16" Value="32"/>
@@ -4183,6 +4225,7 @@
 										<RandomSequenceContainer Name="Marimbass" ID="{584F74E5-BEE3-4A08-A757-FBF7F25A772F}" ShortID="14918907">
 											<PropertyList>
 												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverrideEffect" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="Volume" Type="Real64">
@@ -4194,6 +4237,49 @@
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+												</Reference>
+												<Reference Name="Effect0">
+													<Custom>
+														<Effect Name="Wwise Harmonizer (Custom)" ID="{1CC4C3BA-74A6-48C9-B9C8-EC0359B6A7F7}" ShortID="419971621" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
+															<PropertyList>
+																<Property Name="DryLevel" Type="Real32" Value="-2"/>
+																<Property Name="Voice1Enable" Type="bool" Value="False"/>
+																<Property Name="Voice2Enable" Type="bool" Value="True"/>
+																<Property Name="Voice2FilterFrequency" Type="Real32" Value="20"/>
+																<Property Name="Voice2FilterType" Type="int32" Value="4"/>
+																<Property Name="Voice2Gain" Type="Real32">
+																	<RTPCList>
+																		<RTPC Name="" ID="{9E5EEEA7-F68D-486A-92B4-C947DF2027C0}" ShortID="715670940">
+																			<ReferenceList>
+																				<Reference Name="ControlInput">
+																					<ObjectRef Name="Beach_distance" ID="{8E2D978F-07E8-4807-9820-8A2888DF68CD}" WorkUnitID="{2FF26D1B-5BAC-4CF4-9EA1-56B53DF8595D}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<Curve Name="" ID="{6A6FC66D-400A-4870-9984-49606C4EF453}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="3"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>0.00013</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>100</XPos>
+																						<YPos>-120</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</RTPC>
+																	</RTPCList>
+																</Property>
+																<Property Name="Voice2Pitch" Type="Real32" Value="600"/>
+																<Property Name="WetLevel" Type="Real32" Value="7"/>
+															</PropertyList>
+														</Effect>
+													</Custom>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
@@ -4332,7 +4418,7 @@
 												</StateGroupList>
 												<CustomStateList>
 													<CustomState>
-														<StateRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+														<StateRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 														<CustomState Name="" ID="{A9208082-9675-44EC-8C73-9448152AD853}" ShortID="964688902">
 															<PropertyList>
 																<Property Name="Volume" Type="Real64" Value="-108"/>
@@ -4529,7 +4615,7 @@
 												</StateGroupList>
 												<CustomStateList>
 													<CustomState>
-														<StateRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+														<StateRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 														<CustomState Name="" ID="{D5722A4A-585F-4332-BE55-6220430FEA9F}" ShortID="101168448">
 															<PropertyList>
 																<Property Name="Volume" Type="Real64" Value="11"/>
@@ -4559,7 +4645,7 @@
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-19</Value>
+														<Value>-12</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4741,7 +4827,7 @@
 												</StateGroupList>
 												<CustomStateList>
 													<CustomState>
-														<StateRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+														<StateRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 														<CustomState Name="" ID="{A95DD839-0881-48F4-AB36-A3CFE70E4D3D}" ShortID="23913848">
 															<PropertyList>
 																<Property Name="Volume" Type="Real64" Value="-8"/>
@@ -4769,15 +4855,13 @@
 												<Property Name="OverrideEffect" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-3</Value>
-													</ValueList>
-												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise Tremolo" CompanyID="0" PluginID="131" PluginType="3">
+													<ObjectRef Name="Halfway_There" ID="{DD67F3B9-38CD-46FD-931A-19625D534C90}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AF461E23-AAFB-4AA2-97D8-D5374AD77C78}"/>
@@ -4785,6 +4869,13 @@
 											</ReferenceList>
 											<ChildrenList>
 												<Sound Name="WindBass1" ID="{6298A477-BC9A-4D7E-8B23-F70EF9E09E37}" ShortID="248000746">
+													<PropertyList>
+														<Property Name="Weight" Type="Real64">
+															<ValueList>
+																<Value>59</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -4808,6 +4899,13 @@
 													</ActiveSourceList>
 												</Sound>
 												<Sound Name="Windbass2" ID="{C4C2E49A-C125-4EBC-9802-9342767A4DE2}" ShortID="996061199">
+													<PropertyList>
+														<Property Name="Weight" Type="Real64">
+															<ValueList>
+																<Value>49</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -4831,6 +4929,13 @@
 													</ActiveSourceList>
 												</Sound>
 												<Sound Name="WindBass3" ID="{F0747C08-5C42-44B2-97D1-EEB78F4ED52C}" ShortID="235220707">
+													<PropertyList>
+														<Property Name="Weight" Type="Real64">
+															<ValueList>
+																<Value>60</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -4854,6 +4959,13 @@
 													</ActiveSourceList>
 												</Sound>
 												<Sound Name="Windbass4" ID="{1BE64F6B-E2DE-4966-A461-B8DDE73322DC}" ShortID="136787589">
+													<PropertyList>
+														<Property Name="Weight" Type="Real64">
+															<ValueList>
+																<Value>41</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BBD2920E-53FE-48B1-B3DF-34FFB5CF6F8F}"/>
@@ -4880,7 +4992,7 @@
 													<PropertyList>
 														<Property Name="Weight" Type="Real64">
 															<ValueList>
-																<Value>92</Value>
+																<Value>25</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -4916,7 +5028,7 @@
 												</StateGroupList>
 												<CustomStateList>
 													<CustomState>
-														<StateRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+														<StateRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 														<CustomState Name="" ID="{32DE0683-0ADD-40C1-AE18-AF364C0FA749}" ShortID="80671572">
 															<PropertyList>
 																<Property Name="Volume" Type="Real64" Value="-108"/>
@@ -4948,7 +5060,7 @@
 										</StateGroupList>
 										<CustomStateList>
 											<CustomState>
-												<StateRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+												<StateRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 												<CustomState Name="" ID="{FBD07CF5-2408-4C27-87FD-71278FD862E7}" ShortID="851563506">
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="1"/>
@@ -5047,7 +5159,7 @@
 																</StateGroupList>
 																<CustomStateList>
 																	<CustomState>
-																		<StateRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+																		<StateRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 																		<CustomState Name="" ID="{C6A60484-459A-4CDA-935B-31288585F064}" ShortID="341465364"/>
 																	</CustomState>
 																	<CustomState>
@@ -5491,7 +5603,7 @@
 										</StateGroupList>
 										<CustomStateList>
 											<CustomState>
-												<StateRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+												<StateRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 												<CustomState Name="" ID="{20BDCDAE-412D-4808-943C-7B4F7E1109B3}" ShortID="898818844"/>
 											</CustomState>
 											<CustomState>
@@ -5555,7 +5667,7 @@
 										</ItemList>
 									</Grouping>
 									<Grouping>
-										<SwitchRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+										<SwitchRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 										<ItemList>
 											<ItemRef Name="Music_layer1" ID="{330A5836-3985-4B6C-BDF5-FB11DD1BC1F8}"/>
 										</ItemList>
@@ -5578,7 +5690,7 @@
 						</StateGroupList>
 						<CustomStateList>
 							<CustomState>
-								<StateRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
+								<StateRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}"/>
 								<CustomState Name="" ID="{4DF63D93-4D84-4CAA-92B8-8DD8209AFCA6}" ShortID="26366472"/>
 							</CustomState>
 							<CustomState>

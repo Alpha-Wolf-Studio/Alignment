@@ -21,7 +21,7 @@
 				<GameParameter Id="2360153336" Name="VolGeneral" ObjectPath="\Game Parameters\Default Work Unit\VolGeneral"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1946707388" Language="SFX" Hash="673725291">
+		<SoundBank Id="1946707388" Language="SFX" Hash="238663278">
 			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankTest</ObjectPath>
 			<ShortName>SoundBankTest</ShortName>
 			<Path>SoundBankTest.bnk</Path>

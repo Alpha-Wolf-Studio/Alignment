@@ -1600,6 +1600,8 @@
 								<Effect Name="Chorus_Like" ID="{EEE0CC86-8CA5-4DBC-A6B7-568FCB26F290}" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
 									<PropertyList>
 										<Property Name="DelayTime" Type="Real32" Value="10"/>
+										<Property Name="EnableLFO" Type="bool" Value="False"/>
+										<Property Name="FeedBackLevel" Type="Real32" Value="0.6"/>
 										<Property Name="ModDepth" Type="Real32" Value="60"/>
 										<Property Name="ModFrequency" Type="Real32" Value="0.85"/>
 										<Property Name="ModPWM" Type="Real32" Value="0"/>
@@ -1909,12 +1911,46 @@
 						</Effect>
 						<Effect Name="Halfway_There" ID="{DD67F3B9-38CD-46FD-931A-19625D534C90}" PluginName="Wwise Tremolo" CompanyID="0" PluginID="131" PluginType="3">
 							<PropertyList>
-								<Property Name="ModFrequency" Type="Real32" Value="1.06"/>
-								<Property Name="ModPWM" Type="Real32" Value="25"/>
+								<Property Name="ModDepth" Type="Real32" Value="36.3"/>
+								<Property Name="ModFrequency" Type="Real32" Value="1.5">
+									<RTPCList>
+										<RTPC Name="" ID="{5BB25DE9-987C-4ADD-BE9F-1D9D9370D2C3}" ShortID="923765797">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Beach_distance" ID="{8E2D978F-07E8-4807-9820-8A2888DF68CD}" WorkUnitID="{2FF26D1B-5BAC-4CF4-9EA1-56B53DF8595D}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{01035903-95E1-4F5F-9322-85E5AA6E0616}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="5"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>11.48791</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>9.90453</XPos>
+														<YPos>5.76119</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0.02</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+								<Property Name="ModPWM" Type="Real32" Value="35"/>
+								<Property Name="ModPhaseMode" Type="int32" Value="3"/>
 								<Property Name="ModPhaseOffset" Type="Real32" Value="-180"/>
-								<Property Name="ModPhaseSpread" Type="Real32" Value="19"/>
+								<Property Name="ModPhaseSpread" Type="Real32" Value="40"/>
 								<Property Name="ModSmoothing" Type="Real32" Value="39"/>
-								<Property Name="ModWaveform" Type="int32" Value="2"/>
+								<Property Name="OutputGain" Type="Real32" Value="2"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Very_Bad_Connection" ID="{0C5A674D-5EC0-45A6-87A7-3885B3196DCD}" PluginName="Wwise Tremolo" CompanyID="0" PluginID="131" PluginType="3">

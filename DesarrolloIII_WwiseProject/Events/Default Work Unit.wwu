@@ -129,7 +129,7 @@
 						<Action Name="" ID="{ED51F0D1-D5BC-4A98-BFEA-33E9C69849FA}" ShortID="28538044">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="SF-DS Machine Mechanics Small 04" ID="{7117CC94-9CF0-4FA7-B890-F8407419E976}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+									<ObjectRef Name="Machine Mechanics" ID="{7117CC94-9CF0-4FA7-B890-F8407419E976}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -424,7 +424,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="DinoRecibeDamageSword" ID="{CB362124-8463-4249-A58E-C19EC56DA609}"/>
+				<Event Name="DinoRecibeDamageSword" ID="{CB362124-8463-4249-A58E-C19EC56DA609}">
+					<ChildrenList>
+						<Action Name="" ID="{2269667F-0090-48DF-BFEE-53860151998A}" ShortID="24291172">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dino Hit" ID="{2364E6B5-F7F1-4C01-998D-BF3C7DD64A69}" WorkUnitID="{C8D538AB-2A7E-4A12-915B-C2BC3D7A41B4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="PlayerAttackSword" ID="{2799779F-C9FA-4F5E-B48A-A2657BE56549}">
 					<ChildrenList>
 						<Action Name="" ID="{7C6C9382-5AD4-4C63-9117-3FCBDC6BF727}" ShortID="421803846">
@@ -596,7 +606,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Menu_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
+									<ObjectRef Name="Beach_Music" ID="{A509A4E4-D320-44C3-ADE1-4C479AE7E131}" WorkUnitID="{BF583932-5545-4F41-97DD-E599A6DE2B8A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
