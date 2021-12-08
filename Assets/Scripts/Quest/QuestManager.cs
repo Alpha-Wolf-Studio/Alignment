@@ -17,7 +17,7 @@ public class QuestManager : MonoBehaviourSingleton<QuestManager>
 
     [Header("Repair Locations References")]
     ReparableObject[] objectsToRepair;
-    int objectsRepaired = 0;
+    List<RepairLocations> repairedLocations;
 
     [Header("Player references")]
     [SerializeField] Inventory inventory = null;
@@ -57,6 +57,12 @@ public class QuestManager : MonoBehaviourSingleton<QuestManager>
                     int craftAmount = allQuest[currentQuest].tasks[i].craftAmount;
                     SubQuest t = new SubQuest(allQuest[currentQuest].tasks[i], killAmount, pickUpAmount, craftAmount);
                     currentSubquest.Add(t);
+                    if(t.type == SubQuest.SubQuestType.REPAIR && repairedLocations.Contains(t.locationToRepair)) 
+                    {
+                        t.Complete();
+                        OnTaskProgress?.Invoke();
+                        AkSoundEngine.PostEvent(AK.EVENTS.COMPLETEDTASK, gameObject);
+                    }
                 }
             }
             else
@@ -79,7 +85,6 @@ public class QuestManager : MonoBehaviourSingleton<QuestManager>
                 task.Complete();
                 OnTaskProgress?.Invoke();
                 AkSoundEngine.PostEvent(AK.EVENTS.COMPLETEDTASK, gameObject);
-                objectsRepaired++;
             }
         }
 
@@ -90,7 +95,9 @@ public class QuestManager : MonoBehaviourSingleton<QuestManager>
             AkSoundEngine.PostEvent(AK.EVENTS.COMPLETEDQUEST, gameObject);
         }
 
-        if(objectsRepaired == objectsToRepair.Length) 
+        repairedLocations.Add(location);
+
+        if (repairedLocations.Count == objectsToRepair.Length) 
         {
             OnRepairedShip?.Invoke();
         }

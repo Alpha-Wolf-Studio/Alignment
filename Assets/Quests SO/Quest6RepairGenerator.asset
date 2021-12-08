@@ -15,7 +15,7 @@ MonoBehaviour:
   questTitle: Repair Generator
   tasks:
   - hasCustomDescription: 1
-    customDescription: Kill 2 Triceratops.
+    customDescription: Repair the energy generator.
     type: 3
     dinosaursToKill: 1
     killAmount: 2

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3419f73d8c76f1749bb5241236ba0559, type: 3}
   m_Name: Quest4RepairOxigen
   m_EditorClassIdentifier: 
-  questTitle: Repair Oxigen
+  questTitle: Repair Propeller
   tasks:
   - hasCustomDescription: 1
-    customDescription: Kill 2 Triceratops.
+    customDescription: Repair the jet propeller.
     type: 3
     dinosaursToKill: 1
     killAmount: 2
@@ -23,4 +23,4 @@ MonoBehaviour:
     pickUpAmount: 2
     itemToCraft: {fileID: 0}
     craftAmount: 0
-    locationToRepair: 1
+    locationToRepair: 0
