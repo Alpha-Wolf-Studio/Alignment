@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] PostProcessVolume postProcessVolume;
     DepthOfField depthOfField;
     ChromaticAberration chromaticAberration;
+    Grain grain;
     float startingChromaticValue;
 
     Camera cam;
@@ -59,19 +60,23 @@ public class CameraController : MonoBehaviour
     {
         postProcessVolume.profile.TryGetSettings(out depthOfField);
         postProcessVolume.profile.TryGetSettings(out chromaticAberration);
+        postProcessVolume.profile.TryGetSettings(out grain);
         startingChromaticValue = chromaticAberration.intensity;
         depthOfField.enabled.value = false;
+        grain.enabled.value = false;
     }
 
     void ApplyShakePostProccesing() 
     {
         depthOfField.enabled.value = true;
+        grain.enabled.value = true;
         chromaticAberration.intensity.value = 1;
     }
 
     void UnapplyShakePostProccesing()
     {
         depthOfField.enabled.value = false;
+        grain.enabled.value = false;
         chromaticAberration.intensity.value = startingChromaticValue;
     }
 
